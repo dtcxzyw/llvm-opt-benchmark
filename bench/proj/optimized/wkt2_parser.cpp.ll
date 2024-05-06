@@ -11,6 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pj_wkt_parse_context = type { ptr, ptr, ptr, %"class.std::__cxx11::basic_string" }
 
 @_ZL6tokens = internal unnamed_addr constant [150 x %struct.wkt2_tokens] [%struct.wkt2_tokens { ptr @.str.2, i32 264 }, %struct.wkt2_tokens { ptr @.str.3, i32 258 }, %struct.wkt2_tokens { ptr @.str.4, i32 259 }, %struct.wkt2_tokens { ptr @.str.5, i32 260 }, %struct.wkt2_tokens { ptr @.str.6, i32 261 }, %struct.wkt2_tokens { ptr @.str.7, i32 262 }, %struct.wkt2_tokens { ptr @.str.8, i32 263 }, %struct.wkt2_tokens { ptr @.str.9, i32 265 }, %struct.wkt2_tokens { ptr @.str.10, i32 266 }, %struct.wkt2_tokens { ptr @.str.11, i32 267 }, %struct.wkt2_tokens { ptr @.str.12, i32 268 }, %struct.wkt2_tokens { ptr @.str.13, i32 269 }, %struct.wkt2_tokens { ptr @.str.14, i32 270 }, %struct.wkt2_tokens { ptr @.str.15, i32 271 }, %struct.wkt2_tokens { ptr @.str.16, i32 272 }, %struct.wkt2_tokens { ptr @.str.17, i32 273 }, %struct.wkt2_tokens { ptr @.str.18, i32 274 }, %struct.wkt2_tokens { ptr @.str.19, i32 275 }, %struct.wkt2_tokens { ptr @.str.20, i32 276 }, %struct.wkt2_tokens { ptr @.str.21, i32 277 }, %struct.wkt2_tokens { ptr @.str.22, i32 278 }, %struct.wkt2_tokens { ptr @.str.23, i32 279 }, %struct.wkt2_tokens { ptr @.str.24, i32 280 }, %struct.wkt2_tokens { ptr @.str.25, i32 281 }, %struct.wkt2_tokens { ptr @.str.26, i32 282 }, %struct.wkt2_tokens { ptr @.str.27, i32 283 }, %struct.wkt2_tokens { ptr @.str.28, i32 284 }, %struct.wkt2_tokens { ptr @.str.29, i32 285 }, %struct.wkt2_tokens { ptr @.str.30, i32 286 }, %struct.wkt2_tokens { ptr @.str.31, i32 287 }, %struct.wkt2_tokens { ptr @.str.32, i32 288 }, %struct.wkt2_tokens { ptr @.str.33, i32 289 }, %struct.wkt2_tokens { ptr @.str.34, i32 290 }, %struct.wkt2_tokens { ptr @.str.35, i32 291 }, %struct.wkt2_tokens { ptr @.str.36, i32 292 }, %struct.wkt2_tokens { ptr @.str.37, i32 293 }, %struct.wkt2_tokens { ptr @.str.38, i32 294 }, %struct.wkt2_tokens { ptr @.str.39, i32 295 }, %struct.wkt2_tokens { ptr @.str.40, i32 296 }, %struct.wkt2_tokens { ptr @.str.41, i32 297 }, %struct.wkt2_tokens { ptr @.str.42, i32 298 }, %struct.wkt2_tokens { ptr @.str.43, i32 299 }, %struct.wkt2_tokens { ptr @.str.44, i32 300 }, %struct.wkt2_tokens { ptr @.str.45, i32 301 }, %struct.wkt2_tokens { ptr @.str.46, i32 302 }, %struct.wkt2_tokens { ptr @.str.47, i32 303 }, %struct.wkt2_tokens { ptr @.str.48, i32 304 }, %struct.wkt2_tokens { ptr @.str.49, i32 305 }, %struct.wkt2_tokens { ptr @.str.50, i32 306 }, %struct.wkt2_tokens { ptr @.str.51, i32 307 }, %struct.wkt2_tokens { ptr @.str.52, i32 308 }, %struct.wkt2_tokens { ptr @.str.53, i32 309 }, %struct.wkt2_tokens { ptr @.str.54, i32 310 }, %struct.wkt2_tokens { ptr @.str.55, i32 311 }, %struct.wkt2_tokens { ptr @.str.56, i32 312 }, %struct.wkt2_tokens { ptr @.str.57, i32 313 }, %struct.wkt2_tokens { ptr @.str.58, i32 314 }, %struct.wkt2_tokens { ptr @.str.59, i32 315 }, %struct.wkt2_tokens { ptr @.str.60, i32 316 }, %struct.wkt2_tokens { ptr @.str.61, i32 317 }, %struct.wkt2_tokens { ptr @.str.62, i32 318 }, %struct.wkt2_tokens { ptr @.str.63, i32 319 }, %struct.wkt2_tokens { ptr @.str.64, i32 320 }, %struct.wkt2_tokens { ptr @.str.65, i32 321 }, %struct.wkt2_tokens { ptr @.str.66, i32 322 }, %struct.wkt2_tokens { ptr @.str.67, i32 323 }, %struct.wkt2_tokens { ptr @.str.68, i32 324 }, %struct.wkt2_tokens { ptr @.str.69, i32 325 }, %struct.wkt2_tokens { ptr @.str.70, i32 326 }, %struct.wkt2_tokens { ptr @.str.71, i32 327 }, %struct.wkt2_tokens { ptr @.str.72, i32 328 }, %struct.wkt2_tokens { ptr @.str.73, i32 329 }, %struct.wkt2_tokens { ptr @.str.74, i32 340 }, %struct.wkt2_tokens { ptr @.str.75, i32 341 }, %struct.wkt2_tokens { ptr @.str.76, i32 342 }, %struct.wkt2_tokens { ptr @.str.77, i32 343 }, %struct.wkt2_tokens { ptr @.str.78, i32 344 }, %struct.wkt2_tokens { ptr @.str.79, i32 345 }, %struct.wkt2_tokens { ptr @.str.80, i32 346 }, %struct.wkt2_tokens { ptr @.str.81, i32 347 }, %struct.wkt2_tokens { ptr @.str.82, i32 348 }, %struct.wkt2_tokens { ptr @.str.83, i32 349 }, %struct.wkt2_tokens { ptr @.str.84, i32 350 }, %struct.wkt2_tokens { ptr @.str.85, i32 351 }, %struct.wkt2_tokens { ptr @.str.86, i32 352 }, %struct.wkt2_tokens { ptr @.str.87, i32 353 }, %struct.wkt2_tokens { ptr @.str.88, i32 330 }, %struct.wkt2_tokens { ptr @.str.89, i32 331 }, %struct.wkt2_tokens { ptr @.str.90, i32 332 }, %struct.wkt2_tokens { ptr @.str.91, i32 333 }, %struct.wkt2_tokens { ptr @.str.92, i32 334 }, %struct.wkt2_tokens { ptr @.str.93, i32 335 }, %struct.wkt2_tokens { ptr @.str.94, i32 336 }, %struct.wkt2_tokens { ptr @.str.95, i32 337 }, %struct.wkt2_tokens { ptr @.str.96, i32 338 }, %struct.wkt2_tokens { ptr @.str.97, i32 339 }, %struct.wkt2_tokens { ptr @.str.98, i32 354 }, %struct.wkt2_tokens { ptr @.str.99, i32 355 }, %struct.wkt2_tokens { ptr @.str.100, i32 356 }, %struct.wkt2_tokens { ptr @.str.101, i32 357 }, %struct.wkt2_tokens { ptr @.str.102, i32 358 }, %struct.wkt2_tokens { ptr @.str.103, i32 359 }, %struct.wkt2_tokens { ptr @.str.104, i32 360 }, %struct.wkt2_tokens { ptr @.str.105, i32 361 }, %struct.wkt2_tokens { ptr @.str.106, i32 362 }, %struct.wkt2_tokens { ptr @.str.107, i32 363 }, %struct.wkt2_tokens { ptr @.str.108, i32 364 }, %struct.wkt2_tokens { ptr @.str.109, i32 365 }, %struct.wkt2_tokens { ptr @.str.110, i32 366 }, %struct.wkt2_tokens { ptr @.str.111, i32 367 }, %struct.wkt2_tokens { ptr @.str.112, i32 368 }, %struct.wkt2_tokens { ptr @.str.113, i32 369 }, %struct.wkt2_tokens { ptr @.str.114, i32 370 }, %struct.wkt2_tokens { ptr @.str.115, i32 371 }, %struct.wkt2_tokens { ptr @.str.116, i32 372 }, %struct.wkt2_tokens { ptr @.str.117, i32 373 }, %struct.wkt2_tokens { ptr @.str.118, i32 374 }, %struct.wkt2_tokens { ptr @.str.119, i32 375 }, %struct.wkt2_tokens { ptr @.str.120, i32 376 }, %struct.wkt2_tokens { ptr @.str.121, i32 377 }, %struct.wkt2_tokens { ptr @.str.122, i32 378 }, %struct.wkt2_tokens { ptr @.str.123, i32 379 }, %struct.wkt2_tokens { ptr @.str.124, i32 380 }, %struct.wkt2_tokens { ptr @.str.125, i32 381 }, %struct.wkt2_tokens { ptr @.str.126, i32 382 }, %struct.wkt2_tokens { ptr @.str.127, i32 383 }, %struct.wkt2_tokens { ptr @.str.128, i32 384 }, %struct.wkt2_tokens { ptr @.str.129, i32 385 }, %struct.wkt2_tokens { ptr @.str.130, i32 386 }, %struct.wkt2_tokens { ptr @.str.131, i32 387 }, %struct.wkt2_tokens { ptr @.str.132, i32 388 }, %struct.wkt2_tokens { ptr @.str.133, i32 389 }, %struct.wkt2_tokens { ptr @.str.134, i32 390 }, %struct.wkt2_tokens { ptr @.str.135, i32 391 }, %struct.wkt2_tokens { ptr @.str.136, i32 392 }, %struct.wkt2_tokens { ptr @.str.137, i32 393 }, %struct.wkt2_tokens { ptr @.str.138, i32 394 }, %struct.wkt2_tokens { ptr @.str.139, i32 395 }, %struct.wkt2_tokens { ptr @.str.140, i32 396 }, %struct.wkt2_tokens { ptr @.str.141, i32 397 }, %struct.wkt2_tokens { ptr @.str.142, i32 398 }, %struct.wkt2_tokens { ptr @.str.143, i32 399 }, %struct.wkt2_tokens { ptr @.str.144, i32 400 }, %struct.wkt2_tokens { ptr @.str.145, i32 401 }, %struct.wkt2_tokens { ptr @.str.146, i32 402 }, %struct.wkt2_tokens { ptr @.str.147, i32 403 }, %struct.wkt2_tokens { ptr @.str.148, i32 404 }, %struct.wkt2_tokens { ptr @.str.149, i32 405 }, %struct.wkt2_tokens { ptr @.str.150, i32 406 }, %struct.wkt2_tokens { ptr @.str.151, i32 407 }], align 16
+@.str.1 = private unnamed_addr constant [4 x i8] c"\E2\80\9D\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"PARAMETER\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"PROJECTION\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"DATUM\00", align 1
@@ -251,7 +252,7 @@ define hidden i32 @pj_wkt2_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 
 12:                                               ; preds = %8
   store ptr %.066, ptr %3, align 8
-  br label %56
+  br label %68
 
 13:                                               ; preds = %8
   %14 = sext i8 %10 to i32
@@ -280,7 +281,7 @@ define hidden i32 @pj_wkt2_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   store ptr %26, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %16, i64 8
   %28 = load i32, ptr %27, align 8
-  br label %56
+  br label %68
 
 29:                                               ; preds = %.preheader79, %19
   %30 = add nuw nsw i64 %.06584, 1
@@ -300,26 +301,26 @@ define hidden i32 @pj_wkt2_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 33:                                               ; preds = %.loopexit
   %.off = add nsw i8 %31, -49
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %34, label %.preheader98
+  br i1 %switch, label %34, label %.preheader100
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds i8, ptr %.066, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = add i8 %36, -48
   %or.cond77 = icmp ult i8 %37, 10
-  br i1 %or.cond77, label %.preheader98, label %38
+  br i1 %or.cond77, label %.preheader100, label %38
 
-.preheader98:                                     ; preds = %33, %34
+.preheader100:                                    ; preds = %33, %34
   br label %41
 
 38:                                               ; preds = %34
   store ptr %35, ptr %3, align 8
   %39 = load i8, ptr %.066, align 1
   %40 = sext i8 %39 to i32
-  br label %56
+  br label %68
 
-41:                                               ; preds = %.preheader98, %41
-  %.066.pn75 = phi ptr [ %.1, %41 ], [ %.066, %.preheader98 ]
+41:                                               ; preds = %.preheader100, %41
+  %.066.pn75 = phi ptr [ %.1, %41 ], [ %.066, %.preheader100 ]
   %.1 = getelementptr inbounds i8, ptr %.066.pn75, i64 1
   %42 = load i8, ptr %.1, align 1
   %43 = add i8 %42, -48
@@ -328,48 +329,79 @@ define hidden i32 @pj_wkt2_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 
 .critedge2:                                       ; preds = %41
   store ptr %.1, ptr %3, align 8
-  br label %56
+  br label %68
 
 44:                                               ; preds = %.loopexit
-  %45 = icmp eq i8 %31, 34
-  br i1 %45, label %.preheader, label %sub_0
+  switch i8 %31, label %.tail.thread [
+    i8 34, label %.preheader
+    i8 -30, label %sub_1
+  ]
 
 .preheader:                                       ; preds = %44, %.preheader.backedge
   %.066.pn = phi ptr [ %.066.pn.be, %.preheader.backedge ], [ %.066, %44 ]
   %.2 = getelementptr inbounds i8, ptr %.066.pn, i64 1
-  %46 = load i8, ptr %.2, align 1
-  switch i8 %46, label %.preheader.backedge [
-    i8 0, label %51
-    i8 34, label %47
+  %45 = load i8, ptr %.2, align 1
+  switch i8 %45, label %.preheader.backedge [
+    i8 0, label %50
+    i8 34, label %46
   ]
 
-47:                                               ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %.066.pn, i64 2
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 34
-  br i1 %50, label %.preheader.backedge, label %52
+46:                                               ; preds = %.preheader
+  %47 = getelementptr inbounds i8, ptr %.066.pn, i64 2
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 34
+  br i1 %49, label %.preheader.backedge, label %51
 
-.preheader.backedge:                              ; preds = %47, %.preheader
-  %.066.pn.be = phi ptr [ %.2, %.preheader ], [ %48, %47 ]
+.preheader.backedge:                              ; preds = %46, %.preheader
+  %.066.pn.be = phi ptr [ %.2, %.preheader ], [ %47, %46 ]
   br label %.preheader, !llvm.loop !8
 
-51:                                               ; preds = %.preheader
+50:                                               ; preds = %.preheader
   store ptr %.2, ptr %3, align 8
-  br label %56
+  br label %68
 
-52:                                               ; preds = %47
-  store ptr %48, ptr %3, align 8
-  br label %56
+51:                                               ; preds = %46
+  store ptr %47, ptr %3, align 8
+  br label %68
 
-sub_0:                                            ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %.066, i64 1
-  store ptr %53, ptr %3, align 8
-  %54 = load i8, ptr %.066, align 1
-  %55 = sext i8 %54 to i32
-  br label %56
+sub_1:                                            ; preds = %44
+  %52 = getelementptr inbounds i8, ptr %.066, i64 1
+  %53 = load i8, ptr %52, align 1
+  %.not86 = icmp eq i8 %53, -128
+  br i1 %.not86, label %.tail, label %.tail.thread
 
-56:                                               ; preds = %sub_0, %52, %51, %.critedge2, %38, %25, %12
-  %.0 = phi i32 [ -1, %12 ], [ %28, %25 ], [ 409, %.critedge2 ], [ %40, %38 ], [ -1, %51 ], [ 408, %52 ], [ %55, %sub_0 ]
+.tail:                                            ; preds = %sub_1
+  %54 = getelementptr inbounds i8, ptr %.066, i64 2
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp eq i8 %55, -100
+  br i1 %56, label %57, label %.tail.thread
+
+57:                                               ; preds = %.tail
+  %58 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.066, ptr noundef nonnull dereferenceable(1) @.str.1) #8
+  store ptr %58, ptr %3, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %63
+
+60:                                               ; preds = %57
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.066) #8
+  %62 = getelementptr inbounds i8, ptr %.066, i64 %61
+  store ptr %62, ptr %3, align 8
+  br label %68
+
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds i8, ptr %58, i64 3
+  store ptr %64, ptr %3, align 8
+  br label %68
+
+.tail.thread:                                     ; preds = %44, %sub_1, %.tail
+  %65 = getelementptr inbounds i8, ptr %.066, i64 1
+  store ptr %65, ptr %3, align 8
+  %66 = load i8, ptr %.066, align 1
+  %67 = sext i8 %66 to i32
+  br label %68
+
+68:                                               ; preds = %.tail.thread, %63, %60, %51, %50, %.critedge2, %38, %25, %12
+  %.0 = phi i32 [ -1, %12 ], [ %28, %25 ], [ 409, %.critedge2 ], [ %40, %38 ], [ -1, %50 ], [ 408, %51 ], [ -1, %60 ], [ 408, %63 ], [ %67, %.tail.thread ]
   ret i32 %.0
 }
 
@@ -381,6 +413,9 @@ declare noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr n
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2

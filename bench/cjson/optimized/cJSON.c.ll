@@ -350,152 +350,176 @@ define ptr @cJSON_ParseWithLengthOpts(ptr noundef %0, i64 noundef %1, ptr nounde
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
   %or.cond = or i1 %6, %7
+  %.0.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 16
+  %.0.i.sroa.gep48 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %or.cond, label %.thread, label %8
 
 8:                                                ; preds = %4
   store ptr %0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
+  store i64 %1, ptr %.0.i.sroa.gep48, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
   %global_hooks.val = load ptr, ptr @global_hooks, align 8
-  %12 = tail call ptr %global_hooks.val(i64 noundef 64) #30
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %.thread.thread, label %.lr.ph.i.preheader
+  %10 = tail call ptr %global_hooks.val(i64 noundef 64) #30
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %.thread.thread, label %11
 
-.lr.ph.i.preheader:                               ; preds = %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %.promoted = load i64, ptr %10, align 8
+11:                                               ; preds = %8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  %12 = icmp ugt i64 %1, 4
+  br i1 %12, label %sub_0.i, label %20
+
+sub_0.i:                                          ; preds = %11
   %13 = load i8, ptr %0, align 1
-  %14 = icmp ult i8 %13, 33
-  br i1 %14, label %.lr.ph, label %.critedge.i
+  %.not14.i = icmp eq i8 %13, -17
+  br i1 %.not14.i, label %sub_1.i, label %20
+
+sub_1.i:                                          ; preds = %sub_0.i
+  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %15 = load i8, ptr %14, align 1
+  %.not15.i = icmp eq i8 %15, -69
+  br i1 %.not15.i, label %.tail.i, label %20
+
+.tail.i:                                          ; preds = %sub_1.i
+  %16 = getelementptr inbounds i8, ptr %0, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, -65
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %.tail.i
+  store i64 3, ptr %.0.i.sroa.gep, align 8
+  br label %20
+
+20:                                               ; preds = %sub_1.i, %sub_0.i, %11, %.tail.i, %19
+  %21 = phi i64 [ 3, %19 ], [ 0, %.tail.i ], [ 0, %11 ], [ 0, %sub_0.i ], [ 0, %sub_1.i ]
+  %22 = icmp ult i64 %21, %1
+  br i1 %22, label %.lr.ph.i.preheader, label %buffer_skip_whitespace.exit
+
+.lr.ph.i.preheader:                               ; preds = %20
+  %.0.i.sroa.gep.promoted = load i64, ptr %.0.i.sroa.gep, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 %21
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp ult i8 %24, 33
+  br i1 %25, label %.lr.ph, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %0, i64 %19
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp ult i8 %16, 33
-  br i1 %17, label %.lr.ph, label %.critedge.i
+  %26 = getelementptr inbounds i8, ptr %0, i64 %30
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp ult i8 %27, 33
+  br i1 %28, label %.lr.ph, label %.critedge.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %18 = phi i64 [ %19, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %19 = add i64 %18, 1
-  %exitcond.not.i = icmp eq i64 %19, %1
+  %29 = phi i64 [ %30, %.lr.ph.i ], [ %21, %.lr.ph.i.preheader ]
+  %30 = add i64 %29, 1
+  %exitcond.not.i = icmp eq i64 %30, %1
   br i1 %exitcond.not.i, label %.critedge.thread.i.loopexit, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa67 = phi i64 [ %.promoted, %.lr.ph.i.preheader ], [ %19, %.lr.ph.i ]
-  %.lcssa65 = phi i64 [ 0, %.lr.ph.i.preheader ], [ %19, %.lr.ph.i ]
-  %20 = icmp eq i64 %.lcssa65, %1
-  br i1 %20, label %.critedge.thread.i, label %buffer_skip_whitespace.exit
-
-.critedge.thread.i.loopexit:                      ; preds = %.lr.ph
-  store i64 %19, ptr %10, align 8
-  br label %.critedge.thread.i
-
-.critedge.thread.i:                               ; preds = %.critedge.thread.i.loopexit, %.critedge.i
-  %21 = add i64 %1, -1
+  %.lcssa81 = phi i64 [ %.0.i.sroa.gep.promoted, %.lr.ph.i.preheader ], [ %30, %.lr.ph.i ]
+  store i64 %.lcssa81, ptr %.0.i.sroa.gep, align 8
   br label %buffer_skip_whitespace.exit
 
-buffer_skip_whitespace.exit:                      ; preds = %.critedge.i, %.critedge.thread.i
-  %storemerge = phi i64 [ %21, %.critedge.thread.i ], [ %.lcssa67, %.critedge.i ]
-  store i64 %storemerge, ptr %10, align 8
-  %22 = call fastcc i32 @parse_value(ptr noundef nonnull %12, ptr noundef nonnull %5)
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %45, label %23
+.critedge.thread.i.loopexit:                      ; preds = %.lr.ph
+  store i64 %30, ptr %.0.i.sroa.gep, align 8
+  %31 = add i64 %1, -1
+  store i64 %31, ptr %.0.i.sroa.gep, align 8
+  br label %buffer_skip_whitespace.exit
 
-23:                                               ; preds = %buffer_skip_whitespace.exit
+buffer_skip_whitespace.exit:                      ; preds = %.critedge.i, %20, %.critedge.thread.i.loopexit
+  %32 = call fastcc i32 @parse_value(ptr noundef nonnull %10, ptr noundef nonnull %5)
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %55, label %33
+
+33:                                               ; preds = %buffer_skip_whitespace.exit
   %.not27 = icmp eq i32 %3, 0
-  br i1 %.not27, label %40, label %24
+  br i1 %.not27, label %50, label %34
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %5, align 8
-  %26 = icmp ne ptr %25, null
-  %.pre = load i64, ptr %10, align 8
-  %.pre53 = load i64, ptr %9, align 8
-  %27 = icmp ult i64 %.pre, %.pre53
-  %or.cond63 = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond63, label %.lr.ph.i38, label %buffer_skip_whitespace.exit42
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8
+  %36 = icmp ne ptr %35, null
+  %.pre = load i64, ptr %.0.i.sroa.gep, align 8
+  %.pre69 = load i64, ptr %.0.i.sroa.gep48, align 8
+  %37 = icmp ult i64 %.pre, %.pre69
+  %or.cond77 = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond77, label %.lr.ph.i38, label %buffer_skip_whitespace.exit42
 
-.lr.ph.i38:                                       ; preds = %24, %32
-  %28 = phi i64 [ %33, %32 ], [ %.pre, %24 ]
-  %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp ult i8 %30, 33
-  br i1 %31, label %32, label %.critedge.i39
+.lr.ph.i38:                                       ; preds = %34, %42
+  %38 = phi i64 [ %43, %42 ], [ %.pre, %34 ]
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp ult i8 %40, 33
+  br i1 %41, label %42, label %.critedge.i39
 
-32:                                               ; preds = %.lr.ph.i38
-  %33 = add i64 %28, 1
-  store i64 %33, ptr %10, align 8
-  %exitcond.not.i41 = icmp eq i64 %33, %.pre53
+42:                                               ; preds = %.lr.ph.i38
+  %43 = add i64 %38, 1
+  store i64 %43, ptr %.0.i.sroa.gep, align 8
+  %exitcond.not.i41 = icmp eq i64 %43, %.pre69
   br i1 %exitcond.not.i41, label %.critedge.thread.i40, label %.lr.ph.i38
 
 .critedge.i39:                                    ; preds = %.lr.ph.i38
-  %34 = icmp eq i64 %28, %.pre53
-  br i1 %34, label %.critedge.thread.i40, label %buffer_skip_whitespace.exit42
+  %44 = icmp eq i64 %38, %.pre69
+  br i1 %44, label %.critedge.thread.i40, label %buffer_skip_whitespace.exit42
 
-.critedge.thread.i40:                             ; preds = %32, %.critedge.i39
-  %35 = add i64 %.pre53, -1
-  store i64 %35, ptr %10, align 8
+.critedge.thread.i40:                             ; preds = %42, %.critedge.i39
+  %45 = add i64 %.pre69, -1
+  store i64 %45, ptr %.0.i.sroa.gep, align 8
   br label %buffer_skip_whitespace.exit42
 
-buffer_skip_whitespace.exit42:                    ; preds = %24, %.critedge.i39, %.critedge.thread.i40
-  %36 = phi i64 [ %.pre, %24 ], [ %28, %.critedge.i39 ], [ %35, %.critedge.thread.i40 ]
-  %.not28 = icmp ult i64 %36, %.pre53
-  br i1 %.not28, label %37, label %45
+buffer_skip_whitespace.exit42:                    ; preds = %34, %.critedge.i39, %.critedge.thread.i40
+  %46 = phi i64 [ %.pre, %34 ], [ %38, %.critedge.i39 ], [ %45, %.critedge.thread.i40 ]
+  %.not28 = icmp ult i64 %46, %.pre69
+  br i1 %.not28, label %47, label %55
 
-37:                                               ; preds = %buffer_skip_whitespace.exit42
-  %38 = getelementptr inbounds i8, ptr %25, i64 %36
-  %39 = load i8, ptr %38, align 1
-  %.not29 = icmp eq i8 %39, 0
-  br i1 %.not29, label %40, label %45
+47:                                               ; preds = %buffer_skip_whitespace.exit42
+  %48 = getelementptr inbounds i8, ptr %35, i64 %46
+  %49 = load i8, ptr %48, align 1
+  %.not29 = icmp eq i8 %49, 0
+  br i1 %.not29, label %50, label %55
 
-40:                                               ; preds = %37, %23
+50:                                               ; preds = %47, %33
   %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %52, label %41
+  br i1 %.not30, label %62, label %51
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %5, align 8
-  %43 = load i64, ptr %10, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 %43
-  store ptr %44, ptr %2, align 8
-  br label %52
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %5, align 8
+  %53 = load i64, ptr %.0.i.sroa.gep, align 8
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  store ptr %54, ptr %2, align 8
+  br label %62
 
-45:                                               ; preds = %buffer_skip_whitespace.exit, %37, %buffer_skip_whitespace.exit42
-  call void @cJSON_Delete(ptr noundef nonnull %12)
+55:                                               ; preds = %buffer_skip_whitespace.exit, %47, %buffer_skip_whitespace.exit42
+  call void @cJSON_Delete(ptr noundef nonnull %10)
   br label %.thread
 
-.thread:                                          ; preds = %4, %45
-  br i1 %6, label %52, label %.thread..thread.thread_crit_edge
+.thread:                                          ; preds = %4, %55
+  br i1 %6, label %62, label %.thread..thread.thread_crit_edge
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 16
-  %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %5, i64 8
-  %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
+  %.pre70 = load i64, ptr %.0.i.sroa.gep, align 8
+  %.pre71 = load i64, ptr %.0.i.sroa.gep48, align 8
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread..thread.thread_crit_edge, %8
-  %46 = phi i64 [ %.pre56, %.thread..thread.thread_crit_edge ], [ %1, %8 ]
-  %47 = phi i64 [ %.pre54, %.thread..thread.thread_crit_edge ], [ 0, %8 ]
-  %48 = icmp ult i64 %47, %46
-  %spec.select = call i64 @llvm.usub.sat.i64(i64 %46, i64 1)
-  %.sroa.3.0 = select i1 %48, i64 %47, i64 %spec.select
+  %56 = phi i64 [ %.pre71, %.thread..thread.thread_crit_edge ], [ %1, %8 ]
+  %57 = phi i64 [ %.pre70, %.thread..thread.thread_crit_edge ], [ 0, %8 ]
+  %58 = icmp ult i64 %57, %56
+  %spec.select = call i64 @llvm.usub.sat.i64(i64 %56, i64 1)
+  %.sroa.3.0 = select i1 %58, i64 %57, i64 %spec.select
   %.not34 = icmp eq ptr %2, null
-  br i1 %.not34, label %51, label %49
+  br i1 %.not34, label %61, label %59
 
-49:                                               ; preds = %.thread.thread
-  %50 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0
-  store ptr %50, ptr %2, align 8
-  br label %51
+59:                                               ; preds = %.thread.thread
+  %60 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0
+  store ptr %60, ptr %2, align 8
+  br label %61
 
-51:                                               ; preds = %49, %.thread.thread
+61:                                               ; preds = %59, %.thread.thread
   store ptr %0, ptr @global_error.0, align 8
   store i64 %.sroa.3.0, ptr @global_error.1, align 8
-  br label %52
+  br label %62
 
-52:                                               ; preds = %.thread, %51, %40, %41
-  %.0 = phi ptr [ %12, %41 ], [ %12, %40 ], [ null, %51 ], [ null, %.thread ]
+62:                                               ; preds = %.thread, %61, %50, %51
+  %.0 = phi ptr [ %10, %51 ], [ %10, %50 ], [ null, %61 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -877,166 +901,24 @@ define internal fastcc void @buffer_skip_whitespace(ptr noundef %0) unnamed_addr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_Parse(ptr noundef %0) local_unnamed_addr #8 {
-  %2 = alloca %struct.parse_buffer, align 8
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %cJSON_ParseWithOpts.exit, label %4
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %cJSON_ParseWithOpts.exit, label %3
 
-4:                                                ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
-  %6 = add i64 %5, 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
-  store ptr null, ptr @global_error.0, align 8
-  store i64 0, ptr @global_error.1, align 8
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %.thread.thread.i, label %9
-
-9:                                                ; preds = %4
-  store ptr %0, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
-  %global_hooks.val.i = load ptr, ptr @global_hooks, align 8
-  %13 = tail call ptr %global_hooks.val.i(i64 noundef 64) #30
-  %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %.thread.thread.i, label %.lr.ph.i.preheader.i
-
-.lr.ph.i.preheader.i:                             ; preds = %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
-  %14 = load i8, ptr %0, align 1
-  %15 = icmp ult i8 %14, 33
-  br i1 %15, label %.lr.ph, label %buffer_skip_whitespace.exit.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph
-  %16 = add nuw i64 %20, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp ult i8 %18, 33
-  br i1 %19, label %.lr.ph, label %buffer_skip_whitespace.exit.i
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
-  %20 = phi i64 [ %16, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %exitcond.not.i.i = icmp eq i64 %20, %5
-  br i1 %exitcond.not.i.i, label %buffer_skip_whitespace.exit.i, label %.lr.ph.i.i
-
-buffer_skip_whitespace.exit.i:                    ; preds = %.lr.ph, %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %storemerge = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %5, %.lr.ph ], [ %16, %.lr.ph.i.i ]
-  store i64 %storemerge, ptr %11, align 8
-  %21 = call fastcc i32 @parse_value(ptr noundef nonnull %13, ptr noundef nonnull %2)
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %cJSON_ParseWithLengthOpts.exit
-
-22:                                               ; preds = %buffer_skip_whitespace.exit.i
-  call void @cJSON_Delete(ptr noundef nonnull %13)
-  %.pre54.i.pre = load i64, ptr %11, align 8
-  %.pre56.i.pre = load i64, ptr %10, align 8
-  br label %.thread.thread.i
-
-.thread.thread.i:                                 ; preds = %22, %4, %9
-  %23 = phi i64 [ %6, %9 ], [ 0, %4 ], [ %.pre56.i.pre, %22 ]
-  %24 = phi i64 [ 0, %9 ], [ 0, %4 ], [ %.pre54.i.pre, %22 ]
-  %25 = icmp ult i64 %24, %23
-  %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %23, i64 1)
-  %.sroa.3.0.i = select i1 %25, i64 %24, i64 %spec.select.i
-  store ptr %0, ptr @global_error.0, align 8
-  store i64 %.sroa.3.0.i, ptr @global_error.1, align 8
-  br label %cJSON_ParseWithLengthOpts.exit
-
-cJSON_ParseWithLengthOpts.exit:                   ; preds = %buffer_skip_whitespace.exit.i, %.thread.thread.i
-  %.0.i1 = phi ptr [ null, %.thread.thread.i ], [ %13, %buffer_skip_whitespace.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+3:                                                ; preds = %1
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %5 = add i64 %4, 1
+  %6 = tail call ptr @cJSON_ParseWithLengthOpts(ptr noundef nonnull %0, i64 noundef %5, ptr noundef null, i32 noundef 0)
   br label %cJSON_ParseWithOpts.exit
 
-cJSON_ParseWithOpts.exit:                         ; preds = %1, %cJSON_ParseWithLengthOpts.exit
-  %.0.i = phi ptr [ %.0.i1, %cJSON_ParseWithLengthOpts.exit ], [ null, %1 ]
+cJSON_ParseWithOpts.exit:                         ; preds = %1, %3
+  %.0.i = phi ptr [ %6, %3 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_ParseWithLength(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
-  %3 = alloca %struct.parse_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
-  store ptr null, ptr @global_error.0, align 8
-  store i64 0, ptr @global_error.1, align 8
-  %5 = icmp eq ptr %0, null
-  %6 = icmp eq i64 %1, 0
-  %or.cond.i = or i1 %5, %6
-  br i1 %or.cond.i, label %.thread.i, label %7
-
-7:                                                ; preds = %2
-  store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
-  %global_hooks.val.i = load ptr, ptr @global_hooks, align 8
-  %11 = tail call ptr %global_hooks.val.i(i64 noundef 64) #30
-  %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %.thread.thread.i, label %.lr.ph.i.preheader.i
-
-.lr.ph.i.preheader.i:                             ; preds = %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
-  %12 = load i8, ptr %0, align 1
-  %13 = icmp ult i8 %12, 33
-  br i1 %13, label %.lr.ph, label %.critedge.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %0, i64 %18
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp ult i8 %15, 33
-  br i1 %16, label %.lr.ph, label %.critedge.i.i
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
-  %17 = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %18 = add nuw i64 %17, 1
-  %exitcond.not.i.i = icmp eq i64 %18, %1
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i
-
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.lcssa2 = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %18, %.lr.ph.i.i ]
-  %19 = icmp eq i64 %.lcssa2, %1
-  br i1 %19, label %.critedge.thread.i.i, label %buffer_skip_whitespace.exit.i
-
-.critedge.thread.i.i:                             ; preds = %.lr.ph, %.critedge.i.i
-  %20 = add i64 %1, -1
-  br label %buffer_skip_whitespace.exit.i
-
-buffer_skip_whitespace.exit.i:                    ; preds = %.critedge.thread.i.i, %.critedge.i.i
-  %storemerge = phi i64 [ %20, %.critedge.thread.i.i ], [ %.lcssa2, %.critedge.i.i ]
-  store i64 %storemerge, ptr %9, align 8
-  %21 = call fastcc i32 @parse_value(ptr noundef nonnull %11, ptr noundef nonnull %3)
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %.thread.i.thread, label %cJSON_ParseWithLengthOpts.exit
-
-.thread.i.thread:                                 ; preds = %buffer_skip_whitespace.exit.i
-  call void @cJSON_Delete(ptr noundef nonnull %11)
-  %.pre54.i.pre = load i64, ptr %9, align 8
-  %.pre56.i.pre = load i64, ptr %8, align 8
-  br label %.thread.thread.i
-
-.thread.i:                                        ; preds = %2
-  br i1 %5, label %cJSON_ParseWithLengthOpts.exit, label %.thread.thread.i
-
-.thread.thread.i:                                 ; preds = %.thread.i, %.thread.i.thread, %7
-  %22 = phi i64 [ %1, %7 ], [ %.pre56.i.pre, %.thread.i.thread ], [ 0, %.thread.i ]
-  %23 = phi i64 [ 0, %7 ], [ %.pre54.i.pre, %.thread.i.thread ], [ 0, %.thread.i ]
-  %24 = icmp ult i64 %23, %22
-  %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %22, i64 1)
-  %.sroa.3.0.i = select i1 %24, i64 %23, i64 %spec.select.i
-  store ptr %0, ptr @global_error.0, align 8
-  store i64 %.sroa.3.0.i, ptr @global_error.1, align 8
-  br label %cJSON_ParseWithLengthOpts.exit
-
-cJSON_ParseWithLengthOpts.exit:                   ; preds = %buffer_skip_whitespace.exit.i, %.thread.i, %.thread.thread.i
-  %.0.i = phi ptr [ null, %.thread.thread.i ], [ null, %.thread.i ], [ %11, %buffer_skip_whitespace.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  ret ptr %.0.i
+  %3 = tail call ptr @cJSON_ParseWithLengthOpts(ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 0)
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
