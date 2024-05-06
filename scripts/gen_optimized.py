@@ -8,29 +8,16 @@ import tqdm
 
 bench_dir = sys.argv[1]
 opt_exec = sys.argv[2]
-diff_exec = opt_exec.removesuffix('opt') + 'llvm-diff'
-force_update = len(sys.argv) == 4
 bench_filter = None
-if force_update:
+if len(sys.argv) > 3:
     bench_filter = sys.argv[3].split(',')
 
 def run_opt(task):
     input_file, output_file = task
     try:
-        tmp_output = output_file
-        copy_if_different = False
-        if not force_update and os.path.exists(output_file):
-           tmp_output += '.bench_tmp.ll'
-           copy_if_different = True
-        ret = subprocess.run([opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S', '-o', tmp_output],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
+        ret = subprocess.run([opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S', '-o', output_file],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
         if ret.returncode != 0:
             return (input_file, 'fail')
-        if copy_if_different:
-            ret2 = subprocess.run([diff_exec, output_file , tmp_output],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-            if ret2.returncode != 0:
-                os.system('mv ' + tmp_output + ' ' + output_file)
-            else:
-                os.remove(tmp_output)
         return (input_file, 'success')
     except subprocess.TimeoutExpired:
         return (input_file, 'timeout')
