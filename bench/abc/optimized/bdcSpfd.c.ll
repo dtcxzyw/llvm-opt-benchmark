@@ -56,7 +56,7 @@ define i32 @Bdc_SpfdAdjCost(i64 noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, -1
-  %6 = and i64 %5, %0
+  %6 = and i64 %0, %5
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = shl nuw nsw i32 1, %7
   %9 = zext nneg i32 %8 to i64
@@ -280,7 +280,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
   %51 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, %0
+  %53 = icmp eq i64 %0, %52
   %54 = xor i64 %52, %0
   %55 = icmp eq i64 %54, -1
   %or.cond475 = or i1 %53, %55
@@ -628,7 +628,7 @@ Vec_IntPush.exit503:                              ; preds = %.Vec_IntGrow.exit10
   %216 = and i64 %212, 4503599627370495
   %217 = or disjoint i64 %215, %216
   store i64 %217, ptr %208, align 8
-  %218 = icmp eq i64 %210, %0
+  %218 = icmp eq i64 %0, %210
   %219 = xor i64 %210, %0
   %220 = icmp eq i64 %219, -1
   %or.cond477 = or i1 %218, %220
@@ -1064,7 +1064,7 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
   %460 = getelementptr inbounds i32, ptr %457, i64 %459
   store i32 %433, ptr %460, align 4
   %461 = load i64, ptr %410, align 8
-  %462 = icmp eq i64 %461, %0
+  %462 = icmp eq i64 %0, %461
   %463 = xor i64 %461, %0
   %464 = icmp eq i64 %463, -1
   %or.cond479 = or i1 %462, %464
@@ -1387,10 +1387,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define internal fastcc i32 @Bdc_CountSpfd(i64 noundef %0, i64 noundef %1) unnamed_addr #6 {
   %3 = xor i64 %0, -1
   %4 = xor i64 %1, -1
-  %5 = insertelement <2 x i64> poison, i64 %3, i64 0
-  %6 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> zeroinitializer
-  %7 = insertelement <2 x i64> poison, i64 %4, i64 0
-  %8 = insertelement <2 x i64> %7, i64 %1, i64 1
+  %5 = insertelement <2 x i64> poison, i64 %4, i64 0
+  %6 = insertelement <2 x i64> %5, i64 %1, i64 1
+  %7 = insertelement <2 x i64> poison, i64 %3, i64 0
+  %8 = shufflevector <2 x i64> %7, <2 x i64> poison, <2 x i32> zeroinitializer
   %9 = and <2 x i64> %6, %8
   %10 = and <2 x i64> %9, <i64 6148914691236517205, i64 6148914691236517205>
   %11 = lshr <2 x i64> %9, <i64 1, i64 1>
@@ -2777,9 +2777,9 @@ Bdc_SpfdComputeCost.exit69:                       ; preds = %53, %78
   %.256 = phi i32 [ %.0.i68, %86 ], [ %.155, %Bdc_SpfdComputeCost.exit69 ], [ %.155, %._crit_edge80 ]
   %.2 = phi i32 [ %87, %86 ], [ %.1, %Bdc_SpfdComputeCost.exit69 ], [ %.1, %._crit_edge80 ]
   %89 = xor i64 %13, -1
-  %90 = and i64 %89, %2
+  %90 = and i64 %2, %89
   %91 = icmp eq i64 %90, 0
-  %92 = and i64 %89, %3
+  %92 = and i64 %3, %89
   br i1 %91, label %93, label %._crit_edge
 
 93:                                               ; preds = %88

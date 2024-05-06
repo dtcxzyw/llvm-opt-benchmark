@@ -306,7 +306,7 @@ define range(i32 0, 2) i32 @If_CutPerformCheck16(ptr noundef %0, ptr nocapture n
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, %3
+  %18 = icmp eq i32 %3, %17
   br i1 %18, label %Abc_TtStretch6.exit, label %19
 
 19:                                               ; preds = %5
@@ -983,17 +983,17 @@ define range(i32 -176, -2147483648) i32 @If_CluHashFindMedian(ptr nocapture noun
 22:                                               ; preds = %.lr.ph
   %23 = add nuw nsw i32 %20, 1
   %24 = load i32, ptr %4, align 4
-  %.not.i.not.i = icmp sgt i32 %24, %20
+  %.not.i.not.i = icmp slt i32 %20, %24
   br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %25
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %3, align 8
   %27 = shl nsw i32 %26, 1
-  %.not.i = icmp sgt i32 %27, %20
-  %.not.i.i.not.i = icmp sgt i32 %26, %20
+  %.not.i = icmp slt i32 %20, %27
   br i1 %.not.i, label %36, label %28
 
 28:                                               ; preds = %25
+  %.not.i.i.not.i = icmp sgt i32 %26, %20
   br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %29
 
 29:                                               ; preds = %28
@@ -1011,7 +1011,8 @@ define range(i32 -176, -2147483648) i32 @If_CluHashFindMedian(ptr nocapture noun
   br label %Vec_IntGrow.exit.sink.split.i.i
 
 36:                                               ; preds = %25
-  br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %37
+  %.not4.i = icmp slt i32 %20, %26
+  br i1 %.not4.i, label %Vec_IntGrow.exit.i.i, label %37
 
 37:                                               ; preds = %36
   %.not9.i21.i.i = icmp eq ptr %storemerge45, null
@@ -2876,7 +2877,7 @@ If_CluAdjust.exit:                                ; preds = %If_CluPrintGroup.ex
   %30 = zext nneg i32 %29 to i64
   %notmask.i = shl nsw i64 -1, %30
   %31 = xor i64 %notmask.i, -1
-  %32 = and i64 %31, %3
+  %32 = and i64 %3, %31
   %33 = icmp eq i8 %26, 0
   %34 = shl nuw nsw i64 %32, %30
   %35 = select i1 %33, i64 %34, i64 0
@@ -3251,7 +3252,7 @@ If_CluComposeLut.exit:                            ; preds = %If_CluOr.exit.us.i,
   %80 = getelementptr inbounds [16 x i8], ptr %76, i64 0, i64 %indvar115
   %81 = load i8, ptr %80, align 1
   %82 = sext i8 %81 to i32
-  %83 = icmp eq i32 %82, %1
+  %83 = icmp eq i32 %1, %82
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %78
@@ -3774,7 +3775,7 @@ If_CluComposeLut.exit101:                         ; preds = %If_CluOr.exit.us.i8
   %137 = getelementptr inbounds [16 x i8], ptr %132, i64 0, i64 %indvar212
   %138 = load i8, ptr %137, align 1
   %139 = sext i8 %138 to i32
-  %140 = icmp eq i32 %139, %1
+  %140 = icmp eq i32 %1, %139
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %135
@@ -4270,7 +4271,7 @@ define void @If_CluReverseOrder(ptr nocapture noundef %0, i32 noundef %1, ptr no
   %.013 = phi i32 [ %12, %.lr.ph ], [ 0, %5 ]
   %9 = add nsw i32 %.013, %4
   %10 = xor i32 %.013, -1
-  %11 = add i32 %10, %1
+  %11 = add i32 %1, %10
   tail call void @If_CluSwapVars(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %9, i32 noundef %11)
   %12 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %12, %7
@@ -4419,7 +4420,7 @@ define void @If_CluMoveGroupToMsb(ptr nocapture noundef %0, i32 noundef %1, ptr 
   %15 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = sext i8 %16 to i32
-  %18 = add i32 %12, %1
+  %18 = add i32 %1, %12
   tail call void @If_CluMoveVar(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %17, i32 noundef %18)
   %19 = add nuw nsw i32 %.012, 1
   %20 = load i8, ptr %4, align 1
@@ -4477,7 +4478,7 @@ If_CluCopy.exit:                                  ; preds = %.lr.ph.preheader.i,
   %.013.i = phi i32 [ %27, %.lr.ph.i20 ], [ 0, %._crit_edge ]
   %24 = add nsw i32 %.013.i, %4
   %25 = xor i32 %.013.i, -1
-  %26 = add i32 %25, %1
+  %26 = add i32 %1, %25
   call void @If_CluSwapVars(ptr noundef nonnull %6, i32 noundef %1, ptr noundef null, ptr noundef null, i32 noundef %24, i32 noundef %26)
   %27 = add nuw nsw i32 %.013.i, 1
   %exitcond.not.i21 = icmp eq i32 %27, %22
@@ -6563,7 +6564,7 @@ If_CluCofactors.exit.us:                          ; preds = %._crit_edge.us.i.us
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
   %indvars.iv78 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next79, %.lr.ph54 ]
   %81 = trunc nuw nsw i64 %indvars.iv78 to i32
-  %82 = add i32 %81, %1
+  %82 = add i32 %1, %81
   %83 = sub i32 %82, %78
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i32, ptr %3, i64 %84
@@ -6633,12 +6634,12 @@ define void @If_CluFindGroup(ptr dead_on_unwind noalias nocapture writable sret(
 
 28:                                               ; preds = %26, %25
   %29 = add nsw i32 %7, %3
-  %30 = icmp eq i32 %29, %2
+  %30 = icmp eq i32 %2, %29
   br i1 %30, label %.loopexit161.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %28
   %31 = add nsw i32 %2, -1
-  %32 = icmp sgt i32 %31, %7
+  %32 = icmp slt i32 %7, %31
   %33 = sub nsw i32 %31, %7
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %6, i64 %34
@@ -7023,7 +7024,7 @@ If_CluCopy.exit.If_CluMoveGroupToMsb.exit_crit_edge: ; preds = %If_CluCopy.exit
   %27 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i32
-  %30 = add i32 %24, %1
+  %30 = add i32 %1, %24
   call void @If_CluMoveVar(ptr noundef nonnull %4, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %29, i32 noundef %30)
   %31 = add nuw nsw i32 %.012.i, 1
   %32 = load i8, ptr %2, align 1
@@ -7731,7 +7732,7 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader212, %91,
 
 117:                                              ; preds = %.thread
   %118 = add nsw i32 %111, -2
-  %119 = icmp sgt i32 %118, %3
+  %119 = icmp slt i32 %3, %118
   br i1 %119, label %120, label %125
 
 120:                                              ; preds = %117
@@ -7745,7 +7746,7 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader212, %91,
 125:                                              ; preds = %120, %117
   %126 = icmp sgt i32 %6, 4
   %127 = add nsw i32 %111, -3
-  %128 = icmp sgt i32 %127, %3
+  %128 = icmp slt i32 %3, %127
   %or.cond144 = select i1 %126, i1 %128, i1 false
   br i1 %or.cond144, label %129, label %134
 
@@ -7810,7 +7811,7 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader212, %91,
   %158 = load i8, ptr %157, align 1
   %159 = sext i8 %158 to i32
   %160 = trunc i64 %155 to i32
-  %161 = add i32 %160, %3
+  %161 = add i32 %3, %160
   call void @If_CluMoveVar(ptr noundef nonnull %17, i32 noundef %3, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %159, i32 noundef %161)
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
@@ -8433,7 +8434,7 @@ define range(i32 0, 2) i32 @If_CluCheckDecOut(i64 noundef %0, i32 noundef %1) lo
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %7, -1
-  %14 = and i64 %13, %0
+  %14 = and i64 %0, %13
   %15 = icmp eq i64 %14, 0
   %16 = or i64 %7, %0
   %17 = icmp eq i64 %16, -1
@@ -8464,7 +8465,7 @@ define range(i32 0, 2) i32 @If_CluCheckDecOutU(i64 noundef %0, i32 noundef %1) l
   %5 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %7 = xor i64 %6, -1
-  %8 = and i64 %7, %0
+  %8 = and i64 %0, %7
   %9 = icmp eq i64 %8, 0
   %10 = or i64 %6, %0
   %11 = icmp eq i64 %10, -1
@@ -8876,7 +8877,7 @@ If_CluCopy.exit:                                  ; preds = %.lr.ph.preheader.i,
   %61 = load i8, ptr %60, align 1
   %62 = sext i8 %61 to i32
   %63 = trunc nsw i64 %58 to i32
-  %64 = add i32 %63, %3
+  %64 = add i32 %3, %63
   call void @If_CluMoveVar(ptr noundef nonnull %13, i32 noundef %3, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef %62, i32 noundef %64)
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
@@ -8958,7 +8959,7 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
 94:                                               ; preds = %12
   %95 = load i8, ptr %20, align 1
   %96 = sext i8 %95 to i32
-  %.not = icmp sgt i32 %96, %6
+  %.not = icmp slt i32 %6, %96
   br i1 %.not, label %109, label %97
 
 97:                                               ; preds = %94

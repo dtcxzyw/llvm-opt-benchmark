@@ -411,7 +411,7 @@ for.body78.i378.i:                                ; preds = %for.body78.i378.lr.
   br i1 %cmp86.i386.i, label %for.end128.i361.i, label %if.end91.i389.i
 
 if.end91.i389.i:                                  ; preds = %for.body78.i378.i
-  %and92.i390.i = and i64 %conv83.i384.i, %ringbuffer_mask
+  %and92.i390.i = and i64 %ringbuffer_mask, %conv83.i384.i
   %add97.i394.i = add i64 %and92.i390.i, %best_len.i317.2.ph1083.i
   %cmp98.i395.i = icmp ugt i64 %add97.i394.i, %ringbuffer_mask
   br i1 %cmp98.i395.i, label %if.then109.i417.i, label %lor.lhs.false100.i396.i
@@ -1347,7 +1347,7 @@ for.body78.i.i:                                   ; preds = %for.body78.i.lr.ph.
   br i1 %cmp86.i.i, label %for.end128.i.i, label %if.end91.i.i
 
 if.end91.i.i:                                     ; preds = %for.body78.i.i
-  %and92.i.i = and i64 %conv83.i.i, %ringbuffer_mask
+  %and92.i.i = and i64 %ringbuffer_mask, %conv83.i.i
   %add97.i.i = add i64 %and92.i.i, %best_len.i.2.ph1279.i
   %cmp98.i.i = icmp ugt i64 %add97.i.i, %ringbuffer_mask
   br i1 %cmp98.i.i, label %if.then109.i.i, label %lor.lhs.false100.i.i
@@ -2848,7 +2848,7 @@ for.body77.i1196.i:                               ; preds = %for.body77.i1196.lr
   br i1 %cmp85.i1204.i, label %for.end132.i1056.i, label %if.end90.i1207.i
 
 if.end90.i1207.i:                                 ; preds = %for.body77.i1196.i
-  %and91.i1208.i = and i64 %conv82.i1202.i, %ringbuffer_mask
+  %and91.i1208.i = and i64 %ringbuffer_mask, %conv82.i1202.i
   %add96.i1212.i = add i64 %and91.i1208.i, %best_len.i1009.2.ph1080.i
   %cmp97.i1213.i = icmp ugt i64 %add96.i1212.i, %ringbuffer_mask
   br i1 %cmp97.i1213.i, label %for.cond74.i1054.backedge.i, label %lor.lhs.false99.i1214.i
@@ -3789,7 +3789,7 @@ for.body77.i.i:                                   ; preds = %for.body77.i.lr.ph.
   br i1 %cmp85.i.i, label %for.end132.i.i, label %if.end90.i.i
 
 if.end90.i.i:                                     ; preds = %for.body77.i.i
-  %and91.i.i = and i64 %conv82.i.i, %ringbuffer_mask
+  %and91.i.i = and i64 %ringbuffer_mask, %conv82.i.i
   %add96.i.i = add i64 %and91.i.i, %best_len.i830.2.ph1278.i
   %cmp97.i.i = icmp ugt i64 %add96.i.i, %ringbuffer_mask
   br i1 %cmp97.i.i, label %for.cond74.i.backedge.i, label %lor.lhs.false99.i.i
@@ -12314,7 +12314,7 @@ for.body46.i.i:                                   ; preds = %for.inc88.i.i, %for
   %1092 = load i32, ptr %arrayidx49.i905.i, align 4
   %conv50.i.i = zext i32 %1092 to i64
   %sub51.i.i = sub i64 %position.addr.0328.i, %conv50.i.i
-  %and54.i.i = and i64 %conv50.i.i, %ringbuffer_mask
+  %and54.i.i = and i64 %ringbuffer_mask, %conv50.i.i
   %1093 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i
   %arrayidx56.i.i = getelementptr i8, ptr %1093, i64 %best_len.i888.190.i
   %1094 = load i8, ptr %arrayidx56.i.i, align 1
@@ -12485,7 +12485,7 @@ if.then24.i1227.i:                                ; preds = %if.then14.i.i
   br i1 %cmp27.i.not.i, label %if.end52.i.i, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %if.then24.i1227.i
-  %and30.i.i = and i64 %conv.i1222.i, %ringbuffer_mask
+  %and30.i.i = and i64 %ringbuffer_mask, %conv.i1222.i
   %arrayidx31.i1230.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i.i
   br label %for.body.i.i1254.i
 
@@ -13105,7 +13105,7 @@ for.body46.i1036.i:                               ; preds = %for.inc88.i1071.i, 
   %1152 = load i32, ptr %arrayidx49.i1038.i, align 4
   %conv50.i1039.i = zext i32 %1152 to i64
   %sub51.i1040.i = sub i64 %add71.i4524, %conv50.i1039.i
-  %and54.i1043.i = and i64 %conv50.i1039.i, %ringbuffer_mask
+  %and54.i1043.i = and i64 %ringbuffer_mask, %conv50.i1039.i
   %1153 = getelementptr i8, ptr %ringbuffer, i64 %and54.i1043.i
   %arrayidx56.i1045.i = getelementptr i8, ptr %1153, i64 %best_len.i1001.1227.i
   %1154 = load i8, ptr %arrayidx56.i1045.i, align 1
@@ -13276,7 +13276,7 @@ if.then24.i1345.i:                                ; preds = %if.then14.i1332.i
   br i1 %cmp27.i1349.not.i, label %if.end52.i1329.i, label %for.body.i.i1393.preheader.i
 
 for.body.i.i1393.preheader.i:                     ; preds = %if.then24.i1345.i
-  %and30.i1352.i = and i64 %conv.i1336.i, %ringbuffer_mask
+  %and30.i1352.i = and i64 %ringbuffer_mask, %conv.i1336.i
   %arrayidx31.i1353.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i1352.i
   br label %for.body.i.i1393.i
 
@@ -14528,7 +14528,7 @@ for.body77.i.i1186.i:                             ; preds = %for.body77.i.i1186.
   br i1 %cmp85.i.i1194.i, label %for.end132.i.i1045.i, label %if.end90.i.i1197.i
 
 if.end90.i.i1197.i:                               ; preds = %for.body77.i.i1186.i
-  %and91.i.i1198.i = and i64 %conv82.i.i1192.i, %ringbuffer_mask
+  %and91.i.i1198.i = and i64 %ringbuffer_mask, %conv82.i.i1192.i
   %add96.i.i1202.i = add i64 %and91.i.i1198.i, %best_len.i.i986.2.ph1261.i
   %cmp97.i.i1203.i = icmp ugt i64 %add96.i.i1202.i, %ringbuffer_mask
   br i1 %cmp97.i.i1203.i, label %for.cond74.i.i1043.backedge.i, label %lor.lhs.false99.i.i1204.i
@@ -14896,7 +14896,7 @@ if.then24.i1522.i:                                ; preds = %if.then14.i.i5778
   br i1 %cmp27.i.not.i5782, label %if.end52.i.i5101, label %for.body.i.i1548.preheader.i
 
 for.body.i.i1548.preheader.i:                     ; preds = %if.then24.i1522.i
-  %and30.i.i5783 = and i64 %conv.i1517.i, %ringbuffer_mask
+  %and30.i.i5783 = and i64 %ringbuffer_mask, %conv.i1517.i
   %arrayidx31.i.i5784 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i.i5783
   br label %for.body.i.i1548.i
 
@@ -15631,7 +15631,7 @@ for.body77.i.i.i:                                 ; preds = %for.body77.i.i.lr.p
   br i1 %cmp85.i.i.i, label %for.end132.i.i.i, label %if.end90.i.i.i
 
 if.end90.i.i.i:                                   ; preds = %for.body77.i.i.i
-  %and91.i.i.i = and i64 %conv82.i.i.i, %ringbuffer_mask
+  %and91.i.i.i = and i64 %ringbuffer_mask, %conv82.i.i.i
   %add96.i.i.i = add i64 %and91.i.i.i, %best_len.i.i.2.ph1482.i
   %cmp97.i.i.i = icmp ugt i64 %add96.i.i.i, %ringbuffer_mask
   br i1 %cmp97.i.i.i, label %for.cond74.i.i.backedge.i, label %lor.lhs.false99.i.i.i
@@ -16000,7 +16000,7 @@ if.then24.i1636.i:                                ; preds = %if.then14.i1623.i
   br i1 %cmp27.i1640.not.i, label %if.end52.i1620.i, label %for.body.i.i1684.preheader.i
 
 for.body.i.i1684.preheader.i:                     ; preds = %if.then24.i1636.i
-  %and30.i1643.i = and i64 %conv.i1627.i5658, %ringbuffer_mask
+  %and30.i1643.i = and i64 %ringbuffer_mask, %conv.i1627.i5658
   %arrayidx31.i1644.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i1643.i
   br label %for.body.i.i1684.i
 
@@ -17143,7 +17143,7 @@ if.end34.i532.i:                                  ; preds = %if.then22.i760.i, %
   %conv38.i535.i = trunc i64 %position.addr.0686.i to i32
   store i32 %conv38.i535.i, ptr %arrayidx36.i533.i, align 4
   %sub40.i537.i = sub i64 %position.addr.0686.i, %conv37.i534.i
-  %and43.i540.i = and i64 %conv37.i534.i, %ringbuffer_mask
+  %and43.i540.i = and i64 %ringbuffer_mask, %conv37.i534.i
   %arrayidx45.i542.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and43.i540.i
   %1497 = load i8, ptr %arrayidx45.i542.i, align 1
   %cmp47.i544.not.i = icmp eq i8 %1490, %1497
@@ -17559,7 +17559,7 @@ if.end34.i.i:                                     ; preds = %if.then22.i419.i, %
   %conv38.i.i = trunc i64 %add67.i to i32
   store i32 %conv38.i.i, ptr %arrayidx36.i.i, align 4
   %sub40.i.i = sub i64 %add67.i, %conv37.i.i
-  %and43.i.i = and i64 %conv37.i.i, %ringbuffer_mask
+  %and43.i.i = and i64 %ringbuffer_mask, %conv37.i.i
   %1541 = getelementptr i8, ptr %ringbuffer, i64 %and43.i.i
   %arrayidx45.i.i = getelementptr i8, ptr %1541, i64 %cond62.i
   %1542 = load i8, ptr %arrayidx45.i.i, align 1
@@ -18382,7 +18382,7 @@ for.body46.i503.i:                                ; preds = %for.inc88.i538.i, %
   %1607 = load i32, ptr %arrayidx49.i505.i, align 4
   %conv50.i506.i = zext i32 %1607 to i64
   %sub51.i507.i = sub i64 %position.addr.0122.i, %conv50.i506.i
-  %and54.i510.i = and i64 %conv50.i506.i, %ringbuffer_mask
+  %and54.i510.i = and i64 %ringbuffer_mask, %conv50.i506.i
   %1608 = getelementptr i8, ptr %ringbuffer, i64 %and54.i510.i
   %arrayidx56.i512.i = getelementptr i8, ptr %1608, i64 %best_len.i468.171.i
   %1609 = load i8, ptr %arrayidx56.i512.i, align 1
@@ -18645,7 +18645,7 @@ for.body46.i.i6222:                               ; preds = %for.inc88.i.i6232, 
   %1630 = load i32, ptr %arrayidx49.i.i6224, align 4
   %conv50.i.i6225 = zext i32 %1630 to i64
   %sub51.i.i6226 = sub i64 %add67.i6203, %conv50.i.i6225
-  %and54.i.i6227 = and i64 %conv50.i.i6225, %ringbuffer_mask
+  %and54.i.i6227 = and i64 %ringbuffer_mask, %conv50.i.i6225
   %1631 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i6227
   %arrayidx56.i.i6228 = getelementptr i8, ptr %1631, i64 %best_len.i.1115.i
   %1632 = load i8, ptr %arrayidx56.i.i6228, align 1
@@ -19421,7 +19421,7 @@ for.body46.i677.i:                                ; preds = %for.inc88.i712.i, %
   %1690 = load i32, ptr %arrayidx49.i679.i, align 4
   %conv50.i680.i = zext i32 %1690 to i64
   %sub51.i681.i = sub i64 %position.addr.0733.i, %conv50.i680.i
-  %and54.i684.i = and i64 %conv50.i680.i, %ringbuffer_mask
+  %and54.i684.i = and i64 %ringbuffer_mask, %conv50.i680.i
   %1691 = getelementptr i8, ptr %ringbuffer, i64 %and54.i684.i
   %arrayidx56.i686.i = getelementptr i8, ptr %1691, i64 %best_len.i512.1646.i
   %1692 = load i8, ptr %arrayidx56.i686.i, align 1
@@ -19895,7 +19895,7 @@ for.body46.i.i6691:                               ; preds = %for.inc88.i.i6701, 
   %1739 = load i32, ptr %arrayidx49.i.i6693, align 4
   %conv50.i.i6694 = zext i32 %1739 to i64
   %sub51.i.i6695 = sub i64 %add67.i6650, %conv50.i.i6694
-  %and54.i.i6696 = and i64 %conv50.i.i6694, %ringbuffer_mask
+  %and54.i.i6696 = and i64 %ringbuffer_mask, %conv50.i.i6694
   %1740 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i6696
   %arrayidx56.i.i6697 = getelementptr i8, ptr %1740, i64 %best_len.i.1698.i
   %1741 = load i8, ptr %arrayidx56.i.i6697, align 1
@@ -20941,7 +20941,7 @@ for.body78.i369.i:                                ; preds = %for.body78.i369.lr.
   br i1 %cmp86.i377.i, label %for.end128.i352.i, label %if.end91.i380.i
 
 if.end91.i380.i:                                  ; preds = %for.body78.i369.i
-  %and92.i381.i = and i64 %conv83.i375.i, %ringbuffer_mask
+  %and92.i381.i = and i64 %ringbuffer_mask, %conv83.i375.i
   %add97.i385.i = add i64 %and92.i381.i, %best_len.i308.2.ph817.i
   %cmp98.i386.i = icmp ugt i64 %add97.i385.i, %ringbuffer_mask
   br i1 %cmp98.i386.i, label %if.then109.i408.i, label %lor.lhs.false100.i387.i
@@ -21517,7 +21517,7 @@ for.body78.i.i7401:                               ; preds = %for.body78.i.lr.ph.
   br i1 %cmp86.i.i7407, label %for.end128.i.i7204, label %if.end91.i.i7408
 
 if.end91.i.i7408:                                 ; preds = %for.body78.i.i7401
-  %and92.i.i7409 = and i64 %conv83.i.i7405, %ringbuffer_mask
+  %and92.i.i7409 = and i64 %ringbuffer_mask, %conv83.i.i7405
   %add97.i.i7410 = add i64 %and92.i.i7409, %best_len.i.2.ph919.i
   %cmp98.i.i7411 = icmp ugt i64 %add97.i.i7410, %ringbuffer_mask
   br i1 %cmp98.i.i7411, label %if.then109.i.i7415, label %lor.lhs.false100.i.i7412
@@ -22655,7 +22655,7 @@ for.body77.i751.i:                                ; preds = %for.body77.i751.lr.
   br i1 %cmp85.i759.i, label %for.end132.i611.i, label %if.end90.i762.i
 
 if.end90.i762.i:                                  ; preds = %for.body77.i751.i
-  %and91.i763.i = and i64 %conv82.i757.i, %ringbuffer_mask
+  %and91.i763.i = and i64 %ringbuffer_mask, %conv82.i757.i
   %add96.i767.i = add i64 %and91.i763.i, %best_len.i564.2.ph814.i
   %cmp97.i768.i = icmp ugt i64 %add96.i767.i, %ringbuffer_mask
   br i1 %cmp97.i768.i, label %for.cond74.i609.backedge.i, label %lor.lhs.false99.i769.i
@@ -23236,7 +23236,7 @@ for.body77.i.i8045:                               ; preds = %for.body77.i.lr.ph.
   br i1 %cmp85.i.i8051, label %for.end132.i.i7712, label %if.end90.i.i8052
 
 if.end90.i.i8052:                                 ; preds = %for.body77.i.i8045
-  %and91.i.i8053 = and i64 %conv82.i.i8049, %ringbuffer_mask
+  %and91.i.i8053 = and i64 %ringbuffer_mask, %conv82.i.i8049
   %add96.i.i8054 = add i64 %and91.i.i8053, %best_len.i.2.ph918.i
   %cmp97.i.i8055 = icmp ugt i64 %add96.i.i8054, %ringbuffer_mask
   br i1 %cmp97.i.i8055, label %for.cond74.i.backedge.i8059, label %lor.lhs.false99.i.i8056
@@ -29224,7 +29224,7 @@ for.body46.i503.i10663:                           ; preds = %for.inc88.i538.i106
   %2630 = load i32, ptr %arrayidx49.i505.i10672, align 4
   %conv50.i506.i10673 = zext i32 %2630 to i64
   %sub51.i507.i10674 = sub i64 %position.addr.0122.i10634, %conv50.i506.i10673
-  %and54.i510.i10675 = and i64 %conv50.i506.i10673, %ringbuffer_mask
+  %and54.i510.i10675 = and i64 %ringbuffer_mask, %conv50.i506.i10673
   %2631 = getelementptr i8, ptr %ringbuffer, i64 %and54.i510.i10675
   %arrayidx56.i512.i10676 = getelementptr i8, ptr %2631, i64 %best_len.i468.171.i10666
   %2632 = load i8, ptr %arrayidx56.i512.i10676, align 1
@@ -29499,7 +29499,7 @@ for.body46.i.i10784:                              ; preds = %for.inc88.i.i10802,
   %2653 = load i32, ptr %arrayidx49.i.i10793, align 4
   %conv50.i.i10794 = zext i32 %2653 to i64
   %sub51.i.i10795 = sub i64 %add67.i10756, %conv50.i.i10794
-  %and54.i.i10796 = and i64 %conv50.i.i10794, %ringbuffer_mask
+  %and54.i.i10796 = and i64 %ringbuffer_mask, %conv50.i.i10794
   %2654 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i10796
   %arrayidx56.i.i10797 = getelementptr i8, ptr %2654, i64 %best_len.i.1115.i10787
   %2655 = load i8, ptr %arrayidx56.i.i10797, align 1
@@ -30217,7 +30217,7 @@ for.body46.i.i686.i:                              ; preds = %for.inc88.i.i721.i,
   %2705 = load i32, ptr %arrayidx49.i.i688.i, align 4
   %conv50.i.i689.i = zext i32 %2705 to i64
   %sub51.i.i690.i = sub i64 %position.addr.0170.i, %conv50.i.i689.i
-  %and54.i.i693.i = and i64 %conv50.i.i689.i, %ringbuffer_mask
+  %and54.i.i693.i = and i64 %ringbuffer_mask, %conv50.i.i689.i
   %2706 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i693.i
   %arrayidx56.i.i695.i = getelementptr i8, ptr %2706, i64 %best_len.i.i500.177.i
   %2707 = load i8, ptr %arrayidx56.i.i695.i, align 1
@@ -30386,7 +30386,7 @@ if.then24.i.i621.i:                               ; preds = %if.then14.i.i608.i
   br i1 %cmp27.i.i625.not.i, label %if.end52.i.i606.i, label %if.then29.i.i627.i
 
 if.then29.i.i627.i:                               ; preds = %if.then24.i.i621.i
-  %and30.i.i628.i = and i64 %conv.i.i612.i, %ringbuffer_mask
+  %and30.i.i628.i = and i64 %ringbuffer_mask, %conv.i.i612.i
   %arrayidx31.i.i629.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i.i628.i
   br label %for.body.i.i.i669.i
 
@@ -30641,7 +30641,7 @@ for.body46.i.i.i:                                 ; preds = %for.inc88.i.i.i, %i
   %2740 = load i32, ptr %arrayidx49.i.i.i, align 4
   %conv50.i.i.i = zext i32 %2740 to i64
   %sub51.i.i.i = sub i64 %add67.i11349, %conv50.i.i.i
-  %and54.i.i.i = and i64 %conv50.i.i.i, %ringbuffer_mask
+  %and54.i.i.i = and i64 %ringbuffer_mask, %conv50.i.i.i
   %2741 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i.i
   %arrayidx56.i.i.i = getelementptr i8, ptr %2741, i64 %best_len.i.i.1142.i
   %2742 = load i8, ptr %arrayidx56.i.i.i, align 1
@@ -30810,7 +30810,7 @@ if.then24.i.i.i:                                  ; preds = %if.then14.i.i.i
   br i1 %cmp27.i.i.not.i, label %if.end52.i.i.i, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %if.then24.i.i.i
-  %and30.i.i.i = and i64 %conv.i.i454.i, %ringbuffer_mask
+  %and30.i.i.i = and i64 %ringbuffer_mask, %conv.i.i454.i
   %arrayidx31.i.i.i11581 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i.i.i
   br label %for.body.i.i.i.i11582
 
@@ -31528,7 +31528,7 @@ for.body46.i.i11684:                              ; preds = %for.inc88.i.i11698,
   %2804 = load i32, ptr %arrayidx49.i.i11689, align 4
   %conv50.i.i11690 = zext i32 %2804 to i64
   %sub51.i.i11691 = sub i64 %position.addr.0170.i11663, %conv50.i.i11690
-  %and54.i.i11692 = and i64 %conv50.i.i11690, %ringbuffer_mask
+  %and54.i.i11692 = and i64 %ringbuffer_mask, %conv50.i.i11690
   %2805 = getelementptr i8, ptr %ringbuffer, i64 %and54.i.i11692
   %arrayidx56.i.i11693 = getelementptr i8, ptr %2805, i64 %best_len.i.177.i
   %2806 = load i8, ptr %arrayidx56.i.i11693, align 1
@@ -31699,7 +31699,7 @@ if.then24.i790.i:                                 ; preds = %if.then14.i.i12036
   br i1 %cmp27.i.not.i12041, label %if.end52.i.i11725, label %if.then29.i.i12042
 
 if.then29.i.i12042:                               ; preds = %if.then24.i790.i
-  %and30.i.i12043 = and i64 %conv.i785.i, %ringbuffer_mask
+  %and30.i.i12043 = and i64 %ringbuffer_mask, %conv.i785.i
   %arrayidx31.i793.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i.i12043
   br label %for.body.i.i817.i12062
 
@@ -31964,7 +31964,7 @@ for.body46.i602.i:                                ; preds = %for.inc88.i637.i, %
   %2839 = load i32, ptr %arrayidx49.i604.i, align 4
   %conv50.i605.i = zext i32 %2839 to i64
   %sub51.i606.i = sub i64 %add67.i11787, %conv50.i605.i
-  %and54.i609.i = and i64 %conv50.i605.i, %ringbuffer_mask
+  %and54.i609.i = and i64 %ringbuffer_mask, %conv50.i605.i
   %2840 = getelementptr i8, ptr %ringbuffer, i64 %and54.i609.i
   %arrayidx56.i611.i = getelementptr i8, ptr %2840, i64 %best_len.i567.1142.i
   %2841 = load i8, ptr %arrayidx56.i611.i, align 1
@@ -32135,7 +32135,7 @@ if.then24.i907.i:                                 ; preds = %if.then14.i894.i
   br i1 %cmp27.i911.not.i, label %if.end52.i892.i, label %for.body.i.i955.preheader.i
 
 for.body.i.i955.preheader.i:                      ; preds = %if.then24.i907.i
-  %and30.i914.i = and i64 %conv.i898.i12025, %ringbuffer_mask
+  %and30.i914.i = and i64 %ringbuffer_mask, %conv.i898.i12025
   %arrayidx31.i915.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i914.i
   br label %for.body.i.i955.i
 
@@ -33028,7 +33028,7 @@ for.body77.i.i799.i:                              ; preds = %for.body77.i.i799.l
   br i1 %cmp85.i.i807.i, label %for.end132.i.i658.i, label %if.end90.i.i810.i
 
 if.end90.i.i810.i:                                ; preds = %for.body77.i.i799.i
-  %and91.i.i811.i = and i64 %conv82.i.i805.i, %ringbuffer_mask
+  %and91.i.i811.i = and i64 %ringbuffer_mask, %conv82.i.i805.i
   %add96.i.i815.i = add i64 %and91.i.i811.i, %best_len.i.i599.2.ph991.i
   %cmp97.i.i816.i = icmp ugt i64 %add96.i.i815.i, %ringbuffer_mask
   br i1 %cmp97.i.i816.i, label %for.cond74.i.i656.backedge.i, label %lor.lhs.false99.i.i817.i
@@ -33396,7 +33396,7 @@ if.then24.i1115.i:                                ; preds = %if.then14.i.i12857
   br i1 %cmp27.i.not.i12862, label %if.end52.i.i12276, label %for.body.i.i1125.preheader.i
 
 for.body.i.i1125.preheader.i:                     ; preds = %if.then24.i1115.i
-  %and30.i.i12863 = and i64 %conv.i1110.i, %ringbuffer_mask
+  %and30.i.i12863 = and i64 %ringbuffer_mask, %conv.i1110.i
   %arrayidx31.i.i12864 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i.i12863
   br label %for.body.i.i1125.i
 
@@ -33771,7 +33771,7 @@ for.body77.i.i.i12735:                            ; preds = %for.body77.i.i.lr.p
   br i1 %cmp85.i.i.i12741, label %for.end132.i.i.i12385, label %if.end90.i.i.i12742
 
 if.end90.i.i.i12742:                              ; preds = %for.body77.i.i.i12735
-  %and91.i.i.i12743 = and i64 %conv82.i.i.i12739, %ringbuffer_mask
+  %and91.i.i.i12743 = and i64 %ringbuffer_mask, %conv82.i.i.i12739
   %add96.i.i.i12744 = add i64 %and91.i.i.i12743, %best_len.i.i.2.ph1128.i
   %cmp97.i.i.i12745 = icmp ugt i64 %add96.i.i.i12744, %ringbuffer_mask
   br i1 %cmp97.i.i.i12745, label %for.cond74.i.i.backedge.i12749, label %lor.lhs.false99.i.i.i12746
@@ -34139,7 +34139,7 @@ if.then24.i1206.i:                                ; preds = %if.then14.i1193.i
   br i1 %cmp27.i1210.not.i, label %if.end52.i1191.i, label %for.body.i.i1254.preheader.i
 
 for.body.i.i1254.preheader.i:                     ; preds = %if.then24.i1206.i
-  %and30.i1213.i = and i64 %conv.i1197.i, %ringbuffer_mask
+  %and30.i1213.i = and i64 %ringbuffer_mask, %conv.i1197.i
   %arrayidx31.i1214.i = getelementptr inbounds i8, ptr %ringbuffer, i64 %and30.i1213.i
   br label %for.body.i.i1254.i12610
 

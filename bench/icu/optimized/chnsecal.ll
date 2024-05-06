@@ -384,7 +384,7 @@ if.then:                                          ; preds = %entry
   store double %conv, ptr %m, align 8
   %call = call noundef double @_ZN6icu_759ClockMath11floorDivideEddPd(double noundef %conv, double noundef 1.200000e+01, ptr noundef nonnull %m)
   %conv3 = fptosi double %call to i32
-  %add = add nsw i32 %conv3, %eyear
+  %add = add nsw i32 %eyear, %conv3
   %0 = load double, ptr %m, align 8
   %conv4 = fptosi double %0 to i32
   br label %if.end
@@ -693,7 +693,7 @@ entry:
   %fZoneAstroCalc = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load ptr, ptr %fZoneAstroCalc, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end6, label %if.then
+  br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %status, align 4
@@ -703,23 +703,19 @@ if.then:                                          ; preds = %entry
   call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0, double noundef %millis, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %2, 0
-  br i1 %cmp.i, label %if.end6, label %if.then3
+  br i1 %cmp.i, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.then
   %3 = load i32, ptr %rawOffset, align 4
   %4 = load i32, ptr %dstOffset, align 4
   %add = add nsw i32 %4, %3
   %conv = sitofp i32 %add to double
-  %add4 = fadd double %conv, %millis
   br label %return
 
-if.end6:                                          ; preds = %if.then, %entry
-  %add7 = fadd double %millis, 2.880000e+07
-  br label %return
-
-return:                                           ; preds = %if.end6, %if.then3
-  %add7.sink = phi double [ %add7, %if.end6 ], [ %add4, %if.then3 ]
-  %div.i3 = fdiv double %add7.sink, 8.640000e+07
+return:                                           ; preds = %entry, %if.then, %if.then3
+  %.sink = phi double [ %conv, %if.then3 ], [ 2.880000e+07, %if.then ], [ 2.880000e+07, %entry ]
+  %add7 = fadd double %millis, %.sink
+  %div.i3 = fdiv double %add7, 8.640000e+07
   %call.i4 = call noundef double @uprv_floor_75(double noundef %div.i3)
   ret double %call.i4
 }
@@ -835,9 +831,9 @@ if.then3.i14:                                     ; preds = %if.then.i10
   br label %_ZNK6icu_7515ChineseCalendar12millisToDaysEd.exit
 
 _ZNK6icu_7515ChineseCalendar12millisToDaysEd.exit: ; preds = %if.end, %if.then.i10, %if.then3.i14
-  %conv.i16.sink = phi double [ %conv.i16, %if.then3.i14 ], [ 2.880000e+07, %if.then.i10 ], [ 2.880000e+07, %if.end ]
-  %add4.i = fadd double %call8, %conv.i16.sink
-  %div.i3.i = fdiv double %add4.i, 8.640000e+07
+  %.sink.i = phi double [ %conv.i16, %if.then3.i14 ], [ 2.880000e+07, %if.then.i10 ], [ 2.880000e+07, %if.end ]
+  %add7.i = fadd double %call8, %.sink.i
+  %div.i3.i = fdiv double %add7.i, 8.640000e+07
   %call.i4.i = call noundef double @uprv_floor_75(double noundef %div.i3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rawOffset.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dstOffset.i6)
@@ -1036,9 +1032,9 @@ if.then3.i10:                                     ; preds = %if.then.i6
   br label %_ZNK6icu_7515ChineseCalendar12millisToDaysEd.exit
 
 _ZNK6icu_7515ChineseCalendar12millisToDaysEd.exit: ; preds = %_ZNK6icu_7515ChineseCalendar12daysToMillisEd.exit, %if.then.i6, %if.then3.i10
-  %conv.i12.sink = phi double [ %conv.i12, %if.then3.i10 ], [ 2.880000e+07, %if.then.i6 ], [ 2.880000e+07, %_ZNK6icu_7515ChineseCalendar12daysToMillisEd.exit ]
-  %add4.i = fadd double %call4, %conv.i12.sink
-  %div.i3.i = fdiv double %add4.i, 8.640000e+07
+  %.sink.i = phi double [ %conv.i12, %if.then3.i10 ], [ 2.880000e+07, %if.then.i6 ], [ 2.880000e+07, %_ZNK6icu_7515ChineseCalendar12daysToMillisEd.exit ]
+  %add7.i = fadd double %call4, %.sink.i
+  %div.i3.i = fdiv double %add7.i, 8.640000e+07
   %call.i4.i = call noundef double @uprv_floor_75(double noundef %div.i3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rawOffset.i1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dstOffset.i2)
@@ -1214,7 +1210,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %gyear)
-  %cmp = icmp sgt i32 %call, %days
+  %cmp = icmp slt i32 %days, %call
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 440
   %1 = load ptr, ptr %vfn3, align 8
@@ -1267,7 +1263,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 496
   %7 = load ptr, ptr %vfn31, align 8
   %call32 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %gyear)
-  %cmp33 = icmp sgt i32 %call32, %days
+  %cmp33 = icmp slt i32 %days, %call32
   br i1 %cmp33, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.end
@@ -1367,7 +1363,7 @@ if.then78:                                        ; preds = %land.end
   %cmp82 = icmp sgt i32 %gmonth, 5
   %or.cond = or i1 %cmp82, %cmp81
   %inc = zext i1 %or.cond to i32
-  %sub79 = add i32 %inc, %gyear
+  %sub79 = add i32 %gyear, %inc
   %extended_year.0 = sub i32 %sub79, %17
   %cycle_year.0.v = select i1 %or.cond, i32 2637, i32 2636
   %add87 = sub i32 %add17, %call21
@@ -1402,7 +1398,7 @@ if.then78:                                        ; preds = %land.end
   %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 496
   %19 = load ptr, ptr %vfn94, align 8
   %call95 = call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %gyear)
-  %cmp96 = icmp sgt i32 %call95, %days
+  %cmp96 = icmp slt i32 %days, %call95
   br i1 %cmp96, label %if.then97, label %if.end102
 
 if.then97:                                        ; preds = %if.then78

@@ -487,15 +487,13 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.25.0.insert.shift.i.i = shl nuw i64 %.sroa.25.0.insert.ext.i.i, 32
   %.sroa.6.0.insert.ext.i.i = zext i32 %262 to i64
   %.sroa.6.0.insert.shift.i.i = shl nuw i64 %.sroa.6.0.insert.ext.i.i, 32
-  %.sroa.0158.0.insert.ext.i.i = zext i32 %257 to i64
-  %.sroa.0158.0.insert.insert.i.i = or disjoint i64 %.sroa.6.0.insert.shift.i.i, %.sroa.0158.0.insert.ext.i.i
   %.sroa.0280.0.extract.trunc288.i.i = sub i32 %243, %257
   %.sroa.22.0.extract.shift5.i.i.i = sub i64 %.sroa.25.0.insert.shift.i.i, %.sroa.6.0.insert.shift.i.i
   %.sroa.12289.0.extract.shift290.i.i = lshr exact i64 %.sroa.22.0.extract.shift5.i.i.i, 32
   %.sroa.12289.0.extract.trunc291.i.i = trunc nuw i64 %.sroa.12289.0.extract.shift290.i.i to i32
   %.sroa.0262.0.extract.trunc270.i.i = add i32 %243, %257
-  %.sroa.2.0.extract.shift5.i.i.i = add i64 %.sroa.0158.0.insert.insert.i.i, %.sroa.25.0.insert.shift.i.i
-  %.sroa.12.0.extract.shift271.i.i = lshr i64 %.sroa.2.0.extract.shift5.i.i.i, 32
+  %.sroa.2.0.extract.shift5.i.i.i = add i64 %.sroa.6.0.insert.shift.i.i, %.sroa.25.0.insert.shift.i.i
+  %.sroa.12.0.extract.shift271.i.i = lshr exact i64 %.sroa.2.0.extract.shift5.i.i.i, 32
   %.sroa.12.0.extract.trunc272.i.i = trunc nuw i64 %.sroa.12.0.extract.shift271.i.i to i32
   %263 = icmp sgt i32 %.sroa.0280.0.extract.trunc288.i.i, -1
   br i1 %263, label %264, label %266
@@ -768,15 +766,13 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.25.0.insert.shift239.i.i = shl nuw i64 %.sroa.25.0.insert.ext238.i.i, 32
   %.sroa.6.0.insert.ext177.i.i = zext i32 %396 to i64
   %.sroa.6.0.insert.shift178.i.i = shl nuw i64 %.sroa.6.0.insert.ext177.i.i, 32
-  %.sroa.0158.0.insert.ext164.i.i = zext i32 %391 to i64
-  %.sroa.0158.0.insert.insert166.i.i = or disjoint i64 %.sroa.6.0.insert.shift178.i.i, %.sroa.0158.0.insert.ext164.i.i
   %.sroa.0280.0.extract.trunc.i.i = sub i32 %380, %391
   %.sroa.22.0.extract.shift5.i477.i.i = sub i64 %.sroa.25.0.insert.shift239.i.i, %.sroa.6.0.insert.shift178.i.i
   %.sroa.12289.0.extract.shift.i.i = lshr exact i64 %.sroa.22.0.extract.shift5.i477.i.i, 32
   %.sroa.12289.0.extract.trunc.i.i = trunc nuw i64 %.sroa.12289.0.extract.shift.i.i to i32
   %.sroa.0262.0.extract.trunc.i.i = add i32 %380, %391
-  %.sroa.2.0.extract.shift5.i481.i.i = add i64 %.sroa.0158.0.insert.insert166.i.i, %.sroa.25.0.insert.shift239.i.i
-  %.sroa.12.0.extract.shift.i.i = lshr i64 %.sroa.2.0.extract.shift5.i481.i.i, 32
+  %.sroa.2.0.extract.shift5.i481.i.i = add i64 %.sroa.6.0.insert.shift178.i.i, %.sroa.25.0.insert.shift239.i.i
+  %.sroa.12.0.extract.shift.i.i = lshr exact i64 %.sroa.2.0.extract.shift5.i481.i.i, 32
   %.sroa.12.0.extract.trunc.i.i = trunc nuw i64 %.sroa.12.0.extract.shift.i.i to i32
   %397 = icmp sgt i32 %.sroa.0280.0.extract.trunc.i.i, -1
   br i1 %397, label %398, label %400
@@ -2767,10 +2763,10 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
   %22 = tail call ptr @newPS() #18
   %23 = sub i32 %.sroa.057.0.extract.trunc, %3
   %24 = sub i32 %.sroa.3.0.extract.trunc, %3
-  %25 = add i32 %.sroa.057.0.extract.trunc, %3
+  %25 = add i32 %3, %.sroa.057.0.extract.trunc
   %26 = sub i32 %25, %9
   %27 = add i32 %26, %17
-  %28 = add i32 %.sroa.3.0.extract.trunc, %3
+  %28 = add i32 %3, %.sroa.3.0.extract.trunc
   %29 = sub i32 %28, %13
   %30 = add i32 %29, %21
   %31 = icmp sgt i32 %23, -1
@@ -3439,10 +3435,10 @@ define internal fastcc void @fillLine(double %0, double %1, double %2, double %3
   %10 = insertelement <2 x double> %9, double %1, i64 1
   %11 = fcmp ult <2 x double> %10, zeroinitializer
   %12 = select <2 x i1> %8, <2 x double> <double -5.000000e-01, double -5.000000e-01>, <2 x double> <double 5.000000e-01, double 5.000000e-01>
-  %13 = fadd <2 x double> %12, %7
+  %13 = fadd <2 x double> %7, %12
   %14 = fptosi <2 x double> %13 to <2 x i32>
   %15 = select <2 x i1> %11, <2 x double> <double -5.000000e-01, double -5.000000e-01>, <2 x double> <double 5.000000e-01, double 5.000000e-01>
-  %16 = fadd <2 x double> %15, %10
+  %16 = fadd <2 x double> %10, %15
   %17 = fptosi <2 x double> %16 to <2 x i32>
   %18 = extractelement <2 x i32> %14, i64 0
   %19 = extractelement <2 x i32> %14, i64 1

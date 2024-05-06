@@ -845,7 +845,7 @@ define internal fastcc void @Saig_BmcObjSetFrame(ptr nocapture noundef readonly 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val14 = load i32, ptr %7, align 4
-  %8 = icmp eq i32 %.val14, %2
+  %8 = icmp eq i32 %2, %.val14
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %4
@@ -884,7 +884,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %9
 
 Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %20
   %23 = load i32, ptr %6, align 8
-  %24 = icmp eq i32 %23, %2
+  %24 = icmp eq i32 %2, %23
   br i1 %24, label %25, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Vec_IntStartFull.exit
@@ -2405,9 +2405,9 @@ define noundef ptr @Saig_BmcGenerateCounterExample(ptr nocapture noundef readonl
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %9, align 4
   %14 = load i32, ptr %6, align 4
-  %.not61 = icmp slt i32 %14, 0
-  %.pre69 = load ptr, ptr %2, align 8
-  br i1 %.not61, label %._crit_edge, label %.preheader.lr.ph
+  %.not62 = icmp slt i32 %14, 0
+  %.pre70 = load ptr, ptr %2, align 8
+  br i1 %.not62, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2417,22 +2417,22 @@ define noundef ptr @Saig_BmcGenerateCounterExample(ptr nocapture noundef readonl
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   %20 = getelementptr inbounds i8, ptr %9, i64 20
   %21 = getelementptr inbounds i8, ptr %9, i64 8
-  %22 = getelementptr i8, ptr %.pre69, i64 108
+  %22 = getelementptr i8, ptr %.pre70, i64 108
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %25 = phi i32 [ %134, %.critedge ], [ %14, %.preheader.lr.ph ]
-  %26 = phi ptr [ %135, %.critedge ], [ %.pre69, %.preheader.lr.ph ]
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.critedge ], [ 0, %.preheader.lr.ph ]
+  %26 = phi ptr [ %135, %.critedge ], [ %.pre70, %.preheader.lr.ph ]
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.critedge ], [ 0, %.preheader.lr.ph ]
   %27 = getelementptr i8, ptr %26, i64 108
-  %.val4558 = load i32, ptr %27, align 4
-  %28 = icmp sgt i32 %.val4558, 0
+  %.val4559 = load i32, ptr %27, align 4
+  %28 = icmp sgt i32 %.val4559, 0
   br i1 %28, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %29 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %30
 
 30:                                               ; preds = %.lr.ph, %Saig_BmcObjFrame.exit.thread
@@ -2449,7 +2449,7 @@ define noundef ptr @Saig_BmcGenerateCounterExample(ptr nocapture noundef readonl
   %38 = load ptr, ptr %15, align 8
   %39 = getelementptr i8, ptr %38, i64 8
   %.val.i = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv65
+  %40 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv66
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 8
   %.val19.i = load ptr, ptr %42, align 8
@@ -2496,17 +2496,17 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
   %64 = add nsw i32 %.val49, 1
   %65 = getelementptr inbounds i8, ptr %.val48, i64 4
   %66 = load i32, ptr %65, align 4
-  %.not.i.not = icmp sgt i32 %66, %.val49
+  %.not.i.not = icmp slt i32 %.val49, %66
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %67
 
 67:                                               ; preds = %61
   %68 = load i32, ptr %.val48, align 8
   %69 = shl nsw i32 %68, 1
-  %.not55 = icmp sgt i32 %69, %.val49
-  %.not.i.i53.not = icmp sgt i32 %68, %.val49
+  %.not55 = icmp slt i32 %.val49, %69
   br i1 %.not55, label %82, label %70
 
 70:                                               ; preds = %67
+  %.not.i.i53.not = icmp sgt i32 %68, %.val49
   br i1 %.not.i.i53.not, label %Vec_IntGrow.exit.i, label %71
 
 71:                                               ; preds = %70
@@ -2531,7 +2531,8 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i
   br label %Vec_IntGrow.exit.sink.split.i
 
 82:                                               ; preds = %67
-  br i1 %.not.i.i53.not, label %Vec_IntGrow.exit.i, label %83
+  %.not56 = icmp slt i32 %.val49, %68
+  br i1 %.not56, label %Vec_IntGrow.exit.i, label %83
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds i8, ptr %.val48, i64 8
@@ -2562,8 +2563,8 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %92, %80
 
 Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.sink.split.i, %82, %70
   %94 = phi i32 [ %.pre, %Vec_IntGrow.exit.sink.split.i ], [ %66, %82 ], [ %66, %70 ]
-  %.not56 = icmp sgt i32 %94, %.val49
-  br i1 %.not56, label %._crit_edge.i, label %.lr.ph.i
+  %.not57 = icmp sgt i32 %94, %.val49
+  br i1 %.not57, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i
   %95 = getelementptr inbounds i8, ptr %.val48, i64 8
@@ -2610,8 +2611,8 @@ Vec_IntFillExtra.exit:                            ; preds = %61, %._crit_edge.i
   %112 = sext i32 %103 to i64
   %113 = getelementptr inbounds i32, ptr %.val51, i64 %112
   %114 = load i32, ptr %113, align 4
-  %.not57 = icmp eq i32 %114, 1
-  br i1 %.not57, label %115, label %Saig_BmcObjFrame.exit.thread
+  %.not58 = icmp eq i32 %114, 1
+  br i1 %.not58, label %115, label %Saig_BmcObjFrame.exit.thread
 
 115:                                              ; preds = %109, %107
   %116 = load i32, ptr %21, align 4
@@ -2642,19 +2643,19 @@ Saig_BmcObjFrame.exit.thread:                     ; preds = %Aig_ManObj.exit.thr
   br i1 %133, label %30, label %.critedge.loopexit, !llvm.loop !24
 
 .critedge.loopexit:                               ; preds = %Saig_BmcObjFrame.exit.thread
-  %.pre68 = load i32, ptr %6, align 4
+  %.pre69 = load i32, ptr %6, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %134 = phi i32 [ %.pre68, %.critedge.loopexit ], [ %25, %.preheader ]
+  %134 = phi i32 [ %.pre69, %.critedge.loopexit ], [ %25, %.preheader ]
   %135 = phi ptr [ %130, %.critedge.loopexit ], [ %26, %.preheader ]
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %136 = sext i32 %134 to i64
-  %.not.not = icmp slt i64 %indvars.iv65, %136
+  %.not.not = icmp slt i64 %indvars.iv66, %136
   br i1 %.not.not, label %.preheader, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader.lr.ph, %1
-  %137 = phi ptr [ %.pre69, %1 ], [ %.pre69, %.preheader.lr.ph ], [ %135, %.critedge ]
+  %137 = phi ptr [ %.pre70, %1 ], [ %.pre70, %.preheader.lr.ph ], [ %135, %.critedge ]
   %138 = tail call i32 @Saig_ManVerifyCex(ptr noundef %137, ptr noundef nonnull %9) #18
   %.not40 = icmp eq i32 %138, 0
   br i1 %.not40, label %139, label %140
@@ -3513,17 +3514,17 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
-  br i1 %.not, label %5, label %40
+  %.not = icmp sgt i32 %1, %4
+  br i1 %.not, label %5, label %41
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
-  %.not.i = icmp slt i32 %6, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %5
+  %.not.i = icmp slt i32 %6, %1
   br i1 %.not.i, label %10, label %Vec_IntGrow.exit
 
 10:                                               ; preds = %9
@@ -3548,59 +3549,60 @@ define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noun
   br label %Vec_IntGrow.exit.sink.split
 
 21:                                               ; preds = %5
-  br i1 %.not.i, label %22, label %Vec_IntGrow.exit
+  %22 = icmp sgt i32 %1, %6
+  br i1 %22, label %23, label %Vec_IntGrow.exit
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not9.i21 = icmp eq ptr %24, null
-  %25 = sext i32 %7 to i64
-  %26 = shl nsw i64 %25, 2
-  br i1 %.not9.i21, label %29, label %27
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not9.i21 = icmp eq ptr %25, null
+  %26 = sext i32 %7 to i64
+  %27 = shl nsw i64 %26, 2
+  br i1 %.not9.i21, label %30, label %28
 
-27:                                               ; preds = %22
-  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #21
-  br label %31
+28:                                               ; preds = %23
+  %29 = tail call ptr @realloc(ptr noundef nonnull %25, i64 noundef %27) #21
+  br label %32
 
-29:                                               ; preds = %22
-  %30 = tail call noalias ptr @malloc(i64 noundef %26) #19
-  br label %31
+30:                                               ; preds = %23
+  %31 = tail call noalias ptr @malloc(i64 noundef %27) #19
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
-  store ptr %32, ptr %23, align 8
+32:                                               ; preds = %30, %28
+  %33 = phi ptr [ %29, %28 ], [ %31, %30 ]
+  store ptr %33, ptr %24, align 8
   br label %Vec_IntGrow.exit.sink.split
 
-Vec_IntGrow.exit.sink.split:                      ; preds = %19, %31
-  %.sink = phi i32 [ %7, %31 ], [ %1, %19 ]
+Vec_IntGrow.exit.sink.split:                      ; preds = %19, %32
+  %.sink = phi i32 [ %7, %32 ], [ %1, %19 ]
   store i32 %.sink, ptr %0, align 8
   br label %Vec_IntGrow.exit
 
 Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.sink.split, %9, %21
-  %33 = load i32, ptr %3, align 4
-  %34 = icmp slt i32 %33, %1
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  %34 = load i32, ptr %3, align 4
+  %35 = icmp slt i32 %34, %1
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = sext i32 %33 to i64
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = sext i32 %34 to i64
   %wide.trip.count = sext i32 %1 to i64
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
-  store i32 0, ptr %39, align 4
+38:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  %39 = load ptr, ptr %36, align 8
+  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
+  store i32 0, ptr %40, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
+._crit_edge:                                      ; preds = %38, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
-  br label %40
+  br label %41
 
-40:                                               ; preds = %2, %._crit_edge
+41:                                               ; preds = %2, %._crit_edge
   ret void
 }
 

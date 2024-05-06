@@ -110,7 +110,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   store i64 %.sroa.5.8.insert.shift.i, ptr %.sroa.2.0..sroa_idx, align 8
   %24 = load i32, ptr @globalUtilOptind, align 4
   %25 = add nsw i32 %24, 1
-  %26 = icmp eq i32 %25, %1
+  %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23

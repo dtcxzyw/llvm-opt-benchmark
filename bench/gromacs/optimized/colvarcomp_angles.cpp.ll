@@ -1369,7 +1369,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr nocapture noundef no
   %99 = load <2 x double>, ptr %30, align 8, !noalias !21
   %100 = insertelement <2 x double> poison, double %95, i64 0
   %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
-  %102 = fmul <2 x double> %99, %101
+  %102 = fmul <2 x double> %101, %99
   store <2 x double> %102, ptr %98, align 8
   %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 112
   store double %97, ptr %.sroa.327.0..sroa_idx, align 8
@@ -1397,72 +1397,71 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr nocapture noundef no
   br i1 %.not65, label %._crit_edge, label %.lr.ph63
 
 .lr.ph61:                                         ; preds = %.preheader58, %.lr.ph61
-  %120 = phi ptr [ %142, %.lr.ph61 ], [ %87, %.preheader58 ]
-  %121 = phi ptr [ %138, %.lr.ph61 ], [ %83, %.preheader58 ]
-  %.160 = phi i64 [ %137, %.lr.ph61 ], [ 0, %.preheader58 ]
+  %120 = phi ptr [ %141, %.lr.ph61 ], [ %87, %.preheader58 ]
+  %121 = phi ptr [ %137, %.lr.ph61 ], [ %83, %.preheader58 ]
+  %.160 = phi i64 [ %136, %.lr.ph61 ], [ 0, %.preheader58 ]
   %122 = getelementptr inbounds %"class.colvarmodule::atom", ptr %120, i64 %.160
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load double, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %121, i64 1272
   %126 = load double, ptr %125, align 8
-  %127 = fdiv double %124, %126
-  %128 = load double, ptr %.sroa.342.0..sroa_idx, align 8, !noalias !26
-  %129 = fneg double %128
+  %127 = load double, ptr %.sroa.342.0..sroa_idx, align 8, !noalias !26
+  %128 = fneg double %124
+  %129 = fdiv double %128, %126
   %130 = fmul double %127, %129
   %131 = getelementptr inbounds i8, ptr %122, i64 96
   %132 = load <2 x double>, ptr %39, align 8, !noalias !26
-  %133 = fneg <2 x double> %132
-  %134 = insertelement <2 x double> poison, double %127, i64 0
-  %135 = shufflevector <2 x double> %134, <2 x double> poison, <2 x i32> zeroinitializer
-  %136 = fmul <2 x double> %135, %133
-  store <2 x double> %136, ptr %131, align 8
+  %133 = insertelement <2 x double> poison, double %129, i64 0
+  %134 = shufflevector <2 x double> %133, <2 x double> poison, <2 x i32> zeroinitializer
+  %135 = fmul <2 x double> %132, %134
+  store <2 x double> %135, ptr %131, align 8
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 112
   store double %130, ptr %.sroa.324.0..sroa_idx, align 8
-  %137 = add nuw i64 %.160, 1
-  %138 = load ptr, ptr %82, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 504
-  %140 = getelementptr inbounds i8, ptr %138, i64 512
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %139, align 8
+  %136 = add nuw i64 %.160, 1
+  %137 = load ptr, ptr %82, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 504
+  %139 = getelementptr inbounds i8, ptr %137, i64 512
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %138, align 8
+  %142 = ptrtoint ptr %140 to i64
   %143 = ptrtoint ptr %141 to i64
-  %144 = ptrtoint ptr %142 to i64
-  %145 = sub i64 %143, %144
-  %146 = sdiv exact i64 %145, 120
-  %147 = icmp ult i64 %137, %146
-  br i1 %147, label %.lr.ph61, label %.preheader, !llvm.loop !29
+  %144 = sub i64 %142, %143
+  %145 = sdiv exact i64 %144, 120
+  %146 = icmp ult i64 %136, %145
+  br i1 %146, label %.lr.ph61, label %.preheader, !llvm.loop !29
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
-  %148 = phi ptr [ %168, %.lr.ph63 ], [ %119, %.preheader ]
-  %149 = phi ptr [ %164, %.lr.ph63 ], [ %115, %.preheader ]
-  %.262 = phi i64 [ %163, %.lr.ph63 ], [ 0, %.preheader ]
-  %150 = getelementptr inbounds %"class.colvarmodule::atom", ptr %148, i64 %.262
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
-  %152 = load double, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %149, i64 1272
-  %154 = load double, ptr %153, align 8
-  %155 = fdiv double %152, %154
-  %156 = load double, ptr %.sroa.342.0..sroa_idx, align 8, !noalias !30
-  %157 = fmul double %155, %156
-  %158 = getelementptr inbounds i8, ptr %150, i64 96
-  %159 = load <2 x double>, ptr %39, align 8, !noalias !30
-  %160 = insertelement <2 x double> poison, double %155, i64 0
-  %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> zeroinitializer
-  %162 = fmul <2 x double> %159, %161
-  store <2 x double> %162, ptr %158, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 112
-  store double %157, ptr %.sroa.3.0..sroa_idx, align 8
-  %163 = add nuw i64 %.262, 1
-  %164 = load ptr, ptr %114, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 504
-  %166 = getelementptr inbounds i8, ptr %164, i64 512
-  %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr %165, align 8
+  %147 = phi ptr [ %167, %.lr.ph63 ], [ %119, %.preheader ]
+  %148 = phi ptr [ %163, %.lr.ph63 ], [ %115, %.preheader ]
+  %.262 = phi i64 [ %162, %.lr.ph63 ], [ 0, %.preheader ]
+  %149 = getelementptr inbounds %"class.colvarmodule::atom", ptr %147, i64 %.262
+  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %151 = load double, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %148, i64 1272
+  %153 = load double, ptr %152, align 8
+  %154 = fdiv double %151, %153
+  %155 = load double, ptr %.sroa.342.0..sroa_idx, align 8, !noalias !30
+  %156 = fmul double %154, %155
+  %157 = getelementptr inbounds i8, ptr %149, i64 96
+  %158 = load <2 x double>, ptr %39, align 8, !noalias !30
+  %159 = insertelement <2 x double> poison, double %154, i64 0
+  %160 = shufflevector <2 x double> %159, <2 x double> poison, <2 x i32> zeroinitializer
+  %161 = fmul <2 x double> %160, %158
+  store <2 x double> %161, ptr %157, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %149, i64 112
+  store double %156, ptr %.sroa.3.0..sroa_idx, align 8
+  %162 = add nuw i64 %.262, 1
+  %163 = load ptr, ptr %114, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 504
+  %165 = getelementptr inbounds i8, ptr %163, i64 512
+  %166 = load ptr, ptr %165, align 8
+  %167 = load ptr, ptr %164, align 8
+  %168 = ptrtoint ptr %166 to i64
   %169 = ptrtoint ptr %167 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = sdiv exact i64 %171, 120
-  %173 = icmp ult i64 %163, %172
-  br i1 %173, label %.lr.ph63, label %._crit_edge, !llvm.loop !33
+  %170 = sub i64 %168, %169
+  %171 = sdiv exact i64 %170, 120
+  %172 = icmp ult i64 %162, %171
+  br i1 %172, label %.lr.ph63, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
   ret void
@@ -1853,8 +1852,8 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr nocapture noundef nonnull
   %96 = fsub double %92, %95
   %97 = fmul double %87, %94
   %98 = fmul double %87, %96
-  %99 = fmul double %93, %70
-  %100 = fmul double %95, %70
+  %99 = fmul double %70, %93
+  %100 = fmul double %70, %95
   %101 = fsub double %99, %88
   %102 = fsub double %100, %90
   %103 = fmul double %78, %101
@@ -1945,7 +1944,7 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr nocapture noundef nonnull
   %182 = fsub double %181, %79
   %183 = fmul double %179, %182
   %184 = extractelement <2 x double> %82, i64 1
-  %185 = fmul double %184, %77
+  %185 = fmul double %77, %184
   %186 = fdiv double -1.000000e+00, %70
   %187 = fmul double %186, 0x404CA5DC1A63C1F8
   %188 = shufflevector <2 x double> %14, <2 x double> %16, <2 x i32> <i32 0, i32 2>
@@ -1991,7 +1990,7 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr nocapture noundef nonnull
   %227 = fneg double %20
   %228 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
   %229 = insertelement <2 x double> %228, double %79, i64 0
-  %230 = fmul <2 x double> %229, %196
+  %230 = fmul <2 x double> %196, %229
   %231 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
   %232 = insertelement <2 x double> %231, double %180, i64 0
   %233 = fsub <2 x double> %230, %232
@@ -3093,7 +3092,7 @@ _ZSt10_ConstructIN12colvarmodule4atomEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #21
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %.015.i.i.i.i.i, %9
+  %.not4.i.i.i.i.i.i.i = icmp eq ptr %9, %.015.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN12colvarmodule4atomEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %15, %.lr.ph.i.i.i.i.i.i.i

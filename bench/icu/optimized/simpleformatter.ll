@@ -325,7 +325,7 @@ if.then117:                                       ; preds = %for.end
 if.end126:                                        ; preds = %if.then117, %for.end
   %add127 = add nsw i32 %maxArg.0.ph.ph, 1
   %cmp128 = icmp sge i32 %add127, %min
-  %cmp130.not = icmp slt i32 %maxArg.0.ph.ph, %max
+  %cmp130.not = icmp sgt i32 %max, %maxArg.0.ph.ph
   %or.cond = and i1 %cmp130.not, %cmp128
   br i1 %or.cond, label %if.end132, label %if.then131
 
@@ -390,7 +390,7 @@ _ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_751
   %cmp.i = icmp ugt i16 %5, 1
   br i1 %cmp.i, label %_ZNK6icu_7515SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %if.end9.i
 
-if.end9.i:                                        ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i, %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i
+if.end9.i:                                        ; preds = %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i
   br i1 %tobool.not.i.i.i, label %if.else.i.i, label %for.cond.preheader.i
 
 if.else.i.i:                                      ; preds = %if.end9.i
@@ -526,23 +526,19 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit.i:    ; preds = %if.else9.i.i, %if.t
   %4 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %4, i32 %shr.i.i.i
   %cmp.i.i = icmp eq i32 %cond.i.i, 0
-  br i1 %cmp.i.i, label %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit, label %cond.false.i.i
+  br i1 %cmp.i.i, label %if.end9, label %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit
 
-cond.false.i.i:                                   ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i
+_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i
   %5 = load i16, ptr %retval.0.i.i, align 2
   %conv.i.i = zext i16 %5 to i32
-  br label %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit
-
-_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i, %cond.false.i.i
-  %cond.i1.i = phi i32 [ %conv.i.i, %cond.false.i.i ], [ 0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i ]
-  %cmp = icmp ugt i32 %cond.i1.i, %valuesLength
+  %cmp = icmp ult i32 %valuesLength, %conv.i.i
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit, %lor.lhs.false, %if.end
   store i32 1, ptr %errorCode, align 4
   br label %return
 
-if.end9:                                          ; preds = %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit
+if.end9:                                          ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i, %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit
   br i1 %tobool.not.i.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else.i:                                        ; preds = %if.end9
@@ -617,7 +613,7 @@ _ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_751
   %cmp.i = icmp ugt i16 %5, 2
   br i1 %cmp.i, label %_ZNK6icu_7515SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %if.end9.i
 
-if.end9.i:                                        ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i, %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i
+if.end9.i:                                        ; preds = %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i
   br i1 %tobool.not.i.i.i, label %if.else.i.i, label %for.cond.preheader.i
 
 if.else.i.i:                                      ; preds = %if.end9.i
@@ -752,7 +748,7 @@ _ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_751
   %cmp.i = icmp ugt i16 %5, 3
   br i1 %cmp.i, label %_ZNK6icu_7515SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %if.end9.i
 
-if.end9.i:                                        ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i, %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i
+if.end9.i:                                        ; preds = %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i.i
   br i1 %tobool.not.i.i.i, label %if.else.i.i, label %for.cond.preheader.i
 
 if.else.i.i:                                      ; preds = %if.end9.i
@@ -899,7 +895,7 @@ if.end14.us:                                      ; preds = %if.then9.us
   br i1 %cmp15.us, label %if.then16.us, label %if.else35.us
 
 if.else35.us:                                     ; preds = %if.end14.us
-  %cmp36.us = icmp slt i32 %conv.us, %offsetsLength
+  %cmp36.us = icmp sgt i32 %offsetsLength, %conv.us
   br i1 %cmp36.us, label %if.then37.us, label %if.end41.us
 
 if.then37.us:                                     ; preds = %if.else35.us
@@ -927,7 +923,7 @@ if.end41.us:                                      ; preds = %if.then37.us, %if.e
 
 if.then16.us:                                     ; preds = %if.end14.us
   %cmp20.us = icmp eq i32 %inc5.us, 2
-  %cmp22.us = icmp slt i32 %conv.us, %offsetsLength
+  %cmp22.us = icmp sgt i32 %offsetsLength, %conv.us
   br i1 %cmp20.us, label %if.then21.us, label %if.else.us
 
 if.else.us:                                       ; preds = %if.then16.us
@@ -992,7 +988,7 @@ if.then9:                                         ; preds = %for.body4
   br i1 %or.cond, label %return.sink.split, label %if.else35
 
 if.else35:                                        ; preds = %if.then9
-  %cmp36 = icmp slt i32 %conv, %offsetsLength
+  %cmp36 = icmp sgt i32 %offsetsLength, %conv
   br i1 %cmp36, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %if.else35
@@ -1118,7 +1114,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end7, %if.then7.
 _ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit.thread: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %5 = load i16, ptr %retval.0.i, align 2
   %conv.i36 = zext i16 %5 to i32
-  %cmp51 = icmp ugt i32 %conv.i36, %valuesLength
+  %cmp51 = icmp ult i32 %valuesLength, %conv.i36
   br i1 %cmp51, label %if.then12, label %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit42
 
 if.then12:                                        ; preds = %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit.thread
@@ -1256,7 +1252,7 @@ _ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit: ; preds = %for.end
   %2 = load i16, ptr %compiledPattern, align 2
   %conv.i = zext i16 %2 to i32
   %3 = xor i32 %conv.i, -1
-  %sub1 = add i32 %3, %compiledPatternLength
+  %sub1 = add i32 %compiledPatternLength, %3
   tail call void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef %sub1, i32 noundef 0, i32 noundef 0)
   %cmp424 = icmp sgt i32 %compiledPatternLength, 1
   br i1 %cmp424, label %for.body5.lr.ph, label %nrvo.skipdtor
@@ -1296,7 +1292,7 @@ lpad11:                                           ; preds = %if.then
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %for.body5
-  %cmp14 = icmp slt i32 %conv, %offsetsLength
+  %cmp14 = icmp sgt i32 %offsetsLength, %conv
   br i1 %cmp14, label %invoke.cont16, label %if.end20
 
 invoke.cont16:                                    ; preds = %if.else

@@ -5180,17 +5180,17 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr nocaptur
   %4 = add nsw i32 %.val3, 1
   %5 = getelementptr inbounds i8, ptr %.val2, i64 228
   %6 = load i32, ptr %5, align 4
-  %.not.i.not.i.i = icmp sgt i32 %6, %.val3
+  %.not.i.not.i.i = icmp slt i32 %.val3, %6
   br i1 %.not.i.not.i.i, label %Abc_NodeTravId.exit, label %7
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 8
   %9 = shl nsw i32 %8, 1
-  %.not.i.i = icmp sgt i32 %9, %.val3
-  %.not.i.i.not.i.i = icmp sgt i32 %8, %.val3
+  %.not.i.i = icmp slt i32 %.val3, %9
   br i1 %.not.i.i, label %22, label %10
 
 10:                                               ; preds = %7
+  %.not.i.i.not.i.i = icmp sgt i32 %8, %.val3
   br i1 %.not.i.i.not.i.i, label %Vec_IntGrow.exit.i.i.i, label %11
 
 11:                                               ; preds = %10
@@ -5215,7 +5215,8 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr nocaptur
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 22:                                               ; preds = %7
-  br i1 %.not.i.i.not.i.i, label %Vec_IntGrow.exit.i.i.i, label %23
+  %.not3.i.i = icmp slt i32 %.val3, %8
+  br i1 %.not3.i.i, label %Vec_IntGrow.exit.i.i.i, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %.val2, i64 232
@@ -5246,8 +5247,8 @@ Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %32, %20
 
 Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.sink.split.i.i.i, %22, %10
   %34 = phi i32 [ %.pre.i.i, %Vec_IntGrow.exit.sink.split.i.i.i ], [ %6, %22 ], [ %6, %10 ]
-  %.not3.i.i = icmp sgt i32 %34, %.val3
-  br i1 %.not3.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not4.i.i = icmp sgt i32 %34, %.val3
+  br i1 %.not4.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %Vec_IntGrow.exit.i.i.i
   %35 = getelementptr inbounds i8, ptr %.val2, i64 232
@@ -7169,7 +7170,7 @@ define void @Abc_NtkMakeSeq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %7, align 4
-  %.not53 = icmp sgt i32 %.val.val, %1
+  %.not53 = icmp slt i32 %1, %.val.val
   br i1 %.not53, label %9, label %8
 
 8:                                                ; preds = %5
@@ -7181,7 +7182,7 @@ define void @Abc_NtkMakeSeq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %.val58 = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.val58, i64 4
   %.val58.val = load i32, ptr %11, align 4
-  %.not54 = icmp sgt i32 %.val58.val, %1
+  %.not54 = icmp slt i32 %1, %.val58.val
   br i1 %.not54, label %13, label %12
 
 12:                                               ; preds = %9
@@ -7484,7 +7485,7 @@ define noundef ptr @Abc_NtkMakeOnePo(ptr noundef %0, i32 noundef %1, i32 noundef
   %.val49 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val49, i64 4
   %.val49.val = load i32, ptr %7, align 4
-  %.not = icmp sgt i32 %.val49.val, %1
+  %.not = icmp slt i32 %1, %.val49.val
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5, %3

@@ -120,55 +120,54 @@ define dso_local i32 @nghttp2_submit_headers(ptr noundef %0, i8 noundef zeroext 
   %10 = getelementptr inbounds i8, ptr %0, i64 2844
   %11 = load i8, ptr %10, align 4
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %14, label %29
+  br i1 %.not, label %14, label %30
 
 12:                                               ; preds = %7
   %13 = icmp slt i32 %2, 1
-  br i1 %13, label %29, label %14
+  br i1 %13, label %30, label %14
 
 14:                                               ; preds = %12, %9
   %15 = and i8 %1, 1
   %.not25 = icmp eq ptr %3, null
-  br i1 %.not25, label %27, label %16
+  br i1 %.not25, label %28, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @nghttp2_priority_spec_check_default(ptr noundef nonnull %3) #5
   %.not26 = icmp eq i32 %17, 0
-  br i1 %.not26, label %18, label %27
+  br i1 %.not26, label %18, label %28
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %0, i64 2792
   %20 = load i32, ptr %19, align 4
   %.not27 = icmp eq i32 %20, 1
-  br i1 %.not27, label %27, label %21
+  br i1 %.not27, label %28, label %21
 
 21:                                               ; preds = %18
   br i1 %8, label %22, label %detect_self_dependency.exit
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %0, i64 2712
-  %24 = load i32, ptr %3, align 4
+  %24 = load i32, ptr %23, align 8
   br label %detect_self_dependency.exit
 
 detect_self_dependency.exit:                      ; preds = %21, %22
-  %.sink8.i = phi i32 [ %24, %22 ], [ %2, %21 ]
-  %.sink7.in.i = phi ptr [ %23, %22 ], [ %3, %21 ]
-  %.sink7.i = load i32, ptr %.sink7.in.i, align 4
-  %.not29 = icmp eq i32 %.sink7.i, %.sink8.i
-  br i1 %.not29, label %29, label %25
+  %.sink7.i = phi i32 [ %24, %22 ], [ %2, %21 ]
+  %25 = load i32, ptr %3, align 4
+  %.not29 = icmp eq i32 %.sink7.i, %25
+  br i1 %.not29, label %30, label %26
 
-25:                                               ; preds = %detect_self_dependency.exit
-  %26 = or disjoint i8 %15, 32
-  br label %27
+26:                                               ; preds = %detect_self_dependency.exit
+  %27 = or disjoint i8 %15, 32
+  br label %28
 
-27:                                               ; preds = %14, %16, %18, %25
-  %.021 = phi ptr [ %3, %25 ], [ null, %18 ], [ null, %16 ], [ null, %14 ]
-  %.020 = phi i8 [ %26, %25 ], [ %15, %18 ], [ %15, %16 ], [ %15, %14 ]
-  %28 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext %.020, i32 noundef %2, ptr noundef %.021, ptr noundef %4, i64 noundef %5, ptr noundef null, ptr noundef %6)
-  br label %29
+28:                                               ; preds = %14, %16, %18, %26
+  %.021 = phi ptr [ %3, %26 ], [ null, %18 ], [ null, %16 ], [ null, %14 ]
+  %.020 = phi i8 [ %27, %26 ], [ %15, %18 ], [ %15, %16 ], [ %15, %14 ]
+  %29 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext %.020, i32 noundef %2, ptr noundef %.021, ptr noundef %4, i64 noundef %5, ptr noundef null, ptr noundef %6)
+  br label %30
 
-29:                                               ; preds = %detect_self_dependency.exit, %12, %9, %27
-  %.0 = phi i32 [ %28, %27 ], [ -505, %9 ], [ -501, %12 ], [ -501, %detect_self_dependency.exit ]
+30:                                               ; preds = %detect_self_dependency.exit, %12, %9, %28
+  %.0 = phi i32 [ %29, %28 ], [ -505, %9 ], [ -501, %12 ], [ -501, %detect_self_dependency.exit ]
   ret i32 %.0
 }
 
@@ -200,7 +199,7 @@ define dso_local i32 @nghttp2_submit_priority(ptr noundef %0, i8 noundef zeroext
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %3, align 4
-  %15 = icmp eq i32 %14, %2
+  %15 = icmp eq i32 %2, %14
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %13
@@ -464,7 +463,7 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
   %11 = load i32, ptr %10, align 4
   %12 = sub nsw i32 %3, %11
   store i32 %12, ptr %5, align 4
-  %13 = icmp eq i32 %11, %3
+  %13 = icmp eq i32 %3, %11
   br i1 %13, label %52, label %14
 
 14:                                               ; preds = %9
@@ -505,7 +504,7 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 %3, %34
   store i32 %35, ptr %5, align 4
-  %36 = icmp eq i32 %34, %3
+  %36 = icmp eq i32 %3, %34
   br i1 %36, label %52, label %37
 
 37:                                               ; preds = %32
@@ -811,54 +810,54 @@ define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr
   %7 = getelementptr inbounds i8, ptr %0, i64 2844
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %27
+  br i1 %.not, label %9, label %28
 
 9:                                                ; preds = %6
   %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %18, label %10
+  br i1 %.not20, label %19, label %10
 
 10:                                               ; preds = %9
   %11 = tail call i32 @nghttp2_priority_spec_check_default(ptr noundef nonnull %1) #5
   %.not21 = icmp eq i32 %11, 0
-  br i1 %.not21, label %12, label %18
+  br i1 %.not21, label %12, label %19
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 2792
   %14 = load i32, ptr %13, align 4
   %.not22 = icmp eq i32 %14, 1
-  br i1 %.not22, label %18, label %15
+  br i1 %.not22, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 2712
-  %17 = load i32, ptr %1, align 4
-  %.sink7.i = load i32, ptr %16, align 4
-  %.not24 = icmp eq i32 %.sink7.i, %17
-  br i1 %.not24, label %27, label %18
+  %17 = load i32, ptr %16, align 8
+  %18 = load i32, ptr %1, align 4
+  %.not24 = icmp eq i32 %17, %18
+  br i1 %.not24, label %28, label %19
 
-18:                                               ; preds = %9, %10, %12, %15
+19:                                               ; preds = %9, %10, %12, %15
   %.017 = phi ptr [ %1, %15 ], [ null, %12 ], [ null, %10 ], [ null, %9 ]
-  %19 = icmp eq ptr %4, null
-  br i1 %19, label %24, label %20
+  %20 = icmp eq ptr %4, null
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %set_request_flags.exit
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %set_request_flags.exit
 
-24:                                               ; preds = %20, %18
+25:                                               ; preds = %21, %19
   br label %set_request_flags.exit
 
-set_request_flags.exit:                           ; preds = %20, %24
-  %.0.i = phi i8 [ 1, %24 ], [ 0, %20 ]
+set_request_flags.exit:                           ; preds = %21, %25
+  %.0.i = phi i8 [ 1, %25 ], [ 0, %21 ]
   %.not.i = icmp eq ptr %.017, null
-  %25 = or disjoint i8 %.0.i, 32
-  %spec.select.i = select i1 %.not.i, i8 %.0.i, i8 %25
-  %26 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %spec.select.i, i32 noundef -1, ptr noundef %.017, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %27
+  %26 = or disjoint i8 %.0.i, 32
+  %spec.select.i = select i1 %.not.i, i8 %.0.i, i8 %26
+  %27 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %spec.select.i, i32 noundef -1, ptr noundef %.017, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %28
 
-27:                                               ; preds = %15, %6, %set_request_flags.exit
-  %.0 = phi i32 [ %26, %set_request_flags.exit ], [ -505, %6 ], [ -501, %15 ]
+28:                                               ; preds = %15, %6, %set_request_flags.exit
+  %.0 = phi i32 [ %27, %set_request_flags.exit ], [ -505, %6 ], [ -501, %15 ]
   ret i32 %.0
 }
 
@@ -943,7 +942,7 @@ define dso_local i64 @nghttp2_pack_settings_payload(ptr noundef %0, i64 noundef 
 
 6:                                                ; preds = %4
   %7 = mul i64 %3, 6
-  %8 = icmp ugt i64 %7, %1
+  %8 = icmp ult i64 %1, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6

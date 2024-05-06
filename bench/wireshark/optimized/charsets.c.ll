@@ -641,7 +641,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   %11 = zext i8 %10 to i32
   %12 = lshr i32 %11, %.048
   %13 = trunc nuw i32 %12 to i8
-  %14 = icmp ne ptr %.03546, %1
+  %14 = icmp ne ptr %1, %.03546
   %15 = icmp eq i32 %.048, 7
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %24
@@ -890,44 +890,43 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr nocapture nou
 
 56:                                               ; preds = %48, %42
   %.sink65 = phi i64 [ 4, %48 ], [ 3, %42 ]
-  %.sink = phi i32 [ -4, %48 ], [ -3, %42 ]
+  %.sink.neg = phi i32 [ 4, %48 ], [ 3, %42 ]
   %.055 = phi i32 [ %55, %48 ], [ %45, %42 ]
   %57 = getelementptr i8, ptr %1, i64 %.sink65
   %.not = icmp eq i8 %33, 0
-  %58 = sub i32 0, %2
-  %59 = icmp eq i32 %.sink, %58
-  %or.cond67 = or i1 %.not, %59
+  %58 = icmp eq i32 %2, %.sink.neg
+  %or.cond67 = or i1 %.not, %58
   br i1 %or.cond67, label %get_ucs_2_string.exit, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %56, %69
-  %.05364 = phi i32 [ %.1, %69 ], [ 0, %56 ]
-  %.05463 = phi i32 [ %70, %69 ], [ 0, %56 ]
-  %60 = load i8, ptr %57, align 1
-  %61 = icmp sgt i8 %60, -1
-  br i1 %61, label %62, label %64
+.lr.ph.split:                                     ; preds = %56, %68
+  %.05364 = phi i32 [ %.1, %68 ], [ 0, %56 ]
+  %.05463 = phi i32 [ %69, %68 ], [ 0, %56 ]
+  %59 = load i8, ptr %57, align 1
+  %60 = icmp sgt i8 %59, -1
+  br i1 %60, label %61, label %63
 
-62:                                               ; preds = %.lr.ph.split
-  %63 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %39, i8 noundef zeroext %60, i32 noundef %.05364)
-  br label %69
+61:                                               ; preds = %.lr.ph.split
+  %62 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %39, i8 noundef zeroext %59, i32 noundef %.05364)
+  br label %68
 
-64:                                               ; preds = %.lr.ph.split
-  %65 = and i8 %60, 127
-  %66 = zext nneg i8 %65 to i32
-  %67 = add nuw nsw i32 %.055, %66
-  %68 = and i32 %67, 65535
-  tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %39, i32 noundef %68) #6
-  br label %69
+63:                                               ; preds = %.lr.ph.split
+  %64 = and i8 %59, 127
+  %65 = zext nneg i8 %64 to i32
+  %66 = add nuw nsw i32 %.055, %65
+  %67 = and i32 %66, 65535
+  tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %39, i32 noundef %67) #6
+  br label %68
 
-69:                                               ; preds = %62, %64
-  %.1 = phi i32 [ %63, %62 ], [ %.05364, %64 ]
-  %70 = add nuw nsw i32 %.05463, 1
-  %exitcond.not = icmp eq i32 %70, %35
+68:                                               ; preds = %61, %63
+  %.1 = phi i32 [ %62, %61 ], [ %.05364, %63 ]
+  %69 = add nuw nsw i32 %.05463, 1
+  %exitcond.not = icmp eq i32 %69, %35
   br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !14
 
-get_ucs_2_string.exit:                            ; preds = %69, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
-  %.sink66 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %69 ]
-  %71 = tail call ptr @wmem_strbuf_finalize(ptr noundef %.sink66) #6
-  ret ptr %71
+get_ucs_2_string.exit:                            ; preds = %68, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
+  %.sink66 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %68 ]
+  %70 = tail call ptr @wmem_strbuf_finalize(ptr noundef %.sink66) #6
+  ret ptr %70
 }
 
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -957,7 +956,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
   %13 = shl i32 %11, %12
   %14 = and i32 %13, 127
   %15 = trunc nuw nsw i32 %14 to i8
-  %16 = icmp ne ptr %.02837, %1
+  %16 = icmp ne ptr %1, %.02837
   %17 = icmp eq i32 %.038, 7
   %or.cond = select i1 %16, i1 true, i1 %17
   br i1 %or.cond, label %18, label %24

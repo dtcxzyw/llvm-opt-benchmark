@@ -9877,8 +9877,8 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont18
   br i1 %cmp2.i.i, label %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %if.then.i41
 
 _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload.i, i64 %agg.tmp.sroa.0.0.copyload.i
-  %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -1
+  %add.ptr.i.i.i = getelementptr i8, ptr %agg.tmp.sroa.2.0.copyload.i, i64 %agg.tmp.sroa.0.0.copyload.i
+  %add.ptr2.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 -1
   %16 = load i8, ptr %add.ptr2.i.i.i, align 1
   %cmp5.i.i = icmp eq i8 %16, 34
   br i1 %cmp5.i.i, label %invoke.cont20, label %if.then.i41
@@ -9901,15 +9901,14 @@ lpad.i:                                           ; preds = %.noexc44
   br label %ehcleanup148
 
 invoke.cont20:                                    ; preds = %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload.i, i64 1
+  %add.ptr.i.i43.ptr = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload.i, i64 1
   %sub.i4.i = add i64 %agg.tmp.sroa.0.0.copyload.i, -2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 %sub.i4.i
   %cmp.not1.i = icmp eq i64 %sub.i4.i, 0
   br i1 %cmp.not1.i, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit", label %land.rhs.i46
 
 land.rhs.i46:                                     ; preds = %invoke.cont20, %while.body.i
-  %iter.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i43, %invoke.cont20 ]
+  %iter.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i43.ptr, %invoke.cont20 ]
   %18 = load i8, ptr %iter.addr.02.i, align 1
   switch i8 %18, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit" [
     i8 32, label %while.body.i
@@ -9918,17 +9917,17 @@ land.rhs.i46:                                     ; preds = %invoke.cont20, %whi
 
 while.body.i:                                     ; preds = %land.rhs.i46, %land.rhs.i46
   %incdec.ptr.i = getelementptr inbounds i8, ptr %iter.addr.02.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i45
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i.i.i
   br i1 %cmp.not.i, label %invoke.cont27, label %land.rhs.i46, !llvm.loop !239
 
 "_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit": ; preds = %land.rhs.i46, %invoke.cont20
-  %iter.addr.0.lcssa.i = phi ptr [ %add.ptr.i.i43, %invoke.cont20 ], [ %iter.addr.02.i, %land.rhs.i46 ]
-  %cmp = icmp eq ptr %iter.addr.0.lcssa.i, %add.ptr.i.i45
+  %iter.addr.0.lcssa.i = phi ptr [ %add.ptr.i.i43.ptr, %invoke.cont20 ], [ %iter.addr.02.i, %land.rhs.i46 ]
+  %cmp = icmp eq ptr %iter.addr.0.lcssa.i, %add.ptr2.i.i.i
   br i1 %cmp, label %invoke.cont27, label %land.lhs.true.preheader.i
 
 invoke.cont27:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit", %while.body.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull %add.ptr.i.i43, ptr noundef nonnull %add.ptr.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull %add.ptr.i.i43.ptr, ptr noundef nonnull %add.ptr2.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont27
@@ -9955,7 +9954,7 @@ ehcleanup:                                        ; preds = %lpad36, %lpad34
   br label %ehcleanup148
 
 land.lhs.true.preheader.i:                        ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit"
-  %21 = ptrtoint ptr %add.ptr.i.i43 to i64
+  %21 = ptrtoint ptr %add.ptr.i.i43.ptr to i64
   %iter6.i = ptrtoint ptr %iter.addr.0.lcssa.i to i64
   %22 = add i64 %sub.i4.i, %21
   %23 = sub i64 %22, %iter6.i
@@ -9972,7 +9971,7 @@ land.lhs.true.i60:                                ; preds = %while.body.i63, %la
 
 while.body.i63:                                   ; preds = %land.lhs.true.i60
   %incdec.ptr.i64 = getelementptr inbounds i8, ptr %iter.addr.02.i61, i64 1
-  %cmp.not.i65 = icmp eq ptr %incdec.ptr.i64, %add.ptr.i.i45
+  %cmp.not.i65 = icmp eq ptr %incdec.ptr.i64, %add.ptr2.i.i.i
   br i1 %cmp.not.i65, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit", label %land.lhs.true.i60, !llvm.loop !240
 
 "_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit": ; preds = %land.lhs.true.i60, %land.lhs.true.i60, %while.body.i63
@@ -10019,7 +10018,7 @@ if.then60:                                        ; preds = %if.end57
           to label %if.end65 unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end65:                                         ; preds = %if.end57, %if.then60, %invoke.cont41
-  %cmp.not1.i76 = icmp eq ptr %add.ptr.i.i45, %iter.addr.0.lcssa.i62
+  %cmp.not1.i76 = icmp eq ptr %iter.addr.0.lcssa.i62, %add.ptr2.i.i.i
   br i1 %cmp.not1.i76, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86", label %land.rhs.preheader.i77
 
 land.rhs.preheader.i77:                           ; preds = %if.end65
@@ -10038,12 +10037,12 @@ land.rhs.i80:                                     ; preds = %while.body.i82, %la
 
 while.body.i82:                                   ; preds = %land.rhs.i80, %land.rhs.i80
   %incdec.ptr.i83 = getelementptr inbounds i8, ptr %iter.addr.02.i81, i64 1
-  %cmp.not.i84 = icmp eq ptr %incdec.ptr.i83, %add.ptr.i.i45
+  %cmp.not.i84 = icmp eq ptr %incdec.ptr.i83, %add.ptr2.i.i.i
   br i1 %cmp.not.i84, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86", label %land.rhs.i80, !llvm.loop !239
 
 "_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86": ; preds = %land.rhs.i80, %while.body.i82, %if.end65
   %iter.addr.0.lcssa.i85 = phi ptr [ %iter.addr.0.lcssa.i62, %if.end65 ], [ %scevgep.i79, %while.body.i82 ], [ %iter.addr.02.i81, %land.rhs.i80 ]
-  %cmp69 = icmp eq ptr %iter.addr.0.lcssa.i85, %add.ptr.i.i45
+  %cmp69 = icmp eq ptr %iter.addr.0.lcssa.i85, %add.ptr2.i.i.i
   br i1 %cmp69, label %if.then70, label %land.lhs.true.preheader.i100
 
 if.then70:                                        ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86"
@@ -10053,7 +10052,7 @@ if.then70:                                        ; preds = %"_ZZN4pbrtL15parseP
 
 invoke.cont71:                                    ; preds = %if.then70
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull %add.ptr.i.i43, ptr noundef nonnull %add.ptr.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull %add.ptr.i.i43.ptr, ptr noundef nonnull %add.ptr2.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont71
@@ -10095,7 +10094,7 @@ land.lhs.true.i103:                               ; preds = %while.body.i106, %l
 
 while.body.i106:                                  ; preds = %land.lhs.true.i103
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %iter.addr.02.i104, i64 1
-  %cmp.not.i108 = icmp eq ptr %incdec.ptr.i107, %add.ptr.i.i45
+  %cmp.not.i108 = icmp eq ptr %incdec.ptr.i107, %add.ptr2.i.i.i
   br i1 %cmp.not.i108, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109", label %land.lhs.true.i103, !llvm.loop !240
 
 "_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109": ; preds = %land.lhs.true.i103, %land.lhs.true.i103, %while.body.i106
@@ -35478,7 +35477,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %1
+  %cmp2.i.i = icmp eq ptr %1, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -35533,7 +35532,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -37129,7 +37128,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %1
+  %cmp2.i.i = icmp eq ptr %1, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -37209,7 +37208,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt19ParameterDictionaryEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

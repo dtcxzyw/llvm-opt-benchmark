@@ -2301,51 +2301,43 @@ if.end.i:                                         ; preds = %entry
   %yy_buffer_stack.i = getelementptr inbounds i8, ptr %this, i64 648
   %4 = load ptr, ptr %yy_buffer_stack.i, align 8
   %tobool6.not.i = icmp eq ptr %4, null
-  br i1 %tobool6.not.i, label %cond.end.i, label %cond.true.i
+  br i1 %tobool6.not.i, label %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit, label %cond.end.i
 
-cond.true.i:                                      ; preds = %if.end.i
+cond.end.i:                                       ; preds = %if.end.i
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
   %5 = load i64, ptr %yy_buffer_stack_top.i, align 8
   %arrayidx8.i = getelementptr inbounds ptr, ptr %4, i64 %5
   %6 = load ptr, ptr %arrayidx8.i, align 8
-  br label %cond.end.i
-
-cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
-  %cond.i = phi ptr [ %6, %cond.true.i ], [ null, %if.end.i ]
-  %cmp.i = icmp eq ptr %cond.i, %b
+  %cmp.i = icmp eq ptr %b, %6
   br i1 %cmp.i, label %if.then9.i, label %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit
 
 if.then9.i:                                       ; preds = %cond.end.i
-  %yy_buffer_stack_top.i.i = getelementptr inbounds i8, ptr %this, i64 632
-  %7 = load i64, ptr %yy_buffer_stack_top.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %7
-  %8 = load ptr, ptr %arrayidx.i.i, align 8
-  %yy_n_chars.i.i = getelementptr inbounds i8, ptr %8, i64 28
-  %9 = load i32, ptr %yy_n_chars.i.i, align 4
+  %yy_n_chars.i.i = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = load i32, ptr %yy_n_chars.i.i, align 4
   %yy_n_chars2.i.i = getelementptr inbounds i8, ptr %this, i64 604
-  store i32 %9, ptr %yy_n_chars2.i.i, align 4
-  %10 = load ptr, ptr %arrayidx.i.i, align 8
-  %yy_buf_pos.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  %11 = load ptr, ptr %yy_buf_pos.i.i, align 8
+  store i32 %7, ptr %yy_n_chars2.i.i, align 4
+  %8 = load ptr, ptr %arrayidx8.i, align 8
+  %yy_buf_pos.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %yy_buf_pos.i.i, align 8
   %yy_c_buf_p.i.i = getelementptr inbounds i8, ptr %this, i64 608
-  store ptr %11, ptr %yy_c_buf_p.i.i, align 8
+  store ptr %9, ptr %yy_c_buf_p.i.i, align 8
   %yytext.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %11, ptr %yytext.i.i, align 8
+  store ptr %9, ptr %yytext.i.i, align 8
   %yyin.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %vtable.i.i = load ptr, ptr %yyin.i.i, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %yyin.i.i, i64 %vbase.offset.i.i
-  %12 = load ptr, ptr %arrayidx.i.i, align 8
-  %13 = load ptr, ptr %12, align 8
-  %call.i.i = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i, ptr noundef %13)
-  %14 = load ptr, ptr %yy_c_buf_p.i.i, align 8
-  %15 = load i8, ptr %14, align 1
+  %10 = load ptr, ptr %arrayidx8.i, align 8
+  %11 = load ptr, ptr %10, align 8
+  %call.i.i = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i, ptr noundef %11)
+  %12 = load ptr, ptr %yy_c_buf_p.i.i, align 8
+  %13 = load i8, ptr %12, align 1
   %yy_hold_char.i.i = getelementptr inbounds i8, ptr %this, i64 600
-  store i8 %15, ptr %yy_hold_char.i.i, align 8
+  store i8 %13, ptr %yy_hold_char.i.i, align 8
   br label %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit
 
-_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit: ; preds = %entry, %cond.end.i, %if.then9.i
+_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit: ; preds = %entry, %if.end.i, %cond.end.i, %if.then9.i
   %vtable = load ptr, ptr %file, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -2355,23 +2347,19 @@ _ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit: ; preds = %entry
   %yy_fill_buffer = getelementptr inbounds i8, ptr %b, i64 52
   store i32 1, ptr %yy_fill_buffer, align 4
   %yy_buffer_stack = getelementptr inbounds i8, ptr %this, i64 648
-  %16 = load ptr, ptr %yy_buffer_stack, align 8
-  %tobool.not = icmp eq ptr %16, null
-  br i1 %tobool.not, label %cond.end, label %cond.true
+  %14 = load ptr, ptr %yy_buffer_stack, align 8
+  %tobool.not = icmp eq ptr %14, null
+  br i1 %tobool.not, label %if.then, label %cond.end
 
-cond.true:                                        ; preds = %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit
+cond.end:                                         ; preds = %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit
   %yy_buffer_stack_top = getelementptr inbounds i8, ptr %this, i64 632
-  %17 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %16, i64 %17
-  %18 = load ptr, ptr %arrayidx, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit, %cond.true
-  %cond = phi ptr [ %18, %cond.true ], [ null, %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit ]
-  %cmp.not = icmp eq ptr %cond, %b
+  %15 = load i64, ptr %yy_buffer_stack_top, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = load ptr, ptr %arrayidx, align 8
+  %cmp.not = icmp eq ptr %b, %16
   br i1 %cmp.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %cond.end
+if.then:                                          ; preds = %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit, %cond.end
   %yy_bs_lineno = getelementptr inbounds i8, ptr %b, i64 44
   store i32 1, ptr %yy_bs_lineno, align 4
   %yy_bs_column = getelementptr inbounds i8, ptr %b, i64 48
@@ -2615,37 +2603,30 @@ if.end:                                           ; preds = %entry
   %yy_buffer_stack = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load ptr, ptr %yy_buffer_stack, align 8
   %tobool2.not = icmp eq ptr %0, null
-  br i1 %tobool2.not, label %cond.end, label %cond.true
+  br i1 %tobool2.not, label %if.end8, label %cond.end
 
-cond.true:                                        ; preds = %if.end
+cond.end:                                         ; preds = %if.end
   %yy_buffer_stack_top = getelementptr inbounds i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %if.end, %cond.true
-  %cond = phi ptr [ %2, %cond.true ], [ null, %if.end ]
-  %cmp = icmp eq ptr %cond, %b
+  %cmp = icmp eq ptr %b, %2
   br i1 %cmp, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %cond.end
-  %yy_buffer_stack_top6 = getelementptr inbounds i8, ptr %this, i64 632
-  %3 = load i64, ptr %yy_buffer_stack_top6, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %0, i64 %3
-  store ptr null, ptr %arrayidx7, align 8
+  store ptr null, ptr %arrayidx, align 8
   br label %if.end8
 
-if.end8:                                          ; preds = %if.then4, %cond.end
+if.end8:                                          ; preds = %if.end, %if.then4, %cond.end
   %yy_is_our_buffer = getelementptr inbounds i8, ptr %b, i64 32
-  %4 = load i32, ptr %yy_is_our_buffer, align 8
-  %tobool9.not = icmp eq i32 %4, 0
+  %3 = load i32, ptr %yy_is_our_buffer, align 8
+  %tobool9.not = icmp eq i32 %3, 0
   br i1 %tobool9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
   %yy_ch_buf = getelementptr inbounds i8, ptr %b, i64 8
-  %5 = load ptr, ptr %yy_ch_buf, align 8
-  tail call void @free(ptr noundef %5) #34
+  %4 = load ptr, ptr %yy_ch_buf, align 8
+  tail call void @free(ptr noundef %4) #34
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end8
@@ -2684,51 +2665,43 @@ if.end:                                           ; preds = %entry
   %yy_buffer_stack = getelementptr inbounds i8, ptr %this, i64 648
   %3 = load ptr, ptr %yy_buffer_stack, align 8
   %tobool6.not = icmp eq ptr %3, null
-  br i1 %tobool6.not, label %cond.end, label %cond.true
+  br i1 %tobool6.not, label %if.end10, label %cond.end
 
-cond.true:                                        ; preds = %if.end
+cond.end:                                         ; preds = %if.end
   %yy_buffer_stack_top = getelementptr inbounds i8, ptr %this, i64 632
   %4 = load i64, ptr %yy_buffer_stack_top, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %3, i64 %4
   %5 = load ptr, ptr %arrayidx8, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %if.end, %cond.true
-  %cond = phi ptr [ %5, %cond.true ], [ null, %if.end ]
-  %cmp = icmp eq ptr %cond, %b
+  %cmp = icmp eq ptr %b, %5
   br i1 %cmp, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %cond.end
-  %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
-  %6 = load i64, ptr %yy_buffer_stack_top.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %6
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %yy_n_chars.i = getelementptr inbounds i8, ptr %7, i64 28
-  %8 = load i32, ptr %yy_n_chars.i, align 4
+  %yy_n_chars.i = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = load i32, ptr %yy_n_chars.i, align 4
   %yy_n_chars2.i = getelementptr inbounds i8, ptr %this, i64 604
-  store i32 %8, ptr %yy_n_chars2.i, align 4
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %yy_buf_pos.i = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load ptr, ptr %yy_buf_pos.i, align 8
+  store i32 %6, ptr %yy_n_chars2.i, align 4
+  %7 = load ptr, ptr %arrayidx8, align 8
+  %yy_buf_pos.i = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = load ptr, ptr %yy_buf_pos.i, align 8
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
-  store ptr %10, ptr %yy_c_buf_p.i, align 8
+  store ptr %8, ptr %yy_c_buf_p.i, align 8
   %yytext.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %10, ptr %yytext.i, align 8
+  store ptr %8, ptr %yytext.i, align 8
   %yyin.i = getelementptr inbounds i8, ptr %this, i64 48
   %vtable.i = load ptr, ptr %yyin.i, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %yyin.i, i64 %vbase.offset.i
-  %11 = load ptr, ptr %arrayidx.i, align 8
-  %12 = load ptr, ptr %11, align 8
-  %call.i = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, ptr noundef %12)
-  %13 = load ptr, ptr %yy_c_buf_p.i, align 8
-  %14 = load i8, ptr %13, align 1
+  %9 = load ptr, ptr %arrayidx8, align 8
+  %10 = load ptr, ptr %9, align 8
+  %call.i = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, ptr noundef %10)
+  %11 = load ptr, ptr %yy_c_buf_p.i, align 8
+  %12 = load i8, ptr %11, align 1
   %yy_hold_char.i = getelementptr inbounds i8, ptr %this, i64 600
-  store i8 %14, ptr %yy_hold_char.i, align 8
+  store i8 %12, ptr %yy_hold_char.i, align 8
   br label %if.end10
 
-if.end10:                                         ; preds = %entry, %if.then9, %cond.end
+if.end10:                                         ; preds = %if.end, %entry, %if.then9, %cond.end
   ret void
 }
 

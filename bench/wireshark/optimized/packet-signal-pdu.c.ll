@@ -5903,11 +5903,11 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   %137 = getelementptr inbounds i8, ptr %90, i64 20
   %138 = load i32, ptr %137, align 4
   %.not.i.i = icmp eq i32 %138, 0
-  %.not6067.i.i = icmp slt i32 %102, %.076128
   br i1 %.not.i.i, label %.preheader.i.i, label %.preheader62.i.i
 
 .preheader62.i.i:                                 ; preds = %136
-  br i1 %.not6067.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.i.i
+  %.not6164.i.i = icmp sgt i32 %.076128, %102
+  br i1 %.not6164.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader62.i.i
   %139 = lshr i32 255, %.077127
@@ -5916,7 +5916,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   br i1 %.not283.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.preheader.i
 
 .lr.ph.split.i.preheader.i:                       ; preds = %.lr.ph.i.i
-  %.not74.i326.i = icmp eq i32 %102, %.076128
+  %.not74.i326.i = icmp eq i32 %.076128, %102
   br i1 %.not74.i326.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
@@ -5941,6 +5941,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   br i1 %145, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !26
 
 .preheader.i.i:                                   ; preds = %136
+  %.not6067.i.i = icmp slt i32 %102, %.076128
   br i1 %.not6067.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph70.i.i
 
 .lr.ph70.i.i:                                     ; preds = %.preheader.i.i

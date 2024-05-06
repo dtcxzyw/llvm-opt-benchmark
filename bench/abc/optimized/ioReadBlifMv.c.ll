@@ -1369,7 +1369,7 @@ sub_1233.i:                                       ; preds = %sub_0232.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i103 ], [ %indvars.iv.next.i.i, %577 ]
   %574 = getelementptr inbounds ptr, ptr %.val9.i.i, i64 %indvars.iv.i.i
   %575 = load ptr, ptr %574, align 8
-  %576 = icmp ugt ptr %575, %.1113.i
+  %576 = icmp ult ptr %.1113.i, %575
   br i1 %576, label %.critedge.loopexit.split.loop.exit14.i.i, label %577
 
 577:                                              ; preds = %573
@@ -1480,7 +1480,7 @@ Io_MvSplitIntoTokens.exit.i.i:                    ; preds = %605, %602
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i26.i.i ], [ %indvars.iv.next.i.i.i, %623 ]
   %620 = getelementptr inbounds ptr, ptr %.val9.i.i.i, i64 %indvars.iv.i.i.i
   %621 = load ptr, ptr %620, align 8
-  %622 = icmp ugt ptr %621, %609
+  %622 = icmp ult ptr %609, %621
   br i1 %622, label %.critedge.loopexit.split.loop.exit14.i.i.i, label %623
 
 623:                                              ; preds = %619
@@ -1574,7 +1574,7 @@ Io_MvParseLineModel.exit.i:                       ; preds = %623, %.critedge.loo
   %indvars.iv.i.i119 = phi i64 [ 0, %.lr.ph.i.i116 ], [ %indvars.iv.next.i.i120, %667 ]
   %664 = getelementptr inbounds ptr, ptr %.val9.i.i117, i64 %indvars.iv.i.i119
   %665 = load ptr, ptr %664, align 8
-  %666 = icmp ugt ptr %665, %658
+  %666 = icmp ult ptr %658, %665
   br i1 %666, label %.critedge.loopexit.split.loop.exit14.i.i122, label %667
 
 667:                                              ; preds = %663
@@ -2381,7 +2381,7 @@ Io_MvSplitIntoTokensAndClear.exit.i.i:            ; preds = %976
   %indvars.iv.i.i.i162 = phi i64 [ 0, %.lr.ph.i111.i.i ], [ %indvars.iv.next.i.i.i163, %996 ]
   %993 = getelementptr inbounds ptr, ptr %.val9.i.i.i160, i64 %indvars.iv.i.i.i162
   %994 = load ptr, ptr %993, align 8
-  %995 = icmp ugt ptr %994, %981
+  %995 = icmp ult ptr %981, %994
   br i1 %995, label %.critedge.loopexit.split.loop.exit14.i.i.i165, label %996
 
 996:                                              ; preds = %992
@@ -2427,7 +2427,7 @@ Io_MvGetLine.exit.i.i:                            ; preds = %996, %.critedge.loo
   %indvars.iv.i117.i.i = phi i64 [ 0, %.lr.ph.i114.i.i ], [ %indvars.iv.next.i118.i.i, %1017 ]
   %1014 = getelementptr inbounds ptr, ptr %.val9.i115.i.i, i64 %indvars.iv.i117.i.i
   %1015 = load ptr, ptr %1014, align 8
-  %1016 = icmp ugt ptr %1015, %981
+  %1016 = icmp ult ptr %981, %1015
   br i1 %1016, label %.critedge.loopexit.split.loop.exit14.i120.i.i, label %1017
 
 1017:                                             ; preds = %1013
@@ -2478,7 +2478,7 @@ Io_MvGetLine.exit121.i.i:                         ; preds = %1017, %.critedge.lo
   %indvars.iv.i127.i.i = phi i64 [ 0, %.lr.ph.i124.i.i ], [ %indvars.iv.next.i128.i.i, %1039 ]
   %1036 = getelementptr inbounds ptr, ptr %.val9.i125.i.i, i64 %indvars.iv.i127.i.i
   %1037 = load ptr, ptr %1036, align 8
-  %1038 = icmp ugt ptr %1037, %981
+  %1038 = icmp ult ptr %981, %1037
   br i1 %1038, label %.critedge.loopexit.split.loop.exit14.i130.i.i, label %1039
 
 1039:                                             ; preds = %1035
@@ -2576,7 +2576,7 @@ Abc_NtkMvVarMan.exit.i.i:                         ; preds = %1047, %1042
   %1082 = getelementptr i8, ptr %.val109.val.val.i.i, i64 96
   %.val109.val.val.val.i.i = load ptr, ptr %1082, align 8
   %1083 = load i32, ptr %.val109.val.val.val.i.i, align 8
-  %.not.i.i.i.i = icmp sgt i32 %1083, %.val110.i.i
+  %.not.i.i.i.i = icmp slt i32 %.val110.i.i, %1083
   br i1 %.not.i.i.i.i, label %Abc_ObjSetMvVar.exit.i.i, label %1084
 
 1084:                                             ; preds = %.critedge.i.i
@@ -2689,7 +2689,7 @@ Abc_ObjSetMvVar.exit.i.i:                         ; preds = %1098, %1084, %.crit
   %indvars.iv.i138.i.i = phi i64 [ 0, %.lr.ph.i135.i.i ], [ %indvars.iv.next.i139.i.i, %1135 ]
   %1132 = getelementptr inbounds ptr, ptr %.val9.i136.i.i, i64 %indvars.iv.i138.i.i
   %1133 = load ptr, ptr %1132, align 8
-  %1134 = icmp ugt ptr %1133, %1123
+  %1134 = icmp ult ptr %1123, %1133
   br i1 %1134, label %.critedge.loopexit.split.loop.exit14.i141.i.i, label %1135
 
 1135:                                             ; preds = %1131
@@ -2750,7 +2750,7 @@ Io_MvParseLineMv.exit.i:                          ; preds = %.loopexit.i.i169, %
   %indvars.iv.i231.i = phi i64 [ 0, %.lr.ph.i229.i ], [ %indvars.iv.next.i232.i, %1161 ]
   %1158 = getelementptr inbounds ptr, ptr %.val9.i.i146, i64 %indvars.iv.i231.i
   %1159 = load ptr, ptr %1158, align 8
-  %1160 = icmp ugt ptr %1159, %1152
+  %1160 = icmp ult ptr %1152, %1159
   br i1 %1160, label %.critedge.loopexit.split.loop.exit14.i.i147, label %1161
 
 1161:                                             ; preds = %1157
@@ -2909,7 +2909,7 @@ Io_MvSplitIntoTokens.exit.i.i141:                 ; preds = %1199, %1189
   %indvars.iv.i.i246.i = phi i64 [ 0, %.lr.ph.i79.i.i ], [ %indvars.iv.next.i.i247.i, %1229 ]
   %1226 = getelementptr inbounds ptr, ptr %.val9.i.i244.i, i64 %indvars.iv.i.i246.i
   %1227 = load ptr, ptr %1226, align 8
-  %1228 = icmp ugt ptr %1227, %1203
+  %1228 = icmp ult ptr %1203, %1227
   br i1 %1228, label %.critedge.loopexit.split.loop.exit14.i.i249.i, label %1229
 
 1229:                                             ; preds = %1225
@@ -2976,7 +2976,7 @@ Io_MvGetLine.exit.i242.i:                         ; preds = %1229, %.critedge.lo
   %indvars.iv.i85.i.i = phi i64 [ 0, %.lr.ph.i82.i.i ], [ %indvars.iv.next.i86.i.i, %1254 ]
   %1251 = getelementptr inbounds ptr, ptr %.val9.i83.i.i, i64 %indvars.iv.i85.i.i
   %1252 = load ptr, ptr %1251, align 8
-  %1253 = icmp ugt ptr %1252, %1203
+  %1253 = icmp ult ptr %1203, %1252
   br i1 %1253, label %.critedge.loopexit.split.loop.exit14.i88.i.i, label %1254
 
 1254:                                             ; preds = %1250
@@ -3049,7 +3049,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1254, %.critedge.lo
   %indvars.iv.i95.i.i = phi i64 [ 0, %.lr.ph.i92.i.i ], [ %indvars.iv.next.i96.i.i, %1283 ]
   %1280 = getelementptr inbounds ptr, ptr %.val9.i93.i.i, i64 %indvars.iv.i95.i.i
   %1281 = load ptr, ptr %1280, align 8
-  %1282 = icmp ugt ptr %1281, %1266
+  %1282 = icmp ult ptr %1266, %1281
   br i1 %1282, label %.critedge.loopexit.split.loop.exit14.i98.i.i, label %1283
 
 1283:                                             ; preds = %1279
@@ -3149,7 +3149,7 @@ Io_MvSplitIntoTokens.exit.i261.i:                 ; preds = %1302, %1292
   %indvars.iv.i.i271.i = phi i64 [ 0, %.lr.ph.i52.i.i ], [ %indvars.iv.next.i.i272.i, %1321 ]
   %1318 = getelementptr inbounds ptr, ptr %.val9.i.i269.i, i64 %indvars.iv.i.i271.i
   %1319 = load ptr, ptr %1318, align 8
-  %1320 = icmp ugt ptr %1319, %1306
+  %1320 = icmp ult ptr %1306, %1319
   br i1 %1320, label %.critedge.loopexit.split.loop.exit14.i.i274.i, label %1321
 
 1321:                                             ; preds = %1317
@@ -3206,7 +3206,7 @@ Io_MvGetLine.exit.i267.i:                         ; preds = %1321, %.critedge.lo
   %indvars.iv.i58.i.i = phi i64 [ 0, %.lr.ph.i55.i.i ], [ %indvars.iv.next.i59.i.i, %1348 ]
   %1345 = getelementptr inbounds ptr, ptr %.val9.i56.i.i, i64 %indvars.iv.i58.i.i
   %1346 = load ptr, ptr %1345, align 8
-  %1347 = icmp ugt ptr %1346, %1306
+  %1347 = icmp ult ptr %1306, %1346
   br i1 %1347, label %.critedge.loopexit.split.loop.exit14.i61.i.i, label %1348
 
 1348:                                             ; preds = %1344
@@ -3259,7 +3259,7 @@ Io_MvGetLine.exit62.i.i:                          ; preds = %1348, %.critedge.lo
   %indvars.iv.i68.i.i = phi i64 [ 0, %.lr.ph.i65.i.i ], [ %indvars.iv.next.i69.i.i, %1371 ]
   %1368 = getelementptr inbounds ptr, ptr %.val9.i66.i.i, i64 %indvars.iv.i68.i.i
   %1369 = load ptr, ptr %1368, align 8
-  %1370 = icmp ugt ptr %1369, %1306
+  %1370 = icmp ult ptr %1306, %1369
   br i1 %1370, label %.critedge.loopexit.split.loop.exit14.i71.i.i, label %1371
 
 1371:                                             ; preds = %1367
@@ -3473,7 +3473,7 @@ Io_MvSplitIntoTokens.exit.i280.i:                 ; preds = %1442, %1432
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %1463 ]
   %1460 = getelementptr inbounds ptr, ptr %.val9.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %1461 = load ptr, ptr %1460, align 8
-  %1462 = icmp ugt ptr %1461, %1446
+  %1462 = icmp ult ptr %1446, %1461
   br i1 %1462, label %.critedge.loopexit.split.loop.exit14.i.i.i.i, label %1463
 
 1463:                                             ; preds = %1459
@@ -3516,7 +3516,7 @@ Io_MvGetLine.exit.i.i.i:                          ; preds = %1463, %.critedge.lo
   %indvars.iv.i109.i.i.i = phi i64 [ 0, %.lr.ph.i106.i.i.i ], [ %indvars.iv.next.i110.i.i.i, %1482 ]
   %1479 = getelementptr inbounds ptr, ptr %.val9.i107.i.i.i, i64 %indvars.iv.i109.i.i.i
   %1480 = load ptr, ptr %1479, align 8
-  %1481 = icmp ugt ptr %1480, %1446
+  %1481 = icmp ult ptr %1446, %1480
   br i1 %1481, label %.critedge.loopexit.split.loop.exit14.i112.i.i.i, label %1482
 
 1482:                                             ; preds = %1478
@@ -3561,7 +3561,7 @@ Io_MvGetLine.exit113.i.i.i:                       ; preds = %1482, %.critedge.lo
   %indvars.iv.i119.i.i.i = phi i64 [ 0, %.lr.ph.i116.i.i.i ], [ %indvars.iv.next.i120.i.i.i, %1503 ]
   %1500 = getelementptr inbounds ptr, ptr %.val9.i117.i.i.i, i64 %indvars.iv.i119.i.i.i
   %1501 = load ptr, ptr %1500, align 8
-  %1502 = icmp ugt ptr %1501, %1446
+  %1502 = icmp ult ptr %1446, %1501
   br i1 %1502, label %.critedge.loopexit.split.loop.exit14.i122.i.i.i, label %1503
 
 1503:                                             ; preds = %1499
@@ -3691,7 +3691,7 @@ Io_MvGetLine.exit123.i.i.i:                       ; preds = %1503, %.critedge.lo
   %indvars.iv.i129.i.i.i = phi i64 [ 0, %.lr.ph.i126.i.i.i ], [ %indvars.iv.next.i130.i.i.i, %1568 ]
   %1565 = getelementptr inbounds ptr, ptr %.val9.i127.i.i.i, i64 %indvars.iv.i129.i.i.i
   %1566 = load ptr, ptr %1565, align 8
-  %1567 = icmp ugt ptr %1566, %1446
+  %1567 = icmp ult ptr %1446, %1566
   br i1 %1567, label %.critedge.loopexit.split.loop.exit14.i132.i.i.i, label %1568
 
 1568:                                             ; preds = %1564
@@ -3780,7 +3780,7 @@ Io_ReadBlifCleanName.exit._crit_edge.i.i.i:       ; preds = %Io_ReadBlifCleanNam
   %indvars.iv.i144.i.i.i = phi i64 [ 0, %.lr.ph.i141.i.i.i ], [ %indvars.iv.next.i145.i.i.i, %1606 ]
   %1603 = getelementptr inbounds ptr, ptr %.val9.i142.i.i.i, i64 %indvars.iv.i144.i.i.i
   %1604 = load ptr, ptr %1603, align 8
-  %1605 = icmp ugt ptr %1604, %1446
+  %1605 = icmp ult ptr %1446, %1604
   br i1 %1605, label %.critedge.loopexit.split.loop.exit14.i147.i.i.i, label %1606
 
 1606:                                             ; preds = %1602
@@ -3889,7 +3889,7 @@ Io_MvGetLine.exit148.i.i.i:                       ; preds = %1606, %.critedge.lo
   %indvars.iv.i38.i.i = phi i64 [ 0, %.lr.ph.i37.i.i ], [ %indvars.iv.next.i39.i.i, %1668 ]
   %1665 = getelementptr inbounds ptr, ptr %.val9.i.i288.i, i64 %indvars.iv.i38.i.i
   %1666 = load ptr, ptr %1665, align 8
-  %1667 = icmp ugt ptr %1666, %1651
+  %1667 = icmp ult ptr %1651, %1666
   br i1 %1667, label %.critedge.loopexit.split.loop.exit14.i.i291.i, label %1668
 
 1668:                                             ; preds = %1664
@@ -4005,7 +4005,7 @@ Io_MvSplitIntoTokens.exit.i.i.i:                  ; preds = %1690, %1671
   %indvars.iv.i.i47.i.i = phi i64 [ 0, %.lr.ph.i103.i.i.i ], [ %indvars.iv.next.i.i48.i.i, %1718 ]
   %1715 = getelementptr inbounds ptr, ptr %.val9.i.i45.i.i, i64 %indvars.iv.i.i47.i.i
   %1716 = load ptr, ptr %1715, align 8
-  %1717 = icmp ugt ptr %1716, %1701
+  %1717 = icmp ult ptr %1701, %1716
   br i1 %1717, label %.critedge.loopexit.split.loop.exit14.i.i50.i.i, label %1718
 
 1718:                                             ; preds = %1714
@@ -4065,7 +4065,7 @@ Io_MvGetLine.exit.i43.i.i:                        ; preds = %1718, %.critedge.lo
   %indvars.iv.i109.i85.i.i = phi i64 [ 0, %.lr.ph.i106.i82.i.i ], [ %indvars.iv.next.i110.i86.i.i, %1747 ]
   %1744 = getelementptr inbounds ptr, ptr %.val9.i107.i83.i.i, i64 %indvars.iv.i109.i85.i.i
   %1745 = load ptr, ptr %1744, align 8
-  %1746 = icmp ugt ptr %1745, %1732
+  %1746 = icmp ult ptr %1732, %1745
   br i1 %1746, label %.critedge.loopexit.split.loop.exit14.i112.i88.i.i, label %1747
 
 1747:                                             ; preds = %1743
@@ -4128,7 +4128,7 @@ Io_MvGetLine.exit113.i80.i.i:                     ; preds = %1747, %.critedge.lo
   %indvars.iv.i119.i61.i.i = phi i64 [ 0, %.lr.ph.i116.i58.i.i ], [ %indvars.iv.next.i120.i62.i.i, %1774 ]
   %1771 = getelementptr inbounds ptr, ptr %.val9.i117.i59.i.i, i64 %indvars.iv.i119.i61.i.i
   %1772 = load ptr, ptr %1771, align 8
-  %1773 = icmp ugt ptr %1772, %1757
+  %1773 = icmp ult ptr %1757, %1772
   br i1 %1773, label %.critedge.loopexit.split.loop.exit14.i122.i64.i.i, label %1774
 
 1774:                                             ; preds = %1770
@@ -4180,7 +4180,7 @@ Io_MvGetLine.exit123.i56.i.i:                     ; preds = %1774, %.critedge.lo
   %indvars.iv.i129.i71.i.i = phi i64 [ 0, %.lr.ph.i126.i68.i.i ], [ %indvars.iv.next.i130.i72.i.i, %1794 ]
   %1791 = getelementptr inbounds ptr, ptr %.val9.i127.i69.i.i, i64 %indvars.iv.i129.i71.i.i
   %1792 = load ptr, ptr %1791, align 8
-  %1793 = icmp ugt ptr %1792, %1757
+  %1793 = icmp ult ptr %1757, %1792
   br i1 %1793, label %.critedge.loopexit.split.loop.exit14.i132.i74.i.i, label %1794
 
 1794:                                             ; preds = %1790
@@ -4229,7 +4229,7 @@ Io_MvGetLine.exit133.i66.i.i:                     ; preds = %1794, %.critedge.lo
   %indvars.iv.i139.i.i.i = phi i64 [ 0, %.lr.ph.i136.i.i.i ], [ %indvars.iv.next.i140.i.i.i, %1816 ]
   %1813 = getelementptr inbounds ptr, ptr %.val9.i137.i.i.i, i64 %indvars.iv.i139.i.i.i
   %1814 = load ptr, ptr %1813, align 8
-  %1815 = icmp ugt ptr %1814, %1757
+  %1815 = icmp ult ptr %1757, %1814
   br i1 %1815, label %.critedge.loopexit.split.loop.exit14.i142.i.i.i, label %1816
 
 1816:                                             ; preds = %1812
@@ -4607,7 +4607,7 @@ Io_MvSplitIntoTokens.exit.i300.i:                 ; preds = %1956, %1946
   %indvars.iv.i.i310.i = phi i64 [ 0, %.lr.ph.i38.i.i ], [ %indvars.iv.next.i.i311.i, %1974 ]
   %1971 = getelementptr inbounds ptr, ptr %.val9.i.i308.i, i64 %indvars.iv.i.i310.i
   %1972 = load ptr, ptr %1971, align 8
-  %1973 = icmp ugt ptr %1972, %1964
+  %1973 = icmp ult ptr %1964, %1972
   br i1 %1973, label %.critedge.loopexit.split.loop.exit14.i.i313.i, label %1974
 
 1974:                                             ; preds = %1970
@@ -4656,7 +4656,7 @@ Io_MvGetLine.exit.i305.i:                         ; preds = %1974, %.critedge.lo
   %indvars.iv.i44.i.i = phi i64 [ 0, %.lr.ph.i41.i.i ], [ %indvars.iv.next.i45.i.i, %1997 ]
   %1994 = getelementptr inbounds ptr, ptr %.val9.i42.i.i, i64 %indvars.iv.i44.i.i
   %1995 = load ptr, ptr %1994, align 8
-  %1996 = icmp ugt ptr %1995, %1980
+  %1996 = icmp ult ptr %1980, %1995
   br i1 %1996, label %.critedge.loopexit.split.loop.exit14.i47.i.i, label %1997
 
 1997:                                             ; preds = %1993
@@ -4709,7 +4709,7 @@ Io_MvGetLine.exit48.i.i:                          ; preds = %1997, %.critedge.lo
   %indvars.iv.i54.i.i = phi i64 [ 0, %.lr.ph.i51.i.i ], [ %indvars.iv.next.i55.i.i, %2024 ]
   %2021 = getelementptr inbounds ptr, ptr %.val9.i52.i.i, i64 %indvars.iv.i54.i.i
   %2022 = load ptr, ptr %2021, align 8
-  %2023 = icmp ugt ptr %2022, %1980
+  %2023 = icmp ult ptr %1980, %2022
   br i1 %2023, label %.critedge.loopexit.split.loop.exit14.i57.i.i, label %2024
 
 2024:                                             ; preds = %2020
@@ -4751,7 +4751,7 @@ Io_MvGetLine.exit58.i.i:                          ; preds = %2024, %.critedge.lo
   %indvars.iv.i64.i.i = phi i64 [ 0, %.lr.ph.i61.i.i ], [ %indvars.iv.next.i65.i.i, %2042 ]
   %2039 = getelementptr inbounds ptr, ptr %.val9.i62.i.i, i64 %indvars.iv.i64.i.i
   %2040 = load ptr, ptr %2039, align 8
-  %2041 = icmp ugt ptr %2040, %1980
+  %2041 = icmp ult ptr %1980, %2040
   br i1 %2041, label %.critedge.loopexit.split.loop.exit14.i67.i.i, label %2042
 
 2042:                                             ; preds = %2038
@@ -4902,7 +4902,7 @@ Io_MvSplitIntoTokensAndClear.exit.i325.i:         ; preds = %2074
   %indvars.iv.i.i348.i = phi i64 [ 0, %.lr.ph.i126.i.i ], [ %indvars.iv.next.i.i349.i, %2103 ]
   %2100 = getelementptr inbounds ptr, ptr %.val9.i.i346.i, i64 %indvars.iv.i.i348.i
   %2101 = load ptr, ptr %2100, align 8
-  %2102 = icmp ugt ptr %2101, %.0105.i.i
+  %2102 = icmp ult ptr %.0105.i.i, %2101
   br i1 %2102, label %.critedge.loopexit.split.loop.exit14.i.i351.i, label %2103
 
 2103:                                             ; preds = %2099
@@ -5349,7 +5349,7 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %2292, %Io_MvSplitIn
   %indvars.iv.i.i372.i = phi i64 [ 0, %.lr.ph.i53.i.i ], [ %indvars.iv.next.i.i373.i, %2316 ]
   %2313 = getelementptr inbounds ptr, ptr %.val9.i.i370.i, i64 %indvars.iv.i.i372.i
   %2314 = load ptr, ptr %2313, align 8
-  %2315 = icmp ugt ptr %2314, %2300
+  %2315 = icmp ult ptr %2300, %2314
   br i1 %2315, label %.critedge.loopexit.split.loop.exit14.i.i375.i, label %2316
 
 2316:                                             ; preds = %2312
@@ -5426,7 +5426,7 @@ Io_MvGetLine.exit.i368.i:                         ; preds = %2316, %.critedge.lo
   %indvars.iv.i59.i.i = phi i64 [ 0, %.lr.ph.i56.i.i ], [ %indvars.iv.next.i60.i.i, %2352 ]
   %2349 = getelementptr inbounds ptr, ptr %.val9.i57.i.i, i64 %indvars.iv.i59.i.i
   %2350 = load ptr, ptr %2349, align 8
-  %2351 = icmp ugt ptr %2350, %2300
+  %2351 = icmp ult ptr %2300, %2350
   br i1 %2351, label %.critedge.loopexit.split.loop.exit14.i62.i.i, label %2352
 
 2352:                                             ; preds = %2348
@@ -6907,7 +6907,7 @@ Io_MvFindArrow.exit:                              ; preds = %13
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %28 = getelementptr inbounds ptr, ptr %.val9.i, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp ugt ptr %29, %1
+  %30 = icmp ult ptr %1, %29
   br i1 %30, label %.critedge.loopexit.split.loop.exit14.i, label %31
 
 31:                                               ; preds = %27
@@ -7056,7 +7056,7 @@ Io_MvSplitIntoTokensMv.exit:                      ; preds = %60
   %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i100, %87 ]
   %84 = getelementptr inbounds ptr, ptr %.val9.i97, i64 %indvars.iv.i99
   %85 = load ptr, ptr %84, align 8
-  %86 = icmp ugt ptr %85, %66
+  %86 = icmp ult ptr %66, %85
   br i1 %86, label %.critedge.loopexit.split.loop.exit14.i102, label %87
 
 87:                                               ; preds = %83
@@ -7166,7 +7166,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %140 ]
   %137 = getelementptr inbounds ptr, ptr %.val9.i.i, i64 %indvars.iv.i.i
   %138 = load ptr, ptr %137, align 8
-  %139 = icmp ugt ptr %138, %123
+  %139 = icmp ult ptr %123, %138
   br i1 %139, label %.critedge.loopexit.split.loop.exit14.i.i, label %140
 
 140:                                              ; preds = %136
@@ -7219,7 +7219,7 @@ Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loo
   %indvars.iv.i49.i = phi i64 [ 0, %.lr.ph.i46.i ], [ %indvars.iv.next.i50.i, %166 ]
   %163 = getelementptr inbounds ptr, ptr %.val9.i47.i, i64 %indvars.iv.i49.i
   %164 = load ptr, ptr %163, align 8
-  %165 = icmp ugt ptr %164, %123
+  %165 = icmp ult ptr %123, %164
   br i1 %165, label %.critedge.loopexit.split.loop.exit14.i52.i, label %166
 
 166:                                              ; preds = %162
@@ -7540,7 +7540,7 @@ define internal fastcc ptr @Io_MvParseAddResetCircuit(ptr nocapture noundef read
   %38 = getelementptr i8, ptr %.val33.val.val, i64 96
   %.val33.val.val.val = load ptr, ptr %38, align 8
   %39 = load i32, ptr %.val33.val.val.val, align 8
-  %.not.i.i = icmp sgt i32 %39, %.val34
+  %.not.i.i = icmp slt i32 %.val34, %39
   br i1 %.not.i.i, label %Abc_ObjSetMvVar.exit, label %40
 
 40:                                               ; preds = %31
@@ -7599,7 +7599,7 @@ Abc_ObjSetMvVar.exit:                             ; preds = %31, %40, %54
   %71 = getelementptr i8, ptr %.val31.val.val, i64 96
   %.val31.val.val.val = load ptr, ptr %71, align 8
   %72 = load i32, ptr %.val31.val.val.val, align 8
-  %.not.i.i39 = icmp sgt i32 %72, %.val32
+  %.not.i.i39 = icmp slt i32 %.val32, %72
   br i1 %.not.i.i39, label %Abc_ObjSetMvVar.exit43, label %73
 
 73:                                               ; preds = %Abc_ObjSetMvVar.exit
@@ -7704,7 +7704,7 @@ define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unna
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %.val3.val.val, align 8
-  %.not.i = icmp sgt i32 %9, %8
+  %.not.i = icmp slt i32 %8, %9
   br i1 %.not.i, label %Vec_AttGrow.exit.i, label %10
 
 10:                                               ; preds = %6
@@ -7933,7 +7933,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_MvParseLiteralMv(ptr nocapture no
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %37 = getelementptr inbounds ptr, ptr %.val9.i, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
-  %39 = icmp ugt ptr %38, %2
+  %39 = icmp ult ptr %2, %38
   br i1 %39, label %.critedge.loopexit.split.loop.exit14.i, label %40
 
 40:                                               ; preds = %36
@@ -8350,7 +8350,7 @@ Io_MvCharIsMvSymb.exit102.thread:                 ; preds = %.preheader123, %.pr
   %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i105 ], [ %indvars.iv.next.i109, %215 ]
   %212 = getelementptr inbounds ptr, ptr %.val9.i106, i64 %indvars.iv.i108
   %213 = load ptr, ptr %212, align 8
-  %214 = icmp ugt ptr %213, %2
+  %214 = icmp ult ptr %2, %213
   br i1 %214, label %.critedge.loopexit.split.loop.exit14.i111, label %215
 
 215:                                              ; preds = %211

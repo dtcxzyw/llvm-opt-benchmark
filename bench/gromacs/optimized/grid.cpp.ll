@@ -135,31 +135,30 @@ define void @_ZN5Nbnxm4Grid8GeometryC2E12PairlistType(ptr nocapture noundef nonn
   store i32 %15, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %16 = icmp sgt i32 %9, 0
-  %17 = add nuw i32 %9, 2147483647
-  %18 = and i32 %17, %9
-  %19 = icmp eq i32 %18, 0
-  %20 = select i1 %16, i1 %19, i1 false
-  br i1 %20, label %_ZL8get_2logi.exit, label %21
+  %17 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %9)
+  %18 = icmp ult i32 %17, 2
+  %19 = select i1 %16, i1 %18, i1 false
+  br i1 %19, label %_ZL8get_2logi.exit, label %20
 
-21:                                               ; preds = %2
+20:                                               ; preds = %2
   call void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 1 dereferenceable(128) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 62, ptr noundef nonnull @.str.1, i32 noundef %9) #26
-          to label %22 unwind label %23
+          to label %21 unwind label %22
 
-22:                                               ; preds = %21
+21:                                               ; preds = %20
   unreachable
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %23
 
 _ZL8get_2logi.exit:                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = tail call noundef i32 @_ZN3gmx5log2IEi(i32 noundef %9)
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = tail call noundef i32 @_ZN3gmx5log2IEi(i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  store i32 %26, ptr %25, align 4
+  store i32 %25, ptr %24, align 4
   ret void
 }
 
@@ -695,7 +694,7 @@ define void @_ZN5Nbnxm4Grid13setDimensionsEiiRKN3gmx11BasicVectorIfEES5_Pff(ptr 
   store float %6, ptr %47, align 4
   %48 = getelementptr inbounds i8, ptr %0, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = icmp slt i32 %49, %2
+  %50 = icmp sgt i32 %2, %49
   br i1 %50, label %51, label %77
 
 51:                                               ; preds = %44
@@ -1814,7 +1813,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
   %indvars32.i = trunc i64 %indvars.iv.i to i32
   %indvars.iv.next.i = add i64 %indvars.iv.i, %36
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %indvars.i, i32 %4)
+  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %4, i32 %indvars.i)
   %39 = icmp sgt i32 %.sroa.speculated.i, %indvars32.i
   br i1 %39, label %.lr.ph.preheader.i, label %.thread.i
 
@@ -1924,7 +1923,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
 .thread.i:                                        ; preds = %76, %74, %.loopexit.i, %.preheader7.i
   %80 = phi i32 [ %79, %76 ], [ %75, %74 ], [ %73, %.loopexit.i ], [ %38, %.preheader7.i ]
   %81 = add nuw nsw i32 %.05321.i, 1
-  %82 = icmp slt i32 %indvars.i, %4
+  %82 = icmp sgt i32 %4, %indvars.i
   br i1 %82, label %.preheader7.i, label %_ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.exit, !llvm.loop !27
 
 _ZN5NbnxmL20sort_cluster_on_flagEiiiN3gmx8ArrayRefIKlEENS1_IiEEPi.exit: ; preds = %.thread.i, %18
@@ -2792,7 +2791,7 @@ define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_1
 12:                                               ; preds = %7
   %13 = shl nsw i32 %6, 2
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %14, %5
+  %15 = fmul float %5, %14
   %16 = inttoptr i64 %.0.val to ptr
   %17 = sext i32 %0 to i64
   %invariant.gep56 = getelementptr [3 x float], ptr %16, i64 0, i64 %17
@@ -4710,7 +4709,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !61
 
 31:                                               ; preds = %14
-  %32 = icmp eq i64 %18, %2
+  %32 = icmp eq i64 %2, %18
   br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
 
 33:                                               ; preds = %31
@@ -4794,7 +4793,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !61
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %43, %1
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
   br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
 
 65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
@@ -4859,7 +4858,7 @@ define noundef float @_ZN5Nbnxm21generateAndFill2DGridEPNS_4GridEN3gmx8ArrayRefI
   %29 = lshr i64 %7, 32
   %30 = trunc nuw i64 %29 to i32
   %31 = trunc i64 %7 to i32
-  %32 = add i32 %31, %13
+  %32 = add i32 %13, %31
   %33 = sub i32 %30, %32
   %34 = load <2 x float>, ptr %4, align 4
   store <2 x float> %34, ptr %23, align 8
@@ -5116,6 +5115,9 @@ define internal void @_ZN5Nbnxm21generateAndFill2DGridEPNS_4GridEN3gmx8ArrayRefI
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #22

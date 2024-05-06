@@ -27,7 +27,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %i.013.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %2 = load i16, ptr %meth.014.us, align 8
   %conv.us = zext i16 %2 to i32
-  %cmp2.us = icmp eq i32 %conv.us, %ext_type
+  %cmp2.us = icmp eq i32 %ext_type, %conv.us
   br i1 %cmp2.us, label %if.then, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -41,13 +41,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %3 = load i16, ptr %meth.014, align 8
   %conv = zext i16 %3 to i32
-  %cmp2 = icmp eq i32 %conv, %ext_type
+  %cmp2 = icmp eq i32 %ext_type, %conv
   br i1 %cmp2, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %role6 = getelementptr inbounds i8, ptr %meth.014, i64 4
   %4 = load i32, ptr %role6, align 4
-  %cmp7 = icmp eq i32 %4, %role
+  %cmp7 = icmp eq i32 %role, %4
   %cmp11 = icmp eq i32 %4, 2
   %or.cond = or i1 %cmp7, %cmp11
   br i1 %or.cond, label %if.then, label %for.inc
@@ -141,7 +141,7 @@ for.body.us.i:                                    ; preds = %for.body.us.i.prehe
   %i.013.us.i = phi i64 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.us.i.preheader ]
   %6 = load i16, ptr %meth.014.us.i, align 8
   %conv.us.i = zext i16 %6 to i32
-  %cmp2.us.i = icmp eq i32 %conv.us.i, %ext_type
+  %cmp2.us.i = icmp eq i32 %ext_type, %conv.us.i
   br i1 %cmp2.us.i, label %if.end3, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
@@ -155,7 +155,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %i.013.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %7 = load i16, ptr %meth.014.i, align 8
   %conv.i = zext i16 %7 to i32
-  %cmp2.i = icmp eq i32 %conv.i, %ext_type
+  %cmp2.i = icmp eq i32 %ext_type, %conv.i
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -493,7 +493,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %meth.014.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc.us.i ], [ %8, %for.body.lr.ph.i ]
   %i.013.us.i = phi i64 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %9 = load i16, ptr %meth.014.us.i, align 8
-  %cmp2.us.i = icmp eq i16 %9, %7
+  %cmp2.us.i = icmp eq i16 %7, %9
   br i1 %cmp2.us.i, label %if.end, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
@@ -506,13 +506,13 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %meth.014.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %8, %for.body.lr.ph.i ]
   %i.013.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %10 = load i16, ptr %meth.014.i, align 8
-  %cmp2.i = icmp eq i16 %10, %7
+  %cmp2.i = icmp eq i16 %7, %10
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %11 = load i32, ptr %role6.i, align 4
-  %cmp7.i = icmp eq i32 %11, %6
+  %cmp7.i = icmp eq i32 %6, %11
   %cmp11.i = icmp eq i32 %11, 2
   %or.cond.i = or i1 %cmp7.i, %cmp11.i
   br i1 %or.cond.i, label %if.end, label %for.inc.i
@@ -760,16 +760,15 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %i.013.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %3 = load i16, ptr %meth.014.i, align 8
   %conv.i = zext i16 %3 to i32
-  %cmp2.i = icmp eq i32 %conv.i, %ext_type
+  %cmp2.i = icmp eq i32 %ext_type, %conv.i
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %4 = load i32, ptr %role6.i, align 4
-  switch i32 %4, label %for.inc.i [
-    i32 2, label %custom_ext_find.exit
-    i32 0, label %custom_ext_find.exit
-  ]
+  %5 = and i32 %4, -3
+  %or.cond.i = icmp eq i32 %5, 0
+  br i1 %or.cond.i, label %custom_ext_find.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw i64 %i.013.i, 1
@@ -777,8 +776,8 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %exitcond.not.i = icmp eq i64 %inc.i, %1
   br i1 %exitcond.not.i, label %custom_ext_find.exit, label %for.body.i, !llvm.loop !4
 
-custom_ext_find.exit:                             ; preds = %land.lhs.true.i, %land.lhs.true.i, %for.inc.i, %entry
-  %retval.0.i = phi i32 [ 0, %entry ], [ 1, %land.lhs.true.i ], [ 1, %land.lhs.true.i ], [ 0, %for.inc.i ]
+custom_ext_find.exit:                             ; preds = %land.lhs.true.i, %for.inc.i, %entry
+  %retval.0.i = phi i32 [ 0, %entry ], [ 1, %land.lhs.true.i ], [ 0, %for.inc.i ]
   ret i32 %retval.0.i
 }
 
@@ -842,7 +841,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %i.013.us.i = phi i64 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %2 = load i16, ptr %meth.014.us.i, align 8
   %conv.us.i = zext i16 %2 to i32
-  %cmp2.us.i = icmp eq i32 %conv.us.i, %ext_type
+  %cmp2.us.i = icmp eq i32 %ext_type, %conv.us.i
   br i1 %cmp2.us.i, label %return, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
@@ -856,13 +855,13 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %i.013.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %3 = load i16, ptr %meth.014.i, align 8
   %conv.i = zext i16 %3 to i32
-  %cmp2.i = icmp eq i32 %conv.i, %ext_type
+  %cmp2.i = icmp eq i32 %ext_type, %conv.i
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %4 = load i32, ptr %role6.i, align 4
-  %cmp7.i = icmp eq i32 %4, %role
+  %cmp7.i = icmp eq i32 %role, %4
   %cmp11.i = icmp eq i32 %4, 2
   %or.cond.i = or i1 %cmp7.i, %cmp11.i
   br i1 %or.cond.i, label %return, label %for.inc.i

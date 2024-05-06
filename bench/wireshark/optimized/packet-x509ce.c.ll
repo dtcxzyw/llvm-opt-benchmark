@@ -1967,51 +1967,47 @@ define internal i32 @dissect_x509ce_T_iPAddress(i1 zeroext %0, ptr noundef %1, i
   %7 = tail call i32 @tvb_reported_length(ptr noundef %1) #3
   %8 = add i32 %7, -4
   %9 = tail call i32 @llvm.fshl.i32(i32 %8, i32 %8, i32 30)
-  switch i32 %9, label %32 [
+  switch i32 %9, label %28 [
     i32 0, label %10
-    i32 1, label %14
-    i32 3, label %21
-    i32 7, label %25
+    i32 1, label %13
+    i32 3, label %19
+    i32 7, label %22
   ]
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_x509ce_IPAddress_ipv4, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
-  %13 = add i32 %2, 4
-  br label %36
+  br label %31
 
-14:                                               ; preds = %6
-  %15 = load i32, ptr @hf_x509ce_IPAddress_ipv4, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %15, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
-  %17 = add i32 %2, 4
-  %18 = load i32, ptr @hf_x509ce_IPAddress_ipv4_mask, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 4, i32 noundef 0) #3
-  %20 = add i32 %2, 8
-  br label %36
+13:                                               ; preds = %6
+  %14 = load i32, ptr @hf_x509ce_IPAddress_ipv4, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
+  %16 = add i32 %2, 4
+  %17 = load i32, ptr @hf_x509ce_IPAddress_ipv4_mask, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %17, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef 0) #3
+  br label %31
 
-21:                                               ; preds = %6
-  %22 = load i32, ptr @hf_x509ce_IPAddress_ipv6, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %22, ptr noundef %1, i32 noundef %2, i32 noundef 16, i32 noundef 0) #3
-  %24 = add i32 %2, 16
-  br label %36
+19:                                               ; preds = %6
+  %20 = load i32, ptr @hf_x509ce_IPAddress_ipv6, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 16, i32 noundef 0) #3
+  br label %31
 
-25:                                               ; preds = %6
-  %26 = load i32, ptr @hf_x509ce_IPAddress_ipv6, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %26, ptr noundef %1, i32 noundef %2, i32 noundef 16, i32 noundef 0) #3
-  %28 = add i32 %2, 16
-  %29 = load i32, ptr @hf_x509ce_IPAddress_ipv6_mask, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %29, ptr noundef %1, i32 noundef %28, i32 noundef 16, i32 noundef 0) #3
-  %31 = add i32 %2, 32
-  br label %36
+22:                                               ; preds = %6
+  %23 = load i32, ptr @hf_x509ce_IPAddress_ipv6, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %23, ptr noundef %1, i32 noundef %2, i32 noundef 16, i32 noundef 0) #3
+  %25 = add i32 %2, 16
+  %26 = load i32, ptr @hf_x509ce_IPAddress_ipv6_mask, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %26, ptr noundef %1, i32 noundef %25, i32 noundef 16, i32 noundef 0) #3
+  br label %31
 
-32:                                               ; preds = %6
-  %33 = load i32, ptr @hf_x509ce_IPAddress_unknown, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %33, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef 0) #3
-  %35 = add i32 %7, %2
-  br label %36
+28:                                               ; preds = %6
+  %29 = load i32, ptr @hf_x509ce_IPAddress_unknown, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %29, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef 0) #3
+  br label %31
 
-36:                                               ; preds = %32, %25, %21, %14, %10
-  %.0 = phi i32 [ %35, %32 ], [ %31, %25 ], [ %24, %21 ], [ %20, %14 ], [ %13, %10 ]
+31:                                               ; preds = %28, %22, %19, %13, %10
+  %.pn = phi i32 [ %7, %28 ], [ 32, %22 ], [ 16, %19 ], [ 8, %13 ], [ 4, %10 ]
+  %.0 = add i32 %.pn, %2
   ret i32 %.0
 }
 

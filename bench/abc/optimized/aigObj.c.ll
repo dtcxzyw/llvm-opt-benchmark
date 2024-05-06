@@ -473,7 +473,7 @@ define noundef ptr @Aig_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly
   %20 = getelementptr inbounds i8, ptr %0, i64 464
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %71, label %22
+  br i1 %.not, label %73, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr i8, ptr %3, i64 8
@@ -529,47 +529,54 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %55 = add nsw i32 %53, 1
   %56 = getelementptr inbounds i8, ptr %21, i64 4
   %57 = load i32, ptr %56, align 4
-  %.not.i.not.i = icmp sgt i32 %57, %53
+  %.not.i.not.i = icmp slt i32 %53, %57
   br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %58
 
 58:                                               ; preds = %Aig_ObjFaninId1.exit
   %59 = load i32, ptr %21, align 8
+  %60 = shl nsw i32 %59, 1
+  %.not.i34 = icmp slt i32 %53, %60
+  br i1 %.not.i34, label %62, label %61
+
+61:                                               ; preds = %58
   %.not.i.i.not.i = icmp sgt i32 %59, %53
   br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %Vec_IntGrow.exit.sink.split.i.i
 
-Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %58
-  %60 = shl nsw i32 %59, 1
-  %.not.i34 = icmp sgt i32 %60, %53
-  %. = select i1 %.not.i34, i32 %60, i32 %55
-  %61 = sext i32 %. to i64
-  %62 = shl nsw i64 %61, 2
-  %63 = tail call ptr @realloc(ptr noundef nonnull %.val28, i64 noundef %62) #11
-  store ptr %63, ptr %32, align 8
-  store i32 %., ptr %21, align 8
+62:                                               ; preds = %58
+  %.not4.i = icmp slt i32 %53, %59
+  br i1 %.not4.i, label %Vec_IntGrow.exit.i.i, label %Vec_IntGrow.exit.sink.split.i.i
+
+Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %62, %61
+  %.sink = phi i32 [ %55, %61 ], [ %60, %62 ]
+  %63 = sext i32 %.sink to i64
+  %64 = shl nsw i64 %63, 2
+  %65 = tail call ptr @realloc(ptr noundef nonnull %.val28, i64 noundef %64) #11
+  store ptr %65, ptr %32, align 8
+  store i32 %.sink, ptr %21, align 8
   %.pre.i = load i32, ptr %56, align 4
   br label %Vec_IntGrow.exit.i.i
 
-Vec_IntGrow.exit.i.i:                             ; preds = %58, %Vec_IntGrow.exit.sink.split.i.i
-  %.val.i.pre37 = phi ptr [ %63, %Vec_IntGrow.exit.sink.split.i.i ], [ %.val28, %58 ]
-  %64 = phi i32 [ %.pre.i, %Vec_IntGrow.exit.sink.split.i.i ], [ %57, %58 ]
-  %.not4.i = icmp sgt i32 %64, %53
-  br i1 %.not4.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+Vec_IntGrow.exit.i.i:                             ; preds = %Vec_IntGrow.exit.sink.split.i.i, %62, %61
+  %.val.i.pre37 = phi ptr [ %65, %Vec_IntGrow.exit.sink.split.i.i ], [ %.val28, %62 ], [ %.val28, %61 ]
+  %66 = phi i32 [ %.pre.i, %Vec_IntGrow.exit.sink.split.i.i ], [ %57, %62 ], [ %57, %61 ]
+  %.not5.i = icmp sgt i32 %66, %53
+  br i1 %.not5.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_IntGrow.exit.i.i
-  %65 = sext i32 %64 to i64
+  %67 = sext i32 %66 to i64
   %wide.trip.count.i.i = sext i32 %55 to i64
-  br label %66
+  br label %68
 
-66:                                               ; preds = %66, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %66 ]
-  %67 = load ptr, ptr %32, align 8
-  %68 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i.i
-  store i32 0, ptr %68, align 4
+68:                                               ; preds = %68, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %68 ]
+  %69 = load ptr, ptr %32, align 8
+  %70 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv.i.i
+  store i32 0, ptr %70, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i.loopexit, label %66, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i.loopexit, label %68, !llvm.loop !4
 
-._crit_edge.i.i.loopexit:                         ; preds = %66
+._crit_edge.i.i.loopexit:                         ; preds = %68
   %.val.i.pre.pre = load ptr, ptr %32, align 8
   br label %._crit_edge.i.i
 
@@ -580,12 +587,12 @@ Vec_IntGrow.exit.i.i:                             ; preds = %58, %Vec_IntGrow.ex
 
 Vec_IntSetEntry.exit:                             ; preds = %Aig_ObjFaninId1.exit, %._crit_edge.i.i
   %.val.i = phi ptr [ %.val28, %Aig_ObjFaninId1.exit ], [ %.val.i.pre, %._crit_edge.i.i ]
-  %69 = sext i32 %53 to i64
-  %70 = getelementptr inbounds i32, ptr %.val.i, i64 %69
-  store float %54, ptr %70, align 4
-  br label %71
+  %71 = sext i32 %53 to i64
+  %72 = getelementptr inbounds i32, ptr %.val.i, i64 %71
+  store float %54, ptr %72, align 4
+  br label %73
 
-71:                                               ; preds = %Vec_IntSetEntry.exit, %2
+73:                                               ; preds = %Vec_IntSetEntry.exit, %2
   ret ptr %3
 }
 
@@ -1362,7 +1369,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %9 = ptrtoint ptr %.val58 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %1
+  %12 = icmp eq ptr %1, %11
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %4
@@ -1371,7 +1378,7 @@ define void @Aig_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %15 = ptrtoint ptr %.val59 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %17, %1
+  %18 = icmp eq ptr %1, %17
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %13, %4

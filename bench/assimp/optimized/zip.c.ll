@@ -7080,7 +7080,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %call.i43 = call i32 @tdefl_compress(ptr noundef %call, ptr noundef nonnull %z, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
   %15 = xor i32 %y.0103, -1
-  %sub27 = add nsw i32 %15, %h
+  %sub27 = add nsw i32 %h, %15
   %cond30 = select i1 %tobool25.not, i32 %y.0103, i32 %sub27
   %mul31 = mul nsw i32 %cond30, %mul
   %idx.ext = sext i32 %mul31 to i64
@@ -8474,7 +8474,7 @@ return:                                           ; preds = %if.end14.i, %entry,
 define internal i64 @mz_zip_mem_read_func(ptr nocapture noundef readonly %pOpaque, i64 noundef %file_ofs, ptr nocapture noundef writeonly %pBuf, i64 noundef %n) #7 {
 entry:
   %0 = load i64, ptr %pOpaque, align 8
-  %cmp.not = icmp ugt i64 %0, %file_ofs
+  %cmp.not = icmp ult i64 %file_ofs, %0
   %sub = sub i64 %0, %file_ofs
   %sub.n = tail call i64 @llvm.umin.i64(i64 %sub, i64 %n)
   %cond8 = select i1 %cmp.not, i64 %sub.n, i64 0
@@ -8726,7 +8726,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %m_total_files.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %1 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not = icmp ugt i32 %1, %file_index
+  %cmp.i.not = icmp ult i32 %file_index, %1
   br i1 %cmp.i.not, label %lor.lhs.false3.i, label %return
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
@@ -8774,7 +8774,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %m_total_files.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %1 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not = icmp ugt i32 %1, %file_index
+  %cmp.i.not = icmp ult i32 %file_index, %1
   br i1 %cmp.i.not, label %lor.lhs.false3.i, label %return
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
@@ -8845,7 +8845,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %m_total_files.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %1 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not = icmp ugt i32 %1, %file_index
+  %cmp.i.not = icmp ult i32 %file_index, %1
   br i1 %cmp.i.not, label %lor.lhs.false3.i, label %return
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
@@ -9016,7 +9016,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %m_total_files.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %1 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not = icmp ugt i32 %1, %file_index
+  %cmp.i.not = icmp ult i32 %file_index, %1
   br i1 %cmp.i.not, label %lor.lhs.false3.i, label %if.then
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
@@ -9450,7 +9450,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end7
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %m_total_files.i.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %2 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %2, %file_index
+  %cmp.i.not.i = icmp ult i32 %file_index, %2
   br i1 %cmp.i.not.i, label %lor.lhs.false3.i.i, label %if.end11
 
 lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false2.i.i
@@ -9520,7 +9520,7 @@ if.end26:                                         ; preds = %if.end14
   %m_uncomp_size = getelementptr inbounds i8, ptr %file_stat, i64 40
   %17 = load i64, ptr %m_uncomp_size, align 8
   %cond = select i1 %tobool16, i64 %17, i64 %0
-  %cmp30 = icmp ugt i64 %cond, %buf_size
+  %cmp30 = icmp ult i64 %buf_size, %cond
   br i1 %cmp30, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end26
@@ -9766,7 +9766,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %m_total_files.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %1 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not = icmp ugt i32 %1, %file_index
+  %cmp.i.not = icmp ult i32 %file_index, %1
   br i1 %cmp.i.not, label %lor.lhs.false3.i, label %mz_zip_reader_get_cdh.exit
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
@@ -9868,7 +9868,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end2
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %m_total_files.i.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %1 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %1, %call
+  %cmp.i.not.i = icmp ult i32 %call, %1
   br i1 %cmp.i.not.i, label %lor.lhs.false3.i.i, label %mz_zip_reader_get_cdh.exit.i
 
 lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false2.i.i
@@ -9973,7 +9973,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %m_total_files.i.i = getelementptr inbounds i8, ptr %pZip, i64 16
   %2 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %2, %file_index
+  %cmp.i.not.i = icmp ult i32 %file_index, %2
   br i1 %cmp.i.not.i, label %lor.lhs.false3.i.i, label %if.end7
 
 lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false2.i.i
@@ -11569,7 +11569,7 @@ entry:
   %conv = sext i32 %len to i64
   %call = tail call i64 %1(ptr noundef %2, i64 noundef %3, ptr noundef %pBuf, i64 noundef %conv) #30
   %conv2 = trunc i64 %call to i32
-  %cmp.not = icmp eq i32 %conv2, %len
+  %cmp.not = icmp eq i32 %len, %conv2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -12428,7 +12428,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false2
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %m_total_files.i = getelementptr inbounds i8, ptr %pSource_zip, i64 16
   %3 = load i32, ptr %m_total_files.i, align 8
-  %cmp.i.not = icmp ugt i32 %3, %file_index
+  %cmp.i.not = icmp ult i32 %file_index, %3
   br i1 %cmp.i.not, label %lor.lhs.false3.i, label %return
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
@@ -13214,7 +13214,7 @@ if.then9:                                         ; preds = %if.end7
   %tobool1.i.not.i = icmp ne ptr %0, null
   %m_total_files.i.i = getelementptr inbounds i8, ptr %zip_archive, i64 16
   %1 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %1, %call8
+  %cmp.i.not.i = icmp ult i32 %call8, %1
   %or.cond13 = select i1 %tobool1.i.not.i, i1 %cmp.i.not.i, i1 false
   %m_zip_mode.i.i = getelementptr inbounds i8, ptr %zip_archive, i64 20
   %2 = load i32, ptr %m_zip_mode.i.i, align 4
@@ -13892,7 +13892,7 @@ if.end2:                                          ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end2
   %m_total_files = getelementptr inbounds i8, ptr %zip, i64 16
   %1 = load i32, ptr %m_total_files, align 8
-  %cmp4.not = icmp ugt i32 %1, %index
+  %cmp4.not = icmp ult i32 %index, %1
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
@@ -14303,7 +14303,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %m_total_files.i.i = getelementptr inbounds i8, ptr %zip, i64 16
   %2 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %2, %0
+  %cmp.i.not.i = icmp ult i32 %0, %2
   br i1 %cmp.i.not.i, label %lor.lhs.false3.i.i, label %return
 
 lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false2.i.i
@@ -14569,7 +14569,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %m_total_files.i.i = getelementptr inbounds i8, ptr %zip, i64 16
   %3 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %3, %1
+  %cmp.i.not.i = icmp ult i32 %1, %3
   br i1 %cmp.i.not.i, label %mz_zip_reader_get_cdh.exit.i, label %lor.lhs.false2.i.i13
 
 mz_zip_reader_get_cdh.exit.i:                     ; preds = %lor.lhs.false2.i.i
@@ -14615,7 +14615,7 @@ mz_zip_reader_is_file_a_directory.exit:           ; preds = %if.end.i, %if.then5
 lor.lhs.false2.i.i13:                             ; preds = %lor.lhs.false2.i.i, %mz_zip_reader_get_cdh.exit.i, %mz_zip_reader_is_file_a_directory.exit
   %m_total_files.i.i14 = getelementptr inbounds i8, ptr %zip, i64 16
   %12 = load i32, ptr %m_total_files.i.i14, align 8
-  %cmp.i.not.i15 = icmp ugt i32 %12, %1
+  %cmp.i.not.i15 = icmp ult i32 %1, %12
   br i1 %cmp.i.not.i15, label %mz_zip_reader_get_cdh.exit.i16, label %mz_zip_reader_extract_to_heap.exit.thread
 
 mz_zip_reader_get_cdh.exit.i16:                   ; preds = %lor.lhs.false2.i.i13
@@ -14736,7 +14736,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %m_total_files.i.i = getelementptr inbounds i8, ptr %zip, i64 16
   %3 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %3, %1
+  %cmp.i.not.i = icmp ult i32 %1, %3
   br i1 %cmp.i.not.i, label %mz_zip_reader_get_cdh.exit.i, label %if.end9
 
 mz_zip_reader_get_cdh.exit.i:                     ; preds = %lor.lhs.false2.i.i
@@ -15802,7 +15802,7 @@ lor.lhs.false.i.i:                                ; preds = %if.else
 
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   %34 = load i32, ptr %m_total_files.i.i, align 8
-  %cmp.i.not.i = icmp ugt i32 %34, %i.05572
+  %cmp.i.not.i = icmp ult i32 %i.05572, %34
   br i1 %cmp.i.not.i, label %lor.lhs.false3.i.i, label %if.then71
 
 lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false2.i.i
@@ -17853,9 +17853,9 @@ if.else:                                          ; preds = %entry
   %idxprom6 = zext nneg i32 %table_num to i64
   %arrayidx7 = getelementptr inbounds [3 x [288 x i16]], ptr %m_huff_count, i64 0, i64 %idxprom6
   %cmp1082 = icmp sgt i32 %table_len, 0
-  br i1 %cmp1082, label %for.body11.preheader, label %while.cond.preheader.i.thread.thread
+  br i1 %cmp1082, label %for.body11.preheader, label %for.end25.thread
 
-while.cond.preheader.i.thread.thread:             ; preds = %if.else
+for.end25.thread:                                 ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %hist.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %offsets.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %hist.i, i8 0, i64 2048, i1 false)
@@ -17904,13 +17904,10 @@ while.cond.preheader.i:                           ; preds = %for.body.i
   %arrayidx11.phi.trans.insert.i = getelementptr inbounds i8, ptr %hist.i, i64 1024
   %.pre.i = load i32, ptr %arrayidx11.phi.trans.insert.i, align 16
   %3 = freeze i32 %.pre.i
-  %cmp12.i = icmp eq i32 %3, %num_used_syms.1
-  %spec.select.i = select i1 %cmp12.i, i64 1, i64 2
+  %cmp12.i = icmp eq i32 %num_used_syms.1, %3
+  %. = select i1 %cmp12.i, i64 1, i64 2
+  %.num_used_syms.1.lcssa = select i1 %cmp12.i, i32 0, i32 %num_used_syms.1
   br i1 %cmp26.not.i, label %for.body17.i.preheader, label %for.body17.us.preheader.i
-
-for.body17.i.preheader:                           ; preds = %for.end25, %while.cond.preheader.i.thread.thread, %while.cond.preheader.i
-  %spec.select.i150 = phi i64 [ %spec.select.i, %while.cond.preheader.i ], [ 1, %while.cond.preheader.i.thread.thread ], [ 1, %for.end25 ]
-  br label %for.body17.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
@@ -17933,6 +17930,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %while.cond.preheader.i, label %for.body.i
+
+for.body17.i.preheader:                           ; preds = %while.cond.preheader.i, %for.end25, %for.end25.thread
+  %.us-phi.i150 = phi i64 [ 1, %for.end25.thread ], [ 1, %for.end25 ], [ %., %while.cond.preheader.i ]
+  %num_used_syms.0.lcssa141149 = phi i32 [ 0, %for.end25.thread ], [ 0, %for.end25 ], [ %.num_used_syms.1.lcssa, %while.cond.preheader.i ]
+  br label %for.body17.i
 
 for.body17.us.preheader.i:                        ; preds = %while.cond.preheader.i
   %wide.trip.count48.i = zext i32 %num_used_syms.1 to i64
@@ -17982,7 +17984,7 @@ for.body23.us.i:                                  ; preds = %for.body23.us.i, %f
 for.cond32.for.end51_crit_edge.us.i:              ; preds = %for.body35.us.i
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %add54.us.i = add nuw nsw i32 %pass_shift.035.us.i, 8
-  %exitcond55.not.i = icmp eq i64 %indvars.iv.next51.i, %spec.select.i
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next51.i, %.
   br i1 %exitcond55.not.i, label %tdefl_radix_sort_syms.exit, label %for.body17.us.i
 
 for.body17.i:                                     ; preds = %for.body17.i.preheader, %for.cond32.preheader.i
@@ -17995,7 +17997,7 @@ for.body17.i:                                     ; preds = %for.body17.i.prehea
 
 for.cond32.preheader.i:                           ; preds = %for.body23.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %exitcond65.not.i = icmp eq i64 %indvars.iv.next61.i, %spec.select.i150
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next61.i, %.us-phi.i150
   br i1 %exitcond65.not.i, label %tdefl_radix_sort_syms.exit, label %for.body17.i
 
 for.body23.i:                                     ; preds = %for.body23.i, %for.body17.i
@@ -18011,7 +18013,7 @@ for.body23.i:                                     ; preds = %for.body23.i, %for.
   br i1 %exitcond59.not.i, label %for.cond32.preheader.i, label %for.body23.i
 
 tdefl_radix_sort_syms.exit:                       ; preds = %for.cond32.for.end51_crit_edge.us.i, %for.cond32.preheader.i
-  %num_used_syms.0.lcssa141148 = phi i32 [ 0, %for.cond32.preheader.i ], [ %num_used_syms.1, %for.cond32.for.end51_crit_edge.us.i ]
+  %num_used_syms.0.lcssa141148 = phi i32 [ %num_used_syms.0.lcssa141149, %for.cond32.preheader.i ], [ %num_used_syms.1, %for.cond32.for.end51_crit_edge.us.i ]
   %.us-phi37.i = phi ptr [ %pNew_syms.033.i, %for.cond32.preheader.i ], [ %pNew_syms.033.us.i, %for.cond32.for.end51_crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %hist.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %offsets.i)
@@ -18347,8 +18349,8 @@ tdefl_huffman_enforce_max_code_size.exit:         ; preds = %for.end37.i, %tdefl
   br i1 %cmp47.not92, label %if.end71.thread, label %for.body49.preheader
 
 if.end71.thread:                                  ; preds = %tdefl_huffman_enforce_max_code_size.exit
-  %arrayidx72155 = getelementptr inbounds i8, ptr %next_code, i64 4
-  store i32 0, ptr %arrayidx72155, align 4
+  %arrayidx72157 = getelementptr inbounds i8, ptr %next_code, i64 4
+  store i32 0, ptr %arrayidx72157, align 4
   br label %for.cond84.preheader
 
 for.body49.preheader:                             ; preds = %tdefl_huffman_enforce_max_code_size.exit
@@ -18990,7 +18992,7 @@ while.cond4:                                      ; preds = %while.cond1, %while
 while.end13:                                      ; preds = %while.cond4
   %7 = trunc nsw i64 %indvars.iv to i32
   %8 = trunc nsw i64 %indvars.iv54 to i32
-  %cmp.i = icmp eq i32 %7, %entry_num
+  %cmp.i = icmp eq i32 %entry_num, %7
   br i1 %cmp.i, label %zip_central_dir_move.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end13
@@ -19000,7 +19002,7 @@ if.end.i:                                         ; preds = %while.end13
   %11 = load i32, ptr %arrayidx.i, align 4
   %idxprom2.i = zext i32 %11 to i64
   %arrayidx3.i = getelementptr inbounds i8, ptr %9, i64 %idxprom2.i
-  %cmp7.i = icmp eq i32 %8, %entry_num
+  %cmp7.i = icmp eq i32 %entry_num, %8
   br i1 %cmp7.i, label %if.end29.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -19064,7 +19066,7 @@ if.end63.i:                                       ; preds = %for.body54.i, %if.t
   br label %zip_central_dir_move.exit
 
 zip_central_dir_move.exit:                        ; preds = %while.end13, %if.end63.i
-  %cmp = icmp slt i32 %8, %entry_num
+  %cmp = icmp sgt i32 %entry_num, %8
   br i1 %cmp, label %while.cond1.preheader, label %while.cond15.preheader
 
 while.cond18.preheader:                           ; preds = %while.cond18.preheader.lr.ph, %for.end
@@ -19086,7 +19088,7 @@ while.cond18:                                     ; preds = %while.cond18, %whil
 
 while.end27:                                      ; preds = %while.cond18
   %22 = trunc nsw i64 %indvars.iv57 to i32
-  %cmp28 = icmp eq i32 %22, %entry_num
+  %cmp28 = icmp eq i32 %entry_num, %22
   br i1 %cmp28, label %while.end49, label %while.cond29
 
 while.cond29:                                     ; preds = %while.end27, %while.cond29
@@ -19101,7 +19103,7 @@ while.cond29:                                     ; preds = %while.end27, %while
 
 for.cond.preheader:                               ; preds = %while.cond29
   %25 = trunc nsw i64 %indvars.iv60 to i32
-  %cmp3946 = icmp slt i32 %25, %entry_num
+  %cmp3946 = icmp sgt i32 %entry_num, %25
   br i1 %cmp3946, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %for.cond.preheader

@@ -92,7 +92,7 @@ define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager14Entrop
 if.end:
   %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %largest_observed_, align 8
-  %cmp = icmp eq i64 %0, %packet_number
+  %cmp = icmp eq i64 %packet_number, %0
   br i1 %cmp, label %if.then4, label %for.body.preheader
 
 if.then4:                                         ; preds = %if.end
@@ -158,7 +158,7 @@ entry:
   %ref.tmp22 = alloca %"struct.std::pair", align 2
   %first_gap_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %first_gap_, align 8
-  %cmp = icmp ugt i64 %0, %packet_number
+  %cmp = icmp ult i64 %packet_number, %0
   br i1 %cmp, label %if.end34, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -169,8 +169,8 @@ if.end:                                           ; preds = %entry
   %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load i64, ptr %largest_observed_, align 8
   %add = add i64 %2, 1
-  %cmp4 = icmp eq i64 %add, %packet_number
-  br i1 %cmp4, label %land.lhs.true, label %if.end8
+  %cmp4 = icmp eq i64 %packet_number, %add
+  br i1 %cmp4, label %land.lhs.true, label %if.end8.thread
 
 land.lhs.true:                                    ; preds = %if.end
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -185,16 +185,15 @@ if.then5:                                         ; preds = %land.lhs.true
   store i64 %inc, ptr %first_gap_, align 8
   br label %if.end34.sink.split
 
-if.end8:                                          ; preds = %land.lhs.true, %if.end
-  %cmp10 = icmp ult i64 %2, %packet_number
-  br i1 %cmp10, label %for.cond.preheader, label %if.else
+if.end8:                                          ; preds = %land.lhs.true
+  %cmp10 = icmp ugt i64 %packet_number, %2
+  br i1 %cmp10, label %for.end, label %if.else
 
-for.cond.preheader:                               ; preds = %if.end8
-  %5 = add i64 %packet_number, -1
-  %cmp1442.not = icmp eq i64 %2, %5
-  br i1 %cmp1442.not, label %for.end, label %for.body.lr.ph
+if.end8.thread:                                   ; preds = %if.end
+  %cmp1044 = icmp ugt i64 %packet_number, %2
+  br i1 %cmp1044, label %for.body.lr.ph, label %if.else
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %if.end8.thread
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -204,17 +203,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i.043 = phi i64 [ 0, %for.body.lr.ph ], [ %inc20, %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit ]
   store i8 0, ptr %ref.tmp, align 2
   store i8 0, ptr %second.i, align 1
-  %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %7 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 -2
-  %cmp.not.i.i = icmp eq ptr %6, %add.ptr.i.i
+  %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %6 = load ptr, ptr %_M_last.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 -2
+  %cmp.not.i.i = icmp eq ptr %5, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %8 = load i16, ptr %ref.tmp, align 2
-  store i16 %8, ptr %6, align 1
-  %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 2
+  %7 = load i16, ptr %ref.tmp, align 2
+  store i16 %7, ptr %5, align 1
+  %8 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 2
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit
 
@@ -224,28 +223,28 @@ if.else.i.i:                                      ; preds = %for.body
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %inc20 = add nuw i64 %i.043, 1
-  %10 = load i64, ptr %largest_observed_, align 8
-  %11 = xor i64 %10, -1
-  %sub13 = add i64 %11, %packet_number
+  %9 = load i64, ptr %largest_observed_, align 8
+  %10 = xor i64 %9, -1
+  %sub13 = add i64 %packet_number, %10
   %cmp14 = icmp ult i64 %inc20, %sub13
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !11
 
-for.end:                                          ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit, %for.cond.preheader
+for.end:                                          ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit, %if.end8
   %retval.sroa.0.0.insert.ext.i12 = zext i8 %entropy_hash to i16
   %retval.sroa.0.0.insert.insert.i13 = or disjoint i16 %retval.sroa.0.0.insert.ext.i12, 256
   store i16 %retval.sroa.0.0.insert.insert.i13, ptr %ref.tmp22, align 2
   %_M_finish.i.i14 = getelementptr inbounds i8, ptr %this, i64 48
-  %12 = load ptr, ptr %_M_finish.i.i14, align 8
+  %11 = load ptr, ptr %_M_finish.i.i14, align 8
   %_M_last.i.i15 = getelementptr inbounds i8, ptr %this, i64 64
-  %13 = load ptr, ptr %_M_last.i.i15, align 8
-  %add.ptr.i.i16 = getelementptr inbounds i8, ptr %13, i64 -2
-  %cmp.not.i.i17 = icmp eq ptr %12, %add.ptr.i.i16
+  %12 = load ptr, ptr %_M_last.i.i15, align 8
+  %add.ptr.i.i16 = getelementptr inbounds i8, ptr %12, i64 -2
+  %cmp.not.i.i17 = icmp eq ptr %11, %add.ptr.i.i16
   br i1 %cmp.not.i.i17, label %if.else.i.i20, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %for.end
-  store i16 %retval.sroa.0.0.insert.insert.i13, ptr %12, align 1
-  %14 = load ptr, ptr %_M_finish.i.i14, align 8
-  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %14, i64 2
+  store i16 %retval.sroa.0.0.insert.insert.i13, ptr %11, align 1
+  %13 = load ptr, ptr %_M_finish.i.i14, align 8
+  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %13, i64 2
   store ptr %incdec.ptr.i.i19, ptr %_M_finish.i.i14, align 8
   br label %if.end34.sink.split
 
@@ -253,16 +252,16 @@ if.else.i.i20:                                    ; preds = %for.end
   call void @_ZNSt5dequeISt4pairIhbESaIS1_EE16_M_push_back_auxIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(2) %ref.tmp22)
   br label %if.end34.sink.split
 
-if.else:                                          ; preds = %if.end8
+if.else:                                          ; preds = %if.end8.thread, %if.end8
   %sub31 = sub i64 %packet_number, %0
   %_M_start.i27 = getelementptr inbounds i8, ptr %this, i64 16
-  %15 = load ptr, ptr %_M_start.i27, align 8, !noalias !12
+  %14 = load ptr, ptr %_M_start.i27, align 8, !noalias !12
   %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !12
+  %15 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !12
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %17 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !12
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
+  %16 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !12
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 1
   %add.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %sub31
@@ -274,7 +273,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.else
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %15, i64 %sub31
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %sub31
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit
 
 cond.true.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
@@ -287,11 +286,11 @@ cond.false.i.i.i.i:                               ; preds = %if.else
 
 cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i, %cond.true.i.i.i.i
   %cond.i.i.i.i = phi i64 [ %div911.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
-  %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %cond.i.i.i.i
-  %18 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !12
+  %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %cond.i.i.i.i
+  %17 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !12
   %mul.i.i.i.i = shl nsw i64 %cond.i.i.i.i, 8
   %sub14.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
-  %add.ptr15.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %18, i64 %sub14.i.i.i.i
+  %add.ptr15.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %17, i64 %sub14.i.i.i.i
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit
 
 _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
@@ -300,9 +299,9 @@ _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %if.then.i.i.i.i, %c
   %second3.i29 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 1
   store i8 1, ptr %second3.i29, align 1
   %_M_finish.i.i31 = getelementptr inbounds i8, ptr %this, i64 48
-  %19 = load ptr, ptr %_M_finish.i.i31, align 8
-  %20 = load ptr, ptr %_M_start.i27, align 8
-  %cmp.i.i2.i = icmp eq ptr %19, %20
+  %18 = load ptr, ptr %_M_finish.i.i31, align 8
+  %19 = load ptr, ptr %_M_start.i27, align 8
+  %cmp.i.i2.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i2.i, label %if.end34, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit
@@ -310,44 +309,44 @@ land.rhs.lr.ph.i:                                 ; preds = %_ZNSt5dequeISt4pair
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %land.rhs.lr.ph.i
-  %21 = phi ptr [ %19, %land.rhs.lr.ph.i ], [ %29, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
-  %22 = phi ptr [ %20, %land.rhs.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
-  %second.i33 = getelementptr inbounds i8, ptr %22, i64 1
-  %23 = load i8, ptr %second.i33, align 1
-  %tobool.i = trunc i8 %23 to i1
+  %20 = phi ptr [ %18, %land.rhs.lr.ph.i ], [ %28, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
+  %21 = phi ptr [ %19, %land.rhs.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
+  %second.i33 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = load i8, ptr %second.i33, align 1
+  %tobool.i = trunc i8 %22 to i1
   br i1 %tobool.i, label %while.body.i, label %if.end34
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %24 = load i64, ptr %first_gap_, align 8
-  %inc.i = add i64 %24, 1
+  %23 = load i64, ptr %first_gap_, align 8
+  %inc.i = add i64 %23, 1
   store i64 %inc.i, ptr %first_gap_, align 8
-  %25 = load ptr, ptr %_M_last.i.i32, align 8
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %25, i64 -2
-  %cmp.not.i.i35 = icmp eq ptr %22, %add.ptr.i.i34
+  %24 = load ptr, ptr %_M_last.i.i32, align 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %24, i64 -2
+  %cmp.not.i.i35 = icmp eq ptr %21, %add.ptr.i.i34
   br i1 %cmp.not.i.i35, label %if.else.i.i38, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %while.body.i
-  %incdec.ptr.i.i37 = getelementptr inbounds i8, ptr %22, i64 2
+  %incdec.ptr.i.i37 = getelementptr inbounds i8, ptr %21, i64 2
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 if.else.i.i38:                                    ; preds = %while.body.i
-  %26 = load ptr, ptr %_M_first3.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %26) #14
-  %27 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %25 = load ptr, ptr %_M_first3.i.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %25) #14
+  %26 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node5.i.i.i.i, align 8
-  %28 = load ptr, ptr %add.ptr.i.i.i, align 8
-  store ptr %28, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i39 = getelementptr inbounds i8, ptr %28, i64 512
+  %27 = load ptr, ptr %add.ptr.i.i.i, align 8
+  store ptr %27, ptr %_M_first3.i.i.i.i, align 8
+  %add.ptr.i.i.i.i39 = getelementptr inbounds i8, ptr %27, i64 512
   store ptr %add.ptr.i.i.i.i39, ptr %_M_last.i.i32, align 8
   %.pre.i = load ptr, ptr %_M_finish.i.i31, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %if.else.i.i38, %if.then.i.i36
-  %29 = phi ptr [ %21, %if.then.i.i36 ], [ %.pre.i, %if.else.i.i38 ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i37, %if.then.i.i36 ], [ %28, %if.else.i.i38 ]
+  %28 = phi ptr [ %20, %if.then.i.i36 ], [ %.pre.i, %if.else.i.i38 ]
+  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i37, %if.then.i.i36 ], [ %27, %if.else.i.i38 ]
   store ptr %storemerge.i.i, ptr %_M_start.i27, align 8
-  %cmp.i.i.i = icmp eq ptr %29, %storemerge.i.i
+  %cmp.i.i.i = icmp eq ptr %28, %storemerge.i.i
   br i1 %cmp.i.i.i, label %if.end34, label %land.rhs.i, !llvm.loop !15
 
 if.end34.sink.split:                              ; preds = %if.else.i.i20, %if.then.i.i18, %if.then5
@@ -425,7 +424,7 @@ define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCu
 if.end:
   %first_gap_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %first_gap_, align 8
-  %cmp = icmp ugt i64 %0, %packet_number
+  %cmp = icmp ult i64 %packet_number, %0
   br i1 %cmp, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
@@ -932,7 +931,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i64, ptr %ack_frame_, align 8
-  %cmp = icmp ugt i64 %1, %packet_number
+  %cmp = icmp ult i64 %packet_number, %1
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end
@@ -986,7 +985,7 @@ if.end:                                           ; preds = %if.then, %entry
   %time_largest_observed_ = getelementptr inbounds i8, ptr %this, i64 232
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %time_largest_observed_, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload, 0
-  %cmp.i2 = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, %approximate_now.coerce
+  %cmp.i2 = icmp slt i64 %approximate_now.coerce, %agg.tmp.sroa.0.0.copyload
   %sub.i = sub nsw i64 %approximate_now.coerce, %agg.tmp.sroa.0.0.copyload
   %ref.tmp14.sroa.3.0 = select i1 %cmp.i2, i64 0, i64 %sub.i
   %ref.tmp14.sroa.3.0.sink = select i1 %cmp.i, i64 9223372036854775807, i64 %ref.tmp14.sroa.3.0
@@ -1081,7 +1080,7 @@ define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager11Entrop
 entry:
   %largest_observed_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %largest_observed_.i, align 8
-  %cmp.i = icmp eq i64 %0, %packet_number
+  %cmp.i = icmp eq i64 %packet_number, %0
   br i1 %cmp.i, label %if.then4.i, label %for.body.preheader.i
 
 if.then4.i:                                       ; preds = %entry
@@ -1380,7 +1379,7 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
-  %cmp3.i.i = icmp ugt ptr %__cur.08.i, %add.ptr
+  %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i

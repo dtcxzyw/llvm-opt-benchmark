@@ -4964,7 +4964,7 @@ define internal ptr @tma_malloc(ptr nocapture noundef readonly %0, i64 noundef %
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %.val12.val13.val to i64
   %.neg.i = sub i64 %11, %14
-  %16 = add i64 %15, %1
+  %16 = add i64 %1, %15
   %17 = sub i64 %16, %14
   %18 = getelementptr inbounds i8, ptr %.val12.val, i64 128
   %19 = load i64, ptr %18, align 8
@@ -5078,7 +5078,7 @@ define internal ptr @tma_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %.val12.val13.val.i to i64
   %.neg.i.i = sub i64 %16, %19
-  %21 = add i64 %20, %2
+  %21 = add i64 %2, %20
   %22 = sub i64 %21, %19
   %23 = getelementptr inbounds i8, ptr %.val12.val.i, i64 128
   %24 = load i64, ptr %23, align 8
@@ -5144,7 +5144,7 @@ define internal ptr @tma_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 49:                                               ; preds = %42
   %50 = load ptr, ptr %6, align 8
   %51 = load i64, ptr %50, align 8
-  %.not29 = icmp eq i64 %51, %2
+  %.not29 = icmp eq i64 %2, %51
   br i1 %.not29, label %tma_malloc.exit, label %pmix_tma_malloc.exit
 
 pmix_tma_malloc.exit:                             ; preds = %49
@@ -5154,7 +5154,7 @@ pmix_tma_malloc.exit:                             ; preds = %49
   br i1 %54, label %tma_malloc.exit, label %pmix_tma_free.exit33
 
 pmix_tma_free.exit33:                             ; preds = %pmix_tma_malloc.exit
-  %55 = call i64 @llvm.umin.i64(i64 %51, i64 %2)
+  %55 = call i64 @llvm.umin.i64(i64 %2, i64 %51)
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %1, i64 %55, i1 false)
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
@@ -5192,7 +5192,7 @@ define internal ptr @tma_strdup(ptr nocapture noundef readonly %0, ptr nocapture
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %.neg.i, %19
   %21 = icmp ugt i64 %17, %20
-  br i1 %21, label %31, label %22
+  br i1 %21, label %30, label %22
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -5202,18 +5202,17 @@ define internal ptr @tma_strdup(ptr nocapture noundef readonly %0, ptr nocapture
   %24 = getelementptr inbounds i8, ptr %.val13, i64 120
   %25 = call i32 @pmix_hash_table_set_value_ptr(ptr noundef nonnull %24, ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull %23) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %26 = add i64 %4, 8
-  %27 = add i64 %26, %15
-  %28 = and i64 %27, -8
-  %29 = inttoptr i64 %28 to ptr
+  %26 = add i64 %16, 7
+  %27 = and i64 %26, -8
+  %28 = inttoptr i64 %27 to ptr
   %.val16 = load ptr, ptr %6, align 8
-  %30 = getelementptr i8, ptr %.val16, i64 312
-  %.val16.val = load ptr, ptr %30, align 8
-  store ptr %29, ptr %.val16.val, align 8
+  %29 = getelementptr i8, ptr %.val16, i64 312
+  %.val16.val = load ptr, ptr %29, align 8
+  store ptr %28, ptr %.val16.val, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.val13.val14.val, ptr align 1 %1, i64 %5, i1 false)
-  br label %31
+  br label %30
 
-31:                                               ; preds = %2, %22
+30:                                               ; preds = %2, %22
   %.0 = phi ptr [ %.val13.val14.val, %22 ], [ null, %2 ]
   ret ptr %.0
 }

@@ -345,7 +345,7 @@ define ptr @extraBddMove(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 23:                                               ; preds = %20, %15
   %.0 = phi i32 [ %19, %15 ], [ %22, %20 ]
-  %.not60 = icmp eq ptr %6, %1
+  %.not60 = icmp eq ptr %1, %6
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   %25 = getelementptr inbounds i8, ptr %6, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -469,11 +469,11 @@ define void @Extra_bddPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %11 = ptrtoint ptr %10 to i64
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %.loopexit.sink.split, label %15
 
 15:                                               ; preds = %8
-  %16 = icmp eq ptr %10, %1
+  %16 = icmp eq ptr %1, %10
   br i1 %16, label %.loopexit.sink.split, label %17
 
 17:                                               ; preds = %15
@@ -586,7 +586,7 @@ define void @Extra_bddPrintSupport(ptr noundef %0, ptr noundef %1) local_unnamed
 define i32 @Extra_bddSuppSize(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %.not5 = icmp eq ptr %4, %1
+  %.not5 = icmp eq ptr %1, %4
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -607,7 +607,7 @@ define i32 @Extra_bddSuppSize(ptr nocapture noundef readonly %0, ptr noundef rea
 define range(i32 0, 2) i32 @Extra_bddSuppContainVar(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %.not6 = icmp eq ptr %5, %1
+  %.not6 = icmp eq ptr %1, %5
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -764,7 +764,7 @@ define i32 @Extra_bddSuppDifferentVars(ptr nocapture noundef readonly %0, ptr no
 .critedge:                                        ; preds = %9
   %38 = getelementptr inbounds i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
-  %.not5.i = icmp eq ptr %39, %.03163
+  %.not5.i = icmp eq ptr %.03163, %39
   br i1 %.not5.i, label %Extra_bddSuppSize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge, %.lr.ph.i
@@ -791,7 +791,7 @@ Extra_bddSuppSize.exit:                           ; preds = %.lr.ph.i, %.critedg
 45:                                               ; preds = %.outer._crit_edge
   %46 = getelementptr inbounds i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8
-  %.not5.i43 = icmp eq ptr %47, %.029.lcssa
+  %.not5.i43 = icmp eq ptr %.029.lcssa, %47
   br i1 %.not5.i43, label %Extra_bddSuppSize.exit49, label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %45, %.lr.ph.i44
@@ -1259,7 +1259,7 @@ define noundef ptr @Extra_bddComputeRangeCube(ptr noundef %0, i32 noundef %1, i3
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.01415) #18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %2
+  %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %9, %3
@@ -1338,7 +1338,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %33 = ptrtoint ptr %32 to i64
   %34 = trunc nuw nsw i64 %indvars.iv46 to i32
   %35 = xor i32 %34, -1
-  %36 = add nsw i32 %35, %2
+  %36 = add nsw i32 %2, %35
   %37 = lshr i32 %10, %36
   %38 = and i32 %37, 1
   %39 = zext nneg i32 %38 to i64
@@ -1359,7 +1359,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = xor i32 %45, -1
-  %47 = add nsw i32 %46, %2
+  %47 = add nsw i32 %2, %46
   %48 = lshr i32 %10, %47
   %49 = and i32 %48, 1
   %50 = zext nneg i32 %49 to i64
@@ -1686,7 +1686,7 @@ define internal ptr @extraZddPrimes(ptr noundef %0, ptr noundef %1) #0 {
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
@@ -1695,7 +1695,7 @@ define internal ptr @extraZddPrimes(ptr noundef %0, ptr noundef %1) #0 {
   br label %126
 
 12:                                               ; preds = %2
-  %13 = icmp eq ptr %4, %1
+  %13 = icmp eq ptr %1, %4
   br i1 %13, label %126, label %14
 
 14:                                               ; preds = %12
@@ -1992,7 +1992,7 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %14 to i64
-  %17 = icmp ne ptr %7, %2
+  %17 = icmp ne ptr %2, %7
   %18 = zext i1 %17 to i64
   %19 = xor i64 %16, %18
   %20 = inttoptr i64 %19 to ptr
@@ -2078,7 +2078,7 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %1, 
   %71 = load i32, ptr %61, align 4
   %72 = add i32 %71, -1
   store i32 %72, ptr %61, align 4
-  %73 = icmp ne ptr %7, %2
+  %73 = icmp ne ptr %2, %7
   %74 = zext i1 %73 to i64
   %75 = xor i64 %58, %74
   %76 = inttoptr i64 %75 to ptr
@@ -2141,7 +2141,7 @@ define ptr @Extra_bddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef 
 define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %2, %5
   br i1 %6, label %103, label %7
 
 7:                                                ; preds = %3
@@ -2178,7 +2178,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %102
 
 31:                                               ; preds = %15
-  %.not92 = icmp eq ptr %10, %1
+  %.not92 = icmp eq ptr %1, %10
   %32 = getelementptr inbounds i8, ptr %10, i64 16
   %33 = getelementptr inbounds i8, ptr %10, i64 24
   %34 = load ptr, ptr %33, align 8
@@ -2426,7 +2426,7 @@ define internal fastcc ptr @extraBddAndPermute(ptr noundef %0, ptr noundef %1, p
   %11 = ptrtoint ptr %10 to i64
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %2
+  %14 = icmp eq ptr %2, %13
   br i1 %14, label %176, label %15
 
 15:                                               ; preds = %6
@@ -2435,11 +2435,11 @@ define internal fastcc ptr @extraBddAndPermute(ptr noundef %0, ptr noundef %1, p
   %18 = ptrtoint ptr %17 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
-  %21 = icmp eq ptr %20, %4
+  %21 = icmp eq ptr %4, %20
   br i1 %21, label %176, label %22
 
 22:                                               ; preds = %15
-  %23 = icmp eq ptr %17, %4
+  %23 = icmp eq ptr %4, %17
   br i1 %23, label %176, label %24
 
 24:                                               ; preds = %22
@@ -2905,7 +2905,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
-  %16 = icmp eq ptr %15, %1
+  %16 = icmp eq ptr %1, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %6
@@ -2913,7 +2913,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   br label %189
 
 18:                                               ; preds = %6
-  %19 = icmp eq ptr %12, %2
+  %19 = icmp eq ptr %2, %12
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
@@ -4152,7 +4152,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %95
 
 31:                                               ; preds = %22
-  %32 = icmp eq ptr %26, %2
+  %32 = icmp eq ptr %2, %26
   br i1 %32, label %95, label %33
 
 33:                                               ; preds = %31
@@ -4176,7 +4176,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
   %47 = load ptr, ptr %25, align 8
-  %48 = icmp eq ptr %47, %1
+  %48 = icmp eq ptr %1, %47
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %40
@@ -4280,7 +4280,7 @@ define ptr @Extra_bddTuples(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 8:                                                ; preds = %._crit_edge40, %3
   %9 = load ptr, ptr %6, align 8
-  %.not34 = icmp eq ptr %9, %2
+  %.not34 = icmp eq ptr %2, %9
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
@@ -4306,7 +4306,7 @@ define ptr @Extra_bddTuples(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 ._crit_edge:                                      ; preds = %16, %8
   %.025.lcssa = phi i32 [ 0, %8 ], [ %18, %16 ]
-  %20 = icmp slt i32 %.025.lcssa, %1
+  %20 = icmp sgt i32 %1, %.025.lcssa
   br i1 %20, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge

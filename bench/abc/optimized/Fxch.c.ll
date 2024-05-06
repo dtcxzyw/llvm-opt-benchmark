@@ -1162,7 +1162,7 @@ Hsh_VecManStop.exit:                              ; preds = %Vec_IntFree.exit6.i
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i105, %.critedge.preheader.i
   %.val.lcssa.i = phi i32 [ %.val29.i, %.critedge.preheader.i ], [ %.val.i106, %.critedge.i105 ]
-  %496 = icmp sgt i32 %.val.lcssa.i, %.0.lcssa.i101
+  %496 = icmp slt i32 %.0.lcssa.i101, %.val.lcssa.i
   br i1 %496, label %.lr.ph.i.i102, label %Vec_WecRemoveEmpty.exit
 
 .lr.ph.i.i102:                                    ; preds = %.critedge._crit_edge.i
@@ -1954,7 +1954,7 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %148
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %.val.lcssa.i = phi i32 [ %.val29.i, %.critedge.preheader.i ], [ %.val.i48, %.critedge.i ]
-  %194 = icmp sgt i32 %.val.lcssa.i, %.0.lcssa.i
+  %194 = icmp slt i32 %.0.lcssa.i, %.val.lcssa.i
   br i1 %194, label %.lr.ph.i.i47, label %.critedge._crit_edge.i.Vec_WecRemoveEmpty.exit_crit_edge
 
 .critedge._crit_edge.i.Vec_WecRemoveEmpty.exit_crit_edge: ; preds = %.critedge._crit_edge.i

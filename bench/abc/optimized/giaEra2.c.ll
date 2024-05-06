@@ -1326,7 +1326,7 @@ define i32 @Gia_ManAreDepth(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %9, i64 %12
   %.val9.val = load ptr, ptr %.val, align 8
-  %.not1213 = icmp eq ptr %.val9.val, %13
+  %.not1213 = icmp eq ptr %13, %.val9.val
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1343,7 +1343,7 @@ define i32 @Gia_ManAreDepth(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %21 = mul nsw i32 %20, %.val8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %19, i64 %22
-  %.not12 = icmp eq ptr %.val9.val, %23
+  %.not12 = icmp eq ptr %23, %.val9.val
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1378,7 +1378,7 @@ tailrecurse._crit_edge:                           ; preds = %Gia_ObjHasBranch2.e
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i32, ptr %11, i64 %14
   %.val9.val.i = load ptr, ptr %.val, align 8
-  %.not12.i = icmp eq ptr %.val9.val.i, %15
+  %.not12.i = icmp eq ptr %15, %.val9.val.i
   br i1 %.not12.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse._crit_edge, %.lr.ph.i
@@ -1399,7 +1399,7 @@ tailrecurse._crit_edge:                           ; preds = %Gia_ObjHasBranch2.e
   %25 = mul nsw i32 %24, %.val13
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %23, i64 %26
-  %.not1.i = icmp eq ptr %.val9.val.i, %27
+  %.not1.i = icmp eq ptr %27, %.val9.val.i
   br i1 %.not1.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i, !llvm.loop !18
 
 28:                                               ; preds = %.lr.ph, %Gia_ObjHasBranch2.exit
@@ -1509,7 +1509,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_e
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i32, ptr %13, i64 %16
   %.val10.val16.i = load ptr, ptr %.val.i, align 8
-  %.not1417.i = icmp eq ptr %.val10.val16.i, %17
+  %.not1417.i = icmp eq ptr %17, %.val10.val16.i
   br i1 %.not1417.i, label %Gia_ManArePrintListUsed.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse._crit_edge, %19
@@ -1543,7 +1543,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_e
   %27 = mul nsw i32 %26, %.val12.i
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %25, i64 %28
-  %.not14.i = icmp eq ptr %.val10.val.i, %29
+  %.not14.i = icmp eq ptr %29, %.val10.val.i
   br i1 %.not14.i, label %Gia_ManArePrintListUsed.exit, label %.lr.ph.i, !llvm.loop !19
 
 30:                                               ; preds = %.lr.ph, %Gia_ObjHasBranch2.exit
@@ -1646,7 +1646,7 @@ define i32 @Gia_ManAreFindBestVar(ptr nocapture noundef readonly %0, i32 %1) loc
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %12, i64 %15
   %.val62.val = load ptr, ptr %.val60, align 8
-  %.not6667 = icmp eq ptr %.val62.val, %16
+  %.not6667 = icmp eq ptr %16, %.val62.val
   br i1 %.not6667, label %._crit_edge79.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph78, %58
@@ -1710,7 +1710,7 @@ define i32 @Gia_ManAreFindBestVar(ptr nocapture noundef readonly %0, i32 %1) loc
   %45 = mul nsw i32 %44, %.val61
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %43, i64 %46
-  %.not66 = icmp eq ptr %.val62.val, %47
+  %.not66 = icmp eq ptr %47, %.val62.val
   br i1 %.not66, label %._crit_edge, label %23, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %37
@@ -1763,7 +1763,7 @@ define i32 @Gia_ManAreFindBestVar(ptr nocapture noundef readonly %0, i32 %1) loc
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %67, i64 %70
   %.val10.val16.i = load ptr, ptr %.val.i, align 8
-  %.not1417.i = icmp eq ptr %.val10.val16.i, %71
+  %.not1417.i = icmp eq ptr %71, %.val10.val16.i
   br i1 %.not1417.i, label %Gia_ManArePrintListUsed.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge79.thread, %73
@@ -1797,7 +1797,7 @@ define i32 @Gia_ManAreFindBestVar(ptr nocapture noundef readonly %0, i32 %1) loc
   %81 = mul nsw i32 %80, %.val12.i
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i32, ptr %79, i64 %82
-  %.not14.i = icmp eq ptr %.val10.val.i, %83
+  %.not14.i = icmp eq ptr %83, %.val10.val.i
   br i1 %.not14.i, label %Gia_ManArePrintListUsed.exit, label %.lr.ph.i, !llvm.loop !19
 
 Gia_ManArePrintListUsed.exit:                     ; preds = %73, %._crit_edge79.thread
@@ -1950,7 +1950,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr nocaptur
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %9, i64 %12
   %.val52.val12 = load ptr, ptr %.val, align 8
-  %.not813 = icmp eq ptr %.val52.val12, %13
+  %.not813 = icmp eq ptr %13, %.val52.val12
   br i1 %.not813, label %Gia_ManAreRycycleSta.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -2030,7 +2030,7 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr nocaptur
   %52 = mul nsw i32 %51, %.val2.i.i
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %50, i64 %53
-  %55 = icmp eq ptr %54, %1
+  %55 = icmp eq ptr %1, %54
   br i1 %55, label %56, label %Gia_ManAreRycycleSta.exit
 
 56:                                               ; preds = %.thread
@@ -2163,7 +2163,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %26, %83, %105, %110
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds i32, ptr %119, i64 %122
   %.val52.val = load ptr, ptr %.val53, align 8
-  %.not8 = icmp eq ptr %.val52.val, %123
+  %.not8 = icmp eq ptr %123, %.val52.val
   br i1 %.not8, label %Gia_ManAreRycycleSta.exit, label %17, !llvm.loop !26
 
 Gia_ManAreRycycleSta.exit:                        ; preds = %Gia_StaAreDisjoint.exit, %2, %62, %56, %.thread
@@ -2250,7 +2250,7 @@ Gia_ObjHasBranch0.exit.thread:                    ; preds = %16
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %50, i64 %53
   %.val9.val.i = load ptr, ptr %.val65, align 8
-  %.not12.i = icmp eq ptr %.val9.val.i, %54
+  %.not12.i = icmp eq ptr %54, %.val9.val.i
   br i1 %.not12.i, label %Gia_ManAreListCountListUsed.exit.thread, label %.lr.ph.i
 
 Gia_ManAreListCountListUsed.exit.thread:          ; preds = %43
@@ -2275,7 +2275,7 @@ Gia_ManAreListCountListUsed.exit.thread:          ; preds = %43
   %64 = mul nsw i32 %63, %.val66
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %62, i64 %65
-  %.not1.i = icmp eq ptr %.val9.val.i, %66
+  %.not1.i = icmp eq ptr %66, %.val9.val.i
   br i1 %.not1.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i, !llvm.loop !18
 
 Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
@@ -2298,7 +2298,7 @@ Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i32, ptr %75, i64 %77
   %.val23.val28.i = load ptr, ptr %.val21.i, align 8
-  %.not2429.i = icmp eq ptr %.val23.val28.i, %78
+  %.not2429.i = icmp eq ptr %78, %.val23.val28.i
   br i1 %.not2429.i, label %Gia_ManAreCompress.exit, label %.lr.ph.i73
 
 .lr.ph.i73:                                       ; preds = %72, %81
@@ -2336,7 +2336,7 @@ Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
   %89 = mul nsw i32 %.val20.i, %88
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %87, i64 %90
-  %.not24.i = icmp eq ptr %.val23.val.i, %91
+  %.not24.i = icmp eq ptr %91, %.val23.val.i
   br i1 %.not24.i, label %Gia_ManAreCompress.exit, label %.lr.ph.i73, !llvm.loop !27
 
 92:                                               ; preds = %Gia_ManAreListCountListUsed.exit
@@ -2396,7 +2396,7 @@ Gia_ObjHasBranch1.exit.thread:                    ; preds = %98
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i32, ptr %123, i64 %126
   %.val9.val.i76 = load ptr, ptr %.val63, align 8
-  %.not12.i77 = icmp eq ptr %.val9.val.i76, %127
+  %.not12.i77 = icmp eq ptr %127, %.val9.val.i76
   br i1 %.not12.i77, label %Gia_ManAreListCountListUsed.exit86.thread, label %.lr.ph.i78
 
 Gia_ManAreListCountListUsed.exit86.thread:        ; preds = %116
@@ -2421,7 +2421,7 @@ Gia_ManAreListCountListUsed.exit86.thread:        ; preds = %116
   %137 = mul nsw i32 %136, %.val64
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i32, ptr %135, i64 %138
-  %.not1.i84 = icmp eq ptr %.val9.val.i76, %139
+  %.not1.i84 = icmp eq ptr %139, %.val9.val.i76
   br i1 %.not1.i84, label %Gia_ManAreListCountListUsed.exit86, label %.lr.ph.i78, !llvm.loop !18
 
 Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
@@ -2444,7 +2444,7 @@ Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds i32, ptr %148, i64 %150
   %.val23.val28.i90 = load ptr, ptr %.val21.i88, align 8
-  %.not2429.i91 = icmp eq ptr %.val23.val28.i90, %151
+  %.not2429.i91 = icmp eq ptr %151, %.val23.val28.i90
   br i1 %.not2429.i91, label %Gia_ManAreCompress.exit, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %145, %154
@@ -2482,7 +2482,7 @@ Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
   %162 = mul nsw i32 %.val20.i104, %161
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds i32, ptr %160, i64 %163
-  %.not24.i105 = icmp eq ptr %.val23.val.i102, %164
+  %.not24.i105 = icmp eq ptr %164, %.val23.val.i102
   br i1 %.not24.i105, label %Gia_ManAreCompress.exit, label %.lr.ph.i92, !llvm.loop !27
 
 165:                                              ; preds = %Gia_ManAreListCountListUsed.exit86
@@ -2535,7 +2535,7 @@ Gia_ObjHasBranch2.exit.thread:                    ; preds = %168
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i32, ptr %192, i64 %195
   %.val9.val.i112 = load ptr, ptr %.val, align 8
-  %.not12.i113 = icmp eq ptr %.val9.val.i112, %196
+  %.not12.i113 = icmp eq ptr %196, %.val9.val.i112
   br i1 %.not12.i113, label %Gia_ManAreListCountListUsed.exit122.thread, label %.lr.ph.i114
 
 Gia_ManAreListCountListUsed.exit122.thread:       ; preds = %185
@@ -2560,7 +2560,7 @@ Gia_ManAreListCountListUsed.exit122.thread:       ; preds = %185
   %206 = mul nsw i32 %205, %.val62
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %204, i64 %207
-  %.not1.i120 = icmp eq ptr %.val9.val.i112, %208
+  %.not1.i120 = icmp eq ptr %208, %.val9.val.i112
   br i1 %.not1.i120, label %Gia_ManAreListCountListUsed.exit122, label %.lr.ph.i114, !llvm.loop !18
 
 Gia_ManAreListCountListUsed.exit122:              ; preds = %.lr.ph.i114
@@ -2605,7 +2605,7 @@ define internal fastcc void @Gia_ManAreCompress(ptr nocapture noundef readonly %
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %10, i64 %13
   %.val23.val28 = load ptr, ptr %.val21, align 8
-  %.not2429 = icmp eq ptr %.val23.val28, %14
+  %.not2429 = icmp eq ptr %14, %.val23.val28
   br i1 %.not2429, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %17
@@ -2643,7 +2643,7 @@ define internal fastcc void @Gia_ManAreCompress(ptr nocapture noundef readonly %
   %25 = mul nsw i32 %.val20, %24
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %23, i64 %26
-  %.not24 = icmp eq ptr %.val23.val, %27
+  %.not24 = icmp eq ptr %27, %.val23.val
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -2722,7 +2722,7 @@ Gia_ManAreCreateObj.exit:                         ; preds = %11, %20
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i32, ptr %45, i64 %48
   %.val45.val50 = load ptr, ptr %.val43, align 8
-  %.not4651 = icmp eq ptr %.val45.val50, %49
+  %.not4651 = icmp eq ptr %49, %.val45.val50
   br i1 %.not4651, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Gia_ManAreCreateObj.exit
@@ -2813,7 +2813,7 @@ Gia_ManAreCreateObj.exit:                         ; preds = %11, %20
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %96, i64 %99
   %.val45.val = load ptr, ptr %.val, align 8
-  %.not46 = icmp eq ptr %.val45.val, %100
+  %.not46 = icmp eq ptr %100, %.val45.val
   br i1 %.not46, label %._crit_edge, label %53, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %90, %Gia_ManAreCreateObj.exit
@@ -2952,7 +2952,7 @@ define internal fastcc void @Gia_ManAreCubeCollectList(ptr nocapture noundef rea
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %9, i64 %12
   %.val22.val6 = load ptr, ptr %.val, align 8
-  %.not37 = icmp eq ptr %.val22.val6, %13
+  %.not37 = icmp eq ptr %13, %.val22.val6
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -3150,7 +3150,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %25, %Gia_StaAreDisj
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i32, ptr %101, i64 %104
   %.val22.val = load ptr, ptr %.val23, align 8
-  %.not3 = icmp eq ptr %.val22.val, %105
+  %.not3 = icmp eq ptr %105, %.val22.val
   br i1 %.not3, label %._crit_edge, label %19, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %Gia_StaAreDisjoint.exit, %2
@@ -3281,7 +3281,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %74 = mul nsw i32 %73, %.val2.i.i
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i32, ptr %72, i64 %75
-  %77 = icmp eq ptr %76, %1
+  %77 = icmp eq ptr %1, %76
   br i1 %77, label %78, label %.critedge2
 
 78:                                               ; preds = %.thread
@@ -3496,7 +3496,7 @@ Gia_StaAreDisjoint.exit:                          ; preds = %48, %103, %Gia_StaA
   %181 = mul nsw i32 %180, %.val2.i.i132
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds i32, ptr %179, i64 %182
-  %184 = icmp eq ptr %183, %1
+  %184 = icmp eq ptr %1, %183
   br i1 %184, label %185, label %.critedge2
 
 185:                                              ; preds = %.thread167
@@ -5066,7 +5066,7 @@ define void @Gia_ManArePrintReport(ptr nocapture noundef readonly %0, i64 nounde
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %19, i64 %22
   %.val9.val.i = load ptr, ptr %.val.i, align 8
-  %.not1213.i = icmp eq ptr %.val9.val.i, %23
+  %.not1213.i = icmp eq ptr %23, %.val9.val.i
   br i1 %.not1213.i, label %Gia_ManAreDepth.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -5083,7 +5083,7 @@ define void @Gia_ManArePrintReport(ptr nocapture noundef readonly %0, i64 nounde
   %31 = mul nsw i32 %30, %.val8.i
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %29, i64 %32
-  %.not12.i = icmp eq ptr %.val9.val.i, %33
+  %.not12.i = icmp eq ptr %33, %.val9.val.i
   br i1 %.not12.i, label %Gia_ManAreDepth.exit, label %.lr.ph.i, !llvm.loop !17
 
 Gia_ManAreDepth.exit:                             ; preds = %.lr.ph.i, %3
@@ -5403,7 +5403,7 @@ Gia_ManAreCreateStaInit.exit:                     ; preds = %.lr.ph.i, %47, %38
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i32, ptr %114, i64 %117
   %.val9.val.i86 = load ptr, ptr %.val.i84, align 8
-  %.not1213.i = icmp eq ptr %.val9.val.i86, %118
+  %.not1213.i = icmp eq ptr %118, %.val9.val.i86
   br i1 %.not1213.i, label %Gia_ManAreDepth.exit, label %.lr.ph.i87
 
 .lr.ph.i87:                                       ; preds = %._crit_edge, %.lr.ph.i87
@@ -5420,7 +5420,7 @@ Gia_ManAreCreateStaInit.exit:                     ; preds = %.lr.ph.i, %47, %38
   %126 = mul nsw i32 %125, %.val8.i85
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %124, i64 %127
-  %.not12.i = icmp eq ptr %.val9.val.i86, %128
+  %.not12.i = icmp eq ptr %128, %.val9.val.i86
   br i1 %.not12.i, label %Gia_ManAreDepth.exit, label %.lr.ph.i87, !llvm.loop !17
 
 Gia_ManAreDepth.exit:                             ; preds = %.lr.ph.i87, %._crit_edge
@@ -5467,7 +5467,7 @@ Abc_Clock.exit89:                                 ; preds = %Gia_ManAreDepth.exi
   %153 = sext i32 %152 to i64
   %154 = getelementptr inbounds i32, ptr %150, i64 %153
   %.val9.val.i92 = load ptr, ptr %.val.i90, align 8
-  %.not1213.i93 = icmp eq ptr %.val9.val.i92, %154
+  %.not1213.i93 = icmp eq ptr %154, %.val9.val.i92
   br i1 %.not1213.i93, label %Gia_ManAreDepth.exit100, label %.lr.ph.i94
 
 .lr.ph.i94:                                       ; preds = %143, %.lr.ph.i94
@@ -5484,7 +5484,7 @@ Abc_Clock.exit89:                                 ; preds = %Gia_ManAreDepth.exi
   %162 = mul nsw i32 %161, %.val8.i91
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds i32, ptr %160, i64 %163
-  %.not12.i98 = icmp eq ptr %.val9.val.i92, %164
+  %.not12.i98 = icmp eq ptr %164, %.val9.val.i92
   br i1 %.not12.i98, label %Gia_ManAreDepth.exit100, label %.lr.ph.i94, !llvm.loop !17
 
 Gia_ManAreDepth.exit100:                          ; preds = %.lr.ph.i94, %143
@@ -5879,7 +5879,7 @@ define noundef ptr @Gia_ManAreDeriveCex(ptr nocapture noundef %0, ptr noundef %1
   %7 = getelementptr i8, ptr %0, i64 24
   %.val5063 = load ptr, ptr %7, align 8
   %.val50.val64 = load ptr, ptr %.val5063, align 8
-  %.not6265 = icmp eq ptr %.val50.val64, %1
+  %.not6265 = icmp eq ptr %1, %.val50.val64
   br i1 %.not6265, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -5973,7 +5973,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %45 = mul nsw i32 %44, %.val52
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %43, i64 %46
-  %.not62 = icmp eq ptr %.val50.val, %47
+  %.not62 = icmp eq ptr %47, %.val50.val
   br i1 %.not62, label %._crit_edge.loopexit, label %9, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %38

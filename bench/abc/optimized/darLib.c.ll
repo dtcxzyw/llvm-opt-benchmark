@@ -317,11 +317,11 @@ define void @Dar_LibAddNode(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %30 = load i64, ptr %7, align 4
   %31 = lshr i64 %30, 34
   %32 = trunc nuw nsw i64 %31 to i32
-  %33 = xor i32 %32, %3
+  %33 = xor i32 %3, %32
   %34 = load i64, ptr %9, align 4
   %35 = lshr i64 %34, 34
   %36 = trunc nuw nsw i64 %35 to i32
-  %37 = xor i32 %36, %4
+  %37 = xor i32 %4, %36
   %38 = and i32 %33, 1
   %39 = and i32 %38, %37
   %40 = zext nneg i32 %39 to i64
@@ -352,7 +352,7 @@ define void @Dar_LibSetup_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %.not = icmp ne i64 %6, 0
   %7 = lshr i64 %5, 36
   %8 = trunc nuw nsw i64 %7 to i32
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %45, label %10
 
@@ -831,7 +831,7 @@ define void @Dar_LibSetup0_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %.not = icmp ne i64 %6, 0
   %7 = lshr i64 %5, 36
   %8 = trunc nuw nsw i64 %7 to i32
-  %9 = icmp eq i32 %8, %2
+  %9 = icmp eq i32 %2, %8
   %or.cond = select i1 %.not, i1 true, i1 %9
   br i1 %or.cond, label %45, label %10
 
@@ -1790,10 +1790,10 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %58 = ptrtoint ptr %54 to i64
   %59 = and i64 %57, -2
   %60 = inttoptr i64 %59 to ptr
-  %61 = icmp eq ptr %60, %2
+  %61 = icmp eq ptr %2, %60
   %62 = and i64 %58, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = icmp eq ptr %63, %2
+  %64 = icmp eq ptr %2, %63
   %or.cond = or i1 %61, %64
   br i1 %or.cond, label %106, label %65
 
@@ -2194,7 +2194,7 @@ Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.th
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, -2
   %108 = inttoptr i64 %107 to ptr
-  %109 = icmp eq ptr %108, %1
+  %109 = icmp eq ptr %1, %108
   br i1 %109, label %205, label %110
 
 110:                                              ; preds = %91
@@ -3404,17 +3404,17 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
-  br i1 %.not, label %5, label %40
+  %.not = icmp sgt i32 %1, %4
+  br i1 %.not, label %5, label %41
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
-  %.not.i = icmp slt i32 %6, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %5
+  %.not.i = icmp slt i32 %6, %1
   br i1 %.not.i, label %10, label %Vec_IntGrow.exit
 
 10:                                               ; preds = %9
@@ -3439,59 +3439,60 @@ define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noun
   br label %Vec_IntGrow.exit.sink.split
 
 21:                                               ; preds = %5
-  br i1 %.not.i, label %22, label %Vec_IntGrow.exit
+  %22 = icmp sgt i32 %1, %6
+  br i1 %22, label %23, label %Vec_IntGrow.exit
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not9.i21 = icmp eq ptr %24, null
-  %25 = sext i32 %7 to i64
-  %26 = shl nsw i64 %25, 2
-  br i1 %.not9.i21, label %29, label %27
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not9.i21 = icmp eq ptr %25, null
+  %26 = sext i32 %7 to i64
+  %27 = shl nsw i64 %26, 2
+  br i1 %.not9.i21, label %30, label %28
 
-27:                                               ; preds = %22
-  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #22
-  br label %31
+28:                                               ; preds = %23
+  %29 = tail call ptr @realloc(ptr noundef nonnull %25, i64 noundef %27) #22
+  br label %32
 
-29:                                               ; preds = %22
-  %30 = tail call noalias ptr @malloc(i64 noundef %26) #21
-  br label %31
+30:                                               ; preds = %23
+  %31 = tail call noalias ptr @malloc(i64 noundef %27) #21
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
-  store ptr %32, ptr %23, align 8
+32:                                               ; preds = %30, %28
+  %33 = phi ptr [ %29, %28 ], [ %31, %30 ]
+  store ptr %33, ptr %24, align 8
   br label %Vec_IntGrow.exit.sink.split
 
-Vec_IntGrow.exit.sink.split:                      ; preds = %19, %31
-  %.sink = phi i32 [ %7, %31 ], [ %1, %19 ]
+Vec_IntGrow.exit.sink.split:                      ; preds = %19, %32
+  %.sink = phi i32 [ %7, %32 ], [ %1, %19 ]
   store i32 %.sink, ptr %0, align 8
   br label %Vec_IntGrow.exit
 
 Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.sink.split, %9, %21
-  %33 = load i32, ptr %3, align 4
-  %34 = icmp slt i32 %33, %1
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  %34 = load i32, ptr %3, align 4
+  %35 = icmp slt i32 %34, %1
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = sext i32 %33 to i64
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = sext i32 %34 to i64
   %wide.trip.count = sext i32 %1 to i64
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
-  store i32 0, ptr %39, align 4
+38:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  %39 = load ptr, ptr %36, align 8
+  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
+  store i32 0, ptr %40, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
+._crit_edge:                                      ; preds = %38, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
-  br label %40
+  br label %41
 
-40:                                               ; preds = %2, %._crit_edge
+41:                                               ; preds = %2, %._crit_edge
   ret void
 }
 

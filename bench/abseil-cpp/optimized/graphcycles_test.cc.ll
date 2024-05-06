@@ -770,7 +770,7 @@ _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_E
   %__y.addr.1.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__y.addr.1.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %7 = load i32, ptr %__y.addr.1.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %cmp.i4.i.i.i = icmp sgt i32 %7, %4
+  %cmp.i4.i.i.i = icmp slt i32 %4, %7
   br i1 %cmp.i4.i.i.i, label %invoke.cont15, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
@@ -1471,7 +1471,7 @@ _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_E
   %__y.addr.1.i.i.i.i265.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i264, ptr %__y.addr.06.i.i.i.i262, ptr %__x.addr.07.i.i.i.i261
   %__y.addr.1.i.i.i.i265.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i265.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %64 = load i32, ptr %__y.addr.1.i.i.i.i265.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %cmp.i4.i.i.i274 = icmp sgt i32 %64, %61
+  %cmp.i4.i.i.i274 = icmp slt i32 %61, %64
   br i1 %cmp.i4.i.i.i274, label %invoke.cont139, label %cond.false.i275
 
 cond.false.i275:                                  ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i272
@@ -2515,7 +2515,7 @@ _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_E
   %__y.addr.1.i.i.i.i681.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i680, ptr %__y.addr.06.i.i.i.i678, ptr %__x.addr.07.i.i.i.i677
   %__y.addr.1.i.i.i.i681.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i681.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %161 = load i32, ptr %__y.addr.1.i.i.i.i681.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %cmp.i4.i.i.i690 = icmp sgt i32 %161, %158
+  %cmp.i4.i.i.i690 = icmp slt i32 %158, %161
   br i1 %cmp.i4.i.i.i690, label %invoke.cont397, label %cond.false.i691
 
 cond.false.i691:                                  ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i688
@@ -2550,7 +2550,7 @@ _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_E
   %__y.addr.1.i.i.i.i705.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i704, ptr %__y.addr.06.i.i.i.i702, ptr %__x.addr.07.i.i.i.i701
   %__y.addr.1.i.i.i.i705.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i705.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %164 = load i32, ptr %__y.addr.1.i.i.i.i705.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %cmp.i4.i.i.i714 = icmp sgt i32 %164, %162
+  %cmp.i4.i.i.i714 = icmp slt i32 %162, %164
   br i1 %cmp.i4.i.i.i714, label %invoke.cont403, label %cond.false.i715
 
 cond.false.i715:                                  ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i712
@@ -3279,7 +3279,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %250, i8 0, i64 %mul.i.i.i896, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i667, i8 0, i64 16, i1 false)
   %252 = load ptr, ptr %seen385, align 8
-  %cmp.i.i.i.i.i897 = icmp eq ptr %_M_single_bucket.i.i665, %252
+  %cmp.i.i.i.i.i897 = icmp eq ptr %252, %_M_single_bucket.i.i665
   br i1 %cmp.i.i.i.i.i897, label %invoke.cont610, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -4182,7 +4182,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %331, i8 0, i64 %mul.i.i.i1151, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i667, i8 0, i64 16, i1 false)
   %333 = load ptr, ptr %seen385, align 8
-  %cmp.i.i.i.i.i1153 = icmp eq ptr %_M_single_bucket.i.i665, %333
+  %cmp.i.i.i.i.i1153 = icmp eq ptr %333, %_M_single_bucket.i.i665
   br i1 %cmp.i.i.i.i.i1153, label %cleanup804, label %if.end.i.i.i.i1154
 
 if.end.i.i.i.i1154:                               ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i1149
@@ -4340,7 +4340,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %6 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp.i4.i.i.i = icmp sgt i32 %6, %2
+  %cmp.i4.i.i.i = icmp slt i32 %2, %6
   br i1 %cmp.i4.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
@@ -4372,7 +4372,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i39: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i37
   %_M_storage.i.i.i3.i.i.i40 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i32, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i3.i.i.i40, align 4
-  %cmp.i4.i.i.i41 = icmp sgt i32 %8, %3
+  %cmp.i4.i.i.i41 = icmp slt i32 %3, %8
   br i1 %cmp.i4.i.i.i41, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit46, label %cond.false.i42
 
 cond.false.i42:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i39
@@ -4473,7 +4473,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i71: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i69
   %_M_storage.i.i.i3.i.i.i72 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i64, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i3.i.i.i72, align 4
-  %cmp.i4.i.i.i73 = icmp sgt i32 %17, %14
+  %cmp.i4.i.i.i73 = icmp slt i32 %14, %17
   br i1 %cmp.i4.i.i.i73, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit78, label %cond.false.i74
 
 cond.false.i74:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i71
@@ -4506,7 +4506,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i94: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i92
   %_M_storage.i.i.i3.i.i.i95 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i87, i64 32
   %20 = load i32, ptr %_M_storage.i.i.i3.i.i.i95, align 4
-  %cmp.i4.i.i.i96 = icmp sgt i32 %20, %18
+  %cmp.i4.i.i.i96 = icmp slt i32 %18, %20
   br i1 %cmp.i4.i.i.i96, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit101, label %cond.false.i97
 
 cond.false.i97:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i94
@@ -4664,7 +4664,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %11 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp.i4.i.i.i = icmp sgt i32 %11, %8
+  %cmp.i4.i.i.i = icmp slt i32 %8, %11
   br i1 %cmp.i4.i.i.i, label %invoke.cont, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
@@ -4697,7 +4697,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i38: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i36
   %_M_storage.i.i.i3.i.i.i39 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i31, i64 32
   %14 = load i32, ptr %_M_storage.i.i.i3.i.i.i39, align 4
-  %cmp.i4.i.i.i40 = icmp sgt i32 %14, %12
+  %cmp.i4.i.i.i40 = icmp slt i32 %12, %14
   br i1 %cmp.i4.i.i.i40, label %invoke.cont16, label %cond.false.i41
 
 cond.false.i41:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i38
@@ -4840,7 +4840,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %24 = load ptr, ptr %seen, align 8
-  %cmp.i.i.i.i.i59 = icmp eq ptr %_M_single_bucket.i.i, %24
+  %cmp.i.i.i.i.i59 = icmp eq ptr %24, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i59, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -4904,7 +4904,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -5157,7 +5157,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
+  %cmp.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i
@@ -5399,7 +5399,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
-  %cmp.i4.i.i.i.i = icmp sgt i32 %2, %storemerge89
+  %cmp.i4.i.i.i.i = icmp slt i32 %storemerge89, %2
   br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
@@ -5431,7 +5431,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i16.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i14.i
   %_M_storage.i.i.i3.i.i.i17.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i9.i, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i3.i.i.i17.i, align 4
-  %cmp.i4.i.i.i18.i = icmp sgt i32 %4, %mul
+  %cmp.i4.i.i.i18.i = icmp slt i32 %mul, %4
   br i1 %cmp.i4.i.i.i18.i, label %_ZN4absl24synchronization_internal15GraphCyclesTest7AddEdgeEii.exit, label %cond.false.i19.i
 
 cond.false.i19.i:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i16.i
@@ -5566,7 +5566,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i30
   %_M_storage.i.i.i3.i.i.i.i33 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i25, i64 32
   %16 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i33, align 4
-  %cmp.i4.i.i.i.i34 = icmp sgt i32 %16, %storemerge89
+  %cmp.i4.i.i.i.i34 = icmp slt i32 %storemerge89, %16
   br i1 %cmp.i4.i.i.i.i34, label %while.body.i.i.i.i4.preheader.i38, label %cond.false.i.i35
 
 cond.false.i.i35:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i32
@@ -5598,7 +5598,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i16.i52: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i14.i50
   %_M_storage.i.i.i3.i.i.i17.i53 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i9.i45, i64 32
   %18 = load i32, ptr %_M_storage.i.i.i3.i.i.i17.i53, align 4
-  %cmp.i4.i.i.i18.i54 = icmp sgt i32 %18, %mul19
+  %cmp.i4.i.i.i18.i54 = icmp slt i32 %mul19, %18
   br i1 %cmp.i4.i.i.i18.i54, label %_ZN4absl24synchronization_internal15GraphCyclesTest7AddEdgeEii.exit62, label %cond.false.i19.i55
 
 cond.false.i19.i55:                               ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i16.i52
@@ -6102,7 +6102,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp.i4.i.i.i = icmp sgt i32 %2, %x
+  %cmp.i4.i.i.i = icmp slt i32 %x, %2
   br i1 %cmp.i4.i.i.i, label %while.body.i.i.i.i7.preheader, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
@@ -6134,7 +6134,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i19: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i17
   %_M_storage.i.i.i3.i.i.i20 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i12, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i3.i.i.i20, align 4
-  %cmp.i4.i.i.i21 = icmp sgt i32 %4, %y
+  %cmp.i4.i.i.i21 = icmp slt i32 %y, %4
   br i1 %cmp.i4.i.i.i21, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit26, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i19
@@ -8755,7 +8755,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -8845,7 +8845,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %_M_storage.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i3.i.i.i.i, align 4
-  %cmp.i4.i.i.i.i = icmp sgt i32 %2, %i.0170
+  %cmp.i4.i.i.i.i = icmp slt i32 %i.0170, %2
   br i1 %cmp.i4.i.i.i.i, label %while.body.i.i.i.i4.preheader.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i.i
@@ -8877,7 +8877,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i16.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i14.i
   %_M_storage.i.i.i3.i.i.i17.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i9.i, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i3.i.i.i17.i, align 4
-  %cmp.i4.i.i.i18.i = icmp sgt i32 %4, %add
+  %cmp.i4.i.i.i18.i = icmp slt i32 %add, %4
   br i1 %cmp.i4.i.i.i18.i, label %_ZN4absl24synchronization_internal15GraphCyclesTest7AddEdgeEii.exit, label %cond.false.i19.i
 
 cond.false.i19.i:                                 ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i16.i
@@ -9894,7 +9894,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp.i4.i.i.i = icmp sgt i32 %8, %2
+  %cmp.i4.i.i.i = icmp slt i32 %2, %8
   br i1 %cmp.i4.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
@@ -9926,7 +9926,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i25: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i23
   %_M_storage.i.i.i3.i.i.i26 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i18, i64 32
   %10 = load i32, ptr %_M_storage.i.i.i3.i.i.i26, align 4
-  %cmp.i4.i.i.i27 = icmp sgt i32 %10, %5
+  %cmp.i4.i.i.i27 = icmp slt i32 %5, %10
   br i1 %cmp.i4.i.i.i27, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit32, label %cond.false.i28
 
 cond.false.i28:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i25
@@ -10138,7 +10138,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %mul.i.i.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %seen, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i, %13
+  %cmp.i.i.i.i.i = icmp eq ptr %13, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
@@ -10170,7 +10170,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %mul.i.i.i22, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %seen, align 8
-  %cmp.i.i.i.i.i24 = icmp eq ptr %_M_single_bucket.i.i, %18
+  %cmp.i.i.i.i.i24 = icmp eq ptr %18, %_M_single_bucket.i.i
   br i1 %cmp.i.i.i.i.i24, label %eh.resume, label %if.end.i.i.i.i25
 
 if.end.i.i.i.i25:                                 ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i20
@@ -10262,7 +10262,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i3.i.i.i, align 4
-  %cmp.i4.i.i.i = icmp sgt i32 %8, %2
+  %cmp.i4.i.i.i = icmp slt i32 %2, %8
   br i1 %cmp.i4.i.i.i, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i
@@ -10294,7 +10294,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select
 _ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i25: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i23
   %_M_storage.i.i.i3.i.i.i26 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i18, i64 32
   %10 = load i32, ptr %_M_storage.i.i.i3.i.i.i26, align 4
-  %cmp.i4.i.i.i27 = icmp sgt i32 %10, %5
+  %cmp.i4.i.i.i27 = icmp slt i32 %5, %10
   br i1 %cmp.i4.i.i.i27, label %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit32, label %cond.false.i28
 
 cond.false.i28:                                   ; preds = %_ZNKSt3mapIiN4absl24synchronization_internal7GraphIdESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.i25
@@ -10673,7 +10673,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
+  %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end
@@ -11962,7 +11962,7 @@ declare void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef, i6
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1stIS5_ESt4lessIiESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -12351,8 +12351,8 @@ _ZNSt8_Rb_treeIiSt4pairIKiN4absl24synchronization_internal7GraphIdEESt10_Select1
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_left.i.i1, align 8
-  %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
-  %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
+  %cmp.i.i2 = icmp eq ptr %retval.sroa.0.0.i, %7
+  %cmp.i1.i = icmp eq ptr %retval.sroa.3.0.i, %add.ptr.i.i
   %or.cond = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
   br i1 %or.cond, label %if.then.i, label %if.else.i3
 

@@ -2819,7 +2819,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %356, %.critedge.i, 
   %373 = getelementptr inbounds i8, ptr %0, i64 776
   %374 = getelementptr inbounds i8, ptr %0, i64 808
   %375 = load i32, ptr %374, align 8
-  %376 = icmp sgt i32 %375, %14
+  %376 = icmp slt i32 %14, %375
   br i1 %376, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %372
@@ -4011,7 +4011,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
 
 257:                                              ; preds = %.lr.ph278.split
   %258 = icmp ne i8 %256, 0
-  %259 = icmp slt i32 %236, %250
+  %259 = icmp sgt i32 %250, %236
   %or.cond = select i1 %258, i1 %259, i1 false
   %260 = trunc nuw nsw i64 %indvars.iv339 to i32
   br i1 %or.cond, label %261, label %.critedge2.thread
@@ -5592,7 +5592,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3Lit
   %27 = load i32, ptr %7, align 4
   %.not.i = icmp ne i32 %27, 0
   %28 = load i32, ptr %19, align 8
-  %29 = icmp slt i32 %28, %26
+  %29 = icmp sgt i32 %26, %28
   %30 = select i1 %.not.i, i1 %29, i1 false
   br i1 %30, label %44, label %31
 
@@ -5859,7 +5859,7 @@ define void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 derefe
   store i32 %87, ptr %.sink15.i.sroa.phi, align 8
   store i32 %.04168, ptr %.sink15.i.sroa.phi50, align 4
   %118 = load i32, ptr %73, align 8
-  %119 = icmp sgt i32 %118, %87
+  %119 = icmp slt i32 %87, %118
   br i1 %119, label %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.i, label %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread.i
 
 _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.i: ; preds = %.sink.split.i
@@ -6043,7 +6043,7 @@ _ZN6Gluco26Solver13pushJustQueueEii.exit:         ; preds = %_ZN6Gluco25Heap2INS
 
 213:                                              ; preds = %211
   %214 = load i32, ptr %180, align 8
-  %215 = icmp sgt i32 %214, %187
+  %215 = icmp slt i32 %187, %214
   br i1 %215, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
 
 _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i: ; preds = %213
@@ -6654,7 +6654,7 @@ _ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, 
   %188 = load i32, ptr %56, align 4
   %.not.i = icmp ne i32 %188, 0
   %189 = load i32, ptr %57, align 8
-  %190 = icmp slt i32 %189, %177
+  %190 = icmp sgt i32 %177, %189
   %191 = select i1 %.not.i, i1 %190, i1 false
   br i1 %191, label %_ZN6Gluco26Solver15varBumpActivityEid.exit.thread, label %192
 
@@ -6697,7 +6697,7 @@ _ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, 
   %212 = load i32, ptr %61, align 8
   %.not.i260 = icmp eq i32 %212, 0
   %213 = load i32, ptr %63, align 8
-  %214 = icmp sgt i32 %213, %177
+  %214 = icmp slt i32 %177, %213
   %or.cond413 = select i1 %.not.i260, i1 %214, i1 false
   br i1 %or.cond413, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %_ZN6Gluco26Solver15varBumpActivityEid.exit
 
@@ -6843,7 +6843,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
   %286 = load i32, ptr %56, align 4
   %.not.i234 = icmp ne i32 %286, 0
   %287 = load i32, ptr %57, align 8
-  %288 = icmp slt i32 %287, %177
+  %288 = icmp sgt i32 %177, %287
   %289 = select i1 %.not.i234, i1 %288, i1 false
   br i1 %289, label %377, label %290
 
@@ -6913,7 +6913,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
   %324 = load i32, ptr %56, align 4
   %.not.i238 = icmp ne i32 %324, 0
   %325 = load i32, ptr %57, align 8
-  %326 = icmp slt i32 %325, %177
+  %326 = icmp sgt i32 %177, %325
   %327 = select i1 %.not.i238, i1 %326, i1 false
   br i1 %327, label %328, label %351
 
@@ -7495,7 +7495,7 @@ thread-pre-split:                                 ; preds = %.loopexit312, %576
   %617 = load i32, ptr %56, align 4
   %.not.i253 = icmp ne i32 %617, 0
   %618 = load i32, ptr %57, align 8
-  %619 = icmp slt i32 %618, %616
+  %619 = icmp sgt i32 %616, %618
   %620 = select i1 %.not.i253, i1 %619, i1 false
   br i1 %620, label %623, label %621
 
@@ -8074,7 +8074,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE(ptr
   %22 = load i32, ptr %6, align 4
   %.not.i = icmp ne i32 %22, 0
   %23 = load i32, ptr %13, align 8
-  %24 = icmp slt i32 %23, %21
+  %24 = icmp sgt i32 %21, %23
   %25 = select i1 %.not.i, i1 %24, i1 false
   br i1 %25, label %39, label %26
 
@@ -8476,7 +8476,7 @@ define linkonce_odr void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKey
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
-  %7 = icmp sgt i32 %6, %4
+  %7 = icmp slt i32 %4, %6
   br i1 %7, label %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit, label %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread
 
 _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit: ; preds = %2
@@ -8642,7 +8642,7 @@ define linkonce_odr void @_ZN6Gluco26Solver18updateJustActivityEi(ptr noundef no
   %33 = load i32, ptr %32, align 4
   %.not10 = icmp slt i32 %33, 0
   %34 = load i32, ptr %18, align 8
-  %35 = icmp sgt i32 %34, %29
+  %35 = icmp slt i32 %29, %34
   %or.cond = select i1 %.not10, i1 %35, i1 false
   br i1 %or.cond, label %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit, label %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread
 
@@ -15632,7 +15632,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonn
   %75 = shl nsw i32 %1, 1
   %76 = getelementptr inbounds i8, ptr %66, i64 20
   store i32 %75, ptr %76, align 4
-  %77 = icmp eq i32 %10, %2
+  %77 = icmp eq i32 %2, %10
   br i1 %77, label %78, label %166
 
 78:                                               ; preds = %61
@@ -15647,7 +15647,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonn
   %82 = load ptr, ptr %20, align 8
   %83 = zext i32 %81 to i64
   %84 = getelementptr inbounds i32, ptr %82, i64 %83
-  %85 = icmp eq i32 %8, %2
+  %85 = icmp eq i32 %2, %8
   %86 = load ptr, ptr %4, align 8
   %87 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %86, i64 %6
   %88 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %86, i64 %6, i32 1
@@ -15710,7 +15710,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonn
   br label %166
 
 130:                                              ; preds = %93
-  %131 = icmp eq i32 %8, %2
+  %131 = icmp eq i32 %2, %8
   %132 = load ptr, ptr %11, align 8
   %133 = getelementptr inbounds %"class.Gluco2::lbool", ptr %132, i64 %12
   %.sroa.0.0.copyload.i132 = load i8, ptr %133, align 1
@@ -15775,7 +15775,7 @@ define linkonce_odr void @_ZN6Gluco26Solver15varBumpActivityEid(ptr noundef nonn
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds double, ptr %5, i64 %6
   %8 = load double, ptr %7, align 8
-  %9 = fadd double %8, %2
+  %9 = fadd double %2, %8
   store double %9, ptr %7, align 8
   %10 = fcmp ogt double %9, 1.000000e+100
   br i1 %10, label %11, label %26
@@ -15818,7 +15818,7 @@ define linkonce_odr void @_ZN6Gluco26Solver15varBumpActivityEid(ptr noundef nonn
   %30 = getelementptr inbounds i8, ptr %0, i64 776
   %31 = getelementptr inbounds i8, ptr %0, i64 808
   %32 = load i32, ptr %31, align 8
-  %33 = icmp sgt i32 %32, %1
+  %33 = icmp slt i32 %1, %32
   br i1 %33, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread
 
 _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit: ; preds = %29

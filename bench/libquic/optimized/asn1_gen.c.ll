@@ -735,7 +735,7 @@ if.then4:                                         ; preds = %for.body
   %sub.ptr.rhs.cast = ptrtoint ptr %elem to i64
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %1 = trunc i64 %sub.ptr.sub.neg to i32
-  %conv6 = add i32 %1, %len
+  %conv6 = add i32 %len, %1
   %sub.ptr.lhs.cast7 = ptrtoint ptr %p.0122 to i64
   %sub.ptr.sub9 = sub i64 %sub.ptr.lhs.cast7, %sub.ptr.rhs.cast
   %conv10 = trunc i64 %sub.ptr.sub9 to i32
@@ -1129,16 +1129,15 @@ if.end10:                                         ; preds = %if.end6
   store i32 %conv11, ptr %ptag, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %vstart to i64
-  %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
-  %2 = trunc i64 %sub.ptr.sub.neg to i32
-  %conv15 = sub i32 0, %vlen
-  %3 = icmp eq i32 %2, %conv15
-  %vlen.addr.0 = or i1 %tobool1.not, %3
+  %sub.ptr.sub.neg.neg = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %.neg = trunc i64 %sub.ptr.sub.neg.neg to i32
+  %2 = icmp eq i32 %vlen, %.neg
+  %vlen.addr.0 = or i1 %tobool1.not, %2
   br i1 %vlen.addr.0, label %if.else24, label %if.then18
 
 if.then18:                                        ; preds = %if.end10
-  %4 = load i8, ptr %0, align 1
-  switch i8 %4, label %sw.default [
+  %3 = load i8, ptr %0, align 1
+  switch i8 %3, label %sw.default [
     i8 85, label %sw.bb
     i8 65, label %sw.bb20
     i8 80, label %sw.bb21
@@ -1162,7 +1161,7 @@ sw.bb22:                                          ; preds = %if.then18
   br label %return
 
 sw.default:                                       ; preds = %if.then18
-  store i8 %4, ptr %erch, align 1
+  store i8 %3, ptr %erch, align 1
   %arrayidx23 = getelementptr inbounds i8, ptr %erch, i64 1
   store i8 0, ptr %arrayidx23, align 1
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 144, ptr noundef nonnull @.str, i32 noundef 432) #9

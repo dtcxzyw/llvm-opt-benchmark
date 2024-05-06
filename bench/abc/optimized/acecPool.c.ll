@@ -2449,8 +2449,8 @@ Vec_IntStart.exit:
   store ptr %calloc, ptr %3, align 8
   store i32 100, ptr %2, align 4
   %4 = getelementptr i8, ptr %0, i64 4
-  %.val32 = load i32, ptr %4, align 4
-  %5 = icmp sgt i32 %.val32, 1
+  %.val33 = load i32, ptr %4, align 4
+  %5 = icmp sgt i32 %.val33, 1
   br i1 %5, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
@@ -2459,46 +2459,46 @@ Vec_IntStart.exit:
 
 .critedge.preheader:                              ; preds = %Vec_IntFillExtra.exit
   store i32 %37, ptr %2, align 4
-  store ptr %storemerge37, ptr %3, align 8
-  %.not39 = icmp slt i32 %42, 1
-  br i1 %.not39, label %.critedge2.thread, label %.lr.ph41
+  store ptr %storemerge38, ptr %3, align 8
+  %.not40 = icmp slt i32 %42, 1
+  br i1 %.not40, label %.critedge2.thread, label %.lr.ph42
 
-.lr.ph41:                                         ; preds = %.critedge.preheader
+.lr.ph42:                                         ; preds = %.critedge.preheader
   %7 = add nuw i32 %42, 1
   %wide.trip.count = zext i32 %7 to i64
   br label %.critedge
 
 8:                                                ; preds = %.lr.ph, %Vec_IntFillExtra.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntFillExtra.exit ]
-  %storemerge36 = phi ptr [ %calloc, %.lr.ph ], [ %storemerge37, %Vec_IntFillExtra.exit ]
+  %storemerge37 = phi ptr [ %calloc, %.lr.ph ], [ %storemerge38, %Vec_IntFillExtra.exit ]
   %9 = phi i32 [ 100, %.lr.ph ], [ %37, %Vec_IntFillExtra.exit ]
-  %.02233 = phi i32 [ 0, %.lr.ph ], [ %42, %Vec_IntFillExtra.exit ]
+  %.02234 = phi i32 [ 0, %.lr.ph ], [ %42, %Vec_IntFillExtra.exit ]
   %10 = or disjoint i64 %indvars.iv, 1
   %.val27 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i32, ptr %.val27, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
-  %.not.i29.not = icmp sgt i32 %9, %12
+  %.not.i29.not = icmp slt i32 %12, %9
   br i1 %.not.i29.not, label %Vec_IntFillExtra.exit, label %14
 
 14:                                               ; preds = %8
   %15 = load i32, ptr %1, align 8
   %16 = shl nsw i32 %15, 1
-  %.not31 = icmp sgt i32 %16, %12
-  %.not.i.i.not = icmp sgt i32 %15, %12
+  %.not31 = icmp slt i32 %12, %16
   br i1 %.not31, label %25, label %17
 
 17:                                               ; preds = %14
+  %.not.i.i.not = icmp sgt i32 %15, %12
   br i1 %.not.i.i.not, label %.lr.ph.i, label %18
 
 18:                                               ; preds = %17
-  %.not9.i.i = icmp eq ptr %storemerge36, null
+  %.not9.i.i = icmp eq ptr %storemerge37, null
   %19 = sext i32 %13 to i64
   %20 = shl nsw i64 %19, 2
   br i1 %.not9.i.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @realloc(ptr noundef nonnull %storemerge36, i64 noundef %20) #20
+  %22 = tail call ptr @realloc(ptr noundef nonnull %storemerge37, i64 noundef %20) #20
   br label %Vec_IntGrow.exit.sink.split.i
 
 23:                                               ; preds = %18
@@ -2506,16 +2506,17 @@ Vec_IntStart.exit:
   br label %Vec_IntGrow.exit.sink.split.i
 
 25:                                               ; preds = %14
-  br i1 %.not.i.i.not, label %.lr.ph.i, label %26
+  %.not32 = icmp slt i32 %12, %15
+  br i1 %.not32, label %.lr.ph.i, label %26
 
 26:                                               ; preds = %25
-  %.not9.i21.i = icmp eq ptr %storemerge36, null
+  %.not9.i21.i = icmp eq ptr %storemerge37, null
   %27 = sext i32 %16 to i64
   %28 = shl nsw i64 %27, 2
   br i1 %.not9.i21.i, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @realloc(ptr noundef nonnull %storemerge36, i64 noundef %28) #20
+  %30 = tail call ptr @realloc(ptr noundef nonnull %storemerge37, i64 noundef %28) #20
   br label %Vec_IntGrow.exit.sink.split.i
 
 31:                                               ; preds = %26
@@ -2529,25 +2530,25 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %29, %31, %21, %23
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %25, %Vec_IntGrow.exit.sink.split.i
-  %storemerge38 = phi ptr [ %storemerge36, %17 ], [ %storemerge36, %25 ], [ %storemerge, %Vec_IntGrow.exit.sink.split.i ]
+  %storemerge39 = phi ptr [ %storemerge37, %17 ], [ %storemerge37, %25 ], [ %storemerge, %Vec_IntGrow.exit.sink.split.i ]
   %33 = sext i32 %9 to i64
   %wide.trip.count.i = sext i32 %13 to i64
   %34 = shl nsw i64 %33, 2
-  %scevgep = getelementptr i8, ptr %storemerge38, i64 %34
+  %scevgep = getelementptr i8, ptr %storemerge39, i64 %34
   %35 = sub nsw i64 %wide.trip.count.i, %33
   %36 = shl nsw i64 %35, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %36, i1 false)
   br label %Vec_IntFillExtra.exit
 
 Vec_IntFillExtra.exit:                            ; preds = %.lr.ph.i, %8
-  %storemerge37 = phi ptr [ %storemerge36, %8 ], [ %storemerge38, %.lr.ph.i ]
+  %storemerge38 = phi ptr [ %storemerge37, %8 ], [ %storemerge39, %.lr.ph.i ]
   %37 = phi i32 [ %9, %8 ], [ %13, %.lr.ph.i ]
   %38 = sext i32 %12 to i64
-  %39 = getelementptr inbounds i32, ptr %storemerge37, i64 %38
+  %39 = getelementptr inbounds i32, ptr %storemerge38, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4
-  %42 = tail call noundef i32 @llvm.smax.i32(i32 %.02233, i32 %12)
+  %42 = tail call noundef i32 @llvm.smax.i32(i32 %.02234, i32 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val = load i32, ptr %4, align 4
   %43 = trunc i64 %indvars.iv.next to i32
@@ -2555,18 +2556,18 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph.i, %8
   %45 = icmp slt i32 %44, %.val
   br i1 %45, label %8, label %.critedge.preheader, !llvm.loop !30
 
-.critedge:                                        ; preds = %.lr.ph41, %.critedge
-  %indvars.iv44 = phi i64 [ 1, %.lr.ph41 ], [ %indvars.iv.next45, %.critedge ]
-  %46 = getelementptr inbounds i32, ptr %storemerge37, i64 %indvars.iv44
+.critedge:                                        ; preds = %.lr.ph42, %.critedge
+  %indvars.iv45 = phi i64 [ 1, %.lr.ph42 ], [ %indvars.iv.next46, %.critedge ]
+  %46 = getelementptr inbounds i32, ptr %storemerge38, i64 %indvars.iv45
   %47 = load i32, ptr %46, align 4
-  %48 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv45 to i32
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %48, i32 noundef %47)
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2.thread, label %.critedge, !llvm.loop !31
 
 .critedge2.thread:                                ; preds = %.critedge, %.critedge.preheader
-  %putchar50 = tail call i32 @putchar(i32 10)
+  %putchar51 = tail call i32 @putchar(i32 10)
   br label %50
 
 .critedge2:                                       ; preds = %Vec_IntStart.exit
@@ -2575,7 +2576,7 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph.i, %8
   br i1 %.not.i30, label %Vec_IntFree.exit, label %50
 
 50:                                               ; preds = %.critedge2.thread, %.critedge2
-  %51 = phi ptr [ %storemerge37, %.critedge2.thread ], [ %calloc, %.critedge2 ]
+  %51 = phi ptr [ %storemerge38, %.critedge2.thread ], [ %calloc, %.critedge2 ]
   tail call void @free(ptr noundef nonnull %51) #21
   br label %Vec_IntFree.exit
 

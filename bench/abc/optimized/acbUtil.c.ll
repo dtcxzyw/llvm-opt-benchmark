@@ -4647,7 +4647,7 @@ Acb_NtkCleanObjCounts.exit:                       ; preds = %34, %Vec_FltGrow.ex
   store float %54, ptr %56, align 4
   %57 = load ptr, ptr %14, align 8
   %58 = load i32, ptr %57, align 8
-  %59 = icmp sgt i32 %58, %1
+  %59 = icmp slt i32 %1, %58
   br i1 %59, label %Vec_QueIsMember.exit, label %Vec_QueIsMember.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %46
@@ -4883,7 +4883,7 @@ Vec_QueIsMember.exit.thread:                      ; preds = %46, %Vec_QueIsMembe
 
 179:                                              ; preds = %175, %172
   %180 = phi i32 [ %.pre.i, %175 ], [ %58, %172 ]
-  %.not20.i = icmp sgt i32 %180, %1
+  %.not20.i = icmp slt i32 %1, %180
   br i1 %.not20.i, label %185, label %181
 
 181:                                              ; preds = %179
@@ -6911,17 +6911,17 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %51 = add nsw i32 %1, 1
   %52 = getelementptr inbounds i8, ptr %0, i64 212
   %53 = load i32, ptr %52, align 4
-  %.not.i.not.i = icmp sgt i32 %53, %1
+  %.not.i.not.i = icmp slt i32 %1, %53
   br i1 %.not.i.not.i, label %Vec_WrdSetEntry.exit, label %54
 
 54:                                               ; preds = %.critedge
   %55 = load i32, ptr %50, align 8
   %56 = shl nsw i32 %55, 1
-  %.not.i = icmp sgt i32 %56, %1
-  %.not.i.i.not.i = icmp sgt i32 %55, %1
+  %.not.i = icmp slt i32 %1, %56
   br i1 %.not.i, label %69, label %57
 
 57:                                               ; preds = %54
+  %.not.i.i.not.i = icmp sgt i32 %55, %1
   br i1 %.not.i.i.not.i, label %Vec_WrdGrow.exit.i.i, label %58
 
 58:                                               ; preds = %57
@@ -6946,7 +6946,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_WrdGrow.exit.sink.split.i.i
 
 69:                                               ; preds = %54
-  br i1 %.not.i.i.not.i, label %Vec_WrdGrow.exit.i.i, label %70
+  %.not4.i = icmp slt i32 %1, %55
+  br i1 %.not4.i, label %Vec_WrdGrow.exit.i.i, label %70
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds i8, ptr %0, i64 216
@@ -6977,8 +6978,8 @@ Vec_WrdGrow.exit.sink.split.i.i:                  ; preds = %79, %67
 
 Vec_WrdGrow.exit.i.i:                             ; preds = %Vec_WrdGrow.exit.sink.split.i.i, %69, %57
   %81 = phi i32 [ %.pre.i53, %Vec_WrdGrow.exit.sink.split.i.i ], [ %53, %69 ], [ %53, %57 ]
-  %.not4.i = icmp sgt i32 %81, %1
-  br i1 %.not4.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not5.i = icmp sgt i32 %81, %1
+  br i1 %.not5.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_WrdGrow.exit.i.i
   %82 = getelementptr inbounds i8, ptr %0, i64 216

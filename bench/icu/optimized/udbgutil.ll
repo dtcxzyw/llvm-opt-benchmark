@@ -337,7 +337,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -616,7 +616,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #23
   %cmp7 = icmp eq ptr %call, null
@@ -729,78 +729,62 @@ _ZL15_udbg_enumCount14UDebugEnumTypea.exit:       ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @udbg_enumName(i32 noundef %type, i32 noundef %field) local_unnamed_addr #6 {
 entry:
-  %cmp = icmp slt i32 %field, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
+  %cmp = icmp sgt i32 %field, -1
   %0 = icmp ult i32 %type, 6
-  br i1 %0, label %switch.lookup, label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
+  %or.cond = and i1 %cmp, %0
+  br i1 %or.cond, label %switch.lookup, label %return
 
-switch.lookup:                                    ; preds = %lor.lhs.false
+switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.udbg_enumArrayValue, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
+  %cmp1.not = icmp ult i32 %field, %switch.load
+  br i1 %cmp1.not, label %switch.lookup16, label %return
 
-_ZL15_udbg_enumCount14UDebugEnumTypea.exit:       ; preds = %lor.lhs.false, %switch.lookup
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %lor.lhs.false ]
-  %cmp1.not = icmp sgt i32 %retval.0.i, %field
-  %2 = icmp ult i32 %type, 6
-  %or.cond = and i1 %cmp1.not, %2
-  br i1 %or.cond, label %switch.lookup14, label %return
-
-switch.lookup14:                                  ; preds = %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
-  %3 = zext nneg i32 %type to i64
-  %switch.gep15 = getelementptr inbounds [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %3
-  %switch.load16 = load ptr, ptr %switch.gep15, align 8
+switch.lookup16:                                  ; preds = %switch.lookup
+  %2 = zext nneg i32 %type to i64
+  %switch.gep17 = getelementptr inbounds [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %2
+  %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds %struct.Field, ptr %switch.load16, i64 %idxprom
+  %arrayidx = getelementptr inbounds %struct.Field, ptr %switch.load18, i64 %idxprom
   %str = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %4 = load ptr, ptr %str, align 8
-  %5 = load i32, ptr %arrayidx, align 8
-  %idx.ext = sext i32 %5 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %idx.ext
+  %3 = load ptr, ptr %str, align 8
+  %4 = load i32, ptr %arrayidx, align 8
+  %idx.ext = sext i32 %4 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
   br label %return
 
-return:                                           ; preds = %entry, %_ZL15_udbg_enumCount14UDebugEnumTypea.exit, %switch.lookup14
-  %retval.0 = phi ptr [ %add.ptr, %switch.lookup14 ], [ null, %_ZL15_udbg_enumCount14UDebugEnumTypea.exit ], [ null, %entry ]
+return:                                           ; preds = %entry, %switch.lookup, %switch.lookup16
+  %retval.0 = phi ptr [ %add.ptr, %switch.lookup16 ], [ null, %switch.lookup ], [ null, %entry ]
   ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @udbg_enumArrayValue(i32 noundef %type, i32 noundef %field) local_unnamed_addr #6 {
 entry:
-  %cmp = icmp slt i32 %field, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
+  %cmp = icmp sgt i32 %field, -1
   %0 = icmp ult i32 %type, 6
-  br i1 %0, label %switch.lookup, label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
+  %or.cond = and i1 %cmp, %0
+  br i1 %or.cond, label %switch.lookup, label %return
 
-switch.lookup:                                    ; preds = %lor.lhs.false
+switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.udbg_enumArrayValue, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
+  %cmp1.not = icmp ult i32 %field, %switch.load
+  br i1 %cmp1.not, label %switch.lookup14, label %return
 
-_ZL15_udbg_enumCount14UDebugEnumTypea.exit:       ; preds = %lor.lhs.false, %switch.lookup
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %lor.lhs.false ]
-  %cmp1.not = icmp sgt i32 %retval.0.i, %field
-  %2 = icmp ult i32 %type, 6
-  %or.cond = and i1 %cmp1.not, %2
-  br i1 %or.cond, label %switch.lookup12, label %return
-
-switch.lookup12:                                  ; preds = %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
-  %3 = zext nneg i32 %type to i64
-  %switch.gep13 = getelementptr inbounds [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %3
-  %switch.load14 = load ptr, ptr %switch.gep13, align 8
+switch.lookup14:                                  ; preds = %switch.lookup
+  %2 = zext nneg i32 %type to i64
+  %switch.gep15 = getelementptr inbounds [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %2
+  %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %idxprom = zext nneg i32 %field to i64
-  %num = getelementptr inbounds %struct.Field, ptr %switch.load14, i64 %idxprom, i32 2
-  %4 = load i32, ptr %num, align 8
+  %num = getelementptr inbounds %struct.Field, ptr %switch.load16, i64 %idxprom, i32 2
+  %3 = load i32, ptr %num, align 8
   br label %return
 
-return:                                           ; preds = %entry, %_ZL15_udbg_enumCount14UDebugEnumTypea.exit, %switch.lookup12
-  %retval.0 = phi i32 [ %4, %switch.lookup12 ], [ -1, %_ZL15_udbg_enumCount14UDebugEnumTypea.exit ], [ -1, %entry ]
+return:                                           ; preds = %entry, %switch.lookup, %switch.lookup14
+  %retval.0 = phi i32 [ %3, %switch.lookup14 ], [ -1, %switch.lookup ], [ -1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3194,7 +3178,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %9, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %10
+  %cmp2.i.i = icmp eq ptr %10, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -3256,7 +3240,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3mapIS5_St3setIS5_St4lessIS5_ESaIS5_EESB_SaIS6_IS7_SD_EEEESt10_Select1stISH_ESB_SaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -3648,7 +3632,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %3, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -3710,7 +3694,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St3setIS5_St4lessIS5_ESaIS5_EEESt10_Select1stISD_ESA_SaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -4123,7 +4107,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i, %if.then.i
   %retval.sroa.4.0.i.ph = phi ptr [ %__y.0.lcssa30.i, %if.then.i ], [ %__y.0.lcssa31.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit7.i ]
-  %cmp2.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.4.0.i.ph
+  %cmp2.i = icmp eq ptr %retval.sroa.4.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then
@@ -4244,7 +4228,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 entry:
   %cmp.not = icmp ne ptr %__x, null
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2 = icmp eq ptr %add.ptr.i, %__p
+  %cmp2 = icmp eq ptr %__p, %add.ptr.i
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp2
   br i1 %or.cond, label %lor.end, label %lor.rhs
 

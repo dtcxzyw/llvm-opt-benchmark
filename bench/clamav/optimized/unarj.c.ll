@@ -90,7 +90,7 @@ is_arj_archive.exit:                              ; preds = %13
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 88
   %21 = load i64, ptr %20, align 8
-  %or.cond116.not.i = icmp ugt i64 %21, %15
+  %or.cond116.not.i = icmp ult i64 %15, %21
   br i1 %or.cond116.not.i, label %22, label %arj_read_main_header.exit.thread
 
 22:                                               ; preds = %is_arj_archive.exit
@@ -141,7 +141,7 @@ fmap_readn.exit.i:                                ; preds = %22
   br label %arj_read_main_header.exit.thread
 
 44:                                               ; preds = %35
-  %or.cond117.not.i = icmp ugt i64 %39, %40
+  %or.cond117.not.i = icmp ult i64 %40, %39
   br i1 %or.cond117.not.i, label %45, label %arj_read_main_header.exit.thread
 
 45:                                               ; preds = %44
@@ -425,7 +425,7 @@ is_arj_archive.exit:                              ; preds = %17
   %23 = load ptr, ptr %10, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 88
   %25 = load i64, ptr %24, align 8
-  %or.cond.not.i = icmp ugt i64 %25, %19
+  %or.cond.not.i = icmp ult i64 %19, %25
   br i1 %or.cond.not.i, label %26, label %arj_read_file_header.exit
 
 26:                                               ; preds = %is_arj_archive.exit
@@ -476,7 +476,7 @@ fmap_readn.exit.i:                                ; preds = %26
   br label %arj_read_file_header.exit
 
 48:                                               ; preds = %39
-  %or.cond152.not.i = icmp ugt i64 %43, %44
+  %or.cond152.not.i = icmp ult i64 %44, %43
   br i1 %or.cond152.not.i, label %49, label %arj_read_file_header.exit
 
 49:                                               ; preds = %48
@@ -890,7 +890,7 @@ define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef %1) local_unnamed
 
 65:                                               ; preds = %62
   %66 = load i64, ptr %48, align 8
-  %.not.i.i83.i = icmp ugt i64 %66, %.pre65.i370.i
+  %.not.i.i83.i = icmp ult i64 %.pre65.i370.i, %66
   br i1 %.not.i.i83.i, label %fmap_need_off_once_len.exit.i.i, label %fmap_need_off_once_len.exit.thread.i.i
 
 fmap_need_off_once_len.exit.i.i:                  ; preds = %65
@@ -1042,7 +1042,7 @@ fmap_need_off_once_len.exit.thread.i.i:           ; preds = %fmap_need_off_once_
 
 136:                                              ; preds = %133
   %137 = load i64, ptr %110, align 8
-  %.not.i.i224.i = icmp ugt i64 %137, %.pre65.i221377.i
+  %.not.i.i224.i = icmp ult i64 %.pre65.i221377.i, %137
   br i1 %.not.i.i224.i, label %fmap_need_off_once_len.exit.i227.i, label %fmap_need_off_once_len.exit.thread.i225.i
 
 fmap_need_off_once_len.exit.thread.i225.i:        ; preds = %136
@@ -1186,7 +1186,7 @@ fill_buf.exit234.i:                               ; preds = %._crit_edge.i212.i,
 
 200:                                              ; preds = %197
   %201 = load i64, ptr %174, align 8
-  %.not.i.i199.i = icmp ugt i64 %201, %.pre65.i196384.i
+  %.not.i.i199.i = icmp ult i64 %.pre65.i196384.i, %201
   br i1 %.not.i.i199.i, label %fmap_need_off_once_len.exit.i202.i, label %fmap_need_off_once_len.exit.thread.i200.i
 
 fmap_need_off_once_len.exit.thread.i200.i:        ; preds = %200
@@ -1317,7 +1317,7 @@ fmap_need_off_once_len.exit.i202.i:               ; preds = %200
 
 259:                                              ; preds = %256
   %260 = load i64, ptr %235, align 8
-  %.not.i.i174.i = icmp ugt i64 %260, %.pre65.i171405.i
+  %.not.i.i174.i = icmp ult i64 %.pre65.i171405.i, %260
   br i1 %.not.i.i174.i, label %fmap_need_off_once_len.exit.i177.i, label %fmap_need_off_once_len.exit.thread.i175.i
 
 fmap_need_off_once_len.exit.thread.i175.i:        ; preds = %259
@@ -1534,7 +1534,7 @@ fill_buf.exit184.thread.i:                        ; preds = %fmap_need_off_once_
 
 359:                                              ; preds = %356
   %360 = load i64, ptr %333, align 8
-  %.not.i.i149.i = icmp ugt i64 %360, %.pre65.i146391.i
+  %.not.i.i149.i = icmp ult i64 %.pre65.i146391.i, %360
   br i1 %.not.i.i149.i, label %fmap_need_off_once_len.exit.i152.i, label %fmap_need_off_once_len.exit.thread.i150.i
 
 fmap_need_off_once_len.exit.thread.i150.i:        ; preds = %359
@@ -1624,7 +1624,7 @@ fill_buf.exit159.i:                               ; preds = %._crit_edge.i137.i,
   %393 = trunc nuw nsw i32 %.sink116.i.i.i to i16
   %394 = shl i16 %386, %393
   %395 = load i32, ptr %45, align 4
-  %396 = icmp slt i32 %395, %.sink116.i.i.i
+  %396 = icmp sgt i32 %.sink116.i.i.i, %395
   br i1 %396, label %.lr.ph.i116.i, label %.._crit_edge_crit_edge.i110.i
 
 .._crit_edge_crit_edge.i110.i:                    ; preds = %391
@@ -1692,7 +1692,7 @@ fill_buf.exit159.i:                               ; preds = %._crit_edge.i137.i,
 
 426:                                              ; preds = %423
   %427 = load i64, ptr %400, align 8
-  %.not.i.i124.i = icmp ugt i64 %427, %.pre65.i121398.i
+  %.not.i.i124.i = icmp ult i64 %.pre65.i121398.i, %427
   br i1 %.not.i.i124.i, label %fmap_need_off_once_len.exit.i127.i, label %fmap_need_off_once_len.exit.thread.i125.i
 
 fmap_need_off_once_len.exit.thread.i125.i:        ; preds = %426
@@ -1951,7 +1951,7 @@ decode_c.exit.thread.i:                           ; preds = %483
 
 541:                                              ; preds = %538
   %542 = load i64, ptr %515, align 8
-  %.not.i.i99.i = icmp ugt i64 %542, %.pre65.i96412.i
+  %.not.i.i99.i = icmp ult i64 %.pre65.i96412.i, %542
   br i1 %.not.i.i99.i, label %fmap_need_off_once_len.exit.i102.i, label %fmap_need_off_once_len.exit.thread.i100.i
 
 fmap_need_off_once_len.exit.thread.i100.i:        ; preds = %541
@@ -2176,7 +2176,7 @@ decode_c.exit.i:                                  ; preds = %._crit_edge.i87.i, 
 
 653:                                              ; preds = %650
   %654 = load i64, ptr %627, align 8
-  %.not.i.i274.i = icmp ugt i64 %654, %.pre65.i271419.i
+  %.not.i.i274.i = icmp ult i64 %.pre65.i271419.i, %654
   br i1 %.not.i.i274.i, label %fmap_need_off_once_len.exit.i277.i, label %fmap_need_off_once_len.exit.thread.i275.i
 
 fmap_need_off_once_len.exit.thread.i275.i:        ; preds = %653
@@ -2341,7 +2341,7 @@ fill_buf.exit284.i:                               ; preds = %._crit_edge.i262.i,
 
 734:                                              ; preds = %731
   %735 = load i64, ptr %708, align 8
-  %.not.i.i249.i = icmp ugt i64 %735, %.pre65.i246426.i
+  %.not.i.i249.i = icmp ult i64 %.pre65.i246426.i, %735
   br i1 %.not.i.i249.i, label %fmap_need_off_once_len.exit.i252.i, label %fmap_need_off_once_len.exit.thread.i250.i
 
 fmap_need_off_once_len.exit.thread.i250.i:        ; preds = %734
@@ -2576,14 +2576,14 @@ define internal fastcc range(i32 0, 27) i32 @arj_unstore(ptr nocapture noundef %
   %11 = load i64, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 88
   %13 = load i64, ptr %12, align 8
-  %.not.i = icmp ugt i64 %13, %11
+  %.not.i = icmp ult i64 %11, %13
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %9
   %14 = tail call i32 @llvm.umin.i32(i32 %.01324, i32 8192)
   %15 = zext nneg i32 %14 to i64
   %16 = sub i64 %13, %11
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %15)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %16)
   %17 = getelementptr inbounds i8, ptr %10, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %10, i64 noundef %11, i64 noundef %spec.select.i, i32 noundef 0) #12
@@ -2655,7 +2655,7 @@ define internal fastcc i32 @decode_f(ptr nocapture noundef %0) unnamed_addr #0 {
 
 23:                                               ; preds = %20
   %24 = load i64, ptr %10, align 8
-  %.not.i.i99 = icmp ugt i64 %24, %.sroa.21.0
+  %.not.i.i99 = icmp ult i64 %.sroa.21.0, %24
   br i1 %.not.i.i99, label %fmap_need_off_once_len.exit.i102, label %37
 
 fmap_need_off_once_len.exit.i102:                 ; preds = %23
@@ -2770,7 +2770,7 @@ fmap_need_off_once_len.exit.i102:                 ; preds = %23
   %69 = zext nneg i32 %59 to i64
   %70 = shl i64 %62, %69
   %71 = trunc i64 %70 to i16
-  %72 = icmp slt i32 %.sroa.125.3, %59
+  %72 = icmp sgt i32 %59, %.sroa.125.3
   br i1 %72, label %.lr.ph.i141, label %._crit_edge.i137
 
 .lr.ph.i141:                                      ; preds = %68
@@ -2817,7 +2817,7 @@ fmap_need_off_once_len.exit.i102:                 ; preds = %23
 
 92:                                               ; preds = %89
   %93 = load i64, ptr %46, align 8
-  %.not.i.i149 = icmp ugt i64 %93, %.sroa.21.6
+  %.not.i.i149 = icmp ult i64 %.sroa.21.6, %93
   br i1 %.not.i.i149, label %fmap_need_off_once_len.exit.i152, label %fill_buf.exit159
 
 fmap_need_off_once_len.exit.i152:                 ; preds = %92
@@ -2924,7 +2924,7 @@ fill_buf.exit159:                                 ; preds = %92, %fmap_need_off_
   %141 = zext nneg i32 %129 to i64
   %142 = shl i64 %132, %141
   %143 = trunc i64 %142 to i16
-  %144 = icmp slt i32 %.sroa.125.6, %129
+  %144 = icmp sgt i32 %129, %.sroa.125.6
   br i1 %144, label %.lr.ph.i116, label %._crit_edge.i112
 
 .lr.ph.i116:                                      ; preds = %140
@@ -2971,7 +2971,7 @@ fill_buf.exit159:                                 ; preds = %92, %fmap_need_off_
 
 164:                                              ; preds = %161
   %165 = load i64, ptr %46, align 8
-  %.not.i.i124 = icmp ugt i64 %165, %.sroa.21.11
+  %.not.i.i124 = icmp ult i64 %.sroa.21.11, %165
   br i1 %.not.i.i124, label %fmap_need_off_once_len.exit.i127, label %.lr.ph.i
 
 fmap_need_off_once_len.exit.i127:                 ; preds = %164
@@ -3097,7 +3097,7 @@ decode_len.exit:                                  ; preds = %121, %192
   %216 = zext nneg i32 %208 to i64
   %217 = shl i64 %209, %216
   %218 = trunc i64 %217 to i16
-  %219 = icmp slt i32 %.sroa.125.10, %208
+  %219 = icmp sgt i32 %208, %.sroa.125.10
   br i1 %219, label %.lr.ph.i72, label %._crit_edge.i
 
 .lr.ph.i72:                                       ; preds = %215
@@ -3144,7 +3144,7 @@ decode_len.exit:                                  ; preds = %121, %192
 
 239:                                              ; preds = %236
   %240 = load i64, ptr %46, align 8
-  %.not.i.i = icmp ugt i64 %240, %.sroa.21.17
+  %.not.i.i = icmp ult i64 %.sroa.21.17, %240
   br i1 %.not.i.i, label %fmap_need_off_once_len.exit.i, label %fill_buf.exit
 
 fmap_need_off_once_len.exit.i:                    ; preds = %239
@@ -3290,7 +3290,7 @@ fill_buf.exit:                                    ; preds = %239, %fmap_need_off
   %301 = zext nneg i32 %291 to i64
   %302 = shl i64 %294, %301
   %303 = trunc i64 %302 to i16
-  %304 = icmp slt i32 %.sroa.125.14, %291
+  %304 = icmp sgt i32 %291, %.sroa.125.14
   br i1 %304, label %.lr.ph.i191, label %._crit_edge.i187
 
 .lr.ph.i191:                                      ; preds = %300
@@ -3337,7 +3337,7 @@ fill_buf.exit:                                    ; preds = %239, %fmap_need_off
 
 324:                                              ; preds = %321
   %325 = load i64, ptr %46, align 8
-  %.not.i.i199 = icmp ugt i64 %325, %.sroa.21.23
+  %.not.i.i199 = icmp ult i64 %.sroa.21.23, %325
   br i1 %.not.i.i199, label %fmap_need_off_once_len.exit.i202, label %fill_buf.exit209
 
 fmap_need_off_once_len.exit.i202:                 ; preds = %324
@@ -3440,7 +3440,7 @@ fill_buf.exit209:                                 ; preds = %324, %fmap_need_off
   %373 = zext nneg i32 %361 to i64
   %374 = shl i64 %364, %373
   %375 = trunc i64 %374 to i16
-  %376 = icmp slt i32 %.sroa.125.17, %361
+  %376 = icmp sgt i32 %361, %.sroa.125.17
   br i1 %376, label %.lr.ph.i166, label %._crit_edge.i162
 
 .lr.ph.i166:                                      ; preds = %372
@@ -3487,7 +3487,7 @@ fill_buf.exit209:                                 ; preds = %324, %fmap_need_off
 
 396:                                              ; preds = %393
   %397 = load i64, ptr %46, align 8
-  %.not.i.i174 = icmp ugt i64 %397, %.sroa.21.28
+  %.not.i.i174 = icmp ult i64 %.sroa.21.28, %397
   br i1 %.not.i.i174, label %fmap_need_off_once_len.exit.i177, label %fill_buf.exit184
 
 fmap_need_off_once_len.exit.i177:                 ; preds = %396
@@ -3720,7 +3720,7 @@ define internal fastcc void @fill_buf(ptr nocapture noundef %0, i32 noundef %1) 
   store i16 %20, ptr %7, align 2
   %21 = getelementptr inbounds i8, ptr %0, i64 44
   %22 = load i32, ptr %21, align 4
-  %23 = icmp slt i32 %22, %1
+  %23 = icmp sgt i32 %1, %22
   %24 = getelementptr inbounds i8, ptr %0, i64 12853
   br i1 %23, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -3787,7 +3787,7 @@ define internal fastcc void @fill_buf(ptr nocapture noundef %0, i32 noundef %1) 
   %57 = load ptr, ptr %28, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 88
   %59 = load i64, ptr %58, align 8
-  %.not.i = icmp ugt i64 %59, %.pre65
+  %.not.i = icmp ult i64 %.pre65, %59
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %fmap_need_off_once_len.exit.thread
 
 fmap_need_off_once_len.exit.thread:               ; preds = %56
@@ -4182,7 +4182,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr nocapture noundef %0,
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   %84 = add nuw nsw i32 %83, %80
-  %.not115 = icmp sgt i32 %72, %3
+  %.not115 = icmp slt i32 %3, %72
   br i1 %.not115, label %93, label %85
 
 85:                                               ; preds = %76

@@ -1519,7 +1519,7 @@ _ZN5Gluco10SimpSolver11extendModelEv.exit:        ; preds = %.loopexit.i, %55, %
 
 117:                                              ; preds = %109
   %118 = load i32, ptr %104, align 8
-  %119 = icmp sgt i32 %118, %111
+  %119 = icmp slt i32 %111, %118
   br i1 %119, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i.i, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i.i: ; preds = %117
@@ -2289,7 +2289,7 @@ _ZN5Gluco3vecIjE4pushERKj.exit:                   ; preds = %._ZN5Gluco3vecIjE4p
   %.sroa.0.0.copyload.i34 = load i32, ptr %72, align 4
   %117 = ashr i32 %.sroa.0.0.copyload.i34, 1
   %118 = load i32, ptr %69, align 8
-  %119 = icmp sgt i32 %118, %117
+  %119 = icmp slt i32 %117, %118
   br i1 %119, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
 
 _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds = %_ZN5Gluco3vecIjE4pushERKj.exit
@@ -2596,7 +2596,7 @@ define void @_ZN5Gluco10SimpSolver12removeClauseEj(ptr noundef nonnull align 8 d
   %.sroa.0.0.copyload.i13 = load i32, ptr %28, align 4
   %34 = ashr i32 %.sroa.0.0.copyload.i13, 1
   %35 = load i32, ptr %17, align 8
-  %36 = icmp sgt i32 %35, %34
+  %36 = icmp slt i32 %34, %35
   br i1 %36, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i, label %._ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread_crit_edge.i
 
 ._ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread_crit_edge.i: ; preds = %27
@@ -3125,7 +3125,7 @@ _ZN5GlucoL6removeINS_3vecIjEEjEEvRT_RKT0_.exit:   ; preds = %.lr.ph6.i, %.crited
   %193 = getelementptr inbounds i8, ptr %0, i64 1376
   %194 = getelementptr inbounds i8, ptr %0, i64 1408
   %195 = load i32, ptr %194, align 8
-  %196 = icmp sgt i32 %195, %162
+  %196 = icmp slt i32 %162, %195
   br i1 %196, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i
 
 _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; preds = %_ZN5GlucoL6removeINS_3vecIjEEjEEvRT_RKT0_.exit
@@ -5102,7 +5102,7 @@ _ZN5Gluco3vecIjED2Ev.exit55:                      ; preds = %_ZN5Gluco3vecIjED2E
   %171 = getelementptr inbounds i8, ptr %0, i64 776
   %172 = getelementptr inbounds i8, ptr %0, i64 808
   %173 = load i32, ptr %172, align 8
-  %174 = icmp sgt i32 %173, %1
+  %174 = icmp slt i32 %1, %173
   br i1 %174, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %170
@@ -5679,7 +5679,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver10substituteEiNS_3LitE(ptr nound
   %20 = getelementptr inbounds i8, ptr %0, i64 776
   %21 = getelementptr inbounds i8, ptr %0, i64 808
   %22 = load i32, ptr %21, align 8
-  %23 = icmp sgt i32 %22, %1
+  %23 = icmp slt i32 %1, %22
   br i1 %23, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %19
@@ -7506,7 +7506,7 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6updateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = icmp sgt i32 %4, %1
+  %5 = icmp slt i32 %1, %4
   br i1 %5, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit, label %_ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
 
 _ZNK5Gluco4HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds = %2

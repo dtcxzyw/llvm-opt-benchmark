@@ -18,7 +18,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %8 = ptrtoint ptr %2 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %7
@@ -39,7 +39,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %18
-  %26 = icmp eq ptr %21, %1
+  %26 = icmp eq ptr %1, %21
   br i1 %26, label %Ivy_And.exit, label %27
 
 27:                                               ; preds = %25
@@ -54,7 +54,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %30
-  %35 = icmp eq ptr %23, %2
+  %35 = icmp eq ptr %2, %23
   br i1 %35, label %Ivy_And.exit, label %36
 
 36:                                               ; preds = %34
@@ -85,7 +85,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %6 = ptrtoint ptr %2 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %1
+  %9 = icmp eq ptr %1, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
@@ -106,7 +106,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %16
-  %24 = icmp eq ptr %19, %1
+  %24 = icmp eq ptr %1, %19
   br i1 %24, label %40, label %25
 
 25:                                               ; preds = %23
@@ -121,7 +121,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %28
-  %33 = icmp eq ptr %21, %2
+  %33 = icmp eq ptr %2, %21
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %32
@@ -144,11 +144,11 @@ define ptr @Ivy_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %4 = ptrtoint ptr %2 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %Ivy_And.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp eq ptr %2, %1
+  %9 = icmp eq ptr %1, %2
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
@@ -169,7 +169,7 @@ define ptr @Ivy_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %16
-  %24 = icmp eq ptr %19, %1
+  %24 = icmp eq ptr %1, %19
   br i1 %24, label %Ivy_And.exit, label %25
 
 25:                                               ; preds = %23
@@ -202,11 +202,11 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   %40 = ptrtoint ptr %1 to i64
   %41 = xor i64 %40, 1
   %42 = inttoptr i64 %41 to ptr
-  %43 = icmp eq ptr %42, %2
+  %43 = icmp eq ptr %2, %42
   br i1 %43, label %Ivy_And.exit8, label %44
 
 44:                                               ; preds = %Ivy_And.exit
-  %45 = icmp eq ptr %6, %42
+  %45 = icmp eq ptr %42, %6
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %44
@@ -226,7 +226,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %52
-  %59 = icmp eq ptr %54, %42
+  %59 = icmp eq ptr %42, %54
   br i1 %59, label %Ivy_And.exit8, label %60
 
 60:                                               ; preds = %58
@@ -241,7 +241,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %63
-  %68 = icmp eq ptr %65, %2
+  %68 = icmp eq ptr %2, %65
   br i1 %68, label %Ivy_And.exit8, label %69
 
 69:                                               ; preds = %67
@@ -284,7 +284,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %88
-  %95 = icmp eq ptr %90, %76
+  %95 = icmp eq ptr %76, %90
   %96 = or i64 %74, 1
   %spec.select.i = select i1 %95, i64 %78, i64 %96
   br label %Ivy_Or.exit
@@ -330,7 +330,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %10, label %Ivy_And.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = icmp eq ptr %6, %2
+  %12 = icmp eq ptr %2, %6
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
@@ -349,7 +349,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = icmp eq ptr %20, %6
+  %25 = icmp eq ptr %6, %20
   %26 = or i64 %4, 1
   %spec.select = select i1 %25, i64 %8, i64 %26
   br label %Ivy_And.exit
@@ -386,7 +386,7 @@ define ptr @Ivy_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %5 = ptrtoint ptr %2 to i64
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %3
+  %8 = icmp eq ptr %3, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
@@ -665,7 +665,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
   br i1 %134, label %Ivy_And.exit, label %135
 
 135:                                              ; preds = %133
-  %136 = icmp eq ptr %7, %1
+  %136 = icmp eq ptr %1, %7
   br i1 %136, label %137, label %143
 
 137:                                              ; preds = %135
@@ -685,7 +685,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
   br i1 %148, label %149, label %154
 
 149:                                              ; preds = %143
-  %150 = icmp eq ptr %145, %1
+  %150 = icmp eq ptr %1, %145
   br i1 %150, label %Ivy_And.exit, label %151
 
 151:                                              ; preds = %149
@@ -700,7 +700,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
   br i1 %157, label %158, label %163
 
 158:                                              ; preds = %154
-  %159 = icmp eq ptr %156, %2
+  %159 = icmp eq ptr %2, %156
   br i1 %159, label %Ivy_And.exit, label %160
 
 160:                                              ; preds = %158
@@ -717,11 +717,11 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   br i1 %48, label %Ivy_And.exit116, label %166
 
 166:                                              ; preds = %Ivy_And.exit
-  %167 = icmp eq ptr %32, %3
+  %167 = icmp eq ptr %3, %32
   br i1 %167, label %Ivy_And.exit116, label %168
 
 168:                                              ; preds = %166
-  %169 = icmp eq ptr %92, %32
+  %169 = icmp eq ptr %32, %92
   br i1 %169, label %170, label %176
 
 170:                                              ; preds = %168
@@ -741,7 +741,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   br i1 %181, label %182, label %187
 
 182:                                              ; preds = %176
-  %183 = icmp eq ptr %178, %32
+  %183 = icmp eq ptr %32, %178
   br i1 %183, label %Ivy_And.exit116, label %184
 
 184:                                              ; preds = %182
@@ -756,7 +756,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   br i1 %190, label %191, label %196
 
 191:                                              ; preds = %187
-  %192 = icmp eq ptr %189, %3
+  %192 = icmp eq ptr %3, %189
   br i1 %192, label %Ivy_And.exit116, label %193
 
 193:                                              ; preds = %191
@@ -799,7 +799,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
   br i1 %218, label %219, label %222
 
 219:                                              ; preds = %213
-  %220 = icmp eq ptr %215, %201
+  %220 = icmp eq ptr %201, %215
   %221 = or i64 %199, 1
   %spec.select.i = select i1 %220, i64 %203, i64 %221
   br label %Ivy_Or.exit
@@ -834,11 +834,11 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
   br i1 %106, label %Ivy_And.exit118, label %237
 
 237:                                              ; preds = %236
-  %238 = icmp eq ptr %7, %1
+  %238 = icmp eq ptr %1, %7
   br i1 %238, label %Ivy_And.exit118, label %239
 
 239:                                              ; preds = %237
-  %240 = icmp eq ptr %2, %1
+  %240 = icmp eq ptr %1, %2
   br i1 %240, label %241, label %247
 
 241:                                              ; preds = %239
@@ -858,7 +858,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
   br i1 %252, label %253, label %258
 
 253:                                              ; preds = %247
-  %254 = icmp eq ptr %249, %1
+  %254 = icmp eq ptr %1, %249
   br i1 %254, label %Ivy_And.exit118, label %255
 
 255:                                              ; preds = %253
@@ -894,7 +894,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   br i1 %271, label %Ivy_And.exit120, label %272
 
 272:                                              ; preds = %270
-  %273 = icmp eq ptr %32, %3
+  %273 = icmp eq ptr %3, %32
   br i1 %273, label %274, label %280
 
 274:                                              ; preds = %272
@@ -914,7 +914,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   br i1 %285, label %286, label %291
 
 286:                                              ; preds = %280
-  %287 = icmp eq ptr %282, %32
+  %287 = icmp eq ptr %32, %282
   br i1 %287, label %Ivy_And.exit120, label %288
 
 288:                                              ; preds = %286
@@ -972,7 +972,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
   br i1 %322, label %323, label %326
 
 323:                                              ; preds = %317
-  %324 = icmp eq ptr %319, %305
+  %324 = icmp eq ptr %305, %319
   %325 = or i64 %303, 1
   %spec.select.i122 = select i1 %324, i64 %307, i64 %325
   br label %Ivy_Or.exit123
@@ -1018,7 +1018,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %7 = ptrtoint ptr %2 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
@@ -1039,7 +1039,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %17
-  %25 = icmp eq ptr %20, %1
+  %25 = icmp eq ptr %1, %20
   br i1 %25, label %Ivy_And.exit, label %26
 
 26:                                               ; preds = %24
@@ -1054,7 +1054,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %22, %2
+  %34 = icmp eq ptr %2, %22
   br i1 %34, label %Ivy_And.exit, label %35
 
 35:                                               ; preds = %33
@@ -1076,7 +1076,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %43 = ptrtoint ptr %3 to i64
   %44 = xor i64 %43, 1
   %45 = inttoptr i64 %44 to ptr
-  %46 = icmp eq ptr %45, %1
+  %46 = icmp eq ptr %1, %45
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %42
@@ -1097,7 +1097,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %53
-  %61 = icmp eq ptr %56, %1
+  %61 = icmp eq ptr %1, %56
   br i1 %61, label %Ivy_And.exit12, label %62
 
 62:                                               ; preds = %60
@@ -1112,7 +1112,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %65
-  %70 = icmp eq ptr %58, %3
+  %70 = icmp eq ptr %3, %58
   br i1 %70, label %Ivy_And.exit12, label %71
 
 71:                                               ; preds = %69
@@ -1156,7 +1156,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %91
-  %98 = icmp eq ptr %93, %79
+  %98 = icmp eq ptr %79, %93
   %99 = or i64 %77, 1
   %spec.select.i = select i1 %98, i64 %81, i64 %99
   br label %Ivy_Or.exit
@@ -1190,7 +1190,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
   %114 = ptrtoint ptr %3 to i64
   %115 = xor i64 %114, 1
   %116 = inttoptr i64 %115 to ptr
-  %117 = icmp eq ptr %116, %2
+  %117 = icmp eq ptr %2, %116
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %113
@@ -1211,7 +1211,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
   br i1 %130, label %131, label %136
 
 131:                                              ; preds = %124
-  %132 = icmp eq ptr %127, %2
+  %132 = icmp eq ptr %2, %127
   br i1 %132, label %Ivy_And.exit14, label %133
 
 133:                                              ; preds = %131
@@ -1226,7 +1226,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
   br i1 %139, label %140, label %145
 
 140:                                              ; preds = %136
-  %141 = icmp eq ptr %138, %3
+  %141 = icmp eq ptr %3, %138
   br i1 %141, label %Ivy_And.exit14, label %142
 
 142:                                              ; preds = %140
@@ -1267,7 +1267,7 @@ Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %118, 
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %159
-  %166 = icmp eq ptr %161, %147
+  %166 = icmp eq ptr %147, %161
   %167 = or i64 %.0.i.i, 1
   %spec.select.i16 = select i1 %166, i64 %149, i64 %167
   br label %Ivy_Or.exit17
@@ -1364,7 +1364,7 @@ define ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %40
-  %45 = icmp eq ptr %33, %14
+  %45 = icmp eq ptr %14, %33
   br i1 %45, label %Ivy_Oper.exit, label %46
 
 46:                                               ; preds = %44

@@ -35,7 +35,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 .split.us.split.us.split.us.preheader:            ; preds = %.split.us.split.us
   %24 = shl i64 %14, 5
-  %25 = mul i64 %24, %4
+  %25 = mul i64 %4, %24
   %scevgep = getelementptr i8, ptr %3, i64 %25
   %scevgep51 = getelementptr i8, ptr %5, i64 %24
   br label %.loopexit4
@@ -50,18 +50,18 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %32 = getelementptr inbounds double, ptr %27, i64 %15
   %33 = getelementptr inbounds i8, ptr %28, i64 32
   %34 = load double, ptr %27, align 8, !tbaa !3
-  %35 = fmul double %34, %2
+  %35 = fmul double %2, %34
   store double %35, ptr %28, align 8, !tbaa !3
   %36 = load double, ptr %29, align 8, !tbaa !3
-  %37 = fmul double %36, %2
+  %37 = fmul double %2, %36
   %38 = getelementptr inbounds i8, ptr %28, i64 8
   store double %37, ptr %38, align 8, !tbaa !3
   %39 = load double, ptr %30, align 8, !tbaa !3
-  %40 = fmul double %39, %2
+  %40 = fmul double %2, %39
   %41 = getelementptr inbounds i8, ptr %28, i64 16
   store double %40, ptr %41, align 8, !tbaa !3
   %42 = load double, ptr %31, align 8, !tbaa !3
-  %43 = fmul double %42, %2
+  %43 = fmul double %2, %42
   %44 = getelementptr inbounds i8, ptr %28, i64 24
   store double %43, ptr %44, align 8, !tbaa !3
   %45 = add nsw i64 %26, -1
@@ -79,37 +79,37 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %54 = getelementptr inbounds double, ptr %49, i64 %6
   %55 = getelementptr inbounds i8, ptr %49, i64 32
   %56 = load double, ptr %48, align 8, !tbaa !3
-  %57 = fmul double %56, %2
+  %57 = fmul double %2, %56
   store double %57, ptr %49, align 8, !tbaa !3
   %58 = getelementptr inbounds i8, ptr %48, i64 8
   %59 = load double, ptr %58, align 8, !tbaa !3
-  %60 = fmul double %59, %2
+  %60 = fmul double %2, %59
   store double %60, ptr %54, align 8, !tbaa !3
   %61 = load double, ptr %50, align 8, !tbaa !3
-  %62 = fmul double %61, %2
+  %62 = fmul double %2, %61
   %63 = getelementptr inbounds i8, ptr %49, i64 8
   store double %62, ptr %63, align 8, !tbaa !3
   %64 = getelementptr inbounds i8, ptr %50, i64 8
   %65 = load double, ptr %64, align 8, !tbaa !3
-  %66 = fmul double %65, %2
+  %66 = fmul double %2, %65
   %67 = getelementptr inbounds i8, ptr %54, i64 8
   store double %66, ptr %67, align 8, !tbaa !3
   %68 = load double, ptr %51, align 8, !tbaa !3
-  %69 = fmul double %68, %2
+  %69 = fmul double %2, %68
   %70 = getelementptr inbounds i8, ptr %49, i64 16
   store double %69, ptr %70, align 8, !tbaa !3
   %71 = getelementptr inbounds i8, ptr %51, i64 8
   %72 = load double, ptr %71, align 8, !tbaa !3
-  %73 = fmul double %72, %2
+  %73 = fmul double %2, %72
   %74 = getelementptr inbounds i8, ptr %54, i64 16
   store double %73, ptr %74, align 8, !tbaa !3
   %75 = load double, ptr %52, align 8, !tbaa !3
-  %76 = fmul double %75, %2
+  %76 = fmul double %2, %75
   %77 = getelementptr inbounds i8, ptr %49, i64 24
   store double %76, ptr %77, align 8, !tbaa !3
   %78 = getelementptr inbounds i8, ptr %52, i64 8
   %79 = load double, ptr %78, align 8, !tbaa !3
-  %80 = fmul double %79, %2
+  %80 = fmul double %2, %79
   %81 = getelementptr inbounds i8, ptr %54, i64 24
   store double %80, ptr %81, align 8, !tbaa !3
   br i1 %21, label %99, label %82
@@ -121,18 +121,18 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %86 = getelementptr inbounds i8, ptr %50, i64 16
   %87 = getelementptr inbounds i8, ptr %48, i64 16
   %88 = load double, ptr %87, align 8, !tbaa !3
-  %89 = fmul double %88, %2
+  %89 = fmul double %2, %88
   store double %89, ptr %83, align 8, !tbaa !3
   %90 = load double, ptr %86, align 8, !tbaa !3
-  %91 = fmul double %90, %2
+  %91 = fmul double %2, %90
   %92 = getelementptr inbounds i8, ptr %83, i64 8
   store double %91, ptr %92, align 8, !tbaa !3
   %93 = load double, ptr %85, align 8, !tbaa !3
-  %94 = fmul double %93, %2
+  %94 = fmul double %2, %93
   %95 = getelementptr inbounds i8, ptr %83, i64 16
   store double %94, ptr %95, align 8, !tbaa !3
   %96 = load double, ptr %84, align 8, !tbaa !3
-  %97 = fmul double %96, %2
+  %97 = fmul double %2, %96
   %98 = getelementptr inbounds i8, ptr %83, i64 24
   store double %97, ptr %98, align 8, !tbaa !3
   br label %99
@@ -165,75 +165,75 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %119 = phi ptr [ %183, %111 ], [ %109, %.split ]
   %120 = phi ptr [ %184, %111 ], [ %110, %.split ]
   %121 = load double, ptr %113, align 8, !tbaa !3
-  %122 = fmul double %121, %2
+  %122 = fmul double %2, %121
   store double %122, ptr %117, align 8, !tbaa !3
   %123 = getelementptr inbounds i8, ptr %113, i64 8
   %124 = load double, ptr %123, align 8, !tbaa !3
-  %125 = fmul double %124, %2
+  %125 = fmul double %2, %124
   store double %125, ptr %118, align 8, !tbaa !3
   %126 = getelementptr inbounds i8, ptr %113, i64 16
   %127 = load double, ptr %126, align 8, !tbaa !3
-  %128 = fmul double %127, %2
+  %128 = fmul double %2, %127
   store double %128, ptr %119, align 8, !tbaa !3
   %129 = getelementptr inbounds i8, ptr %113, i64 24
   %130 = load double, ptr %129, align 8, !tbaa !3
-  %131 = fmul double %130, %2
+  %131 = fmul double %2, %130
   store double %131, ptr %120, align 8, !tbaa !3
   %132 = load double, ptr %114, align 8, !tbaa !3
-  %133 = fmul double %132, %2
+  %133 = fmul double %2, %132
   %134 = getelementptr inbounds i8, ptr %117, i64 8
   store double %133, ptr %134, align 8, !tbaa !3
   %135 = getelementptr inbounds i8, ptr %114, i64 8
   %136 = load double, ptr %135, align 8, !tbaa !3
-  %137 = fmul double %136, %2
+  %137 = fmul double %2, %136
   %138 = getelementptr inbounds i8, ptr %118, i64 8
   store double %137, ptr %138, align 8, !tbaa !3
   %139 = getelementptr inbounds i8, ptr %114, i64 16
   %140 = load double, ptr %139, align 8, !tbaa !3
-  %141 = fmul double %140, %2
+  %141 = fmul double %2, %140
   %142 = getelementptr inbounds i8, ptr %119, i64 8
   store double %141, ptr %142, align 8, !tbaa !3
   %143 = getelementptr inbounds i8, ptr %114, i64 24
   %144 = load double, ptr %143, align 8, !tbaa !3
-  %145 = fmul double %144, %2
+  %145 = fmul double %2, %144
   %146 = getelementptr inbounds i8, ptr %120, i64 8
   store double %145, ptr %146, align 8, !tbaa !3
   %147 = load double, ptr %115, align 8, !tbaa !3
-  %148 = fmul double %147, %2
+  %148 = fmul double %2, %147
   %149 = getelementptr inbounds i8, ptr %117, i64 16
   store double %148, ptr %149, align 8, !tbaa !3
   %150 = getelementptr inbounds i8, ptr %115, i64 8
   %151 = load double, ptr %150, align 8, !tbaa !3
-  %152 = fmul double %151, %2
+  %152 = fmul double %2, %151
   %153 = getelementptr inbounds i8, ptr %118, i64 16
   store double %152, ptr %153, align 8, !tbaa !3
   %154 = getelementptr inbounds i8, ptr %115, i64 16
   %155 = load double, ptr %154, align 8, !tbaa !3
-  %156 = fmul double %155, %2
+  %156 = fmul double %2, %155
   %157 = getelementptr inbounds i8, ptr %119, i64 16
   store double %156, ptr %157, align 8, !tbaa !3
   %158 = getelementptr inbounds i8, ptr %115, i64 24
   %159 = load double, ptr %158, align 8, !tbaa !3
-  %160 = fmul double %159, %2
+  %160 = fmul double %2, %159
   %161 = getelementptr inbounds i8, ptr %120, i64 16
   store double %160, ptr %161, align 8, !tbaa !3
   %162 = load double, ptr %116, align 8, !tbaa !3
-  %163 = fmul double %162, %2
+  %163 = fmul double %2, %162
   %164 = getelementptr inbounds i8, ptr %117, i64 24
   store double %163, ptr %164, align 8, !tbaa !3
   %165 = getelementptr inbounds i8, ptr %116, i64 8
   %166 = load double, ptr %165, align 8, !tbaa !3
-  %167 = fmul double %166, %2
+  %167 = fmul double %2, %166
   %168 = getelementptr inbounds i8, ptr %118, i64 24
   store double %167, ptr %168, align 8, !tbaa !3
   %169 = getelementptr inbounds i8, ptr %116, i64 16
   %170 = load double, ptr %169, align 8, !tbaa !3
-  %171 = fmul double %170, %2
+  %171 = fmul double %2, %170
   %172 = getelementptr inbounds i8, ptr %119, i64 24
   store double %171, ptr %172, align 8, !tbaa !3
   %173 = getelementptr inbounds i8, ptr %116, i64 24
   %174 = load double, ptr %173, align 8, !tbaa !3
-  %175 = fmul double %174, %2
+  %175 = fmul double %2, %174
   %176 = getelementptr inbounds i8, ptr %120, i64 24
   store double %175, ptr %176, align 8, !tbaa !3
   %177 = getelementptr inbounds i8, ptr %113, i64 32
@@ -255,37 +255,37 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 189:                                              ; preds = %.loopexit3
   %190 = load double, ptr %177, align 8, !tbaa !3
-  %191 = fmul double %190, %2
+  %191 = fmul double %2, %190
   store double %191, ptr %181, align 8, !tbaa !3
   %192 = getelementptr inbounds i8, ptr %113, i64 40
   %193 = load double, ptr %192, align 8, !tbaa !3
-  %194 = fmul double %193, %2
+  %194 = fmul double %2, %193
   store double %194, ptr %182, align 8, !tbaa !3
   %195 = load double, ptr %178, align 8, !tbaa !3
-  %196 = fmul double %195, %2
+  %196 = fmul double %2, %195
   %197 = getelementptr inbounds i8, ptr %181, i64 8
   store double %196, ptr %197, align 8, !tbaa !3
   %198 = getelementptr inbounds i8, ptr %114, i64 40
   %199 = load double, ptr %198, align 8, !tbaa !3
-  %200 = fmul double %199, %2
+  %200 = fmul double %2, %199
   %201 = getelementptr inbounds i8, ptr %182, i64 8
   store double %200, ptr %201, align 8, !tbaa !3
   %202 = load double, ptr %179, align 8, !tbaa !3
-  %203 = fmul double %202, %2
+  %203 = fmul double %2, %202
   %204 = getelementptr inbounds i8, ptr %181, i64 16
   store double %203, ptr %204, align 8, !tbaa !3
   %205 = getelementptr inbounds i8, ptr %115, i64 40
   %206 = load double, ptr %205, align 8, !tbaa !3
-  %207 = fmul double %206, %2
+  %207 = fmul double %2, %206
   %208 = getelementptr inbounds i8, ptr %182, i64 16
   store double %207, ptr %208, align 8, !tbaa !3
   %209 = load double, ptr %180, align 8, !tbaa !3
-  %210 = fmul double %209, %2
+  %210 = fmul double %2, %209
   %211 = getelementptr inbounds i8, ptr %181, i64 24
   store double %210, ptr %211, align 8, !tbaa !3
   %212 = getelementptr inbounds i8, ptr %116, i64 40
   %213 = load double, ptr %212, align 8, !tbaa !3
-  %214 = fmul double %213, %2
+  %214 = fmul double %2, %213
   %215 = getelementptr inbounds i8, ptr %182, i64 24
   store double %214, ptr %215, align 8, !tbaa !3
   %216 = getelementptr inbounds i8, ptr %113, i64 48
@@ -305,18 +305,18 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 227:                                              ; preds = %221
   %228 = load double, ptr %222, align 8, !tbaa !3
-  %229 = fmul double %228, %2
+  %229 = fmul double %2, %228
   store double %229, ptr %226, align 8, !tbaa !3
   %230 = load double, ptr %223, align 8, !tbaa !3
-  %231 = fmul double %230, %2
+  %231 = fmul double %2, %230
   %232 = getelementptr inbounds i8, ptr %226, i64 8
   store double %231, ptr %232, align 8, !tbaa !3
   %233 = load double, ptr %224, align 8, !tbaa !3
-  %234 = fmul double %233, %2
+  %234 = fmul double %2, %233
   %235 = getelementptr inbounds i8, ptr %226, i64 16
   store double %234, ptr %235, align 8, !tbaa !3
   %236 = load double, ptr %225, align 8, !tbaa !3
-  %237 = fmul double %236, %2
+  %237 = fmul double %2, %236
   %238 = getelementptr inbounds i8, ptr %226, i64 24
   store double %237, ptr %238, align 8, !tbaa !3
   br label %239
@@ -358,37 +358,37 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %264 = phi ptr [ %296, %258 ], [ %255, %253 ]
   %265 = phi ptr [ %297, %258 ], [ %256, %253 ]
   %266 = load double, ptr %260, align 8, !tbaa !3
-  %267 = fmul double %266, %2
+  %267 = fmul double %2, %266
   store double %267, ptr %262, align 8, !tbaa !3
   %268 = getelementptr inbounds i8, ptr %260, i64 8
   %269 = load double, ptr %268, align 8, !tbaa !3
-  %270 = fmul double %269, %2
+  %270 = fmul double %2, %269
   store double %270, ptr %263, align 8, !tbaa !3
   %271 = getelementptr inbounds i8, ptr %260, i64 16
   %272 = load double, ptr %271, align 8, !tbaa !3
-  %273 = fmul double %272, %2
+  %273 = fmul double %2, %272
   store double %273, ptr %264, align 8, !tbaa !3
   %274 = getelementptr inbounds i8, ptr %260, i64 24
   %275 = load double, ptr %274, align 8, !tbaa !3
-  %276 = fmul double %275, %2
+  %276 = fmul double %2, %275
   store double %276, ptr %265, align 8, !tbaa !3
   %277 = load double, ptr %261, align 8, !tbaa !3
-  %278 = fmul double %277, %2
+  %278 = fmul double %2, %277
   %279 = getelementptr inbounds i8, ptr %262, i64 8
   store double %278, ptr %279, align 8, !tbaa !3
   %280 = getelementptr inbounds i8, ptr %261, i64 8
   %281 = load double, ptr %280, align 8, !tbaa !3
-  %282 = fmul double %281, %2
+  %282 = fmul double %2, %281
   %283 = getelementptr inbounds i8, ptr %263, i64 8
   store double %282, ptr %283, align 8, !tbaa !3
   %284 = getelementptr inbounds i8, ptr %261, i64 16
   %285 = load double, ptr %284, align 8, !tbaa !3
-  %286 = fmul double %285, %2
+  %286 = fmul double %2, %285
   %287 = getelementptr inbounds i8, ptr %264, i64 8
   store double %286, ptr %287, align 8, !tbaa !3
   %288 = getelementptr inbounds i8, ptr %261, i64 24
   %289 = load double, ptr %288, align 8, !tbaa !3
-  %290 = fmul double %289, %2
+  %290 = fmul double %2, %289
   %291 = getelementptr inbounds i8, ptr %265, i64 8
   store double %290, ptr %291, align 8, !tbaa !3
   %292 = getelementptr inbounds i8, ptr %260, i64 32
@@ -412,19 +412,19 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 306:                                              ; preds = %.loopexit2
   %307 = load double, ptr %300, align 8, !tbaa !3
-  %308 = fmul double %307, %2
+  %308 = fmul double %2, %307
   store double %308, ptr %302, align 8, !tbaa !3
   %309 = getelementptr inbounds i8, ptr %300, i64 8
   %310 = load double, ptr %309, align 8, !tbaa !3
-  %311 = fmul double %310, %2
+  %311 = fmul double %2, %310
   store double %311, ptr %303, align 8, !tbaa !3
   %312 = load double, ptr %301, align 8, !tbaa !3
-  %313 = fmul double %312, %2
+  %313 = fmul double %2, %312
   %314 = getelementptr inbounds i8, ptr %302, i64 8
   store double %313, ptr %314, align 8, !tbaa !3
   %315 = getelementptr inbounds i8, ptr %301, i64 8
   %316 = load double, ptr %315, align 8, !tbaa !3
-  %317 = fmul double %316, %2
+  %317 = fmul double %2, %316
   %318 = getelementptr inbounds i8, ptr %303, i64 8
   store double %317, ptr %318, align 8, !tbaa !3
   %319 = getelementptr inbounds i8, ptr %300, i64 16
@@ -443,10 +443,10 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 329:                                              ; preds = %323
   %330 = load double, ptr %324, align 8, !tbaa !3
-  %331 = fmul double %330, %2
+  %331 = fmul double %2, %330
   store double %331, ptr %326, align 8, !tbaa !3
   %332 = load double, ptr %325, align 8, !tbaa !3
-  %333 = fmul double %332, %2
+  %333 = fmul double %2, %332
   %334 = getelementptr inbounds i8, ptr %326, i64 8
   store double %333, ptr %334, align 8, !tbaa !3
   br label %335
@@ -478,19 +478,19 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %353 = phi ptr [ %369, %348 ], [ %345, %343 ]
   %354 = phi ptr [ %370, %348 ], [ %346, %343 ]
   %355 = load double, ptr %350, align 8, !tbaa !3
-  %356 = fmul double %355, %2
+  %356 = fmul double %2, %355
   store double %356, ptr %351, align 8, !tbaa !3
   %357 = getelementptr inbounds i8, ptr %350, i64 8
   %358 = load double, ptr %357, align 8, !tbaa !3
-  %359 = fmul double %358, %2
+  %359 = fmul double %2, %358
   store double %359, ptr %352, align 8, !tbaa !3
   %360 = getelementptr inbounds i8, ptr %350, i64 16
   %361 = load double, ptr %360, align 8, !tbaa !3
-  %362 = fmul double %361, %2
+  %362 = fmul double %2, %361
   store double %362, ptr %353, align 8, !tbaa !3
   %363 = getelementptr inbounds i8, ptr %350, i64 24
   %364 = load double, ptr %363, align 8, !tbaa !3
-  %365 = fmul double %364, %2
+  %365 = fmul double %2, %364
   store double %365, ptr %354, align 8, !tbaa !3
   %366 = getelementptr inbounds i8, ptr %350, i64 32
   %367 = getelementptr inbounds double, ptr %351, i64 %347
@@ -511,11 +511,11 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 378:                                              ; preds = %.loopexit
   %379 = load double, ptr %373, align 8, !tbaa !3
-  %380 = fmul double %379, %2
+  %380 = fmul double %2, %379
   store double %380, ptr %374, align 8, !tbaa !3
   %381 = getelementptr inbounds i8, ptr %373, i64 8
   %382 = load double, ptr %381, align 8, !tbaa !3
-  %383 = fmul double %382, %2
+  %383 = fmul double %2, %382
   store double %383, ptr %375, align 8, !tbaa !3
   %384 = getelementptr inbounds i8, ptr %373, i64 16
   %385 = shl nsw i64 %6, 1
@@ -531,7 +531,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 
 392:                                              ; preds = %387
   %393 = load double, ptr %388, align 8, !tbaa !3
-  %394 = fmul double %393, %2
+  %394 = fmul double %2, %393
   store double %394, ptr %389, align 8, !tbaa !3
   br label %395
 

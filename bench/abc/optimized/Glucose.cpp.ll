@@ -2074,7 +2074,7 @@ _ZN5Gluco3vecINS_3LitEE8capacityEi.exit:          ; preds = %_ZN5Gluco3vecIcE4pu
   %283 = getelementptr inbounds i8, ptr %0, i64 776
   %284 = getelementptr inbounds i8, ptr %0, i64 808
   %285 = load i32, ptr %284, align 8
-  %286 = icmp sgt i32 %285, %9
+  %286 = icmp slt i32 %9, %285
   br i1 %286, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %281
@@ -2976,7 +2976,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 
 241:                                              ; preds = %.lr.ph259.split
   %242 = icmp ne i8 %240, 0
-  %243 = icmp slt i32 %220, %234
+  %243 = icmp sgt i32 %234, %220
   %or.cond = select i1 %242, i1 %243, i1 false
   %244 = trunc nuw nsw i64 %indvars.iv317 to i32
   br i1 %or.cond, label %245, label %.critedge2.thread
@@ -4670,7 +4670,7 @@ define linkonce_odr noundef i32 @_ZN5Gluco6Solver10computeLBDERKNS_3vecINS_3LitE
   %27 = load i32, ptr %7, align 4
   %.not.i = icmp ne i32 %27, 0
   %28 = load i32, ptr %19, align 8
-  %29 = icmp slt i32 %28, %26
+  %29 = icmp sgt i32 %26, %28
   %30 = select i1 %.not.i, i1 %29, i1 false
   br i1 %30, label %44, label %31
 
@@ -4817,7 +4817,7 @@ define void @_ZN5Gluco6Solver11cancelUntilEi(ptr noundef nonnull align 8 derefer
 
 50:                                               ; preds = %43, %34, %32
   %51 = load i32, ptr %19, align 8
-  %52 = icmp sgt i32 %51, %26
+  %52 = icmp slt i32 %26, %51
   br i1 %52, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
 
 _ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i: ; preds = %50
@@ -5398,7 +5398,7 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
   %161 = load i32, ptr %51, align 4
   %.not.i = icmp ne i32 %161, 0
   %162 = load i32, ptr %52, align 8
-  %163 = icmp slt i32 %162, %150
+  %163 = icmp sgt i32 %150, %162
   %164 = select i1 %.not.i, i1 %163, i1 false
   br i1 %164, label %_ZN5Gluco6Solver15varBumpActivityEi.exit, label %165
 
@@ -5438,7 +5438,7 @@ _ZN5Gluco6Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %
 
 183:                                              ; preds = %._crit_edge.i.i, %165
   %184 = load i32, ptr %57, align 8
-  %185 = icmp sgt i32 %184, %150
+  %185 = icmp slt i32 %150, %184
   br i1 %185, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZN5Gluco6Solver15varBumpActivityEi.exit
 
 _ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %183
@@ -5518,7 +5518,7 @@ _ZN5Gluco6Solver15varBumpActivityEi.exit:         ; preds = %_ZN5Gluco4HeapINS_6
   %226 = load i32, ptr %51, align 4
   %.not.i200 = icmp ne i32 %226, 0
   %227 = load i32, ptr %52, align 8
-  %228 = icmp slt i32 %227, %150
+  %228 = icmp sgt i32 %150, %227
   %229 = select i1 %.not.i200, i1 %228, i1 false
   br i1 %229, label %316, label %230
 
@@ -5587,7 +5587,7 @@ _ZN5Gluco6Solver15varBumpActivityEi.exit:         ; preds = %_ZN5Gluco4HeapINS_6
   %263 = load i32, ptr %51, align 4
   %.not.i203 = icmp ne i32 %263, 0
   %264 = load i32, ptr %52, align 8
-  %265 = icmp slt i32 %264, %150
+  %265 = icmp sgt i32 %150, %264
   %266 = select i1 %.not.i203, i1 %265, i1 false
   br i1 %266, label %267, label %290
 
@@ -6114,7 +6114,7 @@ thread-pre-split:                                 ; preds = %_ZN5Gluco3vecINS_3L
   %523 = load i32, ptr %51, align 4
   %.not.i218 = icmp ne i32 %523, 0
   %524 = load i32, ptr %52, align 8
-  %525 = icmp slt i32 %524, %522
+  %525 = icmp sgt i32 %522, %524
   %526 = select i1 %.not.i218, i1 %525, i1 false
   br i1 %526, label %529, label %527
 
@@ -6208,7 +6208,7 @@ thread-pre-split:                                 ; preds = %_ZN5Gluco3vecINS_3L
 
 577:                                              ; preds = %._crit_edge.i.i234, %559
   %578 = load i32, ptr %57, align 8
-  %579 = icmp sgt i32 %578, %545
+  %579 = icmp slt i32 %545, %578
   br i1 %579, label %_ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i219, label %_ZN5Gluco6Solver15varBumpActivityEi.exit238
 
 _ZNK5Gluco4HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i219: ; preds = %577
@@ -6388,7 +6388,7 @@ define linkonce_odr noundef i32 @_ZN5Gluco6Solver10computeLBDERKNS_6ClauseE(ptr 
   %22 = load i32, ptr %6, align 4
   %.not.i = icmp ne i32 %22, 0
   %23 = load i32, ptr %13, align 8
-  %24 = icmp slt i32 %23, %21
+  %24 = icmp sgt i32 %21, %23
   %25 = select i1 %.not.i, i1 %24, i1 false
   br i1 %25, label %39, label %26
 

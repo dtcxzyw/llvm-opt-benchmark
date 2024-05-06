@@ -398,7 +398,7 @@ entry:
   %id = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #22
   %0 = load ptr, ptr @_ZN4pbrt18RGBToSpectrumTable4sRGBE, align 8
-  %cmp = icmp eq ptr %0, %this
+  %cmp = icmp eq ptr %this, %0
   br i1 %cmp, label %if.then13.invoke, label %if.else
 
 lpad:                                             ; preds = %if.then13.invoke, %land.rhs
@@ -413,17 +413,17 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.else:                                          ; preds = %entry
   %2 = load ptr, ptr @_ZN4pbrt18RGBToSpectrumTable6DCI_P3E, align 8
-  %cmp2 = icmp eq ptr %2, %this
+  %cmp2 = icmp eq ptr %this, %2
   br i1 %cmp2, label %if.then13.invoke, label %if.else6
 
 if.else6:                                         ; preds = %if.else
   %3 = load ptr, ptr @_ZN4pbrt18RGBToSpectrumTable7Rec2020E, align 8
-  %cmp7 = icmp eq ptr %3, %this
+  %cmp7 = icmp eq ptr %this, %3
   br i1 %cmp7, label %if.then13.invoke, label %if.else11
 
 if.else11:                                        ; preds = %if.else6
   %4 = load ptr, ptr @_ZN4pbrt18RGBToSpectrumTable10ACES2065_1E, align 8
-  %cmp12 = icmp eq ptr %4, %this
+  %cmp12 = icmp eq ptr %this, %4
   br i1 %cmp12, label %if.then13.invoke, label %if.end18
 
 if.then13.invoke:                                 ; preds = %entry, %if.else11, %if.else6, %if.else
@@ -562,17 +562,17 @@ if.end.i.i:                                       ; preds = %if.end3.i
   %div.i.i = extractelement <2 x float> %11, i64 0
   br label %_ZN4pbrt12LinearToSRGBEf.exit.i
 
-_ZN4pbrt12LinearToSRGBEf.exit.i:                  ; preds = %if.end3.i, %if.end.i.i
-  %div.i.i.sink = phi float [ %div.i.i, %if.end.i.i ], [ 0x4029D70A40000000, %if.end3.i ]
-  %mul3.i.i = fmul float %0, %div.i.i.sink
+_ZN4pbrt12LinearToSRGBEf.exit.i:                  ; preds = %if.end.i.i, %if.end3.i
+  %div.sink.i.i = phi float [ %div.i.i, %if.end.i.i ], [ 0x4029D70A40000000, %if.end3.i ]
+  %mul3.i.i = fmul float %0, %div.sink.i.i
   %mul.i = fmul float %mul3.i.i, 2.550000e+02
   %add.i = fadd float %mul.i, 0.000000e+00
   %12 = tail call noundef float @llvm.round.f32(float %add.i)
   %cmp.i3.i = fcmp olt float %12, 0.000000e+00
   %cmp3.i.i = fcmp ogt float %12, 2.550000e+02
   %conv2.val.i.i = select i1 %cmp3.i.i, float 2.550000e+02, float %12
-  %retval.0.i4.i = select i1 %cmp.i3.i, float 0.000000e+00, float %conv2.val.i.i
-  %conv.i = fptoui float %retval.0.i4.i to i8
+  %retval.0.i.i = select i1 %cmp.i3.i, float 0.000000e+00, float %conv2.val.i.i
+  %conv.i = fptoui float %retval.0.i.i to i8
   br label %_ZN4pbrt13LinearToSRGB8Eff.exit
 
 _ZN4pbrt13LinearToSRGB8Eff.exit:                  ; preds = %for.body, %if.end.i, %_ZN4pbrt12LinearToSRGBEf.exit.i
@@ -614,11 +614,7 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, float noundef %v) local_unnamed_addr #6 align 2 {
 entry:
   %cmp.i = fcmp ugt float %v, 0x3FA4B5DCC0000000
-  br i1 %cmp.i, label %if.end.i, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %mul.i = fmul float %v, 0x3FB3D07220000000
-  br label %_ZN4pbrt12SRGBToLinearEf.exit
+  br i1 %cmp.i, label %if.end.i, label %_ZN4pbrt12SRGBToLinearEf.exit
 
 if.end.i:                                         ; preds = %entry
   %0 = tail call noundef float @llvm.fma.f32(float %v, float 0xC04205DA60000000, float 0xC047BBCF60000000)
@@ -630,12 +626,12 @@ if.end.i:                                         ; preds = %entry
   %6 = tail call noundef float @llvm.fma.f32(float %v, float %5, float 0xC0332413A0000000)
   %7 = tail call noundef float @llvm.fma.f32(float %v, float %6, float 0xBF71747C80000000)
   %div.i = fdiv float %3, %7
-  %mul2.i = fmul float %div.i, %v
   br label %_ZN4pbrt12SRGBToLinearEf.exit
 
-_ZN4pbrt12SRGBToLinearEf.exit:                    ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi float [ %mul.i, %if.then.i ], [ %mul2.i, %if.end.i ]
-  ret float %retval.0.i
+_ZN4pbrt12SRGBToLinearEf.exit:                    ; preds = %entry, %if.end.i
+  %div.sink.i = phi float [ %div.i, %if.end.i ], [ 0x3FB3D07220000000, %entry ]
+  %mul2.i = fmul float %v, %div.sink.i
+  ret float %mul2.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1239,7 +1235,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %3, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -3124,7 +3120,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIfSt4pairIKfN4pbrt13ColorEncodingEESt10_Select1stIS4_ESt4lessIfESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

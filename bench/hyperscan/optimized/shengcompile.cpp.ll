@@ -2020,7 +2020,7 @@ if.then.i:                                        ; preds = %invoke.cont7.i, %if
   %retval.sroa.12.0.i17.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %__y.0.lcssa29.i256.i.i, %if.then.i255.i.i ], [ %__y.0.lcssa29.i136.i.i, %if.then.i135.i.i ], [ %__y.0.lcssa29.i.i.i, %if.then.i.i.i ], [ %call.i.i.i, %if.then32.i.i ], [ %__y.addr.0.lcssa.i.i.i36, %if.then64.i.i ]
   %retval.sroa.0.0.i16.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %if.then.i255.i.i ], [ null, %if.then.i135.i.i ], [ null, %if.then.i.i.i ], [ null, %if.then32.i.i ], [ null, %if.then64.i.i ]
   %cmp.not.i.i6.i = icmp ne ptr %retval.sroa.0.0.i16.i, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.12.0.i17.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i17.i, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i6.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.i, label %lor.rhs.i.i.i
 
@@ -2782,8 +2782,7 @@ for.body55.i:                                     ; preds = %for.body55.i.prehea
   %54 = load ptr, ptr %nfa.i, align 8, !noalias !144
   %aux_offset.i.i = getelementptr inbounds i8, ptr %54, i64 4164
   %55 = load i32, ptr %aux_offset.i.i, align 4, !noalias !144
-  %cond.i.i.i.i53.i = sub i16 0, %idx.0203.i
-  %cmp.i.i.i54.i = icmp eq i16 %add.i.i.i.i.i, %cond.i.i.i.i53.i
+  %cmp.i.i.i54.i = icmp eq i16 %idx.0203.i, %add.i.i.i.i.i.neg
   br i1 %cmp.i.i.i54.i, label %_ZN3ue28dfa_info3topEt.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body55.i
@@ -3779,8 +3778,7 @@ for.body53.i:                                     ; preds = %for.body53.i.prehea
   %54 = load ptr, ptr %nfa.i, align 8, !noalias !157
   %aux_offset.i.i = getelementptr inbounds i8, ptr %54, i64 16452
   %55 = load i32, ptr %aux_offset.i.i, align 4, !noalias !157
-  %cond.i.i.i.i53.i = sub i16 0, %idx.0204.i
-  %cmp.i.i.i54.i = icmp eq i16 %add.i.i.i.i.i, %cond.i.i.i.i53.i
+  %cmp.i.i.i54.i = icmp eq i16 %idx.0204.i, %add.i.i.i.i.i.neg
   br i1 %cmp.i.i.i54.i, label %_ZN3ue28dfa_info3topEt.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body53.i
@@ -4699,8 +4697,7 @@ for.body53.i:                                     ; preds = %for.body53.i.prehea
   %46 = load ptr, ptr %nfa.i, align 8, !noalias !168
   %aux_offset.i.i = getelementptr inbounds i8, ptr %46, i64 16452
   %47 = load i32, ptr %aux_offset.i.i, align 4, !noalias !168
-  %cond.i.i.i.i53.i = sub i16 0, %idx.0167.i
-  %cmp.i.i.i54.i = icmp eq i16 %add.i.i.i.i.i, %cond.i.i.i.i53.i
+  %cmp.i.i.i54.i = icmp eq i16 %idx.0167.i, %add.i.i.i.i.i.neg
   %.pre61 = add i16 %idx.0167.i, %add.i.i.i.i.i
   %.pre62 = zext i16 %.pre61 to i64
   br i1 %cmp.i.i.i54.i, label %invoke.cont55.i, label %if.end.i.i.i
@@ -6179,7 +6176,7 @@ if.then21.i:                                      ; preds = %if.then.i.i.i, %inv
   store i32 %7, ptr %r.addr.0.i.i.i, align 4
   %add.ptr.i = getelementptr inbounds i32, ptr %r.addr.0.i.i.i, i64 %n
   %add.ptr25.i = getelementptr inbounds i32, ptr %1, i64 %3
-  %cmp.i.i15.i = icmp ne ptr %add.ptr25.i, %0
+  %cmp.i.i15.i = icmp ne ptr %0, %add.ptr25.i
   %tobool5.i.i18.i = icmp ne ptr %0, null
   %or.cond1.i.i19.i = and i1 %tobool5.i.i18.i, %cmp.i.i15.i
   br i1 %or.cond1.i.i19.i, label %if.then.i.i21.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i
@@ -6963,7 +6960,7 @@ if.end12.i.i:                                     ; preds = %if.else.i.i, %while
 
 if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i2
   %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i2 ], [ %3, %land.lhs.true.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.12.0.i.ph
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.12.0.i.ph, %add.ptr.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -7051,7 +7048,7 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 
 if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if.then.i.i.i
   %retval.sroa.4.0.i.ph.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.then.i.i.i ], [ %__y.0.lcssa26.i.i.i, %if.end12.i.i.i ]
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %retval.sroa.4.0.i.ph.i.i
+  %cmp2.i.i.i = icmp eq ptr %retval.sroa.4.0.i.ph.i.i, %add.ptr.i.i.i.i
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIttSt9_IdentityItESt4lessItESaItEE10_M_insert_IRKtNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorItEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
@@ -7184,7 +7181,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %1
+  %cmp2.i.i = icmp eq ptr %1, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -7244,7 +7241,7 @@ _ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 2 dereferenceable(2) %__k) local_unnamed_addr #2 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

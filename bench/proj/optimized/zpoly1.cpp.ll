@@ -12,46 +12,43 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
   %7 = load <2 x double>, ptr %6, align 8
   %8 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %9 = icmp sgt i32 %3, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %4
   %10 = fneg double %1
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = insertelement <2 x double> %11, double %10, i64 1
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %15
+  br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
-15:                                               ; preds = %.lr.ph, %15
-  %.021 = phi i32 [ %3, %.lr.ph ], [ %17, %15 ]
-  %.01720 = phi ptr [ %6, %.lr.ph ], [ %18, %15 ]
-  %16 = phi <2 x double> [ %7, %.lr.ph ], [ %24, %15 ]
-  %17 = add nsw i32 %.021, -1
-  %18 = getelementptr inbounds i8, ptr %.01720, i64 -16
-  %19 = load <2 x double>, ptr %18, align 8
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %16, <2 x double> %19)
-  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %22 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %16, <2 x double> %21)
-  %23 = icmp ugt i32 %.021, 1
-  %24 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  br i1 %23, label %15, label %._crit_edge, !llvm.loop !4
+.lr.ph.preheader:                                 ; preds = %4
+  %11 = insertelement <2 x double> poison, double %0, i64 0
+  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
+  %13 = insertelement <2 x double> poison, double %1, i64 0
+  %14 = insertelement <2 x double> %13, double %10, i64 1
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %15, %4
-  %25 = phi <2 x double> [ %8, %4 ], [ %22, %15 ]
-  %26 = extractelement <2 x double> %25, i64 0
-  %27 = fneg double %26
-  %28 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %29 = insertelement <2 x double> %28, double %27, i64 1
-  %30 = insertelement <2 x double> poison, double %1, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x double> %29, %31
-  %33 = insertelement <2 x double> poison, double %0, i64 0
-  %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> zeroinitializer
-  %35 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %34, <2 x double> %25, <2 x double> %32)
-  %36 = extractelement <2 x double> %35, i64 1
-  %.fca.0.insert = insertvalue { double, double } poison, double %36, 0
-  %37 = extractelement <2 x double> %35, i64 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %37, 1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.021 = phi i32 [ %16, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.01720 = phi ptr [ %17, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %15 = phi <2 x double> [ %23, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %16 = add nsw i32 %.021, -1
+  %17 = getelementptr inbounds i8, ptr %.01720, i64 -16
+  %18 = load <2 x double>, ptr %17, align 8
+  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %15, <2 x double> %18)
+  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %21 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %15, <2 x double> %20)
+  %22 = icmp ugt i32 %.021, 1
+  %23 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  %24 = phi <2 x double> [ %8, %4 ], [ %21, %.lr.ph ]
+  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %26 = insertelement <2 x double> poison, double %10, i64 0
+  %27 = insertelement <2 x double> %26, double %1, i64 1
+  %28 = fmul <2 x double> %24, %27
+  %29 = insertelement <2 x double> poison, double %0, i64 0
+  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
+  %31 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %30, <2 x double> %25, <2 x double> %28)
+  %32 = extractelement <2 x double> %31, i64 0
+  %.fca.0.insert = insertvalue { double, double } poison, double %32, 0
+  %33 = extractelement <2 x double> %31, i64 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %33, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -112,22 +109,20 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
   %40 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %39, <2 x double> %40, <2 x double> %37)
-  %42 = extractelement <2 x double> %37, i64 0
-  %43 = fneg double %42
-  %44 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %45 = insertelement <2 x double> %44, double %43, i64 1
-  %46 = insertelement <2 x double> poison, double %1, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = fmul <2 x double> %45, %47
-  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %39, <2 x double> %37, <2 x double> %48)
-  %50 = insertelement <2 x double> %46, double %10, i64 1
-  %51 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %50, <2 x double> %36, <2 x double> %41)
-  %52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %52, ptr %4, align 8
-  %53 = extractelement <2 x double> %49, i64 1
-  %.fca.0.insert = insertvalue { double, double } poison, double %53, 0
-  %54 = extractelement <2 x double> %49, i64 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %54, 1
+  %42 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %43 = insertelement <2 x double> poison, double %10, i64 0
+  %44 = insertelement <2 x double> %43, double %1, i64 1
+  %45 = fmul <2 x double> %37, %44
+  %46 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %39, <2 x double> %42, <2 x double> %45)
+  %47 = insertelement <2 x double> poison, double %1, i64 0
+  %48 = insertelement <2 x double> %47, double %10, i64 1
+  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %48, <2 x double> %36, <2 x double> %41)
+  %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %50, ptr %4, align 8
+  %51 = extractelement <2 x double> %46, i64 0
+  %.fca.0.insert = insertvalue { double, double } poison, double %51, 0
+  %52 = extractelement <2 x double> %46, i64 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %52, 1
   ret { double, double } %.fca.1.insert
 }
 

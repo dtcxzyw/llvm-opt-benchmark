@@ -890,7 +890,7 @@ define internal fastcc range(i32 16, 65612) i32 @dissect_openflow_action_header(
   %10 = load i32, ptr @hf_openflow_action_len, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #3
   %cond = icmp eq i16 %5, 0
-  br i1 %cond, label %12, label %20
+  br i1 %cond, label %12, label %19
 
 12:                                               ; preds = %4
   %13 = add nuw nsw i32 %3, 4
@@ -899,18 +899,17 @@ define internal fastcc range(i32 16, 65612) i32 @dissect_openflow_action_header(
   %16 = add nuw nsw i32 %3, 6
   %17 = load i32, ptr @hf_openflow_max_len, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef 0) #3
-  %19 = add nuw nsw i32 %3, 8
-  br label %24
+  br label %22
 
-20:                                               ; preds = %4
-  %21 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %7, ptr noundef nonnull @ei_openflow_action_type) #3
-  %22 = zext i16 %9 to i32
-  %23 = add i32 %22, %3
-  br label %24
+19:                                               ; preds = %4
+  %20 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %7, ptr noundef nonnull @ei_openflow_action_type) #3
+  %21 = zext i16 %9 to i32
+  br label %22
 
-24:                                               ; preds = %20, %12
-  %.0 = phi i32 [ %19, %12 ], [ %23, %20 ]
-  ret i32 %.0
+22:                                               ; preds = %19, %12
+  %.sink = phi i32 [ %21, %19 ], [ 8, %12 ]
+  %23 = add i32 %3, %.sink
+  ret i32 %23
 }
 
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

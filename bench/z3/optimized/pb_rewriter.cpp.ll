@@ -1934,7 +1934,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %m_args.i, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %5, %4
+  %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %if.then, label %if.end32
 
 if.then:                                          ; preds = %for.body
@@ -2132,7 +2132,7 @@ lpad23:                                           ; preds = %if.then.i.i27, %_ZN
 
 if.end32:                                         ; preds = %for.body
   %34 = load ptr, ptr %m_false.i, align 8
-  %cmp.i34 = icmp eq ptr %34, %4
+  %cmp.i34 = icmp eq ptr %4, %34
   br i1 %cmp.i34, label %if.then35, label %if.end51
 
 if.then35:                                        ; preds = %if.end32
@@ -3591,7 +3591,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %9 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %9, %8
+  %cmp.i = icmp eq ptr %8, %9
   br i1 %cmp.i, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %for.body
@@ -3674,7 +3674,7 @@ lpad15:                                           ; preds = %invoke.cont14
 
 if.else:                                          ; preds = %for.body
   %22 = load ptr, ptr %m_false.i, align 8
-  %cmp.i108 = icmp eq ptr %22, %8
+  %cmp.i108 = icmp eq ptr %8, %22
   br i1 %cmp.i108, label %for.inc, label %if.then22
 
 if.then22:                                        ; preds = %if.else
@@ -4963,7 +4963,7 @@ _ZN6vectorI8rationalLb1EjE3endEv.exit.i:          ; preds = %_ZN6vectorIP4exprLb
   %199 = load i32, ptr %arrayidx.i.i.i429, align 4
   %200 = zext i32 %199 to i64
   %add.ptr.i.i430 = getelementptr inbounds %class.rational, ptr %198, i64 %200
-  %cmp.not4.i = icmp eq i32 %199, %j.0.lcssa607
+  %cmp.not4.i = icmp eq i32 %j.0.lcssa607, %199
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorI8rationalLb1EjE3endEv.exit.i
@@ -5716,7 +5716,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %35 = load ptr, ptr %32, align 8
   %m_true.i.i = getelementptr inbounds i8, ptr %35, i64 856
   %36 = load ptr, ptr %m_true.i.i, align 8
-  %cmp.i.i = icmp eq ptr %36, %34
+  %cmp.i.i = icmp eq ptr %34, %36
   br i1 %cmp.i.i, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %for.body21
@@ -5754,7 +5754,7 @@ if.else.i.i92:                                    ; preds = %land.lhs.true.i.i93
 if.else:                                          ; preds = %for.body21
   %m_false.i.i = getelementptr inbounds i8, ptr %35, i64 864
   %42 = load ptr, ptr %m_false.i.i, align 8
-  %cmp.i.i104 = icmp eq ptr %42, %34
+  %cmp.i.i104 = icmp eq ptr %34, %42
   br i1 %cmp.i.i104, label %for.inc42, label %if.else35
 
 if.else35:                                        ; preds = %if.else
@@ -5824,7 +5824,7 @@ _ZN6vectorISt4pairIP4expr8rationalELb1EjE3endEv.exit.i: ; preds = %_ZNK6vectorIS
   %47 = load i32, ptr %arrayidx.i.i.i, align 4
   %48 = zext i32 %47 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %46, i64 %48
-  %cmp.not4.i = icmp eq i32 %47, %j.0.lcssa226
+  %cmp.not4.i = icmp eq i32 %j.0.lcssa226, %47
   br i1 %cmp.not4.i, label %_ZN6vectorISt4pairIP4expr8rationalELb1EjE6shrinkEj.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorISt4pairIP4expr8rationalELb1EjE3endEv.exit.i
@@ -11357,13 +11357,13 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %m_true.i = getelementptr inbounds i8, ptr %0, i64 856
   %1 = load ptr, ptr %m_true.i, align 8
-  %cmp.i = icmp eq ptr %1, %e
+  %cmp.i = icmp eq ptr %e, %1
   %m_false.i = getelementptr inbounds i8, ptr %0, i64 864
   %2 = load ptr, ptr %m_false.i, align 8
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp.i2 = icmp eq ptr %2, %e
+  %cmp.i2 = icmp eq ptr %e, %2
   br i1 %cmp.i2, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
@@ -11554,7 +11554,7 @@ _ZNK6vectorISt4pairIP4expr8rationalELb1EjE4sizeEv.exit: ; preds = %entry
 _ZNK6vectorISt4pairIP4expr8rationalELb1EjE4sizeEv.exit.thread: ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp.not15 = icmp ult i32 %1, %s
+  %cmp.not15 = icmp ugt i32 %s, %1
   br i1 %cmp.not15, label %while.cond.preheader, label %_ZN6vectorISt4pairIP4expr8rationalELb1EjE3endEv.exit.i
 
 while.cond.preheader:                             ; preds = %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE4sizeEv.exit, %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE4sizeEv.exit.thread
@@ -11565,7 +11565,7 @@ while.cond.preheader:                             ; preds = %_ZNK6vectorISt4pair
 _ZN6vectorISt4pairIP4expr8rationalELb1EjE3endEv.exit.i: ; preds = %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE4sizeEv.exit.thread
   %2 = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %2
-  %cmp.not4.i = icmp eq i32 %1, %s
+  %cmp.not4.i = icmp eq i32 %s, %1
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorISt4pairIP4expr8rationalELb1EjE3endEv.exit.i
@@ -11610,19 +11610,15 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
   %7 = phi ptr [ %.pr.pre, %while.body ], [ %.ph, %while.cond.preheader ]
   %cmp.i10 = icmp eq ptr %7, null
-  br i1 %cmp.i10, label %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit, label %if.end.i11
+  br i1 %cmp.i10, label %while.body, label %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit
 
-if.end.i11:                                       ; preds = %while.cond
+_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit: ; preds = %while.cond
   %arrayidx.i12 = getelementptr inbounds i8, ptr %7, i64 -8
   %8 = load i32, ptr %arrayidx.i12, align 4
-  br label %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit
-
-_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit: ; preds = %while.cond, %if.end.i11
-  %retval.0.i13 = phi i32 [ %8, %if.end.i11 ], [ 0, %while.cond ]
-  %cmp3 = icmp ult i32 %retval.0.i13, %s
+  %cmp3 = icmp ugt i32 %s, %8
   br i1 %cmp3, label %while.body, label %while.end
 
-while.body:                                       ; preds = %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit
+while.body:                                       ; preds = %while.cond, %_ZNK6vectorISt4pairIP4expr8rationalELb1EjE8capacityEv.exit
   tail call void @_ZN6vectorISt4pairIP4expr8rationalELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %.pr.pre = load ptr, ptr %this, align 8
   br label %while.cond, !llvm.loop !90
@@ -11633,8 +11629,8 @@ while.end:                                        ; preds = %_ZNK6vectorISt4pair
   %9 = load ptr, ptr %this, align 8
   %idx.ext6 = zext i32 %s to i64
   %add.ptr7 = getelementptr inbounds %"struct.std::pair", ptr %9, i64 %idx.ext6
-  %cmp8.not17 = icmp eq i32 %retval.0.i16.ph, %s
-  br i1 %cmp8.not17, label %for.end, label %for.body.preheader
+  %cmp8.not19 = icmp eq i32 %retval.0.i16.ph, %s
+  br i1 %cmp8.not19, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end
   %idx.ext = zext i32 %retval.0.i16.ph to i64
@@ -11642,25 +11638,25 @@ for.body.preheader:                               ; preds = %while.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %it.018 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr, %for.body.preheader ]
-  store ptr null, ptr %it.018, align 8
-  %second.i = getelementptr inbounds i8, ptr %it.018, i64 8
+  %it.020 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr, %for.body.preheader ]
+  store ptr null, ptr %it.020, align 8
+  %second.i = getelementptr inbounds i8, ptr %it.020, i64 8
   store i32 0, ptr %second.i, align 8
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 12
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 12
   %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
   store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4
-  %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 16
+  %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 16
   store ptr null, ptr %m_ptr.i.i.i.i, align 8
-  %m_den.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 24
+  %m_den.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 24
   store i32 1, ptr %m_den.i.i.i, align 8
-  %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 28
+  %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 28
   %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
   store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4
-  %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %it.018, i64 32
+  %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %it.020, i64 32
   store ptr null, ptr %m_ptr.i4.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.018, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.020, i64 40
   %cmp8.not = icmp eq ptr %incdec.ptr, %add.ptr7
   br i1 %cmp8.not, label %for.end, label %for.body, !llvm.loop !91
 
@@ -12029,7 +12025,7 @@ entry:
   %agg.tmp = alloca %"struct.std::pair", align 8
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp75 = icmp sgt i64 %div, %__holeIndex
+  %cmp75 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp75, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry

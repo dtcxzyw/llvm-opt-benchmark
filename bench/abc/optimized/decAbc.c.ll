@@ -570,7 +570,7 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly %0, ptr nocapture nound
   %68 = ptrtoint ptr %67 to i64
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
-  %71 = icmp eq ptr %70, %0
+  %71 = icmp eq ptr %0, %70
   br i1 %71, label %.critedge2, label %72
 
 72:                                               ; preds = %56
@@ -585,17 +585,17 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly %0, ptr nocapture nound
   %77 = add nsw i32 %.val3.i, 1
   %78 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %79 = load i32, ptr %78, align 4
-  %.not.i.not.i.i.i = icmp sgt i32 %79, %.val3.i
+  %.not.i.not.i.i.i = icmp slt i32 %.val3.i, %79
   br i1 %.not.i.not.i.i.i, label %Abc_NodeIsTravIdCurrent.exit, label %80
 
 80:                                               ; preds = %74
   %81 = load i32, ptr %76, align 8
   %82 = shl nsw i32 %81, 1
-  %.not.i.i.i = icmp sgt i32 %82, %.val3.i
-  %.not.i.i.not.i.i.i = icmp sgt i32 %81, %.val3.i
+  %.not.i.i.i = icmp slt i32 %.val3.i, %82
   br i1 %.not.i.i.i, label %95, label %83
 
 83:                                               ; preds = %80
+  %.not.i.i.not.i.i.i = icmp sgt i32 %81, %.val3.i
   br i1 %.not.i.i.not.i.i.i, label %Vec_IntGrow.exit.i.i.i.i, label %84
 
 84:                                               ; preds = %83
@@ -620,7 +620,8 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly %0, ptr nocapture nound
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 95:                                               ; preds = %80
-  br i1 %.not.i.i.not.i.i.i, label %Vec_IntGrow.exit.i.i.i.i, label %96
+  %.not3.i.i.i = icmp slt i32 %.val3.i, %81
+  br i1 %.not3.i.i.i, label %Vec_IntGrow.exit.i.i.i.i, label %96
 
 96:                                               ; preds = %95
   %97 = getelementptr inbounds i8, ptr %.val2.i, i64 232
@@ -651,8 +652,8 @@ Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %105, %93
 
 Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.sink.split.i.i.i.i, %95, %83
   %107 = phi i32 [ %.pre.i.i.i, %Vec_IntGrow.exit.sink.split.i.i.i.i ], [ %79, %95 ], [ %79, %83 ]
-  %.not3.i.i.i = icmp sgt i32 %107, %.val3.i
-  br i1 %.not3.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not4.i.i.i = icmp sgt i32 %107, %.val3.i
+  br i1 %.not4.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %Vec_IntGrow.exit.i.i.i.i
   %108 = getelementptr inbounds i8, ptr %.val2.i, i64 232

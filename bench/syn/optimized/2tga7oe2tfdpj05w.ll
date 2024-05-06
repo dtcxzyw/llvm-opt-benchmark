@@ -1134,7 +1134,7 @@ define void @"_ZN3syn8lifetime8printing80_$LT$impl$u20$quote..to_tokens..ToToken
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i8 @_ZN3syn3lit5value4byte17h2572aba12ded7ffdE(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 {
-  %4 = icmp ugt i64 %1, %2
+  %4 = icmp ult i64 %2, %1
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3, %6
@@ -1149,7 +1149,7 @@ define hidden noundef i8 @_ZN3syn3lit5value4byte17h2572aba12ded7ffdE(ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i8 @_ZN3syn3lit5value4byte17h974d316fd1183218E(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 {
-  %4 = icmp ugt i64 %1, %2
+  %4 = icmp ult i64 %2, %1
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3, %6
@@ -1166,7 +1166,7 @@ define hidden noundef i8 @_ZN3syn3lit5value4byte17h974d316fd1183218E(ptr noalias
 define hidden noundef i8 @_ZN3syn3lit5value4byte17hf8160151b64e06f7E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !221, !noundef !7
-  %5 = icmp ugt i64 %4, %1
+  %5 = icmp ult i64 %1, %4
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2, %7
@@ -1276,22 +1276,23 @@ _ZN3syn3lit5value4byte17h974d316fd1183218E.exit17: ; preds = %_ZN3syn3lit5value4
 
 38:                                               ; preds = %23, %36, %29
   %.011 = phi i8 [ %30, %29 ], [ %37, %36 ], [ %24, %23 ]
-  br i1 %.not35, label %39, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h0afc8f219cb705ccE.exit"
+  %39 = icmp eq i64 %2, 1
+  br i1 %39, label %40, label %"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h0afc8f219cb705ccE.exit"
 
-39:                                               ; preds = %38
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef 2, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0d61064958a3722eac33af85cae8cb19.33) #29, !noalias !230
+40:                                               ; preds = %38
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef 2, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0d61064958a3722eac33af85cae8cb19.33) #29, !noalias !230
   unreachable
 
 "_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17h0afc8f219cb705ccE.exit": ; preds = %38
-  %40 = shl nuw i8 %.0, 4
-  %41 = add nuw i8 %.011, %40
-  %42 = add i64 %2, -2
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 %41, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %42, ptr %45, align 8
+  %41 = shl nuw i8 %.0, 4
+  %42 = add nuw i8 %.011, %41
+  %43 = add i64 %2, -2
+  %44 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 %42, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %43, ptr %46, align 8
   ret void
 }
 

@@ -1036,7 +1036,7 @@ Vec_IntGrow.exit.i:                               ; preds = %45, %43
   %84 = lshr i64 %.val54, 61
   %85 = trunc nuw nsw i64 %84 to i32
   %86 = and i32 %85, 1
-  %87 = xor i32 %86, %79
+  %87 = xor i32 %79, %86
   %88 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %83, i32 noundef %87) #15
   %.val61 = load ptr, ptr %14, align 8
   %89 = getelementptr inbounds i32, ptr %.val61, i64 %15
@@ -1271,11 +1271,11 @@ define noundef ptr @Gia_ManQuantDupConeSupp(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not, label %39, label %34
 
 34:                                               ; preds = %24
-  %35 = and i32 %1, 1
   %.val75 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds i32, ptr %.val75, i64 %9
-  %37 = load i32, ptr %36, align 4
-  %38 = xor i32 %37, %35
+  %35 = getelementptr inbounds i32, ptr %.val75, i64 %9
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %1, 1
+  %38 = xor i32 %36, %37
   store i32 %38, ptr %5, align 4
   br label %39
 
@@ -1379,17 +1379,17 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %57
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
-  br i1 %.not, label %5, label %40
+  %.not = icmp sgt i32 %1, %4
+  br i1 %.not, label %5, label %41
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
-  %.not.i = icmp slt i32 %6, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %5
+  %.not.i = icmp slt i32 %6, %1
   br i1 %.not.i, label %10, label %Vec_IntGrow.exit
 
 10:                                               ; preds = %9
@@ -1414,59 +1414,60 @@ define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noun
   br label %Vec_IntGrow.exit.sink.split
 
 21:                                               ; preds = %5
-  br i1 %.not.i, label %22, label %Vec_IntGrow.exit
+  %22 = icmp sgt i32 %1, %6
+  br i1 %22, label %23, label %Vec_IntGrow.exit
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not9.i21 = icmp eq ptr %24, null
-  %25 = sext i32 %7 to i64
-  %26 = shl nsw i64 %25, 2
-  br i1 %.not9.i21, label %29, label %27
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not9.i21 = icmp eq ptr %25, null
+  %26 = sext i32 %7 to i64
+  %27 = shl nsw i64 %26, 2
+  br i1 %.not9.i21, label %30, label %28
 
-27:                                               ; preds = %22
-  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #17
-  br label %31
+28:                                               ; preds = %23
+  %29 = tail call ptr @realloc(ptr noundef nonnull %25, i64 noundef %27) #17
+  br label %32
 
-29:                                               ; preds = %22
-  %30 = tail call noalias ptr @malloc(i64 noundef %26) #16
-  br label %31
+30:                                               ; preds = %23
+  %31 = tail call noalias ptr @malloc(i64 noundef %27) #16
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
-  store ptr %32, ptr %23, align 8
+32:                                               ; preds = %30, %28
+  %33 = phi ptr [ %29, %28 ], [ %31, %30 ]
+  store ptr %33, ptr %24, align 8
   br label %Vec_IntGrow.exit.sink.split
 
-Vec_IntGrow.exit.sink.split:                      ; preds = %19, %31
-  %.sink = phi i32 [ %7, %31 ], [ %1, %19 ]
+Vec_IntGrow.exit.sink.split:                      ; preds = %19, %32
+  %.sink = phi i32 [ %7, %32 ], [ %1, %19 ]
   store i32 %.sink, ptr %0, align 8
   br label %Vec_IntGrow.exit
 
 Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.sink.split, %9, %21
-  %33 = load i32, ptr %3, align 4
-  %34 = icmp slt i32 %33, %1
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  %34 = load i32, ptr %3, align 4
+  %35 = icmp slt i32 %34, %1
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = sext i32 %33 to i64
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = sext i32 %34 to i64
   %wide.trip.count = sext i32 %1 to i64
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
-  store i32 -1, ptr %39, align 4
+38:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  %39 = load ptr, ptr %36, align 8
+  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
+  store i32 -1, ptr %40, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
+._crit_edge:                                      ; preds = %38, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
-  br label %40
+  br label %41
 
-40:                                               ; preds = %2, %._crit_edge
+41:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -2551,7 +2552,7 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
   %75 = lshr i64 %.val93, 61
   %76 = trunc nuw nsw i64 %75 to i32
   %77 = and i32 %76, 1
-  %78 = xor i32 %77, %72
+  %78 = xor i32 %72, %77
   %79 = tail call i32 @Gia_ManHashAnd(ptr noundef %13, i32 noundef %74, i32 noundef %78) #15
   %.val117 = load ptr, ptr %45, align 8
   %80 = getelementptr inbounds i32, ptr %.val117, i64 %58
@@ -2568,13 +2569,13 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
   br i1 %.not, label %91, label %84
 
 84:                                               ; preds = %.critedge4
-  %85 = and i32 %1, 1
   %.val111 = load ptr, ptr %83, align 8
-  %86 = ashr i32 %1, 1
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %.val111, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = xor i32 %89, %85
+  %85 = ashr i32 %1, 1
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %.val111, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %1, 1
+  %90 = xor i32 %88, %89
   store i32 %90, ptr %5, align 4
   br label %91
 

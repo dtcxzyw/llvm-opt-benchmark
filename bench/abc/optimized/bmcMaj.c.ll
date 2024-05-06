@@ -8391,13 +8391,13 @@ define noalias ptr @Exa4_ManParse(ptr noundef %0) local_unnamed_addr #2 {
   %27 = zext i1 %26 to i32
   %28 = add nuw nsw i32 %25, 1
   %29 = load i32, ptr %19, align 4
-  %.not.i.not.i = icmp sgt i32 %29, %25
+  %.not.i.not.i = icmp slt i32 %25, %29
   br i1 %.not.i.not.i, label %Vec_IntSetEntryFull.exit, label %30
 
 30:                                               ; preds = %24
   %31 = load i32, ptr %.01323, align 8
   %32 = shl nsw i32 %31, 1
-  %.not.i = icmp sgt i32 %32, %25
+  %.not.i = icmp slt i32 %25, %32
   br i1 %.not.i, label %41, label %33
 
 33:                                               ; preds = %30
@@ -8416,8 +8416,8 @@ define noalias ptr @Exa4_ManParse(ptr noundef %0) local_unnamed_addr #2 {
   br label %Vec_IntGrow.exit.sink.split.i.i
 
 41:                                               ; preds = %30
-  %.not.i.i.not.i = icmp sgt i32 %31, %25
-  br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %42
+  %.not4.i = icmp slt i32 %25, %31
+  br i1 %.not4.i, label %Vec_IntGrow.exit.i.i, label %42
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %20, align 8
@@ -8444,8 +8444,8 @@ Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %46, %48, %37, %39
 
 Vec_IntGrow.exit.i.i:                             ; preds = %Vec_IntGrow.exit.sink.split.i.i, %41
   %50 = phi i32 [ %.pre.i, %Vec_IntGrow.exit.sink.split.i.i ], [ %29, %41 ]
-  %.not4.i = icmp sgt i32 %50, %25
-  br i1 %.not4.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not5.i = icmp sgt i32 %50, %25
+  br i1 %.not5.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_IntGrow.exit.i.i
   %51 = sext i32 %50 to i64
@@ -11195,7 +11195,7 @@ Exa4_ManFindFanin.exit:                           ; preds = %36
 42:                                               ; preds = %Exa4_ManFindFanin.exit
   %43 = icmp slt i32 %.1.i, 1
   %44 = load i32, ptr %4, align 4
-  %.not.i103 = icmp slt i32 %44, %.1.i
+  %.not.i103 = icmp sgt i32 %.1.i, %44
   %or.cond.i = select i1 %43, i1 true, i1 %.not.i103
   br i1 %or.cond.i, label %._crit_edge.i, label %45
 
@@ -11211,7 +11211,7 @@ Exa4_ManFindFanin.exit:                           ; preds = %36
   %.0.lcssa.i151155158 = phi i32 [ -1, %.thread ], [ %.1.i, %._crit_edge.i ]
   %49 = phi i32 [ %27, %.thread ], [ %44, %._crit_edge.i ]
   %50 = load i32, ptr %6, align 8
-  %51 = icmp sgt i32 %50, %.0.lcssa.i151155158
+  %51 = icmp slt i32 %.0.lcssa.i151155158, %50
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %48
@@ -11332,7 +11332,7 @@ Exa4_ManFindFanin.exit145.us:                     ; preds = %102
 104:                                              ; preds = %Exa4_ManFindFanin.exit145.us
   %105 = icmp slt i32 %.1.i142.us, 1
   %106 = load i32, ptr %4, align 4
-  %.not.i146.us = icmp slt i32 %106, %.1.i142.us
+  %.not.i146.us = icmp sgt i32 %.1.i142.us, %106
   %or.cond.i147.us = select i1 %105, i1 true, i1 %.not.i146.us
   br i1 %or.cond.i147.us, label %._crit_edge.i148.us, label %107
 
@@ -11350,7 +11350,7 @@ Exa4_ManFindFanin.exit145.us:                     ; preds = %102
   %.0.lcssa.i133.us178186188 = phi i32 [ -1, %.thread180 ], [ %.1.i142.us, %._crit_edge.i148.us ]
   %112 = phi i32 [ %92, %.thread180 ], [ %106, %._crit_edge.i148.us ]
   %113 = load i32, ptr %6, align 8
-  %114 = icmp sgt i32 %113, %.0.lcssa.i133.us178186188
+  %114 = icmp slt i32 %.0.lcssa.i133.us178186188, %113
   br i1 %114, label %118, label %115
 
 115:                                              ; preds = %.thread180, %111, %._crit_edge.i148.us
@@ -11513,7 +11513,7 @@ define internal fastcc void @Exa4_ManPrintFanin(ptr nocapture noundef readonly %
   %9 = icmp slt i32 %1, 1
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
-  %.not = icmp slt i32 %11, %1
+  %.not = icmp sgt i32 %1, %11
   %or.cond = select i1 %9, i1 true, i1 %.not
   br i1 %or.cond, label %._crit_edge, label %12
 
@@ -11525,13 +11525,13 @@ define internal fastcc void @Exa4_ManPrintFanin(ptr nocapture noundef readonly %
   br label %30
 
 ._crit_edge:                                      ; preds = %8
-  %16 = icmp slt i32 %11, %1
+  %16 = icmp sgt i32 %1, %11
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %._crit_edge
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = icmp sgt i32 %19, %1
+  %20 = icmp slt i32 %1, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %17
@@ -14964,7 +14964,7 @@ Exa5_ManFindFanin.exit:                           ; preds = %66
 72:                                               ; preds = %Exa5_ManFindFanin.exit
   %73 = icmp slt i32 %.1.i, 1
   %74 = load i32, ptr %7, align 4
-  %.not.i79 = icmp slt i32 %74, %.1.i
+  %.not.i79 = icmp sgt i32 %.1.i, %74
   %or.cond.i = select i1 %73, i1 true, i1 %.not.i79
   br i1 %or.cond.i, label %._crit_edge.i, label %75
 
@@ -14980,7 +14980,7 @@ Exa5_ManFindFanin.exit:                           ; preds = %66
   %.0.lcssa.i858992 = phi i32 [ -1, %.thread ], [ %.1.i, %._crit_edge.i ]
   %79 = phi i32 [ %57, %.thread ], [ %74, %._crit_edge.i ]
   %80 = load i32, ptr %9, align 8
-  %81 = icmp sgt i32 %80, %.0.lcssa.i858992
+  %81 = icmp slt i32 %.0.lcssa.i858992, %80
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %78
@@ -15068,7 +15068,7 @@ Exa5_ManPrintFanin.exit:                          ; preds = %70, %75, %82, %87
 127:                                              ; preds = %121
   %128 = icmp slt i32 %122, 1
   %129 = load i32, ptr %7, align 4
-  %.not.i80 = icmp slt i32 %129, %122
+  %.not.i80 = icmp sgt i32 %122, %129
   %or.cond.i81 = select i1 %128, i1 true, i1 %.not.i80
   br i1 %or.cond.i81, label %._crit_edge.i82, label %130
 
@@ -15083,7 +15083,7 @@ Exa5_ManPrintFanin.exit:                          ; preds = %70, %75, %82, %87
 
 134:                                              ; preds = %._crit_edge.i82
   %135 = load i32, ptr %9, align 8
-  %136 = icmp sgt i32 %135, %122
+  %136 = icmp slt i32 %122, %135
   br i1 %136, label %137, label %143
 
 137:                                              ; preds = %134
@@ -21210,7 +21210,7 @@ Exa6_ManFindFanin.exit:                           ; preds = %36
 42:                                               ; preds = %Exa6_ManFindFanin.exit
   %43 = icmp slt i32 %.1.i, 1
   %44 = load i32, ptr %4, align 4
-  %.not.i62 = icmp slt i32 %44, %.1.i
+  %.not.i62 = icmp sgt i32 %.1.i, %44
   %or.cond.i = select i1 %43, i1 true, i1 %.not.i62
   br i1 %or.cond.i, label %._crit_edge.i, label %45
 
@@ -21226,7 +21226,7 @@ Exa6_ManFindFanin.exit:                           ; preds = %36
   %.0.lcssa.i828689 = phi i32 [ -1, %.thread ], [ %.1.i, %._crit_edge.i ]
   %49 = phi i32 [ %27, %.thread ], [ %44, %._crit_edge.i ]
   %50 = load i32, ptr %6, align 8
-  %51 = icmp sgt i32 %50, %.0.lcssa.i828689
+  %51 = icmp slt i32 %.0.lcssa.i828689, %50
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %48
@@ -21351,7 +21351,7 @@ Exa6_ManFindFanin.exit76:                         ; preds = %103
 108:                                              ; preds = %Exa6_ManFindFanin.exit76
   %109 = icmp slt i32 %.1.i73, 1
   %110 = load i32, ptr %4, align 4
-  %.not.i77 = icmp slt i32 %110, %.1.i73
+  %.not.i77 = icmp sgt i32 %.1.i73, %110
   %or.cond.i78 = select i1 %109, i1 true, i1 %.not.i77
   br i1 %or.cond.i78, label %._crit_edge.i79, label %111
 
@@ -21369,7 +21369,7 @@ Exa6_ManFindFanin.exit76:                         ; preds = %103
   %.0.lcssa.i64105113116 = phi i32 [ -1, %.thread107 ], [ %.1.i73, %._crit_edge.i79 ]
   %116 = phi i32 [ %93, %.thread107 ], [ %110, %._crit_edge.i79 ]
   %117 = load i32, ptr %6, align 8
-  %118 = icmp sgt i32 %117, %.0.lcssa.i64105113116
+  %118 = icmp slt i32 %.0.lcssa.i64105113116, %117
   br i1 %118, label %119, label %125
 
 119:                                              ; preds = %115
@@ -21705,7 +21705,7 @@ Abc_Clock.exit:                                   ; preds = %12, %17
   store i32 %5, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %23, i64 32
   store i32 %4, ptr %29, align 8
-  %30 = add i32 %22, %4
+  %30 = add i32 %4, %22
   %31 = add i32 %30, %5
   %32 = getelementptr inbounds i8, ptr %23, i64 36
   store i32 %31, ptr %32, align 4
@@ -22085,7 +22085,7 @@ define i64 @Exa6_ManPolarMinterm(i64 noundef %0, i32 noundef %1, i32 noundef %2)
   %6 = and i64 %5, %0
   %.not = icmp eq i64 %6, 0
   %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %8 = xor i32 %7, %2
+  %8 = xor i32 %2, %7
   %9 = zext nneg i32 %8 to i64
   %10 = shl nuw i64 1, %9
   %11 = select i1 %.not, i64 0, i64 %10

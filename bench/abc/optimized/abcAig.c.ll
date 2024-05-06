@@ -533,7 +533,7 @@ tailrecurse:                                      ; preds = %171, %2
   %.val61 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds ptr, ptr %.val61, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, %.tr81
+  %23 = icmp eq ptr %.tr81, %22
   br i1 %23, label %.preheader, label %50
 
 .preheader:                                       ; preds = %.lr.ph96
@@ -1141,7 +1141,7 @@ define ptr @Abc_AigAndLookup(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %11 = ptrtoint ptr %2 to i64
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %13, %1
+  %14 = icmp eq ptr %1, %13
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
@@ -1158,7 +1158,7 @@ define ptr @Abc_AigAndLookup(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %19
-  %25 = icmp eq ptr %8, %1
+  %25 = icmp eq ptr %1, %8
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %24
@@ -1174,7 +1174,7 @@ define ptr @Abc_AigAndLookup(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %30
-  %35 = icmp eq ptr %8, %2
+  %35 = icmp eq ptr %2, %8
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %34
@@ -2577,7 +2577,7 @@ Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.e
 197:                                              ; preds = %Vec_IntFind.exit.thread.i
   %198 = xor i64 %189, 1
   %199 = inttoptr i64 %198 to ptr
-  %200 = icmp eq ptr %199, %174
+  %200 = icmp eq ptr %174, %199
   br i1 %200, label %201, label %205
 
 201:                                              ; preds = %197
@@ -4061,17 +4061,17 @@ define range(i32 0, 2) i32 @Abc_AigNodeHasComplFanoutEdgeTrav(ptr nocapture noun
   %16 = add nsw i32 %.val3.i, 1
   %17 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %18 = load i32, ptr %17, align 4
-  %.not.i.not.i.i.i = icmp sgt i32 %18, %.val3.i
+  %.not.i.not.i.i.i = icmp slt i32 %.val3.i, %18
   br i1 %.not.i.not.i.i.i, label %Abc_NodeIsTravIdCurrent.exit, label %19
 
 19:                                               ; preds = %6
   %20 = load i32, ptr %15, align 8
   %21 = shl nsw i32 %20, 1
-  %.not.i.i.i = icmp sgt i32 %21, %.val3.i
-  %.not.i.i.not.i.i.i = icmp sgt i32 %20, %.val3.i
+  %.not.i.i.i = icmp slt i32 %.val3.i, %21
   br i1 %.not.i.i.i, label %34, label %22
 
 22:                                               ; preds = %19
+  %.not.i.i.not.i.i.i = icmp sgt i32 %20, %.val3.i
   br i1 %.not.i.i.not.i.i.i, label %Vec_IntGrow.exit.i.i.i.i, label %23
 
 23:                                               ; preds = %22
@@ -4096,7 +4096,8 @@ define range(i32 0, 2) i32 @Abc_AigNodeHasComplFanoutEdgeTrav(ptr nocapture noun
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 34:                                               ; preds = %19
-  br i1 %.not.i.i.not.i.i.i, label %Vec_IntGrow.exit.i.i.i.i, label %35
+  %.not3.i.i.i = icmp slt i32 %.val3.i, %20
+  br i1 %.not3.i.i.i, label %Vec_IntGrow.exit.i.i.i.i, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %.val2.i, i64 232
@@ -4127,8 +4128,8 @@ Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %44, %32
 
 Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.sink.split.i.i.i.i, %34, %22
   %46 = phi i32 [ %.pre.i.i.i, %Vec_IntGrow.exit.sink.split.i.i.i.i ], [ %18, %34 ], [ %18, %22 ]
-  %.not3.i.i.i = icmp sgt i32 %46, %.val3.i
-  br i1 %.not3.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not4.i.i.i = icmp sgt i32 %46, %.val3.i
+  br i1 %.not4.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %Vec_IntGrow.exit.i.i.i.i
   %47 = getelementptr inbounds i8, ptr %.val2.i, i64 232
@@ -4316,8 +4317,8 @@ define range(i32 0, 2) i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly 
   %12 = sext i32 %.val38.val to i64
   %13 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %10, %1
-  %16 = icmp eq ptr %14, %1
+  %15 = icmp eq ptr %1, %10
+  %16 = icmp eq ptr %1, %14
   %or.cond = select i1 %15, i1 true, i1 %16
   br i1 %or.cond, label %50, label %17
 
@@ -4347,8 +4348,8 @@ define range(i32 0, 2) i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly 
   %28 = sext i32 %.val36.val to i64
   %29 = getelementptr inbounds ptr, ptr %.val29.val.val, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %26, %1
-  %32 = icmp eq ptr %30, %1
+  %31 = icmp eq ptr %1, %26
+  %32 = icmp eq ptr %1, %30
   %or.cond26 = select i1 %31, i1 true, i1 %32
   br i1 %or.cond26, label %50, label %33
 
@@ -4378,8 +4379,8 @@ define range(i32 0, 2) i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly 
   %44 = sext i32 %.val34.val to i64
   %45 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %42, %1
-  %48 = icmp eq ptr %46, %1
+  %47 = icmp eq ptr %1, %42
+  %48 = icmp eq ptr %1, %46
   %or.cond27 = select i1 %47, i1 true, i1 %48
   br i1 %or.cond27, label %50, label %49
 

@@ -1144,16 +1144,18 @@ if.end.i.i:                                       ; preds = %_ZN6icu_7521DateFmt
   %4 = load ptr, ptr %value.i.i, align 8
   %5 = load i32, ptr %creationStatus.i.i, align 4
   %cmp.i3.i.i = icmp sgt i32 %5, 0
-  %cmp.not.i.i.i = icmp eq ptr %4, null
-  %or.cond = select i1 %cmp.i3.i.i, i1 true, i1 %cmp.not.i.i.i
-  br i1 %or.cond, label %if.end5.i.i, label %if.end5.thread12.i.i
+  %cmp.not.i5.i.i = icmp eq ptr %4, null
+  br i1 %cmp.i3.i.i, label %if.end5.i.i, label %if.then4.i.i
 
-if.end5.thread12.i.i:                             ; preds = %.noexc
+if.then4.i.i:                                     ; preds = %.noexc
+  br i1 %cmp.not.i5.i.i, label %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i, label %if.end5.thread12.i.i
+
+if.end5.thread12.i.i:                             ; preds = %if.then4.i.i
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %if.then.i6.i.i unwind label %lpad
 
 if.end5.i.i:                                      ; preds = %.noexc
-  br i1 %cmp.not.i.i.i, label %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i, label %if.then.i6.i.i
+  br i1 %cmp.not.i5.i.i, label %if.then8.i.i, label %if.then.i6.i.i
 
 if.then.i6.i.i:                                   ; preds = %if.end5.thread12.i.i, %if.end5.i.i
   %patternPtr.0 = phi ptr [ null, %if.end5.i.i ], [ %4, %if.end5.thread12.i.i ]
@@ -1164,24 +1166,27 @@ if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT
   %.pre = load i32, ptr %creationStatus.i.i, align 4
   br label %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i
 
-_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i: ; preds = %if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge, %if.end5.i.i
-  %6 = phi i32 [ %5, %if.end5.i.i ], [ %.pre, %if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ]
-  %patternPtr.1 = phi ptr [ null, %if.end5.i.i ], [ %patternPtr.0, %if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ]
+_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i: ; preds = %if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge, %if.then4.i.i
+  %6 = phi i32 [ %.pre, %if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ], [ %5, %if.then4.i.i ]
+  %patternPtr.1 = phi ptr [ %patternPtr.0, %if.then.i6.i.i._ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i_crit_edge ], [ null, %if.then4.i.i ]
   %7 = load i32, ptr %status, align 4
   %cmp.i.i = icmp ne i32 %7, 0
   %cmp.i8.i.i = icmp slt i32 %6, 1
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp.i8.i.i, i1 false
   br i1 %or.cond.i.i, label %invoke.cont, label %if.then8.i.i
 
-if.then8.i.i:                                     ; preds = %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i
-  store i32 %6, ptr %status, align 4
+if.then8.i.i:                                     ; preds = %if.end5.i.i, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i
+  %patternPtr.119 = phi ptr [ %patternPtr.1, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ null, %if.end5.i.i ]
+  %8 = phi i32 [ %6, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ %5, %if.end5.i.i ]
+  store i32 %8, ptr %status, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then8.i.i, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i
-  %8 = phi i32 [ %7, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ %6, %if.then8.i.i ]
+  %9 = phi i32 [ %7, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ %8, %if.then8.i.i ]
+  %patternPtr.2 = phi ptr [ %patternPtr.1, %_ZN6icu_7512SharedObject8clearPtrINS_18DateFmtBestPatternEEEvRPKT_.exit.i.i ], [ %patternPtr.119, %if.then8.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %creationStatus.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
-  %cmp.i9 = icmp slt i32 %8, 1
+  %cmp.i9 = icmp slt i32 %9, 1
   br i1 %cmp.i9, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %invoke.cont.thread, %invoke.cont
@@ -1191,21 +1196,21 @@ if.then5:                                         ; preds = %invoke.cont.thread,
   br label %cleanup
 
 lpad:                                             ; preds = %if.then.i6.i.i, %if.end5.thread12.i.i, %if.end.i.i, %if.end7
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end7:                                          ; preds = %invoke.cont
-  %fPattern = getelementptr inbounds i8, ptr %patternPtr.1, i64 24
+  %fPattern = getelementptr inbounds i8, ptr %patternPtr.2, i64 24
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %fPattern)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end7
-  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %patternPtr.1)
+  invoke void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24) %patternPtr.2)
           to label %cleanup unwind label %lpad9
 
 lpad9:                                            ; preds = %invoke.cont8
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #13
   br label %ehcleanup
@@ -1215,7 +1220,7 @@ cleanup:                                          ; preds = %if.then5, %invoke.c
   br label %return
 
 ehcleanup:                                        ; preds = %lpad9, %lpad
-  %.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad9 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad9 ]
   call void @_ZN6icu_7521DateFmtBestPatternKeyD1Ev(ptr noundef nonnull align 8 dereferenceable(304) %key) #13
   br label %common.resume
 

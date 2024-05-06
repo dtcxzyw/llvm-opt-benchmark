@@ -4279,17 +4279,17 @@ define internal fastcc void @Vec_IntSetEntry(ptr nocapture noundef %0, i32 nound
   %4 = add nsw i32 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not.i.not = icmp sgt i32 %6, %1
+  %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_IntFillExtra.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = shl nsw i32 %8, 1
-  %.not = icmp sgt i32 %9, %1
-  %.not.i.i.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %9
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %7
+  %.not.i.i.not = icmp sgt i32 %8, %1
   br i1 %.not.i.i.not, label %Vec_IntGrow.exit.i, label %11
 
 11:                                               ; preds = %10
@@ -4314,7 +4314,8 @@ define internal fastcc void @Vec_IntSetEntry(ptr nocapture noundef %0, i32 nound
   br label %Vec_IntGrow.exit.sink.split.i
 
 22:                                               ; preds = %7
-  br i1 %.not.i.i.not, label %Vec_IntGrow.exit.i, label %23
+  %.not4 = icmp slt i32 %1, %8
+  br i1 %.not4, label %Vec_IntGrow.exit.i, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4345,8 +4346,8 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %32, %20
 
 Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.sink.split.i, %22, %10
   %34 = phi i32 [ %.pre, %Vec_IntGrow.exit.sink.split.i ], [ %6, %22 ], [ %6, %10 ]
-  %.not4 = icmp sgt i32 %34, %1
-  br i1 %.not4, label %._crit_edge.i, label %.lr.ph.i
+  %.not5 = icmp sgt i32 %34, %1
+  br i1 %.not5, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i
   %35 = getelementptr inbounds i8, ptr %0, i64 8

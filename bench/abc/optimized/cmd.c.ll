@@ -351,7 +351,7 @@ define internal range(i32 0, 2) i32 @CmdCommandTime(ptr nocapture noundef %0, i3
 
 15:                                               ; preds = %8
   %16 = load i32, ptr @globalUtilOptind, align 4
-  %.not22 = icmp eq i32 %16, %1
+  %.not22 = icmp eq i32 %1, %16
   br i1 %.not22, label %17, label %.loopexit
 
 17:                                               ; preds = %15
@@ -421,7 +421,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr nocapture noundef reado
 18:                                               ; preds = %6
   %19 = load i32, ptr @globalUtilOptind, align 4
   %20 = add nsw i32 %19, 1
-  %21 = icmp eq i32 %20, %1
+  %21 = icmp eq i32 %1, %20
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
@@ -611,7 +611,7 @@ define internal range(i32 -2, 2) i32 @CmdCommandQuit(ptr nocapture noundef reado
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
-  %.not8 = icmp eq i32 %6, %1
+  %.not8 = icmp eq i32 %1, %6
   br i1 %.not8, label %15, label %7
 
 7:                                                ; preds = %3, %5
@@ -663,11 +663,11 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr nocapture noundef rea
 5:                                                ; preds = %3
   %6 = load i32, ptr @globalUtilOptind, align 4
   %7 = add nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   br i1 %8, label %38, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp eq i32 %7, %1
+  %10 = icmp eq i32 %1, %7
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %9
@@ -879,7 +879,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHelp(ptr noundef %0, i32 noundef 
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @globalUtilOptind, align 4
-  %.not20 = icmp eq i32 %11, %1
+  %.not20 = icmp eq i32 %1, %11
   br i1 %.not20, label %12, label %.loopexit
 
 12:                                               ; preds = %10
@@ -961,7 +961,7 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
 
 16:                                               ; preds = %8
   %17 = load i32, ptr @globalUtilOptind, align 4
-  %18 = icmp eq i32 %17, %1
+  %18 = icmp eq i32 %1, %17
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %16
@@ -3092,7 +3092,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr nocapture noundef rea
 24:                                               ; preds = %4
   %25 = load i32, ptr @globalUtilOptind, align 4
   %26 = add nsw i32 %25, 1
-  %.not35 = icmp eq i32 %26, %1
+  %.not35 = icmp eq i32 %1, %26
   br i1 %.not35, label %28, label %27
 
 27:                                               ; preds = %24

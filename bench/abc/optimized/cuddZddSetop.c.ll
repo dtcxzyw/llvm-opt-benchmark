@@ -23,7 +23,7 @@ define ptr @Cudd_zddIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 define ptr @cuddZddIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   br i1 %7, label %156, label %8
 
 8:                                                ; preds = %4
@@ -88,13 +88,13 @@ define ptr @cuddZddIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 49:                                               ; preds = %44, %42
   %.in = phi ptr [ %43, %42 ], [ %48, %44 ]
   %50 = load ptr, ptr %.in, align 8
-  %51 = icmp eq ptr %50, %1
+  %51 = icmp eq ptr %1, %50
   br i1 %51, label %156, label %zddVarToConst.exit
 
 zddVarToConst.exit:                               ; preds = %49
-  %52 = icmp eq ptr %2, %1
+  %52 = icmp eq ptr %1, %2
   %spec.select = select i1 %52, ptr %50, ptr %2
-  %53 = icmp eq ptr %3, %1
+  %53 = icmp eq ptr %1, %3
   %.0156 = select i1 %53, ptr %6, ptr %3
   %54 = icmp eq ptr %spec.select, %.0156
   br i1 %54, label %156, label %55
@@ -312,11 +312,11 @@ define ptr @Cudd_zddUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 define ptr @cuddZddUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %108, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %2, %5
   %9 = icmp eq ptr %1, %2
   %or.cond = or i1 %9, %8
   br i1 %or.cond, label %108, label %10
@@ -501,8 +501,8 @@ define ptr @Cudd_zddIntersect(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 define ptr @cuddZddIntersect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
-  %7 = icmp eq ptr %5, %2
+  %6 = icmp eq ptr %1, %5
+  %7 = icmp eq ptr %2, %5
   %or.cond = or i1 %6, %7
   br i1 %or.cond, label %82, label %8
 
@@ -651,11 +651,11 @@ define ptr @Cudd_zddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %96, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %2, %5
   br i1 %8, label %96, label %9
 
 9:                                                ; preds = %7
@@ -811,11 +811,11 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %52, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq ptr %5, %2
+  %8 = icmp eq ptr %2, %5
   br i1 %8, label %52, label %9
 
 9:                                                ; preds = %7
@@ -1217,13 +1217,13 @@ declare void @cuddCacheInsert(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 define ptr @cuddZddChangeAux(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, %1
+  %6 = icmp eq ptr %1, %5
   br i1 %6, label %71, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, %1
+  %10 = icmp eq ptr %1, %9
   br i1 %10, label %71, label %11
 
 11:                                               ; preds = %7

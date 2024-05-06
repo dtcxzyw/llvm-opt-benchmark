@@ -181,7 +181,7 @@ entry:
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp = icmp sgt i32 %0, %c
+  %cmp = icmp slt i32 %c, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -190,7 +190,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %enable_rescheduling, align 4
-  %cmp2 = icmp eq i32 %0, %c
+  %cmp2 = icmp eq i32 %c, %0
   br i1 %cmp2, label %if.then3, label %if.else5
 
 if.then3:                                         ; preds = %if.else
@@ -1214,7 +1214,7 @@ if.then5.i.i.i:                                   ; preds = %release.i.i.i.i
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit:   ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit58, %lor.lhs.false.i.i.i, %release.i.i.i.i, %if.then5.i.i.i
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i = icmp sgt i32 %7, %c.060
+  %cmp.i = icmp slt i32 %c.060, %7
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit
@@ -1223,7 +1223,7 @@ if.then.i:                                        ; preds = %_ZN4absl12_GLOBAL__
 
 if.else.i:                                        ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %7, %c.060
+  %cmp2.i = icmp eq i32 %c.060, %7
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -2153,17 +2153,16 @@ do.body3.i:                                       ; preds = %do.body1.i
 do.end6.i:                                        ; preds = %do.body1.i
   %64 = load ptr, ptr %w.0.i, align 8
   store ptr %64, ptr %pw.addr.0.i, align 8
-  %cmp.i.i263 = icmp eq ptr %w.0.i, %head.addr.0.i
+  %cmp.i.i263 = icmp eq ptr %head.addr.0.i, %w.0.i
+  %cmp3.i.i = icmp eq ptr %pw.addr.0.i, %head.addr.0.i
   br i1 %cmp.i.i263, label %if.then.i.i266, label %if.else.i.i
 
 if.then.i.i266:                                   ; preds = %do.end6.i
-  %cmp3.i.i = icmp eq ptr %head.addr.0.i, %pw.addr.0.i
   %cond.i.i = select i1 %cmp3.i.i, ptr null, ptr %pw.addr.0.i
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.else.i.i:                                      ; preds = %do.end6.i
-  %cmp4.not.i.i = icmp eq ptr %pw.addr.0.i, %head.addr.0.i
-  br i1 %cmp4.not.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i264
+  br i1 %cmp3.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i264
 
 land.lhs.true.i.i264:                             ; preds = %if.else.i.i
   %waitp.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 32
@@ -2324,7 +2323,7 @@ if.end353:                                        ; preds = %if.then37, %land.lh
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i268 = icmp sgt i32 %87, %c.0
+  %cmp.i268 = icmp slt i32 %c.0, %87
   br i1 %cmp.i268, label %if.then.i270, label %if.else.i269
 
 if.then.i270:                                     ; preds = %if.end353
@@ -2333,7 +2332,7 @@ if.then.i270:                                     ; preds = %if.end353
 
 if.else.i269:                                     ; preds = %if.end353
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %87, %c.0
+  %cmp2.i = icmp eq i32 %c.0, %87
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i269
@@ -2815,7 +2814,7 @@ call.i.noexc:                                     ; preds = %if.then5.i.i.i, %re
   call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i253 = icmp sgt i32 %50, %c.2
+  %cmp.i253 = icmp slt i32 %c.2, %50
   br i1 %cmp.i253, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %call.i.noexc
@@ -2824,7 +2823,7 @@ if.then.i:                                        ; preds = %call.i.noexc
 
 if.else.i:                                        ; preds = %call.i.noexc
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %50, %c.2
+  %cmp2.i = icmp eq i32 %c.2, %50
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -3521,7 +3520,7 @@ if.then5.i.i.i.i:                                 ; preds = %release.i.i.i.i.i
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i: ; preds = %if.then5.i.i.i.i, %release.i.i.i.i.i, %lor.lhs.false.i.i.i.i, %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit101.i
   %sleep_time.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i.i = icmp sgt i32 %8, %c.0.i
+  %cmp.i.i = icmp slt i32 %c.0.i, %8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
@@ -3530,7 +3529,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl12_GLOBAL__
 
 if.else.i.i:                                      ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
   store i32 0, ptr %enable_rescheduling.i.i, align 4
-  %cmp2.i.i = icmp eq i32 %8, %c.0.i
+  %cmp2.i.i = icmp eq i32 %c.0.i, %8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else5.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -4211,7 +4210,7 @@ if.end103:                                        ; preds = %do.end52, %_ZNSt13_
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i = icmp sgt i32 %19, %c.0123
+  %cmp.i = icmp slt i32 %c.0123, %19
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end103
@@ -4220,7 +4219,7 @@ if.then.i:                                        ; preds = %if.end103
 
 if.else.i:                                        ; preds = %if.end103
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %19, %c.0123
+  %cmp2.i = icmp eq i32 %c.0123, %19
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -4439,7 +4438,7 @@ while.end:                                        ; preds = %while.cond
 if.then13:                                        ; preds = %while.end
   %5 = load ptr, ptr %s, align 8
   store ptr %5, ptr %w.0, align 8
-  %cmp16 = icmp eq ptr %3, %s
+  %cmp16 = icmp eq ptr %s, %3
   %cmp18 = icmp eq ptr %w.0, %s
   %cond = select i1 %cmp18, ptr null, ptr %w.0
   %6 = ptrtoint ptr %cond to i64
@@ -4551,7 +4550,7 @@ call.i55.noexc:                                   ; preds = %if.then5.i.i.i, %re
   call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i = icmp sgt i32 %12, %c.0
+  %cmp.i = icmp slt i32 %c.0, %12
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %call.i55.noexc
@@ -4560,7 +4559,7 @@ if.then.i:                                        ; preds = %call.i55.noexc
 
 if.else.i:                                        ; preds = %call.i55.noexc
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %12, %c.0
+  %cmp2.i = icmp eq i32 %c.0, %12
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -4781,7 +4780,7 @@ if.else25:                                        ; preds = %land.lhs.true, %for
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i = icmp sgt i32 %10, %c.071
+  %cmp.i = icmp slt i32 %c.071, %10
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else25
@@ -4790,7 +4789,7 @@ if.then.i:                                        ; preds = %if.else25
 
 if.else.i:                                        ; preds = %if.else25
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %10, %c.071
+  %cmp2.i = icmp eq i32 %c.071, %10
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -4887,7 +4886,7 @@ if.else:                                          ; preds = %land.lhs.true, %for
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds ({ { { i32 } }, { i32 }, [2 x i32], %"class.absl::Duration", [36 x i8] }, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 0, i32 3, i32 1), align 8
-  %cmp.i = icmp sgt i32 %10, %c.047
+  %cmp.i = icmp slt i32 %c.047, %10
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
@@ -4896,7 +4895,7 @@ if.then.i:                                        ; preds = %if.else
 
 if.else.i:                                        ; preds = %if.else
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %10, %c.047
+  %cmp2.i = icmp eq i32 %c.047, %10
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i

@@ -185,7 +185,7 @@ entry:
   %traceno = getelementptr inbounds i8, ptr %J, i64 104
   %0 = load i16, ptr %traceno, align 8
   %conv5 = zext i16 %0 to i32
-  %cmp = icmp eq i32 %conv5, %lnk
+  %cmp = icmp eq i32 %lnk, %conv5
   br i1 %cmp, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %entry
@@ -612,7 +612,7 @@ if.end:                                           ; preds = %if.then
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr8 = getelementptr inbounds i32, ptr %5, i64 %idx.neg
   store ptr %add.ptr8, ptr %base7, align 8
-  %add = add i32 %conv, %func
+  %add = add i32 %func, %conv
   br label %if.end9
 
 if.end9:                                          ; preds = %entry.if.end9_crit_edge, %if.end
@@ -2822,7 +2822,7 @@ entry:
   %2 = load i32, ptr %keyv, align 8
   %asize.i = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load i32, ptr %asize.i, align 8
-  %cmp21.i = icmp ugt i32 %3, %2
+  %cmp21.i = icmp ult i32 %2, %3
   br i1 %cmp21.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
@@ -3321,7 +3321,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   %prev_pt.i.i = getelementptr inbounds i8, ptr %J, i64 3096
   %64 = load ptr, ptr %prev_pt.i.i, align 8
   store ptr %63, ptr %prev_pt.i.i, align 8
-  %cmp.i.i = icmp ne ptr %64, %63
+  %cmp.i.i = icmp ne ptr %63, %64
   %tobool2.i.i = icmp ne ptr %64, null
   %or.cond.i.i = and i1 %cmp.i.i, %tobool2.i.i
   br i1 %or.cond.i.i, label %if.then3.i.i, label %if.end4.i.i
@@ -4561,7 +4561,7 @@ sw.bb899:                                         ; preds = %sw.epilog247
 sw.bb901:                                         ; preds = %sw.epilog247
   %maxslot.i575 = getelementptr inbounds i8, ptr %J, i64 172
   %191 = load i32, ptr %maxslot.i575, align 4
-  %cmp.i576 = icmp ugt i32 %191, %ra.0
+  %cmp.i576 = icmp ult i32 %ra.0, %191
   br i1 %cmp.i576, label %if.then.i578, label %rec_loop.exit
 
 if.then.i578:                                     ; preds = %sw.bb901
@@ -4621,7 +4621,7 @@ sw.bb919:                                         ; preds = %sw.epilog247
   %narrow = and i1 %cmp934, %switch
   %maxslot.i579 = getelementptr inbounds i8, ptr %J, i64 172
   %207 = load i32, ptr %maxslot.i579, align 4
-  %cmp.i580 = icmp ugt i32 %207, %ra.0
+  %cmp.i580 = icmp ult i32 %ra.0, %207
   br i1 %cmp.i580, label %if.then.i583, label %rec_loop.exit584
 
 if.then.i583:                                     ; preds = %sw.bb919
@@ -5983,7 +5983,7 @@ entry:
   %sub4 = add nsw i64 %sub3, -1
   %maxslot = getelementptr inbounds i8, ptr %J, i64 172
   %6 = load i32, ptr %maxslot, align 4
-  %cmp = icmp ult i32 %6, %dst
+  %cmp = icmp ugt i32 %dst, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6014,26 +6014,22 @@ if.then20:                                        ; preds = %if.then10
 if.end21:                                         ; preds = %if.then10, %if.then20
   %nresults.addr.0 = phi i64 [ %spec.store.select, %if.then20 ], [ %nresults, %if.then10 ]
   %conv22 = trunc i64 %nresults.addr.0 to i32
-  %add = add i32 %conv22, %dst
   br label %if.end31.sink.split
 
 if.else:                                          ; preds = %if.then10
   %9 = load i32, ptr %maxslot, align 4
-  %cmp25.not = icmp ugt i32 %9, %dst
-  br i1 %cmp25.not, label %if.end31, label %if.then27
+  %cmp25.not = icmp ult i32 %dst, %9
+  br i1 %cmp25.not, label %if.end31, label %if.end31.sink.split
 
-if.then27:                                        ; preds = %if.else
-  %add28 = add i32 %dst, 1
-  br label %if.end31.sink.split
-
-if.end31.sink.split:                              ; preds = %if.end21, %if.then27
-  %add28.sink = phi i32 [ %add28, %if.then27 ], [ %add, %if.end21 ]
-  %nresults.addr.1.ph = phi i64 [ 1, %if.then27 ], [ %nresults.addr.0, %if.end21 ]
-  store i32 %add28.sink, ptr %maxslot, align 4
+if.end31.sink.split:                              ; preds = %if.else, %if.end21
+  %conv22.sink = phi i32 [ %conv22, %if.end21 ], [ 1, %if.else ]
+  %nresults.addr.1.ph = phi i64 [ %nresults.addr.0, %if.end21 ], [ 1, %if.else ]
+  %add = add i32 %dst, %conv22.sink
+  store i32 %add, ptr %maxslot, align 4
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end31.sink.split, %if.else
-  %10 = phi i32 [ %9, %if.else ], [ %add28.sink, %if.end31.sink.split ]
+  %10 = phi i32 [ %9, %if.else ], [ %add, %if.end31.sink.split ]
   %nresults.addr.1 = phi i64 [ 1, %if.else ], [ %nresults.addr.1.ph, %if.end31.sink.split ]
   %baseslot = getelementptr inbounds i8, ptr %J, i64 176
   %11 = load i32, ptr %baseslot, align 8
@@ -6252,12 +6248,12 @@ for.end145:                                       ; preds = %for.body138, %if.en
 
 lor.lhs.false:                                    ; preds = %for.end145
   %33 = load i32, ptr %maxslot, align 4
-  %cmp149.not = icmp ugt i32 %33, %dst
+  %cmp149.not = icmp ult i32 %dst, %33
   br i1 %cmp149.not, label %if.end301, label %if.then151
 
 if.then151:                                       ; preds = %lor.lhs.false, %for.end145
   %conv152 = trunc nuw i64 %nresults to i32
-  %add153 = add i32 %conv152, %dst
+  %add153 = add i32 %dst, %conv152
   store i32 %add153, ptr %maxslot, align 4
   br label %if.end301
 
@@ -6617,7 +6613,7 @@ if.then:                                          ; preds = %entry
   %scev = getelementptr inbounds i8, ptr %J, i64 2984
   %4 = load i64, ptr %scev, align 8
   %5 = inttoptr i64 %4 to ptr
-  %cmp = icmp eq ptr %5, %fori
+  %cmp = icmp eq ptr %fori, %5
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
@@ -6977,7 +6973,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %startpc = getelementptr inbounds i8, ptr %J, i64 3008
   %2 = load ptr, ptr %startpc, align 8
-  %cmp2 = icmp eq ptr %2, %pc
+  %cmp2 = icmp eq ptr %pc, %2
   br i1 %cmp2, label %land.lhs.true3, label %if.else
 
 land.lhs.true3:                                   ; preds = %if.then
@@ -7035,7 +7031,7 @@ for.body.i:                                       ; preds = %for.cond.i, %land.l
   %arrayidx.i = getelementptr inbounds [64 x %struct.HotPenalty], ptr %penalty.i, i64 0, i64 %i.09.i
   %8 = load i64, ptr %arrayidx.i, align 8
   %9 = inttoptr i64 %8 to ptr
-  %cmp2.i = icmp eq ptr %9, %pc
+  %cmp2.i = icmp eq ptr %pc, %9
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -8793,7 +8789,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i32 [ %call, %cond.true ], [ %call5, %cond.false ]
   %tobool.not.not = icmp eq i32 %dir, 0
   %shl = select i1 %tobool.not.not, i32 0, i32 256
-  %or = or i32 %shl, %t
+  %or = or i32 %t, %shl
   %0 = trunc i32 %or to i16
   %conv8 = or i16 %0, 128
   %conv10 = trunc i32 %cond to i16

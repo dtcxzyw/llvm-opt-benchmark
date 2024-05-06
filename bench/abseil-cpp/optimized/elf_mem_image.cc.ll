@@ -293,7 +293,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %entry ]
-  %cmp.not = icmp sgt i32 %retval.0.i, %index
+  %cmp.not = icmp slt i32 %index, %retval.0.i
   br i1 %cmp.not, label %do.end5, label %do.body2
 
 do.body2:                                         ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
@@ -323,7 +323,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %entry ]
-  %cmp.not = icmp sgt i32 %retval.0.i, %index
+  %cmp.not = icmp slt i32 %index, %retval.0.i
   br i1 %cmp.not, label %do.end5, label %do.body2
 
 do.body2:                                         ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
@@ -349,7 +349,7 @@ land.rhs:                                         ; preds = %entry
   %e_phnum = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i16, ptr %e_phnum, align 8
   %conv = zext i16 %1 to i32
-  %cmp2.not = icmp ugt i32 %conv, %index
+  %cmp2.not = icmp ult i32 %index, %conv
   br i1 %cmp2.not, label %do.end7, label %do.body4
 
 do.body4:                                         ; preds = %entry, %land.rhs
@@ -448,7 +448,7 @@ do.end7:                                          ; preds = %entry
   %vd_ndx9 = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i16, ptr %vd_ndx9, align 4
   %conv810 = zext i16 %2 to i32
-  %cmp911 = icmp ult i32 %conv810, %index
+  %cmp911 = icmp ugt i32 %index, %conv810
   br i1 %cmp911, label %land.rhs10.preheader, label %while.end
 
 land.rhs10.preheader:                             ; preds = %do.end7
@@ -471,13 +471,13 @@ while.body:                                       ; preds = %land.rhs10.preheade
   %vd_ndx = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %6 = load i16, ptr %vd_ndx, align 4
   %conv8 = zext i16 %6 to i32
-  %cmp9 = icmp ult i32 %conv8, %index
+  %cmp9 = icmp ugt i32 %index, %conv8
   br i1 %cmp9, label %land.rhs10, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %land.rhs10, %land.rhs10.preheader, %do.end7
   %version_definition.0.lcssa = phi ptr [ %1, %do.end7 ], [ %1, %land.rhs10.preheader ], [ %add.ptr, %land.rhs10 ], [ %add.ptr, %while.body ]
   %conv8.lcssa = phi i32 [ %conv810, %do.end7 ], [ %conv810, %land.rhs10.preheader ], [ %conv8, %land.rhs10 ], [ %conv8, %while.body ]
-  %cmp15 = icmp eq i32 %conv8.lcssa, %index
+  %cmp15 = icmp eq i32 %index, %conv8.lcssa
   %cond = select i1 %cmp15, ptr %version_definition.0.lcssa, ptr null
   ret ptr %cond
 }
@@ -560,7 +560,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
   %.val = load i8, ptr %7, align 4
   %8 = and i8 %.val, 15
   %and.i = zext nneg i8 %8 to i32
-  %cmp10 = icmp eq i32 %and.i, %type
+  %cmp10 = icmp eq i32 %type, %and.i
   br i1 %cmp10, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true8
@@ -698,7 +698,7 @@ land.lhs.true.us:                                 ; preds = %for.body.us
   %st_size.us = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %st_size.us, align 8
   %add.ptr.us = getelementptr inbounds i8, ptr %4, i64 %6
-  %cmp4.us = icmp ugt ptr %add.ptr.us, %address
+  %cmp4.us = icmp ult ptr %address, %add.ptr.us
   br i1 %cmp4.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %land.lhs.true.us, %for.body.us
@@ -720,7 +720,7 @@ land.lhs.true:                                    ; preds = %for.body
   %st_size = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %st_size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %11
-  %cmp4 = icmp ugt ptr %add.ptr, %address
+  %cmp4 = icmp ult ptr %address, %add.ptr
   br i1 %cmp4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
@@ -808,40 +808,40 @@ if.end8:                                          ; preds = %do.end5
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %if.end8
   %cmp11.not = icmp slt i32 %add, 0
-  br i1 %cmp11.not, label %_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi.exit, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26
+  br i1 %cmp11.not, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31.thread, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread: ; preds = %if.end8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %arrayidx.i, align 4
   %cmp11.not53 = icmp slt i32 %add, %5
-  br i1 %cmp11.not53, label %if.end.i.i29, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26
+  br i1 %cmp11.not53, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
   %retval.0.i25 = phi i32 [ 0, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit ], [ %5, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread ]
   store i32 %retval.0.i25, ptr %index_, align 8
   br label %return
 
-_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi.exit: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
+_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31.thread: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
   %dynsym_.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %dynsym_.i, align 8
   %idx.ext.i = sext i32 %add to i64
   %add.ptr.i = getelementptr inbounds %struct.Elf64_Sym, ptr %6, i64 %idx.ext.i
   br label %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit
 
-if.end.i.i29:                                     ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread
+_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread
   %dynsym_.i56 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %dynsym_.i56, align 8
   %idx.ext.i57 = sext i32 %add to i64
   %add.ptr.i58 = getelementptr inbounds %struct.Elf64_Sym, ptr %7, i64 %idx.ext.i57
   br label %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit
 
-_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit: ; preds = %if.end.i.i29, %_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi.exit
-  %add.ptr.i62 = phi ptr [ %add.ptr.i58, %if.end.i.i29 ], [ %add.ptr.i, %_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi.exit ]
-  %idx.ext.i60 = phi i64 [ %idx.ext.i57, %if.end.i.i29 ], [ %idx.ext.i, %_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi.exit ]
+_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31.thread
+  %idx.ext.i6068 = phi i64 [ %idx.ext.i, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31.thread ], [ %idx.ext.i57, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31 ]
+  %add.ptr.i6267 = phi ptr [ %add.ptr.i, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31.thread ], [ %add.ptr.i58, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.i31 ]
   %versym_.i = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %versym_.i, align 8
-  %add.ptr.i36 = getelementptr inbounds i16, ptr %8, i64 %idx.ext.i60
-  %tobool = icmp eq ptr %add.ptr.i62, null
+  %add.ptr.i36 = getelementptr inbounds i16, ptr %8, i64 %idx.ext.i6068
+  %tobool = icmp eq ptr %add.ptr.i6267, null
   %tobool21 = icmp eq ptr %8, null
   %.not = or i1 %tobool, %tobool21
   br i1 %.not, label %do.body24, label %do.end30
@@ -851,7 +851,7 @@ do.body24:                                        ; preds = %_ZNK4absl18debuggin
   unreachable
 
 do.end30:                                         ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit
-  %9 = load i32, ptr %add.ptr.i62, align 8
+  %9 = load i32, ptr %add.ptr.i6267, align 8
   %conv.i = zext i32 %9 to i64
   %strsize_.i = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load i64, ptr %strsize_.i, align 8
@@ -866,7 +866,7 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit: ; preds = %do.end30
   %dynstr_.i = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %dynstr_.i, align 8
   %add.ptr.i38 = getelementptr inbounds i8, ptr %11, i64 %conv.i
-  %st_shndx = getelementptr inbounds i8, ptr %add.ptr.i62, i64 6
+  %st_shndx = getelementptr inbounds i8, ptr %add.ptr.i6267, i64 6
   %12 = load i16, ptr %st_shndx, align 2
   %cmp34 = icmp eq i16 %12, 0
   br i1 %cmp34, label %if.end61, label %if.else
@@ -889,14 +889,14 @@ do.end7.i:                                        ; preds = %if.else
   %16 = load ptr, ptr %verdef_.i, align 8
   %vd_ndx9.i = getelementptr inbounds i8, ptr %16, i64 4
   %17 = load i16, ptr %vd_ndx9.i, align 4
-  %cmp911.i = icmp ult i16 %17, %14
+  %cmp911.i = icmp ugt i16 %14, %17
   br i1 %cmp911.i, label %land.rhs10.i.preheader, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit
 
 land.rhs10.i.preheader:                           ; preds = %do.end7.i
-  %vd_next.i65 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load i32, ptr %vd_next.i65, align 4
-  %tobool.not.i4166 = icmp eq i32 %18, 0
-  br i1 %tobool.not.i4166, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, label %while.body.i
+  %vd_next.i71 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load i32, ptr %vd_next.i71, align 4
+  %tobool.not.i4172 = icmp eq i32 %18, 0
+  br i1 %tobool.not.i4172, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, label %while.body.i
 
 land.rhs10.i:                                     ; preds = %while.body.i
   %vd_next.i = getelementptr inbounds i8, ptr %add.ptr.i43, i64 16
@@ -906,12 +906,12 @@ land.rhs10.i:                                     ; preds = %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs10.i.preheader, %land.rhs10.i
   %20 = phi i32 [ %19, %land.rhs10.i ], [ %18, %land.rhs10.i.preheader ]
-  %version_definition.012.i67 = phi ptr [ %add.ptr.i43, %land.rhs10.i ], [ %16, %land.rhs10.i.preheader ]
+  %version_definition.012.i73 = phi ptr [ %add.ptr.i43, %land.rhs10.i ], [ %16, %land.rhs10.i.preheader ]
   %idx.ext.i42 = zext i32 %20 to i64
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %version_definition.012.i67, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds i8, ptr %version_definition.012.i73, i64 %idx.ext.i42
   %vd_ndx.i = getelementptr inbounds i8, ptr %add.ptr.i43, i64 4
   %21 = load i16, ptr %vd_ndx.i, align 4
-  %cmp9.i = icmp ult i16 %21, %14
+  %cmp9.i = icmp ugt i16 %14, %21
   br i1 %cmp9.i, label %land.rhs10.i, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, !llvm.loop !8
 
 _ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit: ; preds = %while.body.i, %land.rhs10.i, %land.rhs10.i.preheader, %do.end7.i
@@ -957,7 +957,7 @@ if.end61:                                         ; preds = %_ZNK4absl18debuggin
   br i1 %or.cond.i, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %if.end61
-  %st_value.i = getelementptr inbounds i8, ptr %add.ptr.i62, i64 8
+  %st_value.i = getelementptr inbounds i8, ptr %add.ptr.i6267, i64 8
   %27 = load i64, ptr %st_value.i, align 8
   %28 = inttoptr i64 %27 to ptr
   br label %_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit
@@ -965,7 +965,7 @@ if.then.i:                                        ; preds = %if.end61
 do.body.i:                                        ; preds = %if.end61
   %link_base_.i = getelementptr inbounds i8, ptr %0, i64 64
   %29 = load i64, ptr %link_base_.i, align 8
-  %st_value5.i = getelementptr inbounds i8, ptr %add.ptr.i62, i64 8
+  %st_value5.i = getelementptr inbounds i8, ptr %add.ptr.i6267, i64 8
   %30 = load i64, ptr %st_value5.i, align 8
   %cmp6.not.i = icmp ult i64 %29, %30
   br i1 %cmp6.not.i, label %do.end13.i, label %do.body9.i
@@ -985,7 +985,7 @@ _ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit: ; pred
   %address = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %retval.0.i51, ptr %address, align 8
   %symbol66 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %add.ptr.i62, ptr %symbol66, align 8
+  store ptr %add.ptr.i6267, ptr %symbol66, align 8
   br label %return
 
 return:                                           ; preds = %do.end5, %_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26

@@ -54,17 +54,17 @@ define i32 @Pdr_ObjSatVar2(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 Vec_IntGrow.exit.i:                               ; preds = %27, %14, %5
   %29 = phi i32 [ %.pre.i, %27 ], [ 0, %14 ], [ %.val28.i, %5 ]
   %30 = add nsw i32 %1, 1
-  %.not.i.not.i.i = icmp sgt i32 %29, %1
+  %.not.i.not.i.i = icmp slt i32 %1, %29
   br i1 %.not.i.not.i.i, label %Vec_IntGetEntry.exit.i, label %31
 
 31:                                               ; preds = %Vec_IntGrow.exit.i
   %32 = load i32, ptr %11, align 8
   %33 = shl nsw i32 %32, 1
-  %.not.i34.i = icmp sgt i32 %33, %1
-  %.not.i.i.not.i.i = icmp sgt i32 %32, %1
+  %.not.i34.i = icmp slt i32 %1, %33
   br i1 %.not.i34.i, label %46, label %34
 
 34:                                               ; preds = %31
+  %.not.i.i.not.i.i = icmp sgt i32 %32, %1
   br i1 %.not.i.i.not.i.i, label %Vec_IntGrow.exit.i.i.i, label %35
 
 35:                                               ; preds = %34
@@ -89,7 +89,8 @@ Vec_IntGrow.exit.i:                               ; preds = %27, %14, %5
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 46:                                               ; preds = %31
-  br i1 %.not.i.i.not.i.i, label %Vec_IntGrow.exit.i.i.i, label %47
+  %.not3.i.i = icmp slt i32 %1, %32
+  br i1 %.not3.i.i, label %Vec_IntGrow.exit.i.i.i, label %47
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %11, i64 8
@@ -120,8 +121,8 @@ Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %56, %44
 
 Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.sink.split.i.i.i, %46, %34
   %58 = phi i32 [ %.pre.i.i, %Vec_IntGrow.exit.sink.split.i.i.i ], [ %29, %46 ], [ %29, %34 ]
-  %.not3.i.i = icmp sgt i32 %58, %1
-  br i1 %.not3.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not4.i.i = icmp sgt i32 %58, %1
+  br i1 %.not4.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %Vec_IntGrow.exit.i.i.i
   %59 = getelementptr inbounds i8, ptr %11, i64 8
@@ -535,7 +536,7 @@ define i32 @Pdr_ObjRegNum(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
-  %.not.i = icmp sgt i32 %11, %2
+  %.not.i = icmp slt i32 %2, %11
   br i1 %.not.i, label %12, label %Pdr_ObjRegNum1.exit
 
 12:                                               ; preds = %7
@@ -887,17 +888,17 @@ Vec_PtrGrow.exit.i:                               ; preds = %98, %77, %73
   %101 = add nsw i32 %2, 1
   %102 = getelementptr inbounds i8, ptr %1, i64 68
   %103 = load i32, ptr %102, align 4
-  %.not.i.not.i.i = icmp sgt i32 %103, %2
+  %.not.i.not.i.i = icmp slt i32 %2, %103
   br i1 %.not.i.not.i.i, label %Vec_PtrGetEntry.exit.i, label %104
 
 104:                                              ; preds = %Vec_PtrGrow.exit.i
   %105 = load i32, ptr %100, align 8
   %106 = shl nsw i32 %105, 1
-  %.not.i37.i9 = icmp sgt i32 %106, %2
-  %.not.i.i.not.i.i = icmp sgt i32 %105, %2
+  %.not.i37.i9 = icmp slt i32 %2, %106
   br i1 %.not.i37.i9, label %119, label %107
 
 107:                                              ; preds = %104
+  %.not.i.i.not.i.i = icmp sgt i32 %105, %2
   br i1 %.not.i.i.not.i.i, label %Vec_PtrGrow.exit.i.i.i, label %108
 
 108:                                              ; preds = %107
@@ -922,7 +923,8 @@ Vec_PtrGrow.exit.i:                               ; preds = %98, %77, %73
   br label %Vec_PtrGrow.exit.sink.split.i.i.i
 
 119:                                              ; preds = %104
-  br i1 %.not.i.i.not.i.i, label %Vec_PtrGrow.exit.i.i.i, label %120
+  %.not3.i.i = icmp slt i32 %2, %105
+  br i1 %.not3.i.i, label %Vec_PtrGrow.exit.i.i.i, label %120
 
 120:                                              ; preds = %119
   %121 = getelementptr inbounds i8, ptr %1, i64 72
@@ -953,8 +955,8 @@ Vec_PtrGrow.exit.sink.split.i.i.i:                ; preds = %129, %117
 
 Vec_PtrGrow.exit.i.i.i:                           ; preds = %Vec_PtrGrow.exit.sink.split.i.i.i, %119, %107
   %131 = phi i32 [ %.pre.i.i, %Vec_PtrGrow.exit.sink.split.i.i.i ], [ %103, %119 ], [ %103, %107 ]
-  %.not3.i.i = icmp sgt i32 %131, %2
-  br i1 %.not3.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not4.i.i = icmp sgt i32 %131, %2
+  br i1 %.not4.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %Vec_PtrGrow.exit.i.i.i
   %132 = getelementptr inbounds i8, ptr %1, i64 72

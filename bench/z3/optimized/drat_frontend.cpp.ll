@@ -1134,7 +1134,7 @@ if.end.i3:                                        ; preds = %if.then.i, %for.bod
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i4, align 4
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %3 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i.i = icmp eq i32 %3, %agg.tmp.sroa.0.0.copyload.i
+  %cmp.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i3
@@ -1467,16 +1467,12 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %m_names.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 608
   %0 = load ptr, ptr %m_names.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %"_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i
 
-if.end.i.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i.i
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i:  ; preds = %land.lhs.true.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i
-
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i:  ; preds = %if.end.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi i32 [ %1, %if.end.i.i.i.i.i.i ], [ 0, %land.lhs.true.i.i.i.i.i ]
-  %cmp2.i.i.i.i.i = icmp sgt i32 %retval.0.i.i.i.i.i.i, %__args.val
+  %cmp2.i.i.i.i.i = icmp slt i32 %__args.val, %1
   br i1 %cmp2.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %"_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i
@@ -1484,8 +1480,8 @@ cond.true.i.i.i.i.i:                              ; preds = %_ZNK6vectorI6symbol
   %arrayidx.i3.i.i.i.i.i = getelementptr inbounds %class.symbol, ptr %0, i64 %idxprom.i.i.i.i.i.i
   br label %"_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond-lvalue.i.i.i.i.i = phi ptr [ %arrayidx.i3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i ], [ @_ZN6symbol4nullE, %entry ]
+"_ZSt10__invoke_rI6symbolRZ9read_dratPKcE3$_1JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %land.lhs.true.i.i.i.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i, %cond.true.i.i.i.i.i
+  %cond-lvalue.i.i.i.i.i = phi ptr [ %arrayidx.i3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i.i.i ], [ @_ZN6symbol4nullE, %entry ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i.i.i.i ]
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %cond-lvalue.i.i.i.i.i, align 8
   ret ptr %retval.sroa.0.0.copyload.i.i.i
 }

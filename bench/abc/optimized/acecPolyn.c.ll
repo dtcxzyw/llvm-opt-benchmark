@@ -2819,7 +2819,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 
 108:                                              ; preds = %104, %Vec_FltPush.exit
   %109 = phi i32 [ %.pre.i48, %104 ], [ %103, %Vec_FltPush.exit ]
-  %.not20.i = icmp sgt i32 %109, %9
+  %.not20.i = icmp slt i32 %9, %109
   br i1 %.not20.i, label %114, label %110
 
 110:                                              ; preds = %108
@@ -3712,17 +3712,17 @@ Vec_QuePop.exit:                                  ; preds = %139, %Vec_QueMoveDo
 255:                                              ; preds = %244
   %256 = add nsw i32 %237, 1
   %257 = load i32, ptr %27, align 4
-  %.not.i.not.i = icmp sgt i32 %257, %237
+  %.not.i.not.i = icmp slt i32 %237, %257
   br i1 %.not.i.not.i, label %Vec_BitSetEntry.exit, label %258
 
 258:                                              ; preds = %255
   %259 = load i32, ptr %20, align 8
   %260 = shl nsw i32 %259, 1
-  %.not.i115 = icmp sgt i32 %260, %237
-  %.not.i.i.not.i = icmp sgt i32 %259, %237
+  %.not.i115 = icmp slt i32 %237, %260
   br i1 %.not.i115, label %265, label %261
 
 261:                                              ; preds = %258
+  %.not.i.i.not.i = icmp sgt i32 %259, %237
   br i1 %.not.i.i.not.i, label %Vec_BitGrow.exit.i.i, label %262
 
 262:                                              ; preds = %261
@@ -3731,7 +3731,8 @@ Vec_QuePop.exit:                                  ; preds = %139, %Vec_QueMoveDo
   br label %Vec_BitGrow.exit.sink.split.i.i
 
 265:                                              ; preds = %258
-  br i1 %.not.i.i.not.i, label %Vec_BitGrow.exit.i.i, label %266
+  %.not4.i = icmp slt i32 %237, %259
+  br i1 %.not4.i, label %Vec_BitGrow.exit.i.i, label %266
 
 266:                                              ; preds = %265
   %267 = ashr i32 %259, 4
