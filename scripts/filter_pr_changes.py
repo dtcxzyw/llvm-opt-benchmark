@@ -1,18 +1,25 @@
 #!/usr/bin/python3
 
 import subprocess
+import os
 
-max_diff_per_file = 20000
-max_diff_total = 20000
+max_diff_per_file = 500
+max_diff_total = 15000
 max_file_total = 300 - 1
 
 stats = subprocess.check_output(['git', 'diff', '--numstat']).decode().splitlines()
 diffs = []
+# TODO: maximize diff diversity
+diff_pattern = set()
 for line in stats:
     add, sub, file = line.removesuffix('\n').split()
     count = int(add)+int(sub)
     if count > max_diff_per_file:
         continue
+    key = (add, sub)
+    if key in diff_pattern:
+        continue
+    diff_pattern.add(key)
     diffs.append((file, count))
 diffs.sort(key=lambda x: x[1])
 
